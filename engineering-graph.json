@@ -310,8 +310,9 @@
       "depends": [
         "V-MODERN-UI"
       ],
-      "state": "planned",
-      "hours": 0
+      "state": "done",
+      "hours": 0,
+      "evidence": []
     },
     {
       "id": "V-PUBLIC",
@@ -320,8 +321,9 @@
       "depends": [
         "P-PUBLIC"
       ],
-      "state": "planned",
-      "hours": 0
+      "state": "done",
+      "hours": 0,
+      "evidence": []
     },
     {
       "id": "V-FILM",
@@ -331,8 +333,9 @@
         "P-VISUALS",
         "P-MODERN"
       ],
-      "state": "planned",
-      "hours": 0
+      "state": "done",
+      "hours": 0,
+      "evidence": []
     },
     {
       "id": "G0",

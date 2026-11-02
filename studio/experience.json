@@ -1,0 +1,338 @@
+{
+  "recommendation": "Keep the two-lane split (standing trackball games vs. low shooter-console games need genuinely different stance and sensing) but stop defaulting to 'therefore custom-build all four.' Incredible Technologies sells factory home-licensed cabinets for Golden Tee and Silver Strike (three configurations across the two games), and Arcade1Up sells an officially licensed Big Buck Hunter Mossy Oak Deluxe home cabinet with two 'real-feel' pump-action light guns (confirmed via a live Amazon listing, ASIN B0FM82NZGY, observed 2026-11-02; a SINDEN-technology claim traced only to an earlier indexed/redirected page and is unconfirmed by any live source) - but it bundles modern Pro/Safari-era titles, a different generation than the Eagle-era bench candidates this research otherwise targets, so it is a real option only if Mike is open to that generation. No licensed home edition was found for Jurassic Park Arcade's 2015 release in two independent searches. Golden Tee's factory edition is the strongest fidelity match found (same manufacturer, same physics) and is worth treating as a near-default buy; Silver Strike and Big Buck Hunter are genuinely open generation/fidelity decisions, not resolved here; Jurassic Park Arcade remains the one game with no factory alternative and the clearest custom-build case, centered on the positional-vs-optical gun identity question and a continuous-tracking latency budget. No cost ranking is asserted anywhere in this document; no budget ceiling has been set by Mike, so buy-vs-build is a decision this document equips with real options, not one it resolves.",
+  "corrections": [
+    {
+      "id": "D1",
+      "severity": "critical",
+      "defect": "PLAN.md contains no guest/player experience at any point — only parts, CAD and isolated acceptance tests.",
+      "correction": "Added a full guest journey (power-on through recovery, see journey[]) and four named play rituals (see games[].physicalActions) that assemble the previously isolated acceptance tests into a lived sequence."
+    },
+    {
+      "id": "D2",
+      "severity": "critical",
+      "defect": "The plan committed Golden Tee, Silver Strike and Big Buck Hunter to DIY/emulation/donor engineering without checking for a factory home-licensed alternative. Four factory configurations were found (observed 2026-11-01): Golden Tee Fore! Remastered Edition ($2,499), Silver Strike Bowling: League Night Home Edition (a ground-up reboot), the Golden Tee Arcade Collection bundle (classic Silver Strike + two other games), and Arcade1Up's officially licensed Big Buck Hunter Mossy Oak Deluxe home cabinet (two 'real-feel' pump-action light guns - a SINDEN-technology claim traced only to an indexed/redirected page and is unconfirmed by any live source - modern Pro/Safari-era titles, a different generation than the Eagle-era bench candidates this research otherwise targets). No equivalent was found for Jurassic Park Arcade's 2015 release in two independent searches; this is evidence of absence within this research, not proof no such product exists.",
+      "correction": "architectureDecisions and games[golden_tee/silver_strike/big_buck_hunter].softwareBranches now carry every sourcing path found, with no cost ranking asserted (no budget ceiling has been set); Jurassic Park Arcade keeps its original DIY/donor paths since no factory alternative was found for it."
+    },
+    {
+      "id": "D3",
+      "severity": "high",
+      "defect": "A single '<=50ms input-to-photon' target was applied to all four games despite having fundamentally different sensing/timing requirements, with no stage decomposition. PLAN.md does specify measuring it (high-speed video or an instrumented method) - the gap is the single undifferentiated number and the missing stage budget showing where the 50ms is expected to go, not an absent measurement method.",
+      "correction": "Replaced with a per-stage latency decomposition (mechanical switch, controller, USB polling, emulator internal frame lag, display processing) and differentiated per-game targets (tightest for Jurassic Park Arcade's continuous aim-tracking, as a design-priority judgment rather than a measured fact; most tolerant for the discrete-gesture trackball games). Component ranges are drawn from one peer-reviewed study of 36 USB keyboards/mice/gamepads (Wimmer et al., CHI 2019) as a proposed reference budget, not a universal bound for every device - the actual chosen hardware must still be bench-measured. Also names that standalone MAME (the runtime PLAN.md describes) has no Run-Ahead latency mitigation, which is a libretro-frontend-only feature."
+    },
+    {
+      "id": "D4",
+      "severity": "high",
+      "defect": "PLAN.md's prose already treats positional (potentiometer-mounted) vs. optical/handheld light guns as electrically/functionally distinct branches for Jurassic Park Arcade, not a cost/bench-proof-status substitution - but it never translates that technical distinction into the guest-facing experience consequence: that a mounted gimbal and a free-aim handheld wand are two different physical rituals, not interchangeable inputs for the same game, which is the identity-defining decision this actually is.",
+      "correction": "games[jurassic_park_arcade].fidelityRisks states explicitly that an optical-gun build is a different, legitimate rail-shooter experience and must not be presented as Jurassic Park Arcade unless the positional branch has been deliberately declined, not defaulted into."
+    },
+    {
+      "id": "D5",
+      "severity": "high",
+      "defect": "PLAN.md's acceptance table already requires 20 hard strokes to show correct direction with no wrap/reversal/dropout, which catches gross sampling failure, but that pass/fail test does not decompose into the two sub-measurements Golden Tee's documented swing mechanic actually needs (peak back-swing distance vs. peak forward-swing velocity, read as two separate values), nor does 'disable pointer acceleration' address the specified trackball's own USB mode enumerating as a mouse (manufacturer-confirmed), which risks the OS pointer escaping the kiosked game during vigorous play.",
+      "correction": "games[golden_tee].prototypeTest and controlContract now require a swing-sampling bench test (no count loss at the fastest observed forward-swing velocities) and a named behavioral acceptance test during vigorous play - no visible system-cursor escape, no window/focus loss, no unintended desktop interaction - rather than assuming any single mechanism (raw input, exclusive capture, cursor confinement) solves it by default."
+    },
+    {
+      "id": "D6",
+      "severity": "medium",
+      "defect": "Silver Strike's own 2009 kit manual documents that its software 'is not designed for a true 16:9 aspect ratio' and that stretching/skewing worsens on larger HDTVs, which the plan's generic 4:3-pillarbox guidance does not catch.",
+      "correction": "games[silver_strike].fidelityRisks and prototypeTest add a named display-mode/DIP-switch verification gate against the brief's 43-inch screen before commissioning."
+    },
+    {
+      "id": "D7",
+      "severity": "medium",
+      "defect": "cad/parameters.json already reserves a 600mm gap between the two stations (x_gap_after_station_a_mm) and PLAN's room survey already names 'spectator circulation' as something to measure, but neither number was ever derived from or checked against actual foot-traffic adequacy or sound separation; no acoustic design (volume ceilings, concurrent-session sound collision) exists at all for two stations capable of running different, loud games simultaneously six to ten feet apart.",
+      "correction": "journey and architectureDecisions add independent per-station volume ceilings and a stated minimum circulation offset outside each station's strike/reach zone as explicit design requirements."
+    },
+    {
+      "id": "D8",
+      "severity": "medium",
+      "defect": "Multiplayer identity (P1/P2, missing-device failure, mid-round join/drop) was only ever a pass/fail acceptance test, never a designed UX.",
+      "correction": "journey step 4 and architectureDecisions specify visible on-screen ready/not-ready states per device and reuse each game's own existing mechanism (e.g. Golden Tee's Skip Turn) for mid-round join/drop rather than inventing a parallel system."
+    },
+    {
+      "id": "D9",
+      "severity": "medium",
+      "defect": "PLAN.md tests that calibration/identity survive a cold restart (good) and already calls for optical-aim testing under actual room lighting, but never designs a within-session recalibration ritual for a guest-facing party where lighting can drift (more lamps on, daylight change) without any restart occurring, nor a check that a shared panel's overlay still matches the active game after a profile switch.",
+      "correction": "journey step 5 and architectureDecisions add a short session-start guest ritual and distinguish it from PLAN's existing one-time commissioning and restart-persistence tests, rather than replacing either."
+    },
+    {
+      "id": "D10",
+      "severity": "medium",
+      "defect": "Nothing has been physically built in this project. PLAN's G0 gate already requires recording the exact selected release before nonreturnable spending, and PLAN's own prose already states two guns don't create a multiplayer mode the game lacks. What PLAN actually commits ahead of G0 is a planning allowance (BOM quantity 2, CAD holster_count 2) sized for two guns, and the guest-facing visual/journey material was never explicitly gated on the G0 mode decision the way the BOM caveat implies it should be. (Arcade1Up's Big Buck Hunter Mossy Oak Deluxe factory buy-path, confirmed via a live Amazon listing, narrows but does not sidestep this specific risk by spec - its '1 to 4 players'/'Number of Players: 4' fields are capacity claims, not confirmed evidence of a simultaneous-fire mechanism - and it covers a different, modern game generation.)",
+      "correction": "games[big_buck_hunter].desiredExperience and physicalActions describe both honest versions of the DIY-path ritual (simultaneous duel vs. alternating relay) and require the exact mode be confirmed at G0 before any guest-facing simultaneous-play promise; softwareBranches now also carries the factory buy-path (Arcade1Up's Mossy Oak Deluxe, confirmed via a live Amazon listing) as an alternative that narrows but does not resolve this uncertainty - its player-count fields are capacity claims, not confirmed simultaneous-fire evidence - at the cost of a different game generation."
+    },
+    {
+      "id": "D11",
+      "severity": "low",
+      "defect": "The plan tests that the service/exit boundary cannot be triggered accidentally, but never defines recovery behavior for the far more common case of an interrupted round.",
+      "correction": "journey step 10 and architectureDecisions define a clean default recovery (return to attract/idle on next successful boot, never a frozen frame or silent crash) for every station."
+    },
+    {
+      "id": "D12",
+      "severity": "low",
+      "defect": "PLAN's acceptance gates are sound engineering QA but are not sequenced as a confidence-building, demo-able proof path for a non-engineer funder deciding whether to keep paying for the next stage.",
+      "correction": "architectureDecisions resequences the same underlying tests into bench -> one-game vertical slice -> two-lane integration -> full room acceptance, each ending in something Mike can personally watch and approve."
+    },
+    {
+      "id": "IC1",
+      "severity": "high",
+      "defect": "An earlier draft of this spec sourced Golden Tee's Left/Right button function entirely from a single 1995 Golden Tee 3D Golf manual's crosswind example and generalized it into an absolute claim ('not a parallel aim axis', 'not a general aim control') while the plan actually recommends the later Fore! generation (gtfore06).",
+      "correction": "The manufacturer's own current official gameplay guide (livewire.itsgames.com/gt/how-to-play, J19) documents Left/Right as rotating the golfer's facing direction (11 degrees per press, up to 360 degrees) - a real shot-direction/setup control used before or during a shot - while the trackball's back-swing/forward-swing gesture separately shapes the shot itself (straight/hook/slice/power). games[golden_tee].physicalActions and .controlContract now describe both controls accurately and flag the exact degree-per-press/hold-to-rotate behavior as generation-dependent."
+    },
+    {
+      "id": "IC2",
+      "severity": "medium",
+      "defect": "The cited CHI 2019 paper's illustrative '23-70ms' per-stage sum (its own introduction, built from approximate order-of-magnitude per-step figures) was repeated elsewhere in this document as an empirically 'measured' range across its 36-device dataset; the paper's actual LagBox measurements (Figures 6-8) are device-specific distributions that deliberately exclude mechanical-switch latency, so are not the same number.",
+      "correction": "architectureDecisions.AD1 and sources.J6 now describe 23-70ms as the paper's own illustrative per-stage model range, not a measured result, and note that the paper's actual empirical measurements exclude mechanical-switch latency by design."
+    },
+    {
+      "id": "IC3",
+      "severity": "medium",
+      "defect": "The alternating-mode Big Buck Hunter ritual invented a 'same seed/scene for a fair head-to-head score comparison' mechanic; no inspected source (MAME driver source, manufacturer manual) establishes deterministic same-seed replay or a fairness guarantee between alternating rounds.",
+      "correction": "games[big_buck_hunter].physicalActions now describes the relay hand-off without asserting seed/scene reproducibility, and states that fairness between rounds is unverified pending the selected release's own documentation."
+    },
+    {
+      "id": "IC4",
+      "severity": "low",
+      "defect": "The Golden Tee Arcade Collection's $3,299 price was attributed to the 'Home Edition' cabinet without noting it is the compact 'GO Home Edition' price; the manufacturer's own store separately lists a full-size Arcade Collection Home Edition at $4,299 - a materially different cabinet size/price, not a rounding difference.",
+      "correction": "games[silver_strike].softwareBranches and experience-spec.md Section 13 now attribute $3,299 to the GO Home Edition specifically and note the full-size Home Edition's separate $4,299 manufacturer price."
+    },
+    {
+      "id": "IC5",
+      "severity": "medium",
+      "defect": "Big Buck Hunter's Arcade1Up buy-path was evidenced only by an indexed snippet whose direct product page redirects; the 'SINDEN light-gun technology' claim specifically was never corroborated by a live source.",
+      "correction": "games[big_buck_hunter].softwareBranches now cites a live, directly-accessible Amazon listing (ASIN B0FM82NZGY, J20) and Arcade1Up's own live blog page for a related package (J21) for the Mossy Oak Deluxe's real specs (dual 'real-feel' rifles, cabinet dimensions, 17in screen, '1 to 4 players'/'Number of Players: 4' as capacity claims only) and flags SINDEN specifically as unconfirmed by either live source, and flags the separate Showpiece Conversion Kit (J22) as a narrow, conditional Silver Strike path requiring an existing donor cabinet, not a standalone product."
+    }
+  ],
+  "games": [
+    {
+      "id": "golden_tee",
+      "title": "Golden Tee (exact release selected at G0; Fore!-generation or 3D Golf-generation have different backspin mechanics)",
+      "desiredExperience": "A tabletop swing that rewards touch over force, playable one-handed with a drink in the other hand; a bar-game social object, not a solitary simulator.",
+      "physicalActions": [
+        "Aim: point the whole swing gesture toward the target - per the manufacturer's own technique guide, 'aim your hand in the direction you want to shoot, then without turning your hand, pull back and push forward on the trackball.' The back-swing/forward-swing gesture's own direction and angle shape where and how the shot travels (straight, hook or slice); separately, the manufacturer's current official gameplay guide documents the Left/Right buttons as a shot-direction/setup control in their own right - pressing Left or Right rotates the golfer (11 degrees per press, up to 360 degrees from any ball location, per livewire.itsgames.com) before or during a shot, a form of aim distinct from the trackball gesture, not merely a crosswind countermeasure.",
+        "Optional pre-arm (Fore!-generation): press Backspin before swinging to arm spin for this shot.",
+        "Back-swing and forward-swing shape: a straight back-and-forth pull/push along the aim line hits straight; pulling back FROM the direction you want the ball to land, then pushing forward IN the direction you want it to start heading, produces a hook/slice - travel distance still sets power, back-swing speed is explicitly irrelevant, per the manufacturer's own technique guide.",
+        "Forward swing velocity: the independent second power input, with 'over-hitting' a named failure mode for excessive velocity.",
+        "Optional scouting: press Fly-By to preview the hole before swinging.",
+        "Between-shot menu: Start + roll-to-highlight for Instant Replay, Mulligan purchase and Skip Turn, sharing the same control language as the swing itself."
+      ],
+      "controlContract": "Relative X/Y trackball: the back-swing/forward-swing gesture's direction and angle shape shot shape (straight/hook/slice), travel distance sets power, per the manufacturer's own technique guide. Five buttons: Start, Backspin, Fly-By, Left, Right. Left/Right rotate the golfer's facing/aim direction (documented by the manufacturer's current official gameplay guide as 11 degrees per press, up to 360 degrees) - a real shot-direction/setup control, not merely the crosswind-fighting/pre-swing-reset use case documented in the earlier 3D Golf-era manual; treat that manual's crosswind example as one documented use case of a broader rotate-the-golfer mechanic, not the button's sole function. Exact backspin mechanic (button pre-arm vs. swing-technique) and the precise degree-per-press/hold-to-rotate behavior are generation-specific and must be confirmed for the selected release.",
+      "softwareBranches": [
+        "Buy: Golden Tee Fore! Remastered Edition, factory Incredible Technologies product confirmed on the manufacturer's own store page (store.itsgames.com), 72in-tall easy-to-assemble cabinet, 27in HD monitor, commercial-grade trackball, full Fore! Complete course catalog, home-use-only; reseller (thepinballcompany.com) observed price $2,499 and full cabinet footprint 39x28x72in. The manufacturer's own page states two conflicting ship dates (October vs. November 2026) in two places; treat as pre-order/first-production-run with an unconfirmed exact ship date, not a settled fact.",
+        "Build: MAME gtfore06 bench on lawful media, full emulation-latency/sampling-fidelity engineering burden applies.",
+        "Build: authorized modern donor/kit if current LIVE/PGA TOUR courses matter more than the Fore! Complete catalog; distinct proprietary generation, not covered by the gtfore06 bench evidence."
+      ],
+      "fidelityRisks": [
+        "Trackball sampling fidelity: undersampling a fast forward swing undercounts velocity and produces phantom weak/over-hit shots unrelated to player skill (build path only).",
+        "The specified reference trackball's USB mode enumerates as a mouse HID device per its own manufacturer; if the host application does not handle this deliberately, the system cursor can visibly escape the kiosked game during a vigorous swing (build path only) - the exact mitigation (raw input plus cursor confinement, exclusive capture, or cursor hiding) is an implementation choice, not prescribed here.",
+        "Exact backspin mechanic (button pre-arm vs. swing technique), exact course catalog, and the precise Left/Right rotate-the-golfer behavior (degrees per press, whether a held-down smooth-rotation mode exists) differ by generation; do not assume one generation's mechanic applies to a different selected release.",
+        "The factory Fore! Remastered cabinet's own stated footprint (39x28x72in) is taller and deeper than PLAN's custom trackball-pedestal envelope (760x610x950mm) and carries Incredible Technologies' own commercial graphics - a factory purchase does not automatically fit the two custom furniture pods or the brief's walnut/charcoal/amber finish language."
+      ],
+      "prototypeTest": "Full 18-hole round completed by a first-time player; trackball swing bench test sweeps the full documented range of swing speeds with no count loss or direction wrap/reversal at the fastest observed forward-swing velocity (extends PLAN.md's existing 20-hard-strokes test); behavioral cursor-escape test during vigorous active play confirms no visible system-cursor movement outside the game window, no focus/window loss and no unintended desktop interaction (build path only, not applicable to the factory-cabinet path).",
+      "visualBrief": "'The 19th Hole Swing' - warm late-afternoon course light raking across a fairway, third-person behind the golfer exactly as the real game frames it, original stylized course art (not the selected release's actual licensed course, captioned as such). Foreground: a hand mid-roll on an amber-lit trackball, motion-blurred through one continuous backswing-then-forward arc to visually teach the two-phase power mechanic. A sweating drink on the walnut forearm rest signals one-handed, social play; soft-focus background figures mid-conversation reinforce a bar-game social space."
+    },
+    {
+      "id": "silver_strike",
+      "title": "Silver Strike Bowling (exact release/configuration selected at G0; classic landscape game and the 2026 League Night reboot are different products under the same name)",
+      "desiredExperience": "The trackball standing in for a bowling ball's roll, release point and spin, resolving into a strike with the same instant feedback as rolling a real ball.",
+      "physicalActions": [
+        "Stance: real forward throw travel, not a wrist flick - the manufacturer's own install guidance maximizes trackball-to-screen distance specifically to keep the hand clear of the monitor glass during the forward roll.",
+        "Select ball weight/style via panel button (labelled 'Ball Weight' on the 2009 kit, 'Change Ball' on the 2007 kit - exact label is release-specific).",
+        "Use the documented Rotate Left / Rotate Right setup controls; verify their exact in-play behavior on the selected release rather than inferring spin from the labels.",
+        "Older community guidance describes a backswing followed by a forward roll, warning that a forward-only stroke produces a weak ball; confirm this on the selected build (J23).",
+        "The same community guide describes holding Overhead during approach positioning and pressing it to reset a mistaken backswing; its exact release is unspecified.",
+        "Verify Start and menu behavior independently. Golden Tee's Start-plus-roll Skip Turn menu is not established as a Silver Strike feature."
+      ],
+      "controlContract": "Relative X/Y trackball preserving backward and forward motion, plus five buttons: Start, Ball Weight/Change Ball (release-specific label), Overhead, Rotate Left, Rotate Right. Verify swing, setup, reset and menu behavior on the exact selected release; do not copy Golden Tee's mapping by analogy.",
+      "softwareBranches": [
+        "Buy (reboot): Silver Strike Bowling: League Night Home Edition, factory Incredible Technologies product confirmed on the manufacturer's own store page (store.itsgames.com): ground-up new engine, vertical/portrait monitor presentation, commercial-grade trackball, 5in touchscreen, NFC, Wi-Fi, home/non-commercial use only, free online league play through Spring 2027 then a paid subscription. **Correcting an earlier draft:** the manufacturer's own store catalog lists this product at $4,699 directly (not only via a reseller), and separately lists a generic 'Home Games Annual Online Subscription' at $125/yr (or $12.99/mo) - applicability of that generic listing specifically to SSB League Night's post-Spring-2027 fee is not confirmed in this inspection. The product does NOT include a TV ('You will need to use a 4K TV for SSB League Night' per the manufacturer); it includes a free stand only. Manufacturer-stated cabinet-with-stand dimensions: 25in W x 53in D x 85in H without topper / 99in H with topper (+/-1in) - a full-height furniture assembly, not a compact tabletop unit. A reseller (thepinballcompany.com) separately shows $4,699-5,799 depending on bundled monitor/stand options.",
+        "Buy (bundle): Golden Tee Arcade Collection, factory Incredible Technologies product, classic landscape Silver Strike Bowling (Classic/Flash Bowling modes) bundled with PowerPutt Golf and Target Toss Pro on one shared cabinet; the manufacturer-authorized reseller's $3,299 listed price is for the compact 'GO Home Edition' cabinet, not the full-size 'Home Edition' (the manufacturer's own store separately lists a full-size Arcade Collection Home Edition at $4,299) - confirm which physical configuration before comparing against the custom trackball-pedestal envelope (observed 2026-11-01).",
+        "Build: complete legitimate donor system for the classic offline landscape game, subject to the selected release's rights gate; the 2009 kit license references authorized cabinets and commercial locations, so donor ownership alone does not establish permission for every home use. No proven open-source emulation path is established in research/game-feasibility.md.",
+        "Conditional (conversion kit): Incredible Technologies also sells an 'Arcade Collection Showpiece Conversion Kit' ($1,795, store.itsgames.com) that upgrades an EXISTING commercial Golden Tee/Silver Strike/PowerPutt/Target Toss Showpiece cabinet (replacing HDD, CID, security chip, control panel and marquee; may need a RAM upgrade) to the Arcade Collection roster - it is not a standalone product, requires Mike to already own or separately acquire a donor Showpiece cabinet first, makes that cabinet's existing CID nonfunctional, and does not include Golden Tee golf. A narrow, conditional path, not a general buy option."
+      ],
+      "fidelityRisks": [
+        "Display aspect ratio: the manufacturer's own 2009 manual states the software 'is not designed for a true 16:9 aspect ratio' and that stretching/skewing worsens on larger HDTVs even in its documented HDMI mode - this must be checked against the brief's 43-inch screen before commissioning, not assumed solved by generic pillarbox guidance (build/donor path).",
+        "The League Night reboot uses a portrait/vertical monitor, does not include a TV (customer must supply their own 4K TV), and requires an ongoing online subscription after Spring 2027 for league features. Its manufacturer-stated assembled footprint (25in x 53in, 85-99in tall) is far larger than the brief's 760x610x950mm shared trackball-station envelope and does not fit a drop-in replacement for that furniture design.",
+        "Trackball must be earth-grounded separately from signal wiring per the manufacturer's donor-kit manual; skipping this is an electrical defect, not a cosmetic one (build/donor path)."
+      ],
+      "prototypeTest": "Ten complete frames including spares, strikes and gutter cases; compare back-and-forward versus forward-only strokes and exercise all five controls, including setup/reset/menu behavior, on the exact selected release. For the donor/build path, observe the selected DIP-switch display mode on the actual panel and document any distortion. For League Night, confirm offline behavior and subscription terms before commissioning.",
+      "visualBrief": "'The Release' - a single warm spotlight over the lane from the player's own forward-looking point of view, pins in soft original illustration (no licensed lane branding). Foreground hand captured at the instant of release, trackball mid-roll with a faint motion trail showing the roll's curve, teaching that spin comes from the roll itself. A small amber scoreboard strip built into the cabinet edge shows frame-by-frame score as a physical, furniture-integrated detail."
+    },
+    {
+      "id": "big_buck_hunter",
+      "title": "Big Buck Hunter (exact release and simultaneous-vs-alternating player mode selected at G0)",
+      "desiredExperience": "A fast, social, trigger-happy shooting gallery; the ritual is honestly presented in one of two forms depending on whether the selected release actually supports simultaneous two-player play, never assumed from holster count alone.",
+      "physicalActions": [
+        "Aim with a handheld optical-tracked gun.",
+        "Fire with the trigger.",
+        "Reload/cycle with a pump action - trigger and pump are separate, explicitly mapped controls in the actual machine driver.",
+        "Simultaneous mode (if confirmed for the selected release): both players aim and fire independently at a shared scene, racing for the same spawning targets.",
+        "Alternating mode (if the selected release is alternating-only): a relay - one player's timed round, a visible hand-off, then the second player's round; no source inspected here establishes same-seed/same-scene reproducibility for a guaranteed fair comparison, so do not promise identical targets or conditions between rounds unless the selected release's own documentation confirms it. The second holster is a loaded spare during the first player's round, not an active second gun."
+      ],
+      "controlContract": "Optical X/Y aim, Trigger, Pump per player; independent, stable device identity per gun required so Player 2's gun cannot register as Player 1's shots.",
+      "softwareBranches": [
+        "Build: MAME Eagle-era bench (bbh, bbhsc, bbh2sp, bbhcotw), each with MACHINE_SUPPORTS_SAVE and no MACHINE_NOT_WORKING flag per the inspected driver source; exact simultaneous-play support differs by title and is not established by the driver flags alone.",
+        "Build: complete donor system if a specific modern release (Pro/World/HD/Reloaded) matters more than the Eagle-era bench candidates; separate version/OS/hardware/I-O/license verification required.",
+        "Buy: Arcade1Up's officially licensed Big Buck Hunter Mossy Oak Deluxe Arcade - product reality confirmed via a directly-accessible Amazon listing (ASIN B0FM82NZGY, observed 2026-11-02; the manufacturer's own product page redirects to its storefront homepage), though that listing itself shows 'Currently unavailable. We don't know when or if this item will be back in stock.' - treat this as evidence the product exists/existed, not evidence it is currently purchasable: bundles Big Buck Hunter Pro, Big Buck Safari, Big Buck Hunter Pro Open Season and Big Buck Safari Outback (modern titles, a different generation than the Eagle-era MAME bench candidates); two 'real-feel' light-gun rifles; cabinet about 18.7in W x 21.06in D x 68.9in H, about 69.6 lb; 17-inch BOE color LCD screen; AC adapter and anti-tip strap included. The listing states '1 to 4 players' and a separate 'Number of Players: 4' spec field - both are capacity/compatibility claims, not confirmation of a simultaneous-fire mechanism, so this does not resolve the simultaneous-vs-alternating uncertainty below by itself. **Correcting an earlier draft:** neither this Amazon listing nor Arcade1Up's own live 'Big Buck Hunter Pro' blog page (a related, older non-Deluxe package: two guns, a matching riser and a bonus tin sign - do not assume that riser carries over to the Mossy Oak Deluxe cabinet without separate confirmation) mentions SINDEN light-gun technology; that claim traced only to an earlier indexed/redirected product page and should be treated as unconfirmed. A $699.99 price seen in search results is an indexed other-seller snippet, not a confirmed live offer; no current purchase price is established."
+      ],
+      "fidelityRisks": [
+        "Eagle-era titles bbhsc and bbh2sp require secondary-target/reduced-threshold handling per the header warnings in the inspected driver - do not assume either is automatically a two-simultaneous-gun game.",
+        "Staging or photographing two active guns before the selected release's simultaneous-play mode is confirmed misrepresents the experience to Mike and to any future guest-facing material."
+      ],
+      "prototypeTest": "Trigger/pump event ordering, edge targets and fast sweeps tested per player; the actual selected multiplayer mode (not the holster count) is confirmed and recorded before any guest-facing claim of simultaneous play.",
+      "visualBrief": "'The Blind' - dusk hunting-lodge palette, deep teal shadow, a single warm lamp over the console, abstracted antler/plaid texture cues (no licensed artwork). Two players shoulder-to-shoulder at the low console, guns raised at a steep aiming-up-and-out angle matching the console's real geometry. An animal silhouette breaks the treeline on original illustrated art. If the selected build is alternating-only, the second figure is staged waiting with holster down, not mid-aim, so the image does not misrepresent the mode."
+    },
+    {
+      "id": "jurassic_park_arcade",
+      "title": "Jurassic Park Arcade (Raw Thrills 2015 family is the planning baseline; 1994 Sega System 32 and 1997 Lost World are distinct older games, not substitutes unless Mike deliberately re-scopes)",
+      "desiredExperience": "Per Raw Thrills' own framing, a rescue mission with a high-powered tranquilizer gun on an island run amok - a different emotional register from Big Buck Hunter's hunting-lodge framing, not a second copy of the same shooting-gallery beat.",
+      "physicalActions": [
+        "Positional branch (planning baseline, if bench-proven): push and hold the mounted gun to track a moving target along the rail. The manufacturer's manual confirms two-axis potentiometer position sensing and separate gun-vibration hardware tied to the mount; it does not document a spring-centering/return mechanism specifically. A mechanical return-to-center via spring is a reasonable design hypothesis for a potentiometer gimbal, not a confirmed fact, and must be verified against the actual selected hardware before being treated as part of the ritual.",
+        "Optical/handheld branch (an honest alternative, not a disguised substitute): free-aim handheld pointing at a rail-shooter scene, with no mechanical resistance.",
+        "Trigger fires the tranquilizer gun in either branch.",
+        "Secondary action: not established by the primary sources inspected - do not assume a Big Buck-style pump; verify the exact secondary input for the selected build before designing a control panel around an assumed mechanic."
+      ],
+      "controlContract": "Positional branch: two-axis potentiometer true position (not relative delta) with defined mechanical end-stops, Trigger, documented secondary action (unverified, see fidelityRisks), per-player vibration output. Optical branch: camera-tracked X/Y aim, Trigger, same unverified secondary action.",
+      "softwareBranches": [
+        "Build: complete legitimate Raw Thrills 2015 donor system (PC, USB dongle, I/O board, mounted guns) - the planning baseline per research/game-feasibility.md; no open-source runtime proven for this title.",
+        "Build (different game, not a substitute): MAME jpark (Sega System 32, 1993/1994) - current flags are 0 (not imperfect-graphics-flagged), analog-stick P1/P2 inputs; a distinct older game.",
+        "Build (different game, not a substitute): Supermodel lostwsga (Sega Model 3 Lost World, 1997) - listed with two analog-gun inputs in Supermodel's own config, but MAME's own lostwsga/lostwsgp macros carry MACHINE_NOT_WORKING despite an optimistic header comment; do not sell this as a reliable MAME build.",
+        "No licensed home edition was found for this title in two independent searches (this research and a sibling market-research pass); only the $17k+ Raw Thrills commercial environmental cabinet was found."
+      ],
+      "fidelityRisks": [
+        "An optical-gun substitute changes the core physical ritual from operating a mounted mechanism (whatever resistance/return behavior the actual hardware has) to free-aim handheld pointing - this is a different rail-shooter experience and must not be labelled, rendered or demoed as Jurassic Park Arcade unless the positional branch has been explicitly declined by Mike, not defaulted into by convenience.",
+        "No pump or other secondary mechanism is established by the manuals inspected; do not copy Big Buck Hunter's pump control onto this game's panel design.",
+        "Continuous aim-tracking (vs. a discrete gesture or static aim-and-fire) is generally understood to be more latency-sensitive in interactive systems; as a design-priority judgment, not an independently measured fact about this specific game, this title should receive the tightest latency budget and the most explicit measurement discipline of the four, not the same provisional number as the others."
+      ],
+      "prototypeTest": "Independent aim/fire for both players verified separately (no cross-control), a complete mission/scene played through, calibration re-checked after a cold restart; for the positional branch, mount travel-stop behavior and whatever resistance/return mechanism the actual selected hardware has are confirmed safe and repeatable before any guest use (do not assume spring-return without checking the real hardware); for the optical branch, the build is explicitly labelled as a different rail-shooter experience in all guest-facing material until/unless Mike accepts it as the final substitute.",
+      "visualBrief": "'The Rail' - humid jungle-green and amber canopy light, original stylized foliage (no licensed Jurassic Park iconography). A dinosaur silhouette breaks the tree line at an angle that reads as motion along a rail, not a static target. Low console geometry puts both guns at a shared forward-leaning stance; for the positional branch, render the gun as if meeting resistance from the player's push (a slight strain/blur cue at the mount pivot) - an illustrative design choice representing the mount's probable mechanical feel, not a confirmed spec - as the single visual detail distinguishing this station's mounted-gun identity from Big Buck Hunter's handheld station beside it."
+    }
+  ],
+  "journey": [
+    {
+      "step": 1,
+      "name": "Power-on",
+      "description": "A single, obvious per-station power control; no hidden switch, no ambiguity about which of two stations just turned on, extending PLAN.md's 'normal OS shutdown button, not a switched power strip' principle to power-on as well."
+    },
+    {
+      "step": 2,
+      "name": "Attract/idle",
+      "description": "Each station's display shows a quiet, low-volume idle loop signalling 'ready to play' - not a looping trailer at full volume - to support simultaneous use of the other station in the same room."
+    },
+    {
+      "step": 3,
+      "name": "Selection",
+      "description": "Custom-build trackball lane: the active Golden Tee/Silver Strike overlay and profile is physically, visibly labelled on a replaceable panel legend. Factory-cabinet path: each cabinet is self-evidently single-purpose."
+    },
+    {
+      "step": 4,
+      "name": "Join/identity",
+      "description": "Each shooter gun's device identity is confirmed live with a visible on-screen P1 READY / P2 READY state; a gun that is unplugged or power-cycled shows as not-ready and never silently inherits the other player's inputs."
+    },
+    {
+      "step": 5,
+      "name": "Calibration check",
+      "description": "A short, seconds-long session-start beat before the first shot/roll: optical guns re-confirm aim against current room lighting, trackball panel overlay is visually confirmed against the active game's legend. Distinct from one-time factory commissioning."
+    },
+    {
+      "step": 6,
+      "name": "Core play",
+      "description": "The four game rituals in games[].physicalActions, including each game's overloaded menu/swing control sharing and its honestly-presented multiplayer mode."
+    },
+    {
+      "step": 7,
+      "name": "Mid-session join/drop",
+      "description": "Use each game's documented mechanism where one exists (Golden Tee Fore!'s Skip Turn is documented; an equivalent Silver Strike function is not established here). Otherwise use the natural end-of-round hand-off rather than promising live drop-in co-op."
+    },
+    {
+      "step": 8,
+      "name": "Session end",
+      "description": "A clear round-complete state returns to the attract/idle loop on its own after a short pause - no hidden exit sequence required to stop play cleanly."
+    },
+    {
+      "step": 9,
+      "name": "Service/exit boundary",
+      "description": "Remains hard to trigger by ordinary play per PLAN.md's existing requirement; when deliberately triggered by Mike, re-entry to the guest attract state is a single, obvious action, not a service-menu reconstruction."
+    },
+    {
+      "step": 10,
+      "name": "Recovery",
+      "description": "Default behavior on any unexpected stop (power blip, crash, accidental service trigger) is a clean return to the attract/idle state at the next successful boot - never a frozen frame or a silent crash to desktop."
+    }
+  ],
+  "architectureDecisions": [
+    {
+      "id": "AD1",
+      "decision": "Decompose the input-to-photon latency budget by stage (mechanical switch, controller, USB polling, emulator internal frame lag, display processing) and by game, replacing PLAN.md's single '<=50ms' line.",
+      "rationale": "The cited CHI 2019 paper's own introduction sums approximate order-of-magnitude latencies it lists for each processing step (mechanical switch ~20ms, controller/firmware ~1-20ms, USB polling wait ~1-10ms, etc.) to an illustrative '23 to 70ms' range - this is the paper's analytical model, not the empirically measured result from its 36-device dataset (whose actual measurements, shown only as distribution plots in Figures 6-8, deliberately exclude mechanical-switch latency because its LagBox tool triggers switch contacts electrically, bypassing a human finger). Treat 23-70ms as the paper's own illustrative per-stage range, a budgeting reference, not a measured number for any specific device; the actual chosen hardware must still be bench-measured. Emulator internal frame lag of one or more frames is additional and game-specific. One number cannot represent a discrete-gesture trackball game and a continuous-tracking rail shooter equally."
+    },
+    {
+      "id": "AD2",
+      "decision": "Name the runtime stack (standalone MAME vs. a libretro/RetroArch frontend wrapping a MAME core) as an explicit pre-bench decision, not something discovered during latency testing.",
+      "rationale": "Run-Ahead latency mitigation is a libretro-frontend feature; PLAN.md's described 'start games directly' approach implies standalone MAME, which does not have this lever, a stack choice with real compatibility/BIOS/performance consequences that must be chosen deliberately."
+    },
+    {
+      "id": "AD3",
+      "decision": "Treat positional (potentiometer-mounted) vs. optical/handheld guns as an identity decision for Jurassic Park Arcade, not a parts/cost substitution.",
+      "rationale": "The two architectures place the physical ritual in different places - a mounted mechanism (whatever resistance/return behavior the actual hardware has, not independently verified here beyond its potentiometer position sensing) vs. free-aim handheld pointing; an unproven positional branch means the named game is not what gets delivered, and guest-facing material must say so."
+    },
+    {
+      "id": "AD4",
+      "decision": "Require a behavioral cursor-containment acceptance test for any custom-build trackball given the specified reference part's own manufacturer-documented mouse-HID identity.",
+      "rationale": "The reference part enumerates as a mouse by its own manufacturer's description; the specific mitigation (raw input plus cursor confinement, exclusive capture, or cursor hiding) is an implementation choice, but the acceptance condition must be behavioral - no visible system-cursor escape, no focus/window loss, no unintended desktop interaction during vigorous play - a materially different and more embarrassing failure than reduced feel if left unaddressed."
+    },
+    {
+      "id": "AD5",
+      "decision": "Add factory-licensed sourcing paths for Golden Tee (one configuration), Silver Strike (two configurations) and Big Buck Hunter (one configuration, different game generation) to the decision tree without resolving which path Mike should take.",
+      "rationale": "These were not checked for in PLAN.md's original research and materially change the engineering scope for three of four games; no budget ceiling has been set, so cost ranking is explicitly left to economics.json once one exists."
+    },
+    {
+      "id": "AD6",
+      "decision": "Require independent per-station volume ceilings and a stated minimum circulation offset outside each station's strike/reach zone as a named design input.",
+      "rationale": "PLAN.md's two-station room plan allows concurrent sessions but never designed for the acoustic and circulation collision of a golf/bowling station and a gunfire/explosion station running six to ten feet apart."
+    },
+    {
+      "id": "AD7",
+      "decision": "Split calibration into three distinct events with distinct pass conditions: one-time factory commissioning, a short session-start guest ritual, and a post-restart confirmation.",
+      "rationale": "PLAN.md already tests that calibration/identity survive a cold restart and already calls for optical-aim testing under real room lighting, but never designed a within-session recalibration ritual for lighting drift that happens without a restart, nor a check that a shared panel's overlay still matches the active game after a profile switch."
+    },
+    {
+      "id": "AD8",
+      "decision": "Resequence PLAN.md's existing acceptance gates into a stage-gated, demo-able proof path (bench -> one-game vertical slice -> two-lane integration -> full room acceptance) without discarding any individual test.",
+      "rationale": "The original gates are sound engineering QA but are not sequenced as confidence-building milestones a non-engineer funder can watch and approve incrementally."
+    },
+    {
+      "id": "AD9",
+      "decision": "Confirm the exact selected Big Buck Hunter release's simultaneous-vs-alternating multiplayer mode at G0 before any guest-facing promise of two-player dueling, independent of how many guns/holsters are built.",
+      "rationale": "Two installed guns do not create a multiplayer mode the underlying game driver does not support; staging or rendering simultaneous play before this is confirmed misrepresents the experience."
+    }
+  ],
+  "sources": [
+    { "id": "J1", "title": "Golden Tee 3D Golf - Tips and Techniques", "url": "https://archive.org/stream/arcademanual_Golden_Tee_3D_Golf/Golden%20Tee%203D%20Golf_djvu.txt", "observedOn": "2026-11-01", "claim": "Two-phase backswing-distance/forward-velocity power mechanic; back-swing speed is explicitly irrelevant; over-hitting; backspin requires full backswing plus extra forward velocity." },
+    { "id": "J2", "title": "Golden Tee Fore! Installation and Operation Manual v10/04", "url": "http://63.116.120.18/downloads/manuals/Golden_Tee_Fore_1004.pdf", "observedOn": "2026-11-01", "claim": "Backspin pre-arm button mechanic; Fly-By camera preview; Mulligan/Skip Turn via trackball-roll-to-highlight plus Start; ITNet phone-line online opponents." },
+    { "id": "J3", "title": "Silver Strike Bowling 2009 Kit Installation Manual & User Guide v2/11", "url": "https://amusement.itsgames.com/wp-content/uploads/2025/02/silver-strike-bowling-09-installation-manual.pdf", "observedOn": "2026-11-01", "claim": "Button labels (Start, Ball Weight, Overhead, Rotate Left, Rotate Right); hand-clearance install guidance; trackball earth-ground requirement; software 'not designed for a true 16:9 aspect ratio', stretching worse on larger HDTVs." },
+    { "id": "J4", "title": "Silver Strike Bowler's Club 2007 International Installation Manual", "url": "https://amusement.itsgames.com/wp-content/uploads/2025/02/silver-strike-bowlers-club-2007-international-installation-manual.pdf", "observedOn": "2026-11-01", "claim": "2007 button label variant ('Change Ball'), confirming exact labels are release-specific." },
+    { "id": "J5", "title": "U-Trak FlushMount Arcade Trackball product page", "url": "https://www.ultimarc.com/trackballs-and-spinners/trackballs/u-trak/", "observedOn": "2026-11-01", "claim": "Six bearing races, three stainless shafts, grease-free bearings requiring no bedding-in; USB interface reports as a mouse with left/right buttons." },
+    { "id": "J6", "title": "On the Latency of USB-Connected Input Devices (CHI 2019)", "url": "https://epub.uni-regensburg.de/40182/1/On_the_Latency_of_USB-Connected_Input_Devices_author_version.pdf", "observedOn": "2026-11-01", "claim": "The paper's own introduction sums its listed per-step order-of-magnitude latencies (mechanical switch ~20ms, controller ~1-20ms, USB polling ~1-10ms, etc.) to an illustrative '23 to 70ms' range - an analytical model, not the empirically measured result from the paper's 36-device dataset (shown as distribution plots in Figures 6-8, excluding mechanical-switch latency since LagBox triggers contacts electrically). Windows rounds a requested polling interval down to the next power of two (a 10ms request is typically served at 125Hz/8ms; OS cap 32ms, per the paper's own citation of Microsoft/Linux kernel docs); forced 1000Hz polling reduced latency for most but not all of the 36 tested devices." },
+    { "id": "J7", "title": "Run Ahead", "url": "https://docs.libretro.com/guides/runahead/", "observedOn": "2026-11-01", "claim": "Every emulated game has built-in internal lag of one or more frames; Run-Ahead removes it but is a RetroArch/libretro-frontend feature, not a standalone-MAME feature." },
+    { "id": "J8", "title": "Big Buck HD 42-inch Setup and Operation Service Manual", "url": "https://www.betson.com/wp-content/uploads/wpallimport/files/service-manuals/big-buck-wild-42-manual.pdf", "observedOn": "2026-11-01", "claim": "Modern HD-generation cabinet documents a two-gun holster/bezel IR-sensor configuration, distinct from the Eagle-era bench candidates." },
+    { "id": "J9", "title": "Jurassic Park Arcade Operator Manual PN 040-00044-01", "url": "https://rawthrills.com/wp-content/uploads/2023/08/JP-Manual-r11.pdf", "observedOn": "2026-11-01", "claim": "Mounted two-axis potentiometer guns, gun vibration hardware, 24VDC recoil supply, required USB dongle, 5A solenoid fuse rating." },
+    { "id": "J10", "title": "Jurassic Park Arcade product page", "url": "https://rawthrills.com/games/jurassic-park-arcade/", "observedOn": "2026-11-01", "claim": "Official narrative framing is rescuing dinosaurs with a high-powered tranquilizer gun, not a straight hunting-lodge kill count; environmental cabinet dimensions and weight." },
+    { "id": "J11", "title": "TV input lag test methodology", "url": "https://www.rtings.com/tv/tests/inputs/input-lag", "observedOn": "2026-11-01", "claim": "Display input lag must be measured per model, not inferred from an advertised pixel-response spec." },
+    { "id": "J12", "title": "Golden Tee Fore! Remastered Edition - manufacturer store page", "url": "https://store.itsgames.com/products/golden-tee-fore-remastered-edition", "observedOn": "2026-11-01", "claim": "Factory Incredible Technologies product, 72in-tall easy-to-assemble cabinet, 27in HD monitor, commercial-grade trackball, full Fore! Complete course catalog, home-use-only; page itself states two conflicting ship dates (October vs. November 2026)." },
+    { "id": "J12b", "title": "Golden Tee Fore! Remastered Edition - reseller listing", "url": "https://www.thepinballcompany.com/product/golden-tee-fore-remastered-edition/", "observedOn": "2026-11-01", "claim": "$2,499 pre-order price; full cabinet footprint 39x28x72in." },
+    { "id": "J13", "title": "Silver Strike Bowling: League Night Home Edition - manufacturer store page", "url": "https://store.itsgames.com/products/silver-strike-bowling-league-night-home-edition", "observedOn": "2026-11-01", "claim": "Factory Incredible Technologies product; does NOT include a TV ('You will need to use a 4K TV'); includes a free stand; cabinet-with-stand dimensions 25in W x 53in D x 85in H (99in with topper) +/-1in; home/non-commercial use only; free online subscription through Spring 2027. Manufacturer's own store catalog (store.itsgames.com) lists the product at $4,699 directly and a generic 'Home Games Annual Online Subscription' at $125/yr or $12.99/mo - applicability of that generic listing specifically to SSB League Night's post-Spring-2027 fee is not confirmed." },
+    { "id": "J13b", "title": "Silver Strike Bowling: League Night Home Edition - reseller listing", "url": "https://www.thepinballcompany.com/product/silver-strike-bowling-league-night-home-edition/", "observedOn": "2026-11-01", "claim": "$4,699-5,799 observed price depending on reseller-bundled monitor/stand options, not a manufacturer price page." },
+    { "id": "J14", "title": "Golden Tee Arcade Collection product listing", "url": "https://shopindoorgolf.com/products/golden-tee-arcade-collection", "observedOn": "2026-11-01", "claim": "Factory Incredible Technologies bundle, $3,299 (Home Edition), classic landscape Silver Strike Bowling (Classic/Flash Bowling modes) plus PowerPutt Golf and Target Toss Pro on one shared trackball cabinet." },
+    { "id": "J15", "title": "Big Buck World product page", "url": "https://rawthrills.com/games/bbw", "observedOn": "2026-11-01", "claim": "A commercial cabinet of a similar name to Arcade1Up's home product is listed 'NOT IN PRODUCTION' - a naming-collision precision check, not evidence of a usable home edition." },
+    { "id": "J16", "title": "MAME device-mapping documentation", "url": "https://docs.mamedev.org/advanced/devicemap.html", "observedOn": "2026-11-01", "claim": "Not every input provider supplies stable unique device IDs, already cited in PLAN.md and reused here for multiplayer device-identity design." },
+    { "id": "J17", "title": "Sinden Lightgun product FAQ", "url": "https://www.sindenshop.com/pages/product-faq", "observedOn": "2026-11-01", "claim": "Vendor marketing claims (e.g. 'speed equal to CRT lightgun') are not an independently measured latency figure and should not be treated as one." },
+    { "id": "J18", "title": "Big Buck Hunter - Arcade1Up product pages (indexed content only; direct page access for Pro Deluxe/Mossy Oak Deluxe redirects to the Arcade1Up storefront homepage)", "url": "https://arcade1up.com/products/big-buck-hunter-pro-deluxe", "observedOn": "2026-11-01", "claim": "Indexed claim of 1-4 players with 2 included pump-action SINDEN-technology rifles for Pro Deluxe/Mossy Oak Deluxe - not independently corroborated by the live sources in J20/J21, which describe the guns as 'real-feel'/'Light Gun' rifles without any SINDEN claim; treat SINDEN specifically as unconfirmed." },
+    { "id": "J19", "title": "How To Play - Golden Tee (official gameplay guide)", "url": "https://livewire.itsgames.com/gt/how-to-play", "observedOn": "2026-11-01", "claim": "Manufacturer's own current gameplay guide: Left/Right buttons rotate the golfer (documented at 11 degrees per press, up to 360 degrees from any ball location) - a shot-direction/setup control, separate from the trackball's own back-swing/forward-swing power-and-shape gesture; a held-down smooth-turn variant is stated as a Golden Tee 2021-specific casual-mode addition." },
+    { "id": "J20", "title": "Arcade1Up Big Buck Hunter Mossy Oak Deluxe Arcade - Amazon listing", "url": "https://www.amazon.com/dp/B0FM82NZGY", "observedOn": "2026-11-02", "claim": "Directly-accessible listing (ASIN B0FM82NZGY) confirms the product's real specs: 4 bundled titles (Pro, Safari, Pro Open Season, Safari Outback), 2 'real-feel' light-gun rifles for '1 to 4 players', 'Number of Players: 4' spec field (capacity, not confirmed-simultaneous), 17in BOE LCD screen, cabinet about 18.7x21.06x68.9in, about 69.6 lb, AC adapter and anti-tip strap; no SINDEN branding and no riser/tin-sign mentioned. The listing itself is marked 'Currently unavailable. We don't know when or if this item will be back in stock.' and a $699.99 figure appears only as an indexed other-seller search snippet, not a confirmed live offer." },
+    { "id": "J21", "title": "Big Buck Hunter Pro Arcade Machine - product-info blog page", "url": "https://arcade1up.com/blogs/product-info/big-buck-hunter%C2%AE-pro-arcade-machine", "observedOn": "2026-11-01", "claim": "Live (non-redirecting) page for a related, older non-Deluxe 'Big Buck Hunter Pro' package: same 4 titles, 2 'Light Gun' rifles, a matching riser and a bonus 18x24in tin sign - a different accessory bundle than the Mossy Oak Deluxe listing (J20); do not assume the riser/tin-sign carry over to Mossy Oak Deluxe." },
+    { "id": "J23", "title": "Daniel's hints for Silver Strike Bowling", "url": "http://fcay2k6.50webs.com/ssb.htm", "observedOn": "2026-11-02", "claim": "Older community guide, exact game build unspecified: backswing before forward roll; Overhead held during approach setup; Overhead, Ball Weight or Start reported to reset a backswing. These are reference procedures to validate, not certified 2009 behavior." },
+    { "id": "J22", "title": "Arcade Collection Showpiece Conversion Kit - manufacturer store page", "url": "https://store.itsgames.com/products/arcade-collection-conversion-kit", "observedOn": "2026-11-01", "claim": "$1,795 kit that upgrades an EXISTING commercial Golden Tee/Silver Strike/PowerPutt/Target Toss Showpiece cabinet to the Arcade Collection roster (replacing HDD, CID, security chip, control panel, marquee; may need a RAM upgrade); not a standalone product, requires an existing donor Showpiece cabinet, voids that cabinet's existing CID, and does not include Golden Tee golf." }
+  ]
+}

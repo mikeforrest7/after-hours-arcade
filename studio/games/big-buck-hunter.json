@@ -1,0 +1,274 @@
+{
+  "schemaVersion": 1,
+  "slug": "big-buck-hunter",
+  "overviewId": "big_buck_hunter",
+  "number": "02",
+  "title": "Big Buck Hunter",
+  "kicker": "SHOOTER / HUNTING LODGE",
+  "headline": "One shotgun, four hunters, and a doe you must not shoot.",
+  "intro": "Big Buck Hunter: Call of the Wild puts one pump-action shotgun in front of a hunting-lodge scene and up to four credit-paying hunters taking turns with it — not a simultaneous two-player shootout. Insert credit, pick a region on a relief map, then separate antlered bucks from does in a running herd before the window closes. Every trigger pull flashes the whole screen white so the gun's optics can read the shot; the pump racks a fresh shell between pulls. Shoot a doe and the hunt ends immediately — the entire game's tension sits in that one rule.",
+  "referenceScope": {
+    "primary": "Big Buck Hunter: Call of the Wild (2006)",
+    "reason": "Chosen within the Big Buck Hunter family for the richest verifiable source set found — a full operator manual, a real cabinet photo, and version-matched screenshots, not because a build was pre-selected.",
+    "caveat": "Earlier single-gun titles in this family differ in content, and Big Buck Hunter Pro onward (2006, Raw Thrills) is a two-gun generation (see Release Notes). No cabinet or software version has been chosen, and no game has been run, emulated, or measured here."
+  },
+  "heroMediaId": "bbh-target-selection",
+  "media": [
+    {
+      "id": "bbh-cabinet-control",
+      "src": "media/big-buck-hunter/cabinet-control-bbh2006.png",
+      "kind": "Cabinet photograph",
+      "release": "Big Buck Hunter 2006: Call of the Wild dedicated cabinet (certified pre-owned unit)",
+      "alt": "Three-quarter view of a black and orange Big Buck Hunter 2006: Call of the Wild cabinet with a pump-action shotgun mounted on the control panel and a CRT monitor showing a hunting scene",
+      "caption": "The real control layout: one shotgun on the panel, nothing on a second holster.",
+      "credit": "PrimeTime Amusements (dealer product photo; photographer not credited)",
+      "sourceId": "BBH5",
+      "assetUrl": "https://primetimeamusements.com/wp-content/uploads/2016/04/BBH2006.png",
+      "processing": "Used as downloaded, no crop or resize (525x525 native).",
+      "width": 525,
+      "height": 525,
+      "sha256": "41792fddedd9f8bb8856cb660bfe92e8d1c008e8e24bf70a21556bfa273e7962",
+      "retrievedAt": "2026-11-02"
+    },
+    {
+      "id": "bbh-target-selection",
+      "src": "media/big-buck-hunter/screenshot-target-selection.png",
+      "kind": "Gameplay screenshot",
+      "release": "Big Buck Hunter 2006: Call of the Wild, v3.02.5",
+      "alt": "In-game snowy hunting scene showing a blue crosshair reticle aimed at an antlered buck standing among antlerless does",
+      "caption": "The core decision, in one frame: antlers mean a legal target, no antlers means hold fire.",
+      "credit": "Originally captured for MobyGames (contributor not individually credited there); MobyGames' own page returned a bot-protection challenge on repeated direct and browser-automated attempts, so the publicly mirrored copy on My Abandonware is used instead",
+      "sourceId": "BBH7",
+      "assetUrl": "https://www.myabandonware.com/media/screenshots/b/big-buck-hunter-2006-call-of-the-wild-17s2/big-buck-hunter-2006-call-of-the-wild_6.png",
+      "processing": "Used as downloaded, no crop or resize (640x480 native capture resolution).",
+      "width": 640,
+      "height": 480,
+      "sha256": "48dc07cb8380f5690200844567610f66ed16346eb0660ad0c159e616978f49d7",
+      "retrievedAt": "2026-11-02"
+    },
+    {
+      "id": "bbh-region-select",
+      "src": "media/big-buck-hunter/screenshot-region-select.png",
+      "kind": "Gameplay screenshot",
+      "release": "Big Buck Hunter 2006: Call of the Wild, v3.02.5",
+      "alt": "In-game 'Select Your Region' menu: a stylized relief map of the US and Canada divided into West, Midwest, Northeast, South, Southwest and Canada, with a reticle cursor over the Midwest",
+      "caption": "Region choice is made by aiming the gun at the map and pulling the trigger, under a visible countdown.",
+      "credit": "Originally captured for MobyGames (contributor not individually credited there); MobyGames' own page returned a bot-protection challenge on repeated direct and browser-automated attempts, so the publicly mirrored copy on My Abandonware is used instead",
+      "sourceId": "BBH7",
+      "assetUrl": "https://www.myabandonware.com/media/screenshots/b/big-buck-hunter-2006-call-of-the-wild-17s2/big-buck-hunter-2006-call-of-the-wild_3.png",
+      "processing": "Used as downloaded, no crop or resize (640x480 native capture resolution).",
+      "width": 640,
+      "height": 480,
+      "sha256": "b110c3397e3910e29ff767ee89b7ac26a54b8d4909655f69f167d3e291c0f9a1",
+      "retrievedAt": "2026-11-02"
+    },
+    {
+      "id": "bbh-stand-select",
+      "src": "media/big-buck-hunter/screenshot-stand-select.png",
+      "kind": "Gameplay screenshot",
+      "release": "Big Buck Hunter 2006: Call of the Wild, v3.02.5",
+      "alt": "Select a Stand screen for Player 1: five oval buck photos laid over an Iowa map, labeled Day 1 of 5, Score 0, with a 30-second countdown",
+      "caption": "Each trip is structured as named days/stands, not a single open scene.",
+      "credit": "Originally captured for MobyGames (contributor not individually credited there); MobyGames' own page returned a bot-protection challenge on repeated direct and browser-automated attempts, so the publicly mirrored copy on My Abandonware is used instead",
+      "sourceId": "BBH7",
+      "assetUrl": "https://www.myabandonware.com/media/screenshots/b/big-buck-hunter-2006-call-of-the-wild-17s2/big-buck-hunter-2006-call-of-the-wild_4.png",
+      "processing": "Used as downloaded, no crop or resize (640x480 native capture resolution).",
+      "width": 640,
+      "height": 480,
+      "sha256": "82f0ea696076d7885367fa84ecd155aa775637cbf22c8b0f08c69afb59ea9ebf",
+      "retrievedAt": "2026-11-02"
+    },
+    {
+      "id": "bbh-flyer-front",
+      "src": "media/big-buck-hunter/flyer-front-2006.jpg",
+      "kind": "Brochure image",
+      "release": "Big Buck Hunter 2006: Call of the Wild — official sales flyer, front page",
+      "alt": "Official 2006 sales flyer photograph of a hunter crouched with a pump shotgun beside a life-size deer prop and the Big Buck Hunter 2006 cabinet, headlined 'NEW! 2006 OPEN SEASON'",
+      "caption": "Incredible Technologies' own trade advertisement for this exact software update.",
+      "credit": "Incredible Technologies, Inc., via Museum of the Game / International Arcade Museum flyer archive",
+      "sourceId": "BBH6",
+      "assetUrl": "https://flyers.arcade-museum.com/videogame-flyers/5/big-buck-hunter-2006-call-of-the-wild-05420-01.jpg",
+      "processing": "Full flyer page scan as archived, not cropped.",
+      "width": 850,
+      "height": 1116,
+      "sha256": "b6be03871300eb75193d121b82857d1282337ee3958d09857bba7f229ab64bf3",
+      "retrievedAt": "2026-11-02"
+    },
+    {
+      "id": "bbh-flyer-back",
+      "src": "media/big-buck-hunter/flyer-back-2006.jpg",
+      "kind": "Brochure image",
+      "release": "Big Buck Hunter 2006: Call of the Wild — official sales flyer, back page",
+      "alt": "Back of the official 2006 sales flyer with small in-game screenshot thumbnails of the region map, a snowy hunting scene, the Trip/Region mode-select screen, and the Raccoon Rampage and Wild Boar bonus rounds",
+      "caption": "The manufacturer's own feature list for the 2006 update: two new regions, elk and antelope, and two new bonus rounds.",
+      "credit": "Incredible Technologies, Inc. / Play Mechanix, Inc., via Museum of the Game / International Arcade Museum flyer archive",
+      "sourceId": "BBH6",
+      "assetUrl": "https://flyers.arcade-museum.com/videogame-flyers/5/big-buck-hunter-2006-call-of-the-wild-05420-02.jpg",
+      "processing": "Full flyer page scan as archived, not cropped; the four inset screenshots are printed at small flyer-thumbnail resolution, not individually re-captured.",
+      "width": 850,
+      "height": 1089,
+      "sha256": "58b6bd64841db009d115335b651ca85481a6076682673bcddbfcc07f1f86bdbe",
+      "retrievedAt": "2026-11-02"
+    }
+  ],
+  "session": {
+    "format": "Up to four hunters take turns with one shared shotgun and one credit-metered game — not simultaneous two-player play.",
+    "social": "Players hand the gun off between turns; the group watches the current hunter and calls out buck-or-doe decisions from the sideline.",
+    "failureToAvoid": "Adding a second gun holster or implying co-op play: the manual's wiring references only 'GUN 1', and Wikipedia confirms the pre-2006 series was single-gun, round-robin for up to four players.",
+    "sourceIds": ["BBH1", "BBH2", "BBH3"]
+  },
+  "playLoop": [
+    {
+      "title": "Buy In",
+      "action": "Insert credit and pick a cost tier — a single Trip, a full Region pass, Hunt Club, Bonus Only, or Tournament on an ITNet-registered cabinet.",
+      "feedback": "The coin-door Player Cost Schedule prices each tier separately.",
+      "skill": "Decide how much game you want before the clock starts.",
+      "sourceIds": ["BBH1"]
+    },
+    {
+      "title": "Pick a Region",
+      "action": "Aim the shotgun's reticle at a wedge of the US/Canada relief map and pull the trigger to select, under a visible countdown.",
+      "feedback": "The chosen region and day count load onscreen.",
+      "skill": "Reading the map fast doubles as a first test of the gun's aim.",
+      "sourceIds": ["BBH7"]
+    },
+    {
+      "title": "Pick a Stand",
+      "action": "Choose one of several buck-photo stands laid over a state map, e.g. 'IOWA — DAY 1 of 5'.",
+      "feedback": "Score resets to zero and a short countdown starts as the scene loads.",
+      "skill": "Different stands bias which terrain and animals appear next.",
+      "sourceIds": ["BBH7"]
+    },
+    {
+      "title": "Hunt",
+      "action": "Raise the shotgun, track moving deer or elk, and fire only once antlers are visible on a legal buck; pump the slide between shots.",
+      "feedback": "A trigger pull flashes the screen white so the gun's optics can read the aim point; a hit buck drops, a hit doe ends the hunt.",
+      "skill": "Snap identification — separating antlers from no-antlers in a running herd before the window closes.",
+      "sourceIds": ["BBH1", "BBH3"]
+    },
+    {
+      "title": "Bonus Round",
+      "action": "Between treks, a bonus stage (Skeet, Duck, Raccoon Rampage, Wild Boar, and others) swaps the hunting scene for a faster target gallery.",
+      "feedback": "The same gun is used, but scoring and pace differ and the doe penalty does not apply.",
+      "skill": "A change of pace that still rewards fast, accurate shooting.",
+      "sourceIds": ["BBH2", "BBH6"]
+    }
+  ],
+  "screenRead": [
+    {
+      "label": "MONEY IN counter",
+      "meaning": "Running total of credits inserted this game, shown during attract mode and live play.",
+      "sourceIds": ["BBH7"]
+    },
+    {
+      "label": "Antlers vs. no antlers",
+      "meaning": "The only visual cue separating a legal buck from a doe that ends the hunt if hit — there is no other HUD marker.",
+      "sourceIds": ["BBH3"]
+    },
+    {
+      "label": "Reticle",
+      "meaning": "Shows where the optical gun is aimed; the same cursor navigates the region and stand-select menus.",
+      "sourceIds": ["BBH1"]
+    },
+    {
+      "label": "Day counter and countdown timer",
+      "meaning": "'DAY 1 of 5' tracks trek progress; a small numeric timer counts down the seconds left to tag the day's target.",
+      "sourceIds": ["BBH7"]
+    }
+  ],
+  "signatureMoments": [
+    {
+      "title": "The screen-flash shot",
+      "description": "Every trigger pull blinks the whole monitor solid white for an instant. Not a visual flourish — the manufacturer's own gun-and-monitor diagnostic test documents this as how the gun's optical sensor measures exactly where the barrel pointed at the moment of the shot.",
+      "sourceIds": ["BBH1"]
+    },
+    {
+      "title": "The doe that ends it",
+      "description": "Wikipedia's own gameplay summary states plainly: shoot a female animal and the player is out. With bucks and does mixed in a running herd, that single rule turns every shot into a split-second identification call.",
+      "sourceIds": ["BBH3"]
+    },
+    {
+      "title": "Regional bonus detours",
+      "description": "Raccoon Rampage and Wild Boar Bonus were the headline new modes in the 2006 update's own sales flyer — a deliberate break from the hunting loop into faster, differently scored target galleries.",
+      "sourceIds": ["BBH6"]
+    }
+  ],
+  "controls": [
+    {
+      "input": "Shotgun trigger",
+      "action": "Fires a shot at the current aim point; on menus it scrolls down / confirms.",
+      "feel": "The one input every hit or miss comes down to — a build must keep optical-flash timing tight enough that the read never lags the real pull.",
+      "sourceIds": ["BBH1"]
+    },
+    {
+      "input": "Pump slide",
+      "action": "Racks the shotgun between shots; on menus it scrolls up.",
+      "feel": "A real, spring-loaded gesture — the manual documents pump and trigger as separate switches, not a single trigger-only input, so a panel must preserve a sliding throw, not a second button.",
+      "sourceIds": ["BBH1"]
+    },
+    {
+      "input": "Gun aim (optical X/Y)",
+      "action": "Points the reticle; the gun reads its position via the flash-sync technique above.",
+      "feel": "Must tolerate the same bright-light and glare sensitivity the manual's own troubleshooting section names as a known failure mode.",
+      "sourceIds": ["BBH1"]
+    },
+    {
+      "input": "Start button",
+      "action": "Confirms a highlighted menu choice alongside the gun's trigger/pump scrolling.",
+      "feel": "Shares its vocabulary with the shotgun controls — no redundant separate confirm button is needed.",
+      "sourceIds": ["BBH1"]
+    }
+  ],
+  "buildPriorities": [
+    {
+      "title": "One gun, not two",
+      "why": "The Eagle-era kit wires exactly one gun ('GUN 1' is the only connector referenced in the 47-page manual and in the MAME driver's own input list, and the original kit ships a single Gun Assembly); Wikipedia confirms the pre-2006 series was 'a single gun platform' with players rotating turns.",
+      "proof": "A finished bench accepts four separate coin-ins and runs four full turns with only one gun wired.",
+      "sourceIds": ["BBH1", "BBH3", "BBH4"]
+    },
+    {
+      "title": "Preserve the screen-flash shot timing",
+      "why": "Hit detection is a real-time optical read keyed to a full-screen flash on every trigger pull; added display latency or a panel that can't reproduce that flash breaks the actual aiming feedback loop, not just the visuals.",
+      "proof": "A bench trigger pull shows the flash and the hit/miss register with the same felt timing as reference footage.",
+      "sourceIds": ["BBH1"]
+    },
+    {
+      "title": "Keep the pump a real sliding throw",
+      "why": "The manual spring-loads pump and trigger as separate switches and names 'Traditional Pump-Action Shotgun' a feature across releases; a second button would remove the one tactile detail that sells the shotgun fantasy.",
+      "proof": "A player can tell trigger from pump by feel alone with eyes closed.",
+      "sourceIds": ["BBH1", "BBH2"]
+    },
+    {
+      "title": "Make the doe penalty immediate and legible",
+      "why": "The hunting loop's entire risk rests on one instant call — antlers or not — with a hard, on-the-spot penalty for guessing wrong; ambiguous or delayed hit feedback erases that tension.",
+      "proof": "A first-time player can state, unprompted, why their hunt just ended after shooting a doe.",
+      "sourceIds": ["BBH3"]
+    }
+  ],
+  "releaseNotes": [
+    {
+      "title": "Call of the Wild (2006) vs. the original 2000 Big Buck Hunter",
+      "body": "Both are the same single-gun Eagle-era hardware family (MAME driver ids bbh, bbhsc, bbh2sp, bbhcotw), but the 2006 update adds the Midwest and Southwest regions, elk and antelope, an expanded Hunt Club mode, and the Raccoon Rampage / Wild Boar bonus rounds — none on the original 2000 cabinet's software.",
+      "sourceIds": ["BBH1", "BBH6"]
+    },
+    {
+      "title": "Violence settings are an operator choice, not a player one",
+      "body": "The manual documents three selectable modes — Normal (visible blood), No Blood (bloodless, audio-only), and Tagging Only (no kill references) — set once by the operator in Test Mode, not chosen per player.",
+      "sourceIds": ["BBH1"]
+    },
+    {
+      "title": "Pro, Safari, HD, and Reloaded are a different, two-gun generation",
+      "body": "Beginning with Big Buck Hunter Pro (2006, Raw Thrills), the series moved to a two-gun cabinet with genuine head-to-head competition — a different control contract from this release's single gun, not a drop-in upgrade.",
+      "sourceIds": ["BBH3"]
+    }
+  ],
+  "sources": [
+    { "id": "BBH1", "title": "Big Buck Hunter Call of the Wild — Installation and Operation Manual, Version 01/05", "url": "https://www.arcade-museum.com/manuals-videogames/B/Big_Buck_Hunter_COTW_0105.pdf", "publisher": "Incredible Technologies, Inc. (hosted by Museum of the Game / International Arcade Museum)", "accessed": "2026-11-02" },
+    { "id": "BBH2", "title": "Big Buck Hunter — Installation Manual, Version 05/01", "url": "https://amusement.itsgames.com/wp-content/uploads/2025/02/big-buck-hunter-installation-manual.pdf", "publisher": "Incredible Technologies, Inc.", "accessed": "2026-11-02" },
+    { "id": "BBH3", "title": "Big Buck Hunter", "url": "https://en.wikipedia.org/wiki/Big_Buck_Hunter", "publisher": "Wikipedia", "accessed": "2026-11-02" },
+    { "id": "BBH4", "title": "iteagle.cpp (MAME driver source for the Incredible Technologies Eagle hardware family, including Big Buck Hunter)", "url": "https://github.com/mamedev/mame/blob/master/src/mame/itech/iteagle.cpp", "publisher": "MAMEdev", "accessed": "2026-11-02" },
+    { "id": "BBH5", "title": "Big Buck Hunter 2006 — product listing", "url": "https://primetimeamusements.com/product/big-buck-hunter-2006/", "publisher": "PrimeTime Amusements", "accessed": "2026-11-02" },
+    { "id": "BBH6", "title": "Big Buck Hunter 2006: Call of the Wild — Videogame by Incredible Technologies", "url": "https://www.arcade-museum.com/Videogame/big-buck-hunter-2006-call-of-the-wild", "publisher": "Museum of the Game / International Arcade Museum", "accessed": "2026-11-02" },
+    { "id": "BBH7", "title": "Big Buck Hunter 2006: Call of the Wild (Arcade)", "url": "https://www.myabandonware.com/game/big-buck-hunter-2006-call-of-the-wild-sjb", "publisher": "My Abandonware (screenshots originally captured for MobyGames)", "accessed": "2026-11-02" }
+  ]
+}

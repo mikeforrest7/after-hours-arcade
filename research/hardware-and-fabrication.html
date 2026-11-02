@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Hardware And Fabrication / After Hours Arcade Studio</title>
+<link rel="stylesheet" href="../studio/studio.css">
+<style>
+.md-doc{max-width:860px;margin:0 auto;padding:48px 24px 96px}
+.md-doc h1,.md-doc h2,.md-doc h3{line-height:1.25}
+.md-doc table{border-collapse:collapse;width:100%;margin:1.25em 0}
+.md-doc th,.md-doc td{border:1px solid currentColor;padding:.5em .6em;text-align:left;vertical-align:top}
+.md-doc pre{overflow-x:auto;padding:1em;border:1px solid currentColor}
+.md-doc code{font-family:ui-monospace,Consolas,monospace}
+.md-back{display:inline-block;margin-bottom:1.5em}
+</style>
+</head>
+<body>
+<header class="masthead"><a class="wordmark" href="../studio/index.html">AFTER<span>HOURS</span><small>ARCADE STUDIO</small></a></header>
+<main class="md-doc">
+<a class="md-back text-link" href="../studio/index.html">&larr; Back to the studio proposal</a>
+<h1 id="hardware-fabrication-and-reconciled-bom">Hardware, fabrication and reconciled BOM</h1>
+<p>2026-11-01. Planning allowances in USD; no purchase, physical test or vendor quote request performed. This is the parent-reconciled specification after parallel research. Game feasibility is controlled by <a href="game-feasibility.html">game-feasibility.md</a>, not by a generic accessory's marketing claim.</p>
+<h2 id="architecture-and-makebuy-decision">Architecture and make/buy decision</h2>
+<p>Two furniture/control stations, two separate TVs and one emulation PC per concurrently active emulation lane are the baseline. <strong>Original donor systems are additional, version-dependent equipment.</strong> Silver Strike is not assumed to run on the same USB trackball/PC/frontend as Golden Tee. Nor is Raw Thrills Jurassic Park assumed to accept the same handheld guns as Big Buck. Shared controls require a proven runtime/interface or a physical swap; no raw encoder outputs connected to two powered hosts at once.</p>
+<p>The one-screen alternative retains one 55-inch TV, one emulation PC, the trackball panel and two optical guns, but only one game is active at a time. A movable or swappable panel must clear the shooter stance. Donor electronics may still be required. Older Big Buck releases can use alternating players on one gun; two guns are a station capability, not a claim that every release supports simultaneous play.</p>
+<table>
+<thead>
+<tr>
+<th>Make</th>
+<th>Buy complete</th>
+<th>Retain from a legitimate donor where necessary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Plywood enclosure, removable panels, holsters, cable guides, original artwork</td>
+<td>TV, rated mount, PC, trackball, buttons/encoder, certified external power hardware</td>
+<td>Game PC/board, authorized software, I/O, CID/dongle, compatible controls and harnesses</td>
+</tr>
+</tbody>
+</table>
+<p>Do not build LCD/OLED cells or mains power supplies. Bare LCD/controller kits require exact panel timing, backlight and voltage matching and a safe enclosure; they do not necessarily lack every useful feature, but their total integration cost is unproven. A complete consumer TV/monitor with its original enclosure and warranty is the conservative choice.</p>
+<h2 id="displays">Displays</h2>
+<p>Nominal 16:9 active dimensions are geometry, not chassis or VESA dimensions:</p>
+<table>
+<thead>
+<tr>
+<th>Diagonal</th>
+<th>Active width</th>
+<th>Active height</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>43 inches</td>
+<td>952 mm</td>
+<td>535 mm</td>
+</tr>
+<tr>
+<td>55 inches</td>
+<td>1,218 mm</td>
+<td>685 mm</td>
+</tr>
+</tbody>
+</table>
+<p>Select a model with a verified low-latency Game Mode at the actual input resolution/refresh. Disable overscan, interpolation and unnecessary picture processing; retain 4:3 aspect for 4:3 games. Check source/input retention after power loss. A measured input-lag result is not the advertised pixel-response time. Source methodology:</p>
+<p>https://www.rtings.com/tv/tests/inputs/input-lag</p>
+<p>Measure the TV housing, cable bends, ventilation and bracket standoff before final CAD. Screen diagonal alone is insufficient for gun camera field-of-view or opening size. Camera guns need the whole border/IR target geometry visible from both players' real positions. Test lighting, reflections and near/far limits on the intended screen size.</p>
+<p>Silver Strike 2007 supports specified VGA/SVGA and lower-resolution outputs. Use a matching-input monitor or a proven active converter; passive VGA-to-HDMI wiring is not conversion. Old CRT optical guns are not automatically LCD-compatible. Do not convert an original gun merely by replacing its connector with USB.</p>
+<p>Use rated commercial mounts on verified structural framing or suitable masonry, with manufacturer-approved fixings. No drywall-only installation in this design. A competent installer determines load and anchorage. A wall-mounted TV still has detachment and falling-object risks; it does not eliminate every tip-over hazard. Anchor the furniture separately where energetic play or climbing could overturn it.</p>
+<p>https://www.cpsc.gov/Safety-Education/Safety-Education-Centers/Tipover-Information-Center</p>
+<h2 id="trackball-controls">Trackball controls</h2>
+<p>A 3-inch / 76.2 mm commercial trackball provides the intended size and a replaceable mechanical assembly. Golden Tee Fore needs Start, Left, Right, Fly By and Backspin. The documented Silver Strike 2007 panel uses Start, Change Ball, Overhead, Rotate Left and Rotate Right. Allow eight buttons total for game functions and deliberate menu/service access; label per selected runtime.</p>
+<p><strong>Observed Ultimarc options, checked directly during integration:</strong></p>
+<p>https://www.ultimarc.com/trackballs-and-spinners/trackballs/u-trak/</p>
+<ul>
+<li>U-Trak <strong>bare</strong> listed at <strong>$79</strong>.</li>
+<li>U-Trak <strong>with optional USB interface</strong> listed at <strong>$93</strong>.</li>
+<li>Manufacturer allows panels up to 19 mm and supplies mounting drawings. The ball diameter is not the required panel hole.</li>
+</ul>
+<p>https://www.ultimarc.com/control-interfaces/i-pacs/i-pac-ultimate-i-o/</p>
+<ul>
+<li>I-PAC Ultimate I/O <strong>without harness</strong> listed at <strong>$89</strong>.</li>
+<li>Harness-equipped variants listed at <strong>$99</strong> or <strong>$108</strong>, depending on connector selection.</li>
+<li>The board accepts trackball/spinner inputs and buttons. The BOM uses the <strong>$79 bare trackball + $108 harness-equipped encoder</strong>, not both a USB trackball adapter and a second optical encoder.</li>
+<li>For a simpler panel, a $93 USB trackball plus a smaller separate button encoder may be cheaper. Confirm all needed functions, connectors and device identity before substituting.</li>
+</ul>
+<p>Disable unintended pointer acceleration and prove count direction/range at both gentle and hard strokes. Relative trackball motion has no joystick-style center or 0–100% travel; do not invent a “5% deadband” requirement. Mechanically preserve strike clearance, service access, correct manufacturer orientation and room for the housing below the panel.</p>
+<p>Original Silver Strike encoder/harness compatibility remains a separate donor branch. Its official manual gives a 2007 Nighthawk enclosure of 482.6 W × 177.8 H × 279.4 D mm, before airflow/cable clearance:</p>
+<p>https://amusement.itsgames.com/wp-content/uploads/2025/02/silver-strike-bowlers-club-2007-international-installation-manual.pdf</p>
+<h2 id="gun-choices-and-limits">Gun choices and limits</h2>
+<table>
+<thead>
+<tr>
+<th>Choice</th>
+<th>Tracking and integration</th>
+<th>Planning judgment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OpenFIRE</td>
+<td>RP2040-class firmware with IR positioning camera and screen emitters; firmware LGPL-2.1</td>
+<td>Best aligned with an open-firmware DIY goal; full shell, optics, cable and assembly costs exceed the microcontroller price</td>
+</tr>
+<tr>
+<td>Sinden</td>
+<td>Camera detects a visible screen border; host software and border integration required</td>
+<td>Buy if the exact supported software path and border appearance are acceptable; not an all-open-source stack</td>
+</tr>
+<tr>
+<td>GUN4IR</td>
+<td>Camera observes IR markers; onboard processing; separate software-license conditions</td>
+<td>Do not describe it as open source or assume a license covers every device/build; verify current terms and full price</td>
+</tr>
+<tr>
+<td>AimTrak</td>
+<td>Camera/IR sensor-bar arrangement with its own calibration requirements</td>
+<td>Retail alternative; verify actual distance, corners and two-player behavior rather than assuming universal compatibility</td>
+</tr>
+<tr>
+<td>Original donor guns</td>
+<td>Exact gun type and electrical protocol depend on generation</td>
+<td>Preserve known-working matched systems; a service replacement part is not necessarily a standalone USB controller</td>
+</tr>
+</tbody>
+</table>
+<p>Primary project/vendor references:</p>
+<ul>
+<li>https://github.com/TeamOpenFIRE/OpenFIRE-Firmware</li>
+<li>https://github.com/TeamOpenFIRE/OpenFIRE-App</li>
+<li>https://sindenlightgun.com/</li>
+<li>https://sindenshop.com/</li>
+<li>https://www.gun4ir.com/</li>
+<li>https://www.ultimarc.com/light-guns/aimtrak-light-gun/</li>
+</ul>
+<p>No star-rating comparison or promised universal minimum standoff is used. The camera, lens, marker layout and actual screen determine the accepted zone. Configure distinct stable device identities and prove them after restart. A powered USB hub provides power/ports; it does <strong>not</strong> create separate host controllers or automatically isolate conflicting devices.</p>
+<h3 id="jurassic-park-2015-mounted-gun-branch">Jurassic Park 2015 mounted-gun branch</h3>
+<p>The Raw Thrills manual documents damaged potentiometers as an aim fault, 5K potentiometers in the mechanical assembly, a required USB dongle, separate I/O, and 24 VDC supply/recoil-board checks. The live product page provides service videos for both aim axes.</p>
+<p>https://rawthrills.com/wp-content/uploads/2023/08/JP-Manual-r11.pdf</p>
+<p>https://rawthrills.com/games/jurassic-park-arcade/</p>
+<p>The mounted mechanism needs a mechanically durable gimbal, axis sensors, stops, serviceable wiring and appropriate calibration. For a compatible PC runtime, an ADC-capable MCU/USB HID controller can translate two potentiometer axes; level-match voltage and ADC reference, validate jitter and endpoints, and add physical travel stops. <strong>This is not a proven replacement for original RIO I/O.</strong> Opti-PAC is an optical encoder interface, not a generic potentiometer ADC solution. Do not confuse the two.</p>
+<p>The economical first investigation is a <strong>complete original PC/dongle/I/O/gun assembly that demonstrably works</strong>, not replacement of all its interfaces. An alternative controller can be considered only after a legitimate runtime accepts it. Do not treat undocumented connector knowledge as a reason to discard a functioning original system, or treat one adapter as a way around required authorization.</p>
+<p>Baseline budget excludes mounted assemblies and powered recoil. Retaining or recreating them requires a separately quoted, demonstrated branch. Gun solenoid fuse ratings are not operating-current specifications. Never infer continuous 120 W per gun solely from 24 V and a 5 A fuse.</p>
+<h2 id="compute-procurement-target">Compute procurement target</h2>
+<p>First bench on an existing x86-64 desktop. For new/refurbished procurement, allow <strong>$300–600 per emulation PC</strong> for a strong recent desktop-class CPU, 16 GB RAM and 500 GB–1 TB SSD, subject to real benchmarks and live quotes. Ryzen 5 5600 / Core i5-12400 class is a candidate, not a proven requirement. GPU/API needs depend on Supermodel or other selected runtime; a separately necessary GPU is additional.</p>
+<p>Do not size this project from an N100 running Pac-Man or CPS2. Fore!/Eagle is a different workload. No $100 mini-PC or Raspberry Pi is certified for all four requested games. PC architecture alone does not prove OS, drivers, I/O, security hardware or game compatibility; this document does not assert every arcade PC runs Windows.</p>
+<p>Keep original donor platforms distinct from emulation PCs. Inspect donor disk health, fans, required peripherals, video signals, identity components, transfer terms and real cold-start/play behavior. Network-isolate unsupported legacy systems unless an authorized necessary service has been deliberately accommodated.</p>
+<h2 id="fabrication-specification">Fabrication specification</h2>
+<ul>
+<li>Begin with nominal 18 mm plywood; measure real thickness. The CAD panel schedule governs blanks, not generic “two sheets per cabinet” assumptions.</li>
+<li>Use screw/insert/bolt-together modules for basement access and future service; qualify joints before release. A glued monolith is harder to move and repair.</li>
+<li>Hand tools and router templates suit rectangular furniture. Seek a local CNC quote only for released drawings with thickness, pockets, tool clearances, quantities and finish expectations. The included concept DXF is not approved for a CNC machine.</li>
+<li>Compare a flat-pack quote with raw material plus tooling, setup, mistakes and finishing. CNC does not eliminate dry fitting or assembly.</li>
+<li>Round hand-contact edges; seal exposed plywood; protect with laminate, paint or correctly matched edge trim. Slot dimensions depend on the selected T-molding, not a universal bit size.</li>
+<li>Provide a removable service panel, labeled modules and strain relief at every moving/removable panel. Leave safe cable service loops.</li>
+<li>Ventilate according to actual PC/amp heat. Reserve intake and exhaust paths and filter access. Fans and vents must not be blocked by the wall, sound insulation or stored items.</li>
+<li>Use intact powered speakers or a matched low-voltage amp/speakers with rated external supply. The audio allowance includes power hardware; no exposed AC amplifier supply.</li>
+</ul>
+<h2 id="safety-boundary">Safety boundary</h2>
+<p>New circuits, outlet/GFCI changes, exposed mains and CRT servicing are not DIY tasks in this plan. Use certified cord-connected hardware in its intended enclosure. Keep AC separate from control wiring, avoid overloaded/daisy-chained strips, and retain protective earth. Low-voltage recoil can still overheat or injure and needs its own engineering review.</p>
+<p>Have a qualified electrician verify the locally adopted code, circuit capacity, grounding and basement GFCI requirements. National model-code summaries are not a site inspection or a ruling on existing-installation retroactivity. Do not assume a basement's stairs alone satisfy every escape requirement; maintain existing exits/windows and obtain local advice before changing the room.</p>
+<p>Stop on condensation/water damage. Keep electronics off the floor and away from leaks. Assess moisture before spending on finishes or equipment. Secure TV, furniture, gun holsters and cables against falls, trips and energetic handling. No powered motion platform included.</p>
+<h2 id="reconciled-bom-two-station-infrastructure">Reconciled BOM: two-station infrastructure</h2>
+<p><strong>Unit allowances, not quotes</strong>, except the explicitly observed Ultimarc entries. Quantities below are fixed for this cost scenario. Five plywood sheets follow the CAD generator's conservative 55% area-utilization allowance, including the optional console back; this is not a nesting result. No tax or shipping included. Non-recoil optical guns are fully assembled/powered/cabled allowances, not bare PCB prices.</p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th style="text-align: right;">Quantity</th>
+<th style="text-align: right;">Unit low</th>
+<th style="text-align: right;">Unit high</th>
+<th style="text-align: right;">Extended low</th>
+<th style="text-align: right;">Extended high</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>43-inch TV</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">$200</td>
+<td style="text-align: right;">$350</td>
+<td style="text-align: right;">$200</td>
+<td style="text-align: right;">$350</td>
+</tr>
+<tr>
+<td>55-inch TV</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">$300</td>
+<td style="text-align: right;">$550</td>
+<td style="text-align: right;">$300</td>
+<td style="text-align: right;">$550</td>
+</tr>
+<tr>
+<td>Emulation PC</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">$300</td>
+<td style="text-align: right;">$600</td>
+<td style="text-align: right;">$600</td>
+<td style="text-align: right;">$1,200</td>
+</tr>
+<tr>
+<td>Rated TV mount/fixings</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">$40</td>
+<td style="text-align: right;">$100</td>
+<td style="text-align: right;">$80</td>
+<td style="text-align: right;">$200</td>
+</tr>
+<tr>
+<td>18 mm plywood sheet allowance</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">$60</td>
+<td style="text-align: right;">$110</td>
+<td style="text-align: right;">$300</td>
+<td style="text-align: right;">$550</td>
+</tr>
+<tr>
+<td>Joinery/mechanical hardware lot</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">$40</td>
+<td style="text-align: right;">$80</td>
+<td style="text-align: right;">$80</td>
+<td style="text-align: right;">$160</td>
+</tr>
+<tr>
+<td>Finish/edge-protection lot</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">$35</td>
+<td style="text-align: right;">$80</td>
+<td style="text-align: right;">$70</td>
+<td style="text-align: right;">$160</td>
+</tr>
+<tr>
+<td>Audio set incl. rated power</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">$30</td>
+<td style="text-align: right;">$70</td>
+<td style="text-align: right;">$60</td>
+<td style="text-align: right;">$140</td>
+</tr>
+<tr>
+<td>Ventilation set</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">$20</td>
+<td style="text-align: right;">$40</td>
+<td style="text-align: right;">$40</td>
+<td style="text-align: right;">$80</td>
+</tr>
+<tr>
+<td>Listed power-distribution set</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">$30</td>
+<td style="text-align: right;">$60</td>
+<td style="text-align: right;">$60</td>
+<td style="text-align: right;">$120</td>
+</tr>
+<tr>
+<td>USB/data/strain-relief set</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">$25</td>
+<td style="text-align: right;">$60</td>
+<td style="text-align: right;">$50</td>
+<td style="text-align: right;">$120</td>
+</tr>
+<tr>
+<td>U-Trak bare, observed</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">$79</td>
+<td style="text-align: right;">$79</td>
+<td style="text-align: right;">$79</td>
+<td style="text-align: right;">$79</td>
+</tr>
+<tr>
+<td>I-PAC with suitable harness, observed</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">$108</td>
+<td style="text-align: right;">$108</td>
+<td style="text-align: right;">$108</td>
+<td style="text-align: right;">$108</td>
+</tr>
+<tr>
+<td>Eight-button set, allowance</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">$32</td>
+<td style="text-align: right;">$60</td>
+<td style="text-align: right;">$32</td>
+<td style="text-align: right;">$60</td>
+</tr>
+<tr>
+<td>Complete non-recoil optical gun, allowance</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">$125</td>
+<td style="text-align: right;">$250</td>
+<td style="text-align: right;">$250</td>
+<td style="text-align: right;">$500</td>
+</tr>
+<tr>
+<td><strong>Infrastructure subtotal</strong></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"><strong>$2,309</strong></td>
+<td style="text-align: right;"><strong>$4,377</strong></td>
+</tr>
+<tr>
+<td><strong>With 20% infrastructure contingency</strong></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"><strong>$2,771</strong></td>
+<td style="text-align: right;"><strong>$5,252</strong></td>
+</tr>
+</tbody>
+</table>
+<p>The contingency is rounded to the nearest dollar. It does not absorb unknown donor/license costs by assumption.</p>
+<h3 id="one-screen-scenario">One-screen scenario</h3>
+<p>Use one 55-inch TV, one PC, one mount, two plywood sheets, one of each hardware/finish/audio/ventilation/power/cable lot, the same trackball/encoder/buttons, and the same two optical-gun allowance. No 43-inch TV. <strong>Subtotal $1,409–2,607; with 20% contingency $1,691–3,128.</strong> The savings include one furniture module and peripherals as well as one TV/PC; control hardware is unchanged. Only one runtime at a time is assumed.</p>
+<h3 id="separate-unknowns-and-optional-costs">Separate unknowns and optional costs</h3>
+<p>The four-game total is:</p>
+<p><strong>infrastructure + legitimate game/donor costs + adaptation costs + tax/freight + chosen hired work.</strong></p>
+<p>Do not quote the infrastructure subtotal as the delivered price for all four games.</p>
+<table>
+<thead>
+<tr>
+<th>Additional item</th>
+<th>Treatment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Legitimate media/rights for selected older games</td>
+<td>Unknown until exact release and acquisition path are recorded; not $0</td>
+</tr>
+<tr>
+<td>Complete Silver Strike donor</td>
+<td>Separate live quote and demonstration; include PC, software, CID, I/O and controls as required</td>
+</tr>
+<tr>
+<td>Modern Golden Tee / Big Buck / Jurassic donor or authorized kit, if chosen</td>
+<td>Separate live quotes and transfer/operation checks; no guessed universal donor price</td>
+</tr>
+<tr>
+<td>Two positional gun assemblies / proprietary I/O adaptation</td>
+<td>Excluded; quote after mechanism/runtime bench proof</td>
+</tr>
+<tr>
+<td>Active video scaler, GPU or extra donor enclosure</td>
+<td>Excluded unless the actual architecture requires it; itemize before G2</td>
+</tr>
+<tr>
+<td>CNC cutting</td>
+<td>Optional planning allowance $150–500 total for the simple furniture, not a captured quote</td>
+</tr>
+<tr>
+<td>Tool purchase/rental</td>
+<td>Optional $100–400 allowance if ordinary woodworking tools are not already available</td>
+</tr>
+<tr>
+<td>Electrician, structural TV installation, basement work</td>
+<td>Separate local quotes; no assumed allowance for major works</td>
+</tr>
+<tr>
+<td>Paid builder/software labor and original game development</td>
+<td>Excluded; these can exceed materials cost</td>
+</tr>
+<tr>
+<td>Recoil/motion</td>
+<td>Excluded from baseline; add only through a separate safe design and authorization</td>
+</tr>
+</tbody>
+</table>
+<p>Reusing suitable existing TVs/PCs can reduce cash spend materially; deduct only items actually reused and proven. Pilot parts that remain in the finished system are not charged twice.</p>
+<h2 id="procurement-gates">Procurement gates</h2>
+<ol>
+<li>Select exact four releases and establish lawful access/donor candidates before nonreturnable game-specific spending.</li>
+<li>Reuse a screen/PC and prove one trackball and one chosen gun/control type. A $300–600 <strong>pilot allowance</strong> is a decision envelope, not an extra bill on top of reused final components.</li>
+<li>Prove each game, required player mode, performance and offline/authorized service behavior; then test two gun devices together where required.</li>
+<li>Freeze architecture and reconcile landed BOM with actual donor and conversion costs. Obtain exact owner purchase authorization.</li>
+<li>Acquire final parts, measure them, release detailed CAD/joinery and confirm the access route before cutting.</li>
+<li>Build/install, inspect safety and complete the final-room acceptance/thermal/restart tests in PLAN.</li>
+</ol>
+<p>The authoritative dependencies and approval states are <a href="../engineering-graph.json">engineering-graph.json</a>. These gates do not authorize a purchase or silently omit a game that is hard to support.</p>
+</main>
+</body>
+</html>

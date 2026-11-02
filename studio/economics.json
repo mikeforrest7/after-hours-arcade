@@ -1,0 +1,693 @@
+{
+  "schemaVersion": 3,
+  "currency": "USD",
+  "retrievedDate": "2026-11-01",
+  "preparedBy": "Production / unit-economics advisor-worker (personal-domain scenario analysis, not a funded venture)",
+  "product": {
+    "workingLabel": "AFTER HOURS Control Station \u2014 Trackball Edition (hardware-only kit); private working label, not trademark-cleared",
+    "baseStation": "Station A \u2014 Trackball Pedestal from arcade/cad/parameters.json (760x610x950mm), single unit",
+    "scopeIncludes_hardwareOnly": [
+      "Flat-pack 18mm plywood furniture shell (pedestal top/base/sides/front/removable back), sanded, edge-sealed, customer-finish-ready or pre-finished per SKU variant",
+      "Pre-wired Ultimarc U-Trak 3in trackball (bare) + I-PAC Ultimate I/O with harness, mounted in a control-deck cutout released at production CAD stage",
+      "Eight-button panel with labeled, swappable overlay (not game-specific legends)",
+      "Low-voltage audio set with rated external power, ventilation set, UL/ETL-listed power-distribution set, USB/data cabling with strain relief",
+      "Assembly/joinery hardware, printed assembly + service manual, 1-year limited hardware warranty on furniture and included electronics"
+    ],
+    "scopeExcludes_hardwareOnly": [
+      "NO television/display of any kind \u2014 customer supplies and mounts their own, independently rated commercial bracket required",
+      "NO PC, emulator, frontend software, or pre-installed OS",
+      "NO game software, ROM, disk image, BIOS, activation key, or donor PCB of any kind",
+      "NO guns/holsters (this SKU is the trackball station only; shooter console is a separate, not-yet-priced concept)",
+      "NO claim of compatibility with any specific licensed game; customer is solely responsible for lawful acquisition of software/media/donor hardware and for that content's license terms",
+      "NO positional/mounted-gun hardware, recoil, or motion of any kind"
+    ],
+    "offers": [
+      {
+        "id": "hardware_only",
+        "label": "Hardware-only trackball control-station kit",
+        "description": "We manufacture and sell furniture + certified third-party control hardware only. Customer brings their own legally-owned TV, PC, and game software/emulation or a legitimate donor system they source and integrate themselves. This is the only offer with no unresolved IP/royalty cost line, because no game software or licensed content is distributed \u2014 but that is NOT the same as 'legally clean,' pre-certified, or launch-ready: ordinary consumer-goods obligations (electrical/EMC compliance for the assembled unit, CPSC consumer-product rules to the extent they apply, bound general/product liability insurance, business registration) remain unresolved and gated (see killCriteria K3, goNoGo).",
+        "legalModel": "Hardware-only consumer product: no game software or licensed game content is included, so this model carries no game-distribution royalty line. That does not eliminate intellectual-property, component-license, consumer-protection or product-safety obligations. Verify the actual components' certifications and determine applicable electrical/EMC and CPSC requirements with qualified counsel/a compliance lab for the released assembly; a CPSC General Certificate of Conformity is required only where an applicable rule requires it. A listed power supply does not certify the finished product."
+      },
+      {
+        "id": "donor_integration",
+        "label": "Donor-system integration service",
+        "description": "Customer already owns or independently sources a legitimate donor arcade system (e.g. a real Silver Strike Nighthawk kit, a legacy Eagle-era Big Buck PCB set, or a 2015 Raw Thrills Jurassic Park Arcade electronics/I-O/dongle assembly). We build/rebuild the furniture shell around their hardware and bench-test it. We do not supply, copy, or modify any game software, ROM, BIOS, or security/identity device, and we do not promise or warrant the legality, completeness, or functionality of the customer's donor system beyond 'demonstrably worked immediately before and after our integration work.'",
+        "legalModel": "Bespoke labor + materials service. Adds bailment exposure (temporary custody of the customer's possibly irreplaceable hardware) requiring its own liability terms, a signed customer waiver/scope-of-work, and a higher damage reserve than the hardware-only product warranty."
+      },
+      {
+        "id": "licensed_turnkey",
+        "label": "Fully licensed turnkey cabinet (all-inclusive, pre-loaded game)",
+        "description": "A complete cabinet including display, PC, and a specific licensed game, ready to play out of the box. This is the product Mike's original four-game vision implies, but it cannot be priced, built, or sold without a signed license/royalty agreement with the applicable rights holder (Incredible Technologies for Golden Tee/Silver Strike IP; Raw Thrills/Play Mechanix for Big Buck Hunter/Jurassic Park Arcade IP). No such agreement exists. The companies named here are each title's arcade-cabinet licensor of record, not a confirmed-complete rights chain \u2014 Jurassic Park Arcade in particular sits on top of the separately-held Jurassic Park film property, and no confirmation was found that Raw Thrills/Play Mechanix alone can grant all rights needed for a new licensed home SKU. This offer is modeled to show its cost structure and the explicit blocking gap \u2014 not because it is ready to sell, and not as a claim that the named companies are the only or complete rights-holder chain.",
+        "legalModel": "BLOCKED. Requires a negotiated IP license (and likely hardware/software approval) from the rights holder before any price, deposit, or unit can be offered. No public rate card was found for this class of agreement at small-manufacturer scale; treat the license/royalty line as an unresolved, non-zero unknown, not an assumption. For Jurassic Park Arcade specifically, 'the rights holder' may be more than one party (arcade publisher plus film-property owner); no complete rights-holder chain has been identified or confirmed."
+      }
+    ]
+  },
+  "competitiveContextRef": "narrative.json#/competitors",
+  "sharedAssumptions": {
+    "loadedLaborRateUsdPerHr": 30.51,
+    "loadedLaborRateBasis": "BLS Occupational Outlook Handbook, Woodworkers, 2025 median wage $21.79/hr, x1.4 small-business burden multiplier (payroll tax + workers' comp + no-benefits overhead \u2014 standard small-business planning convention, not trade-specific sourced data)",
+    "loadedLaborRateSource": "https://www.bls.gov/ooh/production/print/woodworkers.htm",
+    "specialistIntegrationRateUsdPerHr": 55.0,
+    "specialistIntegrationRateBasis": "Planning assumption for donor-electronics bench/integration work requiring more than furniture-assembly skill; not independently sourced \u2014 treat as an estimate",
+    "channelFeePct": 0.029,
+    "channelFeeFlatUsd": 0.3,
+    "channelFeeBasis": "Stripe standard US online card rate, observed 2026-11-01",
+    "channelFeeSource": "https://stripe.com/pricing",
+    "warrantyReservePct_hardwareOnly": 0.05,
+    "warrantyReserveBasis": "Common small-hardware-business planning convention (parts+labor+return-freight reserve) \u2014 assumption, not derived from claims history since none exists pre-launch",
+    "damageReservePct_donorIntegration": 0.07,
+    "damageReserveBasis": "Higher than product warranty because the job involves temporary custody of the customer's own, possibly irreplaceable donor hardware \u2014 assumption, not an insurer-quoted rate",
+    "cacBaselineUsd_hardwareOnly": 275.0,
+    "cacAlternatives_hardwareOnly": {
+      "organicCommunityLed": 150.0,
+      "paidAdsLed": 450.0
+    },
+    "cacBasis": "UNVALIDATED planning assumption. Floor informed by 2026 DTC channel-level cost benchmarks (Meta ~$42-53, Google ~$38-62 per acquisition for general ecommerce; Eightx 2026 channel benchmarks), scaled up for a considered, ~$2,000+ niche hobby purchase with a much smaller/longer funnel than impulse ecommerce. No campaign has been run for this product; no landing page, waitlist, or ad test exists.",
+    "cacSource": "https://eightx.co/blog/average-cac-by-channel",
+    "cacBaselineUsd_donorIntegration": 60.0,
+    "cacBasis_donorIntegration": "Assumed referral/community-driven acquisition (retro-arcade forums, word of mouth) for a bespoke service with no addressable paid-ads funnel \u2014 unvalidated assumption",
+    "customerDepositPct": 0.5,
+    "customerDepositBasis": "Recommended build-to-order term: 50% deposit at order, balance due before shipment. Not yet offered to any real customer.",
+    "supplierPrepayPct": 1.0,
+    "supplierPrepayBasis": "Conservative assumption: full prepayment required on all component/material purchases at this business's scale (no established trade credit). Net terms at volume are a future negotiation target, not assumed here \u2014 do not read this as evidence against negotiating better terms later.",
+    "productionCapacity": {
+      "weeklyCapacityHours": 25,
+      "weeklyCapacityBasis": "Assumes ONE part-time solo builder (consistent with this being a personal-domain project, not a staffed shop). Scaling beyond this requires hiring/contracting \u2014 see laborIsOwnerSweatEquity flags per scenario.",
+      "procurementLeadDays": 14,
+      "procurementLeadBasis": "Allowance for ordering Ultimarc components and plywood/hardware before a build can start; not a supplier-confirmed lead time."
+    },
+    "estimatedShippedMass": {
+      "plywoodDensityKgPerM3": 600,
+      "plywoodDensityBasis": "Mid-range of commonly cited 500-650 kg/m3 generic plywood density (no species/grade-specific supplier spec sheet obtained)",
+      "plywoodDensitySource": "https://offcut.tools/plywood-weight-by-thickness-chart/",
+      "stationAPanelAreaM2": 3.53,
+      "stationAPanelAreaBasis": "arcade/cad/generated/panel_schedule.csv Station A panel schedule, summed",
+      "stationAPanelMassKg": 38.1,
+      "hardwareElectronicsFastenersPackagingAllowanceKgRange": [10, 20],
+      "estimatedShippedMassKgRange": [48, 58],
+      "estimatedShippedMassLbRange": [106, 128],
+      "massBasis": "CORRECTED mass estimate. An earlier draft derived ~110kg/245lb from the full PURCHASED-sheet area (3 sheets x ~2.98 m2 = ~8.94 m2), which counts the 45%-waste offcuts from the 55% nesting-utilization placeholder as if they were shipped \u2014 they are scrap, not product. This corrected figure uses the ACTUAL used panel area (3.53 m2) x 18mm thickness x assumed 600 kg/m3 density, plus an allowance for hardware/electronics/fasteners/packaging. Still an ESTIMATE, not a certified scale weight; freightOutUsd per scenario stays an unquoted LTL allowance regardless of this figure."
+    }
+  },
+  "hardwareOnlyMaterialCostLines": [
+    {
+      "name": "plywood_panels_18mm_3sheets",
+      "lowUsd": 180,
+      "highUsd": 330,
+      "basis": "3 sheets/unit x $60-110/sheet (hardware-and-fabrication.md observed allowance). Sheet count derived from CAD panel_schedule.csv Station A panel area (3.53 m2) / parameters.json's conservative 55% nesting-utilization allowance (NOT a real nesting-software result) / 2.98 m2 sheet area, rounded up.",
+      "evidenceSource": "arcade/research/hardware-and-fabrication.md; arcade/cad/generated/panel_schedule.csv; arcade/cad/parameters.json"
+    },
+    {
+      "name": "joinery_fastener_lot",
+      "lowUsd": 40,
+      "highUsd": 80,
+      "basis": "One-station share of hardware-and-fabrication.md two-station BOM (qty 2 lot, halved)",
+      "evidenceSource": "arcade/research/hardware-and-fabrication.md"
+    },
+    {
+      "name": "finish_edge_protection_lot",
+      "lowUsd": 35,
+      "highUsd": 80,
+      "basis": "One-station share of hardware-and-fabrication.md two-station BOM",
+      "evidenceSource": "arcade/research/hardware-and-fabrication.md"
+    },
+    {
+      "name": "trackball_utrak_bare",
+      "lowUsd": 79,
+      "highUsd": 79,
+      "basis": "OBSERVED Ultimarc listed price, checked directly during prior research",
+      "evidenceSource": "https://www.ultimarc.com/trackballs-and-spinners/trackballs/u-trak/"
+    },
+    {
+      "name": "ipac_ultimate_io_with_harness",
+      "lowUsd": 108,
+      "highUsd": 108,
+      "basis": "OBSERVED Ultimarc listed price (harness-equipped variant)",
+      "evidenceSource": "https://www.ultimarc.com/control-interfaces/i-pacs/i-pac-ultimate-i-o/"
+    },
+    {
+      "name": "eight_button_set",
+      "lowUsd": 32,
+      "highUsd": 60,
+      "basis": "hardware-and-fabrication.md allowance",
+      "evidenceSource": "arcade/research/hardware-and-fabrication.md"
+    },
+    {
+      "name": "audio_set_rated_power",
+      "lowUsd": 30,
+      "highUsd": 70,
+      "basis": "One-station share of hardware-and-fabrication.md two-station BOM",
+      "evidenceSource": "arcade/research/hardware-and-fabrication.md"
+    },
+    {
+      "name": "ventilation_set",
+      "lowUsd": 20,
+      "highUsd": 40,
+      "basis": "One-station share of hardware-and-fabrication.md two-station BOM",
+      "evidenceSource": "arcade/research/hardware-and-fabrication.md"
+    },
+    {
+      "name": "power_distribution_set_listed",
+      "lowUsd": 30,
+      "highUsd": 60,
+      "basis": "UL/ETL-listed set, one-station share of hardware-and-fabrication.md two-station BOM",
+      "evidenceSource": "arcade/research/hardware-and-fabrication.md"
+    },
+    {
+      "name": "usb_cable_strain_relief_set",
+      "lowUsd": 25,
+      "highUsd": 60,
+      "basis": "One-station share of hardware-and-fabrication.md two-station BOM",
+      "evidenceSource": "arcade/research/hardware-and-fabrication.md"
+    },
+    {
+      "name": "inbound_freight_procurement_tax_allowance",
+      "lowUsd": 35,
+      "highUsd": 75,
+      "basis": "UNQUOTED allowance for inbound freight on individually-ordered Ultimarc/hardware components plus potential sales/use tax exposure on business material purchases (jurisdiction-dependent). Landed cost on INBOUND procurement \u2014 separate from freightOutUsd (outbound shipment to the customer). No customs broker, freight forwarder, or tax advisor consulted; no landed-cost quote obtained. Supplier list prices in the lines above are NOT landed COGS without this allowance.",
+      "evidenceSource": null
+    }
+  ],
+  "hardwareOnlyMaterialCostLines_note": "Held CONSTANT across prototype/10/50/100-unit scenarios. No supplier volume discount is assumed at any scale \u2014 no quote supports one. Any real volume pricing obtained later is upside against this baseline, not a built-in assumption. Includes an inbound_freight_procurement_tax_allowance line (landed cost on INBOUND procurement \u2014 supplier list prices alone are not landed COGS); new mid-point baseline including that allowance is ~$828 (was ~$773 before the allowance line existed).",
+  "donorIntegrationMaterialCostLines": [
+    {
+      "name": "furniture_shell_material",
+      "lowUsd": 352,
+      "highUsd": 728,
+      "basis": "Same hardwareOnlyMaterialCostLines set minus trackball_utrak_bare, ipac_ultimate_io_with_harness, and eight_button_set (donor system supplies or dictates its own trackball/encoder/button interface)"
+    },
+    {
+      "name": "integration_adapter_harness_allowance",
+      "lowUsd": 80,
+      "highUsd": 180,
+      "basis": "Custom wiring/connector/adapter allowance for an unknown donor pinout \u2014 estimate, highly donor-specific, confirm per job"
+    },
+    {
+      "name": "donor_bench_test_consumables",
+      "lowUsd": 20,
+      "highUsd": 50,
+      "basis": "Test leads, fuses, labels \u2014 allowance"
+    },
+    {
+      "name": "inbound_freight_procurement_tax_allowance",
+      "lowUsd": 20,
+      "highUsd": 45,
+      "basis": "Same unquoted inbound-freight/procurement-tax allowance philosophy as hardwareOnlyMaterialCostLines, scaled down to this offer's smaller material set. No quote obtained.",
+      "evidenceSource": null
+    }
+  ],
+  "licensedTurnkeyAdditionalCostLines": [
+    {
+      "name": "wall_tv_43in",
+      "lowUsd": 200,
+      "highUsd": 350,
+      "basis": "hardware-and-fabrication.md allowance"
+    },
+    {
+      "name": "emulation_pc",
+      "lowUsd": 300,
+      "highUsd": 600,
+      "basis": "hardware-and-fabrication.md procurement target"
+    },
+    {
+      "name": "inbound_freight_procurement_tax_allowance_tv_pc",
+      "lowUsd": 20,
+      "highUsd": 45,
+      "basis": "Unquoted inbound-freight/procurement-tax allowance for the TV + emulation PC procurement lines, same philosophy as hardwareOnlyMaterialCostLines. No quote obtained."
+    },
+    {
+      "name": "game_license_royalty_fee",
+      "lowUsd": null,
+      "highUsd": null,
+      "status": "UNQUOTED_BLOCKING",
+      "basis": "No public rate card found for small-manufacturer arcade-IP licensing. Web search for industry licensing-economics precedent (Atari third-party royalty licensing; Play Mechanix/Bandai Namco 20-year coin-op partnership; general minimum-guarantee/advance royalty structures) returned only general mechanisms, no figure applicable to a 10/50/100-unit home-market producer. This line is deliberately left unresolved, not assumed $0. No price, deposit, or unit may be offered under this scenario until a signed agreement exists with the applicable rights holder."
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "prototype",
+      "offerType": "hardware_only",
+      "label": "Prototype (1 unit, hand-built, no tooling)",
+      "volumeUnits": 1,
+      "batchVsAnnualNote": "A single proof unit, built by hand with no jigs/fixtures, to validate the design (trackball feel, cutout geometry, service access, finish) before any tooling spend. Not for sale. Distinct from 'annual demand' \u2014 see demandHypothesis.",
+      "targetPriceUsd": null,
+      "forSale": false,
+      "laborBreakdown": [
+        {
+          "hours": 14.0,
+          "rateUsdPerHr": 30.51,
+          "label": "full manual build incl. first-build problem-solving/iteration, no jigs"
+        }
+      ],
+      "nreTotalUsd": {
+        "lowUsd": 0,
+        "highUsd": 0,
+        "basis": "Deliberately zero \u2014 the prototype IS the validation step before committing tooling spend"
+      },
+      "packagingUsd": {
+        "lowUsd": 0,
+        "highUsd": 0,
+        "basis": "Not shipped/sold; no packaging cost modeled"
+      },
+      "freightOutUsd": {
+        "lowUsd": 0,
+        "highUsd": 0,
+        "basis": "Not shipped/sold"
+      },
+      "laborIsOwnerSweatEquity": true,
+      "materialCostLinesRef": "hardwareOnlyMaterialCostLines"
+    },
+    {
+      "id": "batch_10",
+      "offerType": "hardware_only",
+      "label": "10-unit batch (first commercial tooling investment)",
+      "volumeUnits": 10,
+      "batchVsAnnualNote": "A single 10-unit production run. This is a MANUFACTURING batch-size decision, not a claim that 10 units will sell in a given year \u2014 see demandHypothesis for the (unvalidated) demand-side figure.",
+      "targetPriceUsd": 2199,
+      "forSale": true,
+      "laborBreakdown": [
+        {
+          "hours": 8.5,
+          "rateUsdPerHr": 30.51,
+          "label": "practiced manual build, first batch's own jigs just funded by this batch's NRE"
+        }
+      ],
+      "nreTotalUsd": {
+        "lowUsd": 1300,
+        "highUsd": 2900,
+        "basis": "STANDALONE first-batch tooling, used as-is for breakevenUnits/nrePerUnitUsd: CAD release/engineering (15-25hr @ $40-60/hr), CNC setup+first-article cut, drilling/routing jig, wiring-harness jig, QA test fixture. One-time. IF a real batch_50/batch_100 later reuses these same jigs in a sequential rollout, only their own incrementalNreIfSequentialUsd is additional cash (see those scenarios) \u2014 but each scenario's own nreTotalUsd here is deliberately the full STANDALONE figure so batch_10/50/100 are comparable on an apples-to-apples first-launch basis.",
+        "items": [
+          "cad_release_engineering",
+          "cnc_setup_first_article",
+          "drilling_routing_jig",
+          "wiring_harness_jig",
+          "qa_test_fixture"
+        ]
+      },
+      "packagingUsd": {
+        "lowUsd": 35,
+        "highUsd": 70,
+        "basis": "Small-quantity corrugated carton + foam/corner-protector allowance, no bulk quote"
+      },
+      "freightOutUsd": {
+        "lowUsd": 150,
+        "highUsd": 350,
+        "basis": "Domestic LTL/large-parcel planning range for an estimated ~48-58kg/106-128lb flat-pack crate (see sharedAssumptions.estimatedShippedMass; CORRECTED from an earlier ~110kg/245lb figure that counted purchased-sheet nesting-waste offcuts as shipped weight), informed by 2026 LTL benchmark ($100-600/pallet); route- and carrier-dependent, no account quote obtained",
+        "source": "https://www.wearewarp.com/how-much-does-ltl-shipping-cost"
+      },
+      "laborIsOwnerSweatEquity": true,
+      "materialCostLinesRef": "hardwareOnlyMaterialCostLines"
+    },
+    {
+      "id": "batch_50",
+      "offerType": "hardware_only",
+      "label": "50-unit batch (standalone tooling basis)",
+      "volumeUnits": 50,
+      "batchVsAnnualNote": "A standalone 50-unit production run, including its full tooling investment. Sequential reuse is a separately modeled alternative, not an annual-demand claim.",
+      "targetPriceUsd": 2199,
+      "forSale": true,
+      "laborBreakdown": [
+        {
+          "hours": 7.0,
+          "rateUsdPerHr": 30.51,
+          "label": "process repetition + batch-finishing efficiency gain over batch_10 \u2014 engineering judgment, not a time study"
+        }
+      ],
+      "nreTotalUsd": {
+        "lowUsd": 1600,
+        "highUsd": 3700,
+        "basis": "STANDALONE framing (coherent with batch_10/batch_100 for apples-to-apples comparison; used for breakevenUnits/nrePerUnitUsd): if batch_50 were run as the first-ever commercial batch with no prior batch_10, it needs the SAME base engineering/CNC-setup/jig tooling as batch_10 ($1,300-2,900) PLUS its own packaging die-line, justified at this volume ($300-800) = $1,600-3,700 total. See incrementalNreIfSequentialUsd for the much smaller additional cash actually needed if batch_50 is run as the SECOND batch of a real sequential 10-then-50 rollout (production-plan.md section 7).",
+        "items": [
+          "cad_release_engineering",
+          "cnc_setup_first_article",
+          "drilling_routing_jig",
+          "wiring_harness_jig",
+          "qa_test_fixture",
+          "packaging_dieline"
+        ]
+      },
+      "incrementalNreIfSequentialUsd": {
+        "lowUsd": 300,
+        "highUsd": 800,
+        "basis": "Additional tooling cash ONLY needed beyond batch_10's own jigs, if batch_50 is run as the SECOND real batch in a sequential 10-then-50 rollout (base engineering/CNC/jigs already funded by batch_10 and reused at $0 incremental cost here). NOT used by compute_scenario's nreTotalUsd/breakevenUnits/nrePerUnitUsd \u2014 those use the STANDALONE figure above. Used only for the sequential-rollout illustration in production-plan.md section 7 / economics.py sequential_rollout_tooling_usd()."
+      },
+      "packagingUsd": {
+        "lowUsd": 35,
+        "highUsd": 70,
+        "basis": "Held constant \u2014 no bulk packaging quote obtained; see hardwareOnlyMaterialCostLines_note philosophy"
+      },
+      "freightOutUsd": {
+        "lowUsd": 150,
+        "highUsd": 350,
+        "basis": "Held constant \u2014 no carrier volume-rate quote obtained"
+      },
+      "laborIsOwnerSweatEquity": false,
+      "laborIsOwnerSweatEquityNote": "112-day solo-capacity lead time at 25hr/week (see leadTimeDays) exceeds a personal side-project cadence; this scenario assumes hired/contracted labor, i.e. REAL cash, not Mike's own time.",
+      "materialCostLinesRef": "hardwareOnlyMaterialCostLines"
+    },
+    {
+      "id": "batch_100",
+      "offerType": "hardware_only",
+      "label": "100-unit batch (standalone tooling basis)",
+      "volumeUnits": 100,
+      "batchVsAnnualNote": "A single 100-unit run at assumed solo/part-time capacity implies a ~189-day (27-week) production lead time \u2014 see leadTimeDays. This is a capacity constraint, not a demand forecast; nothing here claims 100 units will sell in a year.",
+      "targetPriceUsd": 2199,
+      "forSale": true,
+      "laborBreakdown": [
+        {
+          "hours": 6.25,
+          "rateUsdPerHr": 30.51,
+          "label": "further repetition/bulk-handling efficiency \u2014 engineering judgment, not a time study"
+        }
+      ],
+      "nreTotalUsd": {
+        "lowUsd": 1600,
+        "highUsd": 3700,
+        "basis": "STANDALONE framing, same reasoning as batch_50: if batch_100 were the first-ever commercial batch, it needs the same base tooling + packaging die-line as a standalone batch_50 ($1,600-3,700); no further tooling item is assumed needed between 50 and 100 units. Used for breakevenUnits/nrePerUnitUsd. See incrementalNreIfSequentialUsd for the sequential-rollout alternative."
+      },
+      "incrementalNreIfSequentialUsd": {
+        "lowUsd": 0,
+        "highUsd": 0,
+        "basis": "If batch_100 sequentially follows a real batch_10-then-batch_50 rollout, all tooling (base + packaging die-line) is already funded; $0 incremental. NOT used by compute_scenario \u2014 see batch_50's incrementalNreIfSequentialUsd note."
+      },
+      "packagingUsd": {
+        "lowUsd": 35,
+        "highUsd": 70,
+        "basis": "Held constant"
+      },
+      "freightOutUsd": {
+        "lowUsd": 150,
+        "highUsd": 350,
+        "basis": "Held constant"
+      },
+      "laborIsOwnerSweatEquity": false,
+      "laborIsOwnerSweatEquityNote": "189-day solo-capacity lead time; assumes hired/contracted labor, real cash outlay.",
+      "materialCostLinesRef": "hardwareOnlyMaterialCostLines"
+    },
+    {
+      "id": "donor_integration_job",
+      "offerType": "donor_integration",
+      "label": "One bespoke donor-integration job",
+      "volumeUnits": 1,
+      "batchVsAnnualNote": "Per-job bespoke service, not a batch product. See demandHypothesis for an illustrative (unvalidated) annual job-count scenario used only to size the business, not a sales forecast.",
+      "targetPriceUsd": 2294,
+      "forSale": true,
+      "laborBreakdown": [
+        {
+          "hours": 6.5,
+          "rateUsdPerHr": 30.51,
+          "label": "furniture-shell assembly, reusing hardware-only jigs"
+        },
+        {
+          "hours": 8.0,
+          "rateUsdPerHr": 55.0,
+          "label": "donor-electronics integration, pinout verification, bench-test \u2014 specialist rate"
+        }
+      ],
+      "nreTotalUsd": {
+        "lowUsd": 900,
+        "highUsd": 900,
+        "basis": "STANDALONE framing: the FULL one-time furniture-shell jig/fixture tooling investment this service needs if the first real job were also the first time this tooling is built, consistent with the batch_10/50/100 standalone comparison. Used for breakevenUnits/nrePerUnitUsd \u2014 a single bespoke job cannot amortize this alone (see batchFullyLoadedMarginUsd, which is deliberately negative at volumeUnits=1). See amortizedShareIfTenJobsPerYearUsd for the internal per-job allocation IF the illustrative 10-jobs/year volume in demandHypothesis actually materializes \u2014 that $90/job figure is NOT the cash the first real job requires."
+      },
+      "amortizedShareIfTenJobsPerYearUsd": {
+        "lowUsd": 90,
+        "highUsd": 90,
+        "basis": "Internal accounting allocation ONLY if ten real jobs/year materialize (demandHypothesis donorIntegration_year1JobsRange upper bound: $900 / 10). NOT the actual cash the first real job requires \u2014 the full $900 standalone tooling investment above must be funded before or by that first job. NOT used by compute_scenario."
+      },
+      "packagingUsd": {
+        "lowUsd": 0,
+        "highUsd": 0,
+        "basis": "Typically local/regional delivery or customer pickup given bespoke, high-value, fragile donor hardware; not modeled as shipped freight"
+      },
+      "freightOutUsd": {
+        "lowUsd": 0,
+        "highUsd": 0,
+        "basis": "See packaging note"
+      },
+      "laborIsOwnerSweatEquity": true,
+      "materialCostLinesRef": "donorIntegrationMaterialCostLines",
+      "reservePct": 0.07,
+      "reserveLabel": "bailment/damage reserve",
+      "cacUsdOverride": 60.0,
+      "excludesCustomerDonorHardwareCost": true,
+      "excludesCustomerDonorHardwareCostNote": "targetPriceUsd is OUR integration service fee only. It does NOT include the customer's cost to acquire their own donor system (a separate, variable, customer-borne expense not modeled here)."
+    },
+    {
+      "id": "licensed_turnkey_illustrative",
+      "offerType": "licensed_turnkey",
+      "label": "Illustrative turnkey cabinet (10-unit tooling basis) \u2014 NOT LAUNCHABLE",
+      "volumeUnits": 10,
+      "batchVsAnnualNote": "Illustrative only \u2014 shows the cost structure if this offer ever becomes legally possible. Not a production plan.",
+      "targetPriceUsd": null,
+      "forSale": false,
+      "blocked": true,
+      "blockedReason": "game_license_royalty_fee is UNQUOTED_BLOCKING \u2014 no signed rights-holder agreement exists",
+      "laborBreakdown": [
+        {
+          "hours": 10.0,
+          "rateUsdPerHr": 30.51,
+          "label": "furniture + TV/PC/game system integration and test, more than hardware-only due to full-system bring-up"
+        }
+      ],
+      "nreTotalUsd": {
+        "lowUsd": 1300,
+        "highUsd": 2900,
+        "basis": "Assumes reuse of hardwareOnly batch_10 tooling; no turnkey-specific tooling modeled separately"
+      },
+      "packagingUsd": {
+        "lowUsd": 60,
+        "highUsd": 120,
+        "basis": "Larger/heavier shipment incl. TV+PC"
+      },
+      "freightOutUsd": {
+        "lowUsd": 250,
+        "highUsd": 500,
+        "basis": "Heavier/bulkier shipment incl. TV+PC"
+      },
+      "laborIsOwnerSweatEquity": true,
+      "materialCostLinesRef": "hardwareOnlyMaterialCostLines+licensedTurnkeyAdditionalCostLines"
+    }
+  ],
+  "oneTimeLaunchCostsUsd": [
+    {
+      "name": "business_registration",
+      "lowUsd": 300,
+      "highUsd": 800,
+      "basis": "State-dependent LLC/sole-proprietor registration \u2014 assumption, not jurisdiction-specific. One-time."
+    },
+    {
+      "name": "website_ecommerce_setup",
+      "lowUsd": 500,
+      "highUsd": 1500,
+      "basis": "Templated storefront + product photography \u2014 assumption. One-time setup, not a recurring hosting/subscription estimate."
+    },
+    {
+      "name": "compliance_documentation_cpsc_legal",
+      "lowUsd": 800,
+      "highUsd": 2000,
+      "basis": "A CPSC General Certificate of Conformity (or whichever other CPSC self-certification category applies \u2014 APPLICABILITY IS RULE- AND PRODUCT-SPECIFIC, not automatic for all furniture; must be determined with qualified counsel/a compliance lab for the released design) plus attorney review of warranty/ToS/liability waiver language \u2014 assumption. One-time per released design; a materially redesigned product would need this again.",
+      "source": "https://www.cpsc.gov/Business--Manufacturing/Small-Business-Resources"
+    }
+  ],
+  "oneTimeLaunchCostsUsd_note": "TRUE one-time business-setup costs paid once before/at commercial launch, independent of any single production scenario. This is the pool compute_scenario()/breakevenUnits uses \u2014 a cost that recurs every year (like insurance) is deliberately NOT in this pool; see firstYearOperatingFixedCostsUsd below. EXCLUDED from cashOutlayExclLaborUsd/cashOutlayInclLaborUsd per scenario (those are the batch's own material+labor+NRE cash only); included in launchLiquidityRequiredUsd.",
+  "firstYearOperatingFixedCostsUsd": [
+    {
+      "name": "liability_product_insurance_annual",
+      "lowUsd": 1200,
+      "highUsd": 2500,
+      "basis": "General+product liability bundle for a small manufacturer, informed by multiple small-business insurance surveys (not a bound quote). This is an ANNUAL premium \u2014 it RECURS every year the business operates, shown here at its first-year estimate; it is NOT a one-time launch cost and year-2+ planning must budget it again.",
+      "sources": [
+        "https://www.1800insurance.com/guides/starting-a-manufacturing-insurance-guide",
+        "https://businessinsureguide.com/product-liability-insurance-cost",
+        "https://www.insuranceopedia.com/business-insurance/small-business-insurance-cost"
+      ]
+    }
+  ],
+  "firstYearOperatingFixedCostsUsd_note": "Recurring annual operating cost, shown at its first-year estimate. Included in each scenario's launchLiquidityRequiredUsd (the cash the owner must have available to get through year 1) but deliberately EXCLUDED from breakevenUnits' one-time pool, because a recurring cost is not 'paid back once' by a single batch selling out \u2014 every future year needs its own premium again. batchFullyLoadedMarginUsd/breakevenUnits are NOT a claim that this or any other overhead stops recurring after break-even.",
+  "demandHypothesis": {
+    "statusLabel": "HYPOTHESIS, NOT A FORECAST \u2014 no market test has been run",
+    "hardwareOnly_year1UnitsRange": [
+      8,
+      20
+    ],
+    "hardwareOnly_basis": "Unvalidated planning range. No landing page, waitlist, pre-order, or paid-ad test has been conducted for this SKU. Not derived from any comparable-product sales data.",
+    "donorIntegration_year1JobsRange": [
+      0,
+      10
+    ],
+    "donorIntegration_basis": "Unvalidated planning illustration for fixed-cost/tooling allocation. This study did not collect inquiries or establish annual demand.",
+    "competingAlternativesNote": "Used cabinets, repair/restoration shops, licensed home products and doing nothing compete with both offers. Release differences do not prove an uncontested market. Configuration-aware evidence is maintained in narrative.json, referenced by competitiveContextRef.",
+    "requiredBeforeTreatingAsForecast": [
+      "Approved buyer-discovery and costed-offer experiments described in narrative.json.validationPlan; no outreach is authorized by this study",
+      "Three unrelated paid pilots with positive stressed contribution, followed by successful fulfillment/support acceptance; then apply K1's distinct 10-unit funding gate",
+      "Revalidate demand, landed quotes and capacity before 50/100-unit commitments; pilot orders are not an annual-volume forecast"
+    ]
+  },
+  "killCriteria": [
+    {
+      "id": "K1",
+      "rule": "Do not commit batch_10 NRE/tooling spend (~$1,300-2,900) until at least 6 of 10 units have a collected 50% deposit, OR the owner explicitly accepts the full launch-liquidity requirement shown in economics.csv's launchLiquidityRequiredUsd for batch_10 (see production-plan.md section 6) \u2014 that figure is a floor cash requirement, not a risk-free number, even before any deposits are counted."
+    },
+    {
+      "id": "K2",
+      "rule": "At $1,799, batch_10 has negative marginal contribution (-0.5%) at baseline, before tooling. There is no universal safe price floor: recompute the selected batch using its landed quotes, paid labor, CAC and stress case; then recover tooling and operating overhead separately."
+    },
+    {
+      "id": "K3",
+      "rule": "Before a commercial pilot or batch, bind suitable liability coverage, document which safety/electrical/EMC rules apply to the actual released product, and complete their required testing and certification with qualified advice. A CPSC General Certificate of Conformity is required only if an applicable rule requires it; listed components do not certify the assembly."
+    },
+    {
+      "id": "K4",
+      "rule": "Do not accept a customer's donor hardware into the shop without a signed bailment/liability waiver, and never represent or imply that integration confers any software license or legality to the customer's donor system."
+    },
+    {
+      "id": "K5",
+      "rule": "Do not quote a price or collect any deposit for the licensed_turnkey offer until a signed license/royalty agreement exists with the applicable rights holder establishing an actual per-unit license cost. Do not substitute $0 or an invented placeholder."
+    },
+    {
+      "id": "K6",
+      "rule": "Re-gate before committing to batch_50/batch_100: if real material quotes (including the inbound-freight/procurement-tax allowance) vary more than 15% from the ~$828 material baseline, or a real CNC nesting quote implies more sheets than the conservative 55%-utilization placeholder, treat as a hard stop requiring re-pricing, not a rounding error."
+    },
+    {
+      "id": "K7",
+      "rule": "If a real marketing test shows CAC above ~$450/order (the upper end tested), the paid-acquisition channel for the hardware-only consumer SKU should be killed in favor of the lower-CAC donor-integration/referral path, or the hardware-only commercial path should be shelved entirely."
+    },
+    {
+      "id": "K8",
+      "rule": "At +30% direct-cost stress (a realistic landed-cost miss given zero vendor quotes obtained), batch_10's MARGINAL contribution margin goes negative at the $2,199 test price, not just its batch-fully-loaded margin (see economics.csv) \u2014 the batch would lose money on every unit sold, before tooling is even considered. Do not treat batch_10 baseline numbers as a cushion against normal quoting variance; re-run the model against real quotes before committing cash."
+    },
+    {
+      "id": "K9",
+      "rule": "The donor-integration service's own standalone tooling ($900, see nreTotalUsd) exceeds what a SINGLE job's marginal contribution margin can cover at any tested stress level \u2014 batchFullyLoadedMarginUsd is negative for donor_integration_job at 0%, +15%, and +30% stress alike. Do not describe a first donor-integration job as self-funding, zero-risk, or the strongest number in this analysis; it needs the same pre-validated-volume or owner-funded-tooling reasoning as batch_10 before being offered commercially (see goNoGo.conditionsForOfferingDonorIntegrationCommercially)."
+    }
+  ],
+  "goNoGo": {
+    "recommendation": "PERSONAL PROTOTYPE FIRST. Do not release a commercial batch or accept customer hardware before the demand, compliance, funding and support gates below. A hardware-only kit priced near a complete factory Fore! preorder needs a validated differentiator beyond price; preorder acceptance is not proof of shipment. See narrative.json for the exact competing configurations and availability limits.",
+    "conditionsForCommercialLaunchOfHardwareOnlyKit": [
+      "Prototype built and passes PLAN.md's own build-acceptance gates (trackball/button/fit/safety tests)",
+      "Three unrelated paid pilot orders at a price with positive stressed contribution, followed by successful fulfillment and support acceptance. Then apply K1's separately funded or deposit-backed 10-unit batch gate; three pilots are not proof of demand for 50 units.",
+      "Liability/product insurance bound; applicable product-safety, electrical/EMC and certification requirements established and completed for the released design, with qualified counsel/lab review",
+      "A differentiation story beyond price that a complete factory cabinet cannot offer \u2014 e.g. multi-game flexibility for a customer's own legal ROM/donor library, custom furniture integration, or the specific classic (non-reboot) Silver Strike/legacy Big Buck gap \u2014 validated with at least a few real prospective buyers, not asserted"
+    ],
+    "conditionsForOfferingDonorIntegrationCommercially": [
+      "Signed bailment/liability waiver template reviewed",
+      "Liability insurance covering custody of third-party property bound",
+      "At least one real inquiry from someone who already owns or has a credible path to a legitimate donor system",
+      "A funding plan for the $900 standalone furniture-shell tooling investment (owner-funded up front, or pre-validated volume sufficient to amortize it) \u2014 do not rely on a single job's deposit to cover it (see killCriteria K9)"
+    ]
+  },
+  "sources": [
+    {
+      "id": "E1",
+      "title": "Ultimarc U-Trak trackball product page",
+      "url": "https://www.ultimarc.com/trackballs-and-spinners/trackballs/u-trak/",
+      "observedOn": "2026-11-01",
+      "claim": "U-Trak bare $79"
+    },
+    {
+      "id": "E2",
+      "title": "Ultimarc I-PAC Ultimate I/O product page",
+      "url": "https://www.ultimarc.com/control-interfaces/i-pacs/i-pac-ultimate-i-o/",
+      "observedOn": "2026-11-01",
+      "claim": "I-PAC with harness $108-$99-$89 depending on configuration; BOM uses $108 harness-equipped variant"
+    },
+    {
+      "id": "E3",
+      "title": "Stripe Pricing",
+      "url": "https://stripe.com/pricing",
+      "observedOn": "2026-11-01",
+      "claim": "Standard US online card rate 2.9% + $0.30"
+    },
+    {
+      "id": "E4",
+      "title": "BLS Occupational Outlook Handbook \u2014 Woodworkers",
+      "url": "https://www.bls.gov/ooh/production/print/woodworkers.htm",
+      "observedOn": "2026-11-01",
+      "claim": "2025 median pay $45,310/yr, $21.79/hr"
+    },
+    {
+      "id": "E5",
+      "title": "Warp \u2014 How much does LTL shipping cost",
+      "url": "https://www.wearewarp.com/how-much-does-ltl-shipping-cost",
+      "observedOn": "2026-11-01",
+      "claim": "LTL shipping typically $100-600/pallet, highly route/class dependent"
+    },
+    {
+      "id": "E6",
+      "title": "CPSC Small Business Resources",
+      "url": "https://www.cpsc.gov/Business--Manufacturing/Small-Business-Resources",
+      "observedOn": "2026-11-01",
+      "claim": "Small-entity compliance guides and General Certificate of Conformity process exist for consumer-product manufacturers"
+    },
+    {
+      "id": "E7",
+      "title": "CPSC Tipover Information Center",
+      "url": "https://www.cpsc.gov/Safety-Education/Safety-Education-Centers/Tipover-Information-Center",
+      "observedOn": "2026-11-01",
+      "claim": "Furniture tip-over is a recognized consumer-product hazard category; informs the stability/anchorage compliance gate"
+    },
+    {
+      "id": "E8",
+      "title": "Eightx \u2014 Average CAC by Marketing Channel 2026",
+      "url": "https://eightx.co/blog/average-cac-by-channel",
+      "observedOn": "2026-11-01",
+      "claim": "2026 channel-level CAC benchmarks: Meta ~$42-53, Google ~$38-62, used as a floor reference only"
+    },
+    {
+      "id": "E9",
+      "title": "1800Insurance \u2014 Manufacturing Business Insurance Guide",
+      "url": "https://www.1800insurance.com/guides/starting-a-manufacturing-insurance-guide",
+      "observedOn": "2026-11-01",
+      "claim": "Average manufacturing-startup insurance cost ~$1,958/yr cited as a benchmark"
+    },
+    {
+      "id": "E10",
+      "title": "arcade/research/hardware-and-fabrication.md",
+      "url": null,
+      "observedOn": "2026-11-01",
+      "claim": "Reconciled two-station BOM; this file's single-station material cost lines are derived from it"
+    },
+    {
+      "id": "E11",
+      "title": "arcade/cad/generated/panel_schedule.csv and parameters.json",
+      "url": null,
+      "observedOn": "2026-11-01",
+      "claim": "Station A panel area 3.53 m2, 55% conservative nesting-utilization allowance, used to derive the 3-sheet plywood estimate"
+    },
+    {
+      "id": "E12",
+      "title": "Golden Tee Fore! Remastered Edition listing",
+      "url": "https://www.thepinballcompany.com/product/golden-tee-fore-remastered-edition/",
+      "observedOn": "2026-11-01",
+      "claim": "Factory Fore! Remastered home-cabinet preorder details; the configuration-aware price and availability record is in narrative.json."
+    },
+    {
+      "id": "E13",
+      "title": "Silver Strike Bowling: League Night Home Edition \u2014 official product page",
+      "url": "https://store.itsgames.com/products/silver-strike-bowling-league-night-home-edition",
+      "observedOn": "2026-11-01",
+      "claim": "League Night cabinet, commercial trackball, touchscreen, NFC/WiFi and included stand; customer supplies the 4K TV. Home/noncommercial use; free online period ends in Spring 2027. See narrative.json for the observed base price and limits."
+    },
+    {
+      "id": "E14",
+      "title": "Golden Tee Arcade Collection listing",
+      "url": "https://shopindoorgolf.com/products/golden-tee-arcade-collection",
+      "observedOn": "2026-11-01",
+      "claim": "Arcade Collection GO configuration includes PowerPutt, classic Silver Strike and Target Toss Pro, not Golden Tee golf. Price/configuration evidence is maintained in narrative.json."
+    },
+    {
+      "id": "E15",
+      "title": "Raw Thrills Jurassic Park Arcade commercial listing",
+      "url": "https://www.gameroomshop.com/products/raw-thrills-jurassic-park-arcade-game",
+      "observedOn": "2026-11-01",
+      "claim": "Dealer listing for a full commercial Jurassic Park environmental cabinet. Exact configuration, stock and basement delivery require confirmation; the observed listing and limits are maintained in narrative.json."
+    },
+    {
+      "id": "E16",
+      "title": "Offcut \u2014 Plywood Weight by Thickness Chart & Calculator",
+      "url": "https://offcut.tools/plywood-weight-by-thickness-chart/",
+      "observedOn": "2026-11-01",
+      "claim": "Typical plywood density 500-650 kg/m3; used as the basis for the corrected shipped-mass estimate in sharedAssumptions.estimatedShippedMass (600 kg/m3 assumed), replacing an earlier figure that counted purchased-sheet nesting-waste offcuts as shipped weight"
+    }
+  ]
+}

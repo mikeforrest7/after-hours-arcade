@@ -1,0 +1,370 @@
+{
+  "schemaVersion": 1,
+  "slug": "silver-strike",
+  "overviewId": "silver_strike",
+  "number": "03",
+  "title": "Silver Strike Bowling",
+  "kicker": "TRACKBALL / BOWLING",
+  "headline": "Set the line. Roll. Watch the room react.",
+  "intro": "Silver Strike compresses the bowling alley into a shared trackball and screen: choose a bowler and ball, line up, roll, then watch the pins settle while everyone judges the next shot. Classic player guidance describes a backswing followed by a forward roll — not a forward-only flick. The social payoff is the strike, the difficult spare and the running scoreboard; the 2009 kit also documents Series, Throwdown, Survivor and optional Vegas Bowling formats.",
+  "referenceScope": {
+    "primary": "Silver Strike Bowling 2009 (classic landscape offline kit)",
+    "reason": "The 2009 kit manual is the most detailed primary source for this family's exact button labels and scoring rules; this build's own research already treats the classic offline game as a sourcing path distinct from the League Night reboot.",
+    "caveat": "No release is selected or running here. The gallery's 2004 flyer predates the 2009 kit manual. Practical swing/setup tips come from an older community guide, not a verified 2009 playthrough; they are identified below and require a selected-release check."
+  },
+  "heroMediaId": "ss-gameplay-select-bowler",
+  "media": [
+    {
+      "id": "ss-cabinet",
+      "src": "media/silver-strike/ss-01-cabinet.jpg",
+      "kind": "Cabinet photograph",
+      "release": "Silver Strike Bowling (factory cabinet, attract-mode SSB logo on screen)",
+      "alt": "A blue and black Silver Strike Bowling upright cabinet with an illuminated marquee, an Incredible Technologies branded sub-marquee below it, and a visible control panel showing Rotate Left, Rotate Right and Overhead buttons around a white trackball.",
+      "caption": "The full cabinet with its control panel in view — trackball dead center, rotate buttons flanking it, coin door below.",
+      "credit": "Museum of the Game / KLOV (International Arcade Museum), contributed by community member ‘Don Pesceone’",
+      "sourceId": "SS2",
+      "assetUrl": "https://www.arcade-museum.com/images-game/22/silver-strike-bowling-22260.jpg",
+      "processing": "Local resize only; no crop, no retouching, museum watermark preserved.",
+      "width": 1061,
+      "height": 1920,
+      "sha256": "4568f250ea013460bde7ce5417a37e1259c82886ec2f069aa437a7f220c6bc81",
+      "retrievedAt": "2026-11-02"
+    },
+    {
+      "id": "ss-control",
+      "src": "media/silver-strike/ss-02-control.jpg",
+      "kind": "Control photograph",
+      "release": "Silver Strike Bowling (archived coin-op unit; cabinet marquee reads ‘Silver Strike Bowling Supreme’, an exact software build not independently confirmed by this source)",
+      "alt": "Close-up photograph of a Silver Strike control panel: a white trackball, a red Start button, white Rotate Left and Overhead pushbuttons with visible printed labels, and a row of curved-path icons printed above the panel showing increasing hook amounts.",
+      "caption": "Rotate Left and Overhead are legible on the real panel; the curved icon row above the trackball is the game's own printed guide to how a roll's line bends into a hook.",
+      "credit": "Museum of the Game / KLOV (International Arcade Museum), contributed by community member ‘Jonathan Turner’",
+      "sourceId": "SS2",
+      "assetUrl": "https://www.arcade-museum.com/images-game/48/silver-strike-bowling-48775.jpg",
+      "processing": "Cropped to the control-panel area of the full cabinet photograph; local resize only, no retouching.",
+      "width": 779,
+      "height": 390,
+      "sha256": "be21780073a725851c0e9de049d5981ec6134aa161a855caf9295d2732fe11be",
+      "retrievedAt": "2026-11-02"
+    },
+    {
+      "id": "ss-gameplay-select-bowler",
+      "src": "media/silver-strike/ss-03-gameplay-select-bowler.jpg",
+      "kind": "Gameplay screenshot",
+      "release": "Silver Strike Bowling (as pictured in the manufacturer's 2004 sales flyer)",
+      "alt": "In-game screenshot of a bowler-select screen reading SELECT * BOWLER with male/female portraits, a lane view behind it, a Spare Difficulty readout of 1.0, and an 18 lbs ball-weight indicator.",
+      "caption": "Choosing a bowler, a ball weight, and a Spare Difficulty handicap before the first frame — three player-facing choices in one screen.",
+      "credit": "Incredible Technologies, Inc. (official 2004 Silver Strike Bowling sales flyer)",
+      "sourceId": "SS1",
+      "assetUrl": "https://flyers.arcade-museum.com/videogame-flyers/5/silver-strike-bowling-05647-02.jpg",
+      "processing": "Cropped to one of the four official gameplay screenshots printed on the flyer's back page; local resize only.",
+      "width": 385,
+      "height": 265,
+      "sha256": "ccb1e678fe99a67529167855baa934c7230b669a5a2514e47a63e2cbff5593b4",
+      "retrievedAt": "2026-11-02"
+    },
+    {
+      "id": "ss-gameplay-lane-release",
+      "src": "media/silver-strike/ss-04-gameplay-lane-release.jpg",
+      "kind": "Gameplay screenshot",
+      "release": "Silver Strike Bowling (as pictured in the manufacturer's 2004 sales flyer)",
+      "alt": "In-game screenshot of a between-frame continue screen: a bowler's throwing-arm animation paused mid-swing over the lane, a PLR1/PLR2 frame-by-frame scoreboard strip across the top, and the on-screen prompt PRESS START TO CONTINUE at the bottom.",
+      "caption": "The between-frame continue screen — scoreboard and a paused throw pose shown while the game waits for the next player's input, not a freeze-frame of an actual ball release.",
+      "credit": "Incredible Technologies, Inc. (official 2004 Silver Strike Bowling sales flyer)",
+      "sourceId": "SS1",
+      "assetUrl": "https://flyers.arcade-museum.com/videogame-flyers/5/silver-strike-bowling-05647-02.jpg",
+      "processing": "Cropped to a second official gameplay screenshot printed on the same flyer back page; local resize only.",
+      "width": 270,
+      "height": 235,
+      "sha256": "38e854889a876eb77194272abb5abe08f833c99ea443e3736876106bba0d7d0d",
+      "retrievedAt": "2026-11-02"
+    },
+    {
+      "id": "ss-gameplay-spare",
+      "src": "media/silver-strike/ss-06-gameplay-spare.jpg",
+      "kind": "Gameplay screenshot",
+      "release": "Silver Strike Bowling (as pictured in the manufacturer's 2004 sales flyer)",
+      "alt": "In-game screenshot reading SPARE over a lane view, with a seven of clubs playing card shown large in the foreground and a smaller inset reading VEGAS BOWLING GET A CARD FOR EVERY MARK OR SPARE.",
+      "caption": "The Vegas Bowling card draw that fires on every mark — an unambiguous, named game state, not an inferred one.",
+      "credit": "Incredible Technologies, Inc. (official 2004 Silver Strike Bowling sales flyer)",
+      "sourceId": "SS1",
+      "assetUrl": "https://flyers.arcade-museum.com/videogame-flyers/5/silver-strike-bowling-05647-02.jpg",
+      "processing": "Cropped to a third official gameplay screenshot printed on the same flyer back page; local resize only.",
+      "width": 385,
+      "height": 267,
+      "sha256": "2872d8926a92c7a76f1edaa3a93d938e63556a7016bb42dac4ff33d3020d202e",
+      "retrievedAt": "2026-11-02"
+    },
+    {
+      "id": "ss-brochure-cover",
+      "src": "media/silver-strike/ss-05-brochure-cover.jpg",
+      "kind": "Brochure image",
+      "release": "Silver Strike Bowling (2004 manufacturer sales flyer, front page)",
+      "alt": "Flyer front page showing two oversized blue bowling balls, the headline IT'S LIKE GOLDEN TEE WITH BIGGER BALLS!, and a small cabinet render with the Silver Strike Bowling logo in the bottom corner.",
+      "caption": "The original 2004 trade flyer's cover — Incredible Technologies selling operators on the Golden Tee connection directly.",
+      "credit": "Incredible Technologies, Inc. (official 2004 Silver Strike Bowling sales flyer)",
+      "sourceId": "SS1",
+      "assetUrl": "https://flyers.arcade-museum.com/videogame-flyers/5/silver-strike-bowling-05647-01.jpg",
+      "processing": "Full flyer front page, local resize only, no crop.",
+      "width": 850,
+      "height": 1099,
+      "sha256": "b9ce8433eb6e3d3b65319b9b40688a3d7b0f2676ce53b61e50dbef5ac040902e",
+      "retrievedAt": "2026-11-02"
+    }
+  ],
+  "session": {
+    "format": "Single 10-frame games, a 3-game Series, bracketed Throwdown contests for 4, 8 or 16 players, 3-Frame Practice, or Survivor (elimination on missed strikes); up to eight players are documented able to play together on one cabinet.",
+    "social": "Players pick a male or female bowler and a ball weight before stepping up, then rotate through the same trackball panel while the lane, scoreboard and every other player's pin action stay on one shared screen between rolls.",
+    "failureToAvoid": "Mounting the trackball too close to the screen risks a full forward-roll follow-through striking the monitor glass — the exact failure the manufacturer's own install guidance exists to prevent.",
+    "sourceIds": [
+      "SS1",
+      "SS3"
+    ]
+  },
+  "playLoop": [
+    {
+      "title": "Choose the session",
+      "action": "Choose an available format: a single game, a three-game Series, or an operator-enabled alternative such as Throwdown or Survivor.",
+      "feedback": "The selected format determines the scoring and elimination rules; availability depends on the cabinet's configuration.",
+      "skill": "Match the session to the group: a quick game and an elimination contest create different hand-off rhythms.",
+      "sourceIds": ["SS3"]
+    },
+    {
+      "title": "Pick a bowler, ball and approach",
+      "action": "Choose a bowler and ball weight. An older community guide recommends holding Overhead while positioning the approach; verify that procedure on the selected release.",
+      "feedback": "The flyer shows the bowler-selection screen and a Spare Difficulty setting. Ball weight is a documented panel control, not a separate physical ball.",
+      "skill": "Make setup deliberate instead of accidentally starting the throw while repositioning.",
+      "sourceIds": ["SS1", "SS3", "SS7"]
+    },
+    {
+      "title": "Draw back, then roll forward",
+      "action": "Use a controlled backswing and forward roll. The community guide warns that omitting the backswing produces a slow, weak ball; this is not a certified 2009 input specification.",
+      "feedback": "Watch the ball's path and pin action. The same guide recommends experimenting with hook and speed rather than simply rolling harder.",
+      "skill": "Repeat a useful gesture, then adjust one part of the setup at a time.",
+      "sourceIds": ["SS7"]
+    },
+    {
+      "title": "Read the leave",
+      "action": "After the first ball, judge the remaining pins and plan the spare rather than repeating the same attempt.",
+      "feedback": "The lane and frame-by-frame scoreboard keep the result visible to the group; the archived flyer includes a dedicated spare screen.",
+      "skill": "Turn the result of one roll into the next decision.",
+      "sourceIds": ["SS1"]
+    },
+    {
+      "title": "Chase the marks",
+      "action": "Continue through the game or configured contest. If Vegas Bowling is enabled, marks also feed its playing-card side game.",
+      "feedback": "The 2009 manual describes cards awarded for marks; Survivor instead eliminates players who fail to strike.",
+      "skill": "Choose whether the group wants score chasing, a side game or an escalating elimination contest.",
+      "sourceIds": ["SS3"]
+    }
+  ],
+  "screenRead": [
+    {
+      "label": "PLR1/PLR2 scoreboard strip",
+      "meaning": "Running frame-by-frame score for every player at the table, shown across the top during lane play.",
+      "sourceIds": [
+        "SS1"
+      ]
+    },
+    {
+      "label": "Spare Difficulty readout",
+      "meaning": "An on-screen handicap value set at bowler-select, letting a newer player pick an easier spare conversion before frame one.",
+      "sourceIds": [
+        "SS1"
+      ]
+    },
+    {
+      "label": "Ball-weight (lbs) indicator",
+      "meaning": "Shows the currently selected ball weight, one of five selectable weights documented by the manufacturer.",
+      "sourceIds": [
+        "SS1"
+      ]
+    },
+    {
+      "label": "Mark card (Vegas Bowling)",
+      "meaning": "When Vegas Bowling is enabled, every spare or strike draws a playing card; the best poker hand from the marks earned becomes a side competition layered on the score.",
+      "sourceIds": [
+        "SS1",
+        "SS3",
+        "SS5"
+      ]
+    }
+  ],
+  "signatureMoments": [
+    {
+      "title": "The mark earns a card",
+      "description": "Every spare or strike interrupts the lane view with its own full-screen callout — SPARE, STRIKE, or an X-X Double graphic — turning ordinary scoring into a small event on its own before Vegas Bowling's card draw even happens.",
+      "sourceIds": [
+        "SS1"
+      ]
+    },
+    {
+      "title": "Drawing for the double",
+      "description": "Vegas Bowling turns every strike or spare into a card draw toward the best poker hand across the game — a side competition built directly into the software, not a house rule laid on top of it.",
+      "sourceIds": [
+        "SS3",
+        "SS5"
+      ]
+    },
+    {
+      "title": "Eight players, one lane",
+      "description": "Design interpretation: with up to eight players documented able to play together on one cabinet, a full session plays more like a pub bowling night passing one ball around than a solo arcade run.",
+      "sourceIds": [
+        "SS1"
+      ]
+    }
+  ],
+  "controls": [
+    {
+      "input": "Trackball back-and-forward gesture",
+      "action": "The older community guide describes a backswing followed by a forward roll, and a weak ball when the backswing is omitted. Confirm its exact behavior on the selected release.",
+      "feel": "Preserve motion in both directions and leave room for follow-through; the manufacturer's manual explicitly warns against hands hitting the monitor.",
+      "sourceIds": ["SS3", "SS7"]
+    },
+    {
+      "input": "Rotate Left / Rotate Right",
+      "action": "Documented setup controls. The inspected installation manual does not establish a spin algorithm from these button names alone.",
+      "feel": "Keep the buttons distinct from the trackball; verify their in-play and menu behavior on the selected build before labeling a custom panel.",
+      "sourceIds": [
+        "SS3"
+      ]
+    },
+    {
+      "input": "Ball Weight button",
+      "action": "Selects ball weight; the 2007 Bowler's Club manual labels this control Change Ball. The older community guide describes changing weight during play, so it should not be assumed to be a pre-game-only control.",
+      "feel": "A reachable setup control; exact timing and behavior belong in the selected-release check.",
+      "sourceIds": [
+        "SS3",
+        "SS4",
+        "SS7"
+      ]
+    },
+    {
+      "input": "Overhead button",
+      "action": "The community guide describes holding it while positioning the approach and pressing it to reset a mistaken backswing. The installation manual confirms the control, not a between-frame-only camera restriction.",
+      "feel": "Keep it reachable during shot setup; check the reported modifier/reset behavior on the selected release.",
+      "sourceIds": ["SS3", "SS7"]
+    },
+    {
+      "input": "Start button",
+      "action": "The kit documents Start as a separate input. An older player guide also reports a backswing-reset use; it does not establish Golden Tee's Skip Turn menu as a Silver Strike feature.",
+      "feel": "Verify start, selection and reset behavior independently; do not copy another game's menu mapping.",
+      "sourceIds": ["SS3", "SS7"]
+    }
+  ],
+  "buildPriorities": [
+    {
+      "title": "Mount the trackball for a real follow-through",
+      "why": "The manufacturer's own install guidance exists specifically to keep a full forward roll's follow-through off the monitor glass.",
+      "proof": "A full forward follow-through completes with clearance between the player's hand and the screen.",
+      "sourceIds": [
+        "SS3"
+      ]
+    },
+    {
+      "title": "Keep the panel label generation-correct",
+      "why": "The ball-selection button's text differs by release (Ball Weight vs. Change Ball); mislabeling the panel misrepresents which software generation is actually running.",
+      "proof": "The physical button legend matches the exact software release installed, not a generic Silver Strike template.",
+      "sourceIds": [
+        "SS3",
+        "SS4"
+      ]
+    },
+    {
+      "title": "Ground the trackball separately from signal wiring",
+      "why": "The kit's own manual requires an earth-ground connection on the trackball and its mounting plate separate from signal wiring; skipping it is an electrical defect, not a cosmetic one.",
+      "proof": "A continuity/ground check passes on the trackball and mounting plate independent of the signal harness.",
+      "sourceIds": [
+        "SS3"
+      ]
+    },
+    {
+      "title": "Verify display mode before trusting a widescreen mount",
+      "why": "The 2009 manual warns that its software is not designed for a true 16:9 aspect ratio and can appear stretched or skewed on larger HDTVs.",
+      "proof": "The selected game and DIP-switch mode are observed on the actual panel. Any distortion is documented and accepted or the display choice changes; a cable or setting alone is not proof of correct geometry.",
+      "sourceIds": [
+        "SS3"
+      ]
+    }
+  ],
+  "releaseNotes": [
+    {
+      "title": "2009 kit vs. 2007 Bowler's Club",
+      "body": "This page documents the classic landscape Silver Strike Bowling 2009 offline kit: Start, Ball Weight, Overhead, Rotate Left, Rotate Right. The 2007 Bowler's Club release used the same five controls but labeled the ball-selection button Change Ball instead of Ball Weight — a confirmed label difference, not a typo.",
+      "sourceIds": [
+        "SS3",
+        "SS4"
+      ]
+    },
+    {
+      "title": "League Night is a different product, not a newer build of this one",
+      "body": "Silver Strike Bowling: League Night Home Edition is a ground-up reboot on a vertical/portrait monitor with a new engine, touchscreen, NFC and an online subscription that turns paid after Spring 2027; the manufacturer's own store page states it does not include a TV. It is not the classic landscape game pictured and described on this page.",
+      "sourceIds": [
+        "SS6"
+      ]
+    },
+    {
+      "title": "The available gameplay images are small",
+      "body": "The checked Arcade Database, GameFAQs, Giant Bomb, Aurcade and alternate flyer sources did not yield higher-resolution authentic gameplay images. This does not prove that none exist elsewhere. The gallery preserves the small flyer crops without inventing detail or claiming they are new captures.",
+      "sourceIds": [
+        "SS1",
+        "SS2"
+      ]
+    },
+    {
+      "title": "Ownership is not the complete rights check",
+      "body": "The 2009 kit manual's license refers to authorized Silver Strike cabinets and commercial locations. Buying a donor does not by itself establish permission for every proposed home use; confirm the selected release's terms before the build gate.",
+      "sourceIds": ["SS3"]
+    }
+  ],
+  "sources": [
+    {
+      "id": "SS1",
+      "title": "Silver Strike Bowling sales flyer (2 pages)",
+      "url": "https://flyers.arcade-museum.com/videogames/show/5654",
+      "publisher": "Incredible Technologies, Inc. (via The Arcade Flyer Archive, Museum of the Game)",
+      "accessed": "2026-11-02"
+    },
+    {
+      "id": "SS2",
+      "title": "Silver Strike Bowling — Videogame by Incredible Technologies",
+      "url": "https://www.arcade-museum.com/Videogame/silver-strike-bowling",
+      "publisher": "Museum of the Game / KLOV (International Arcade Museum)",
+      "accessed": "2026-11-02"
+    },
+    {
+      "id": "SS3",
+      "title": "Silver Strike Bowling 2009 Kit Installation Manual & User Guide, Version 2/11",
+      "url": "https://amusement.itsgames.com/wp-content/uploads/2025/02/silver-strike-bowling-09-installation-manual.pdf",
+      "publisher": "Incredible Technologies, Inc.",
+      "accessed": "2026-11-02"
+    },
+    {
+      "id": "SS4",
+      "title": "Silver Strike Bowler's Club 2007 International Installation Manual",
+      "url": "https://amusement.itsgames.com/wp-content/uploads/2025/02/silver-strike-bowlers-club-2007-international-installation-manual.pdf",
+      "publisher": "Incredible Technologies, Inc.",
+      "accessed": "2026-11-02"
+    },
+    {
+      "id": "SS5",
+      "title": "Silver Strike Bowling — Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Silver_Strike_Bowling",
+      "publisher": "Wikipedia",
+      "accessed": "2026-11-02"
+    },
+    {
+      "id": "SS7",
+      "title": "Daniel's hints for Silver Strike Bowling",
+      "url": "http://fcay2k6.50webs.com/ssb.htm",
+      "publisher": "FCAY2K6 (community player guide; exact game build unspecified)",
+      "accessed": "2026-11-02"
+    },
+    {
+      "id": "SS6",
+      "title": "Silver Strike Bowling: League Night Home Edition — manufacturer store page",
+      "url": "https://store.itsgames.com/products/silver-strike-bowling-league-night-home-edition",
+      "publisher": "Incredible Technologies, Inc. (official store)",
+      "accessed": "2026-11-02"
+    }
+  ]
+}

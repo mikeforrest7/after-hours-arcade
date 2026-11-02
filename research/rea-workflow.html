@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Rea Workflow / After Hours Arcade Studio</title>
+<link rel="stylesheet" href="../studio/studio.css">
+<style>
+.md-doc{max-width:860px;margin:0 auto;padding:48px 24px 96px}
+.md-doc h1,.md-doc h2,.md-doc h3{line-height:1.25}
+.md-doc table{border-collapse:collapse;width:100%;margin:1.25em 0}
+.md-doc th,.md-doc td{border:1px solid currentColor;padding:.5em .6em;text-align:left;vertical-align:top}
+.md-doc pre{overflow-x:auto;padding:1em;border:1px solid currentColor}
+.md-doc code{font-family:ui-monospace,Consolas,monospace}
+.md-back{display:inline-block;margin-bottom:1.5em}
+</style>
+</head>
+<body>
+<header class="masthead"><a class="wordmark" href="../studio/index.html">AFTER<span>HOURS</span><small>ARCADE STUDIO</small></a></header>
+<main class="md-doc">
+<a class="md-back text-link" href="../studio/index.html">&larr; Back to the studio proposal</a>
+<h1 id="rea-and-open-source-software-investigation">REA and open-source software investigation</h1>
+<p>2026-11-01. Scope: authorized analysis and interoperability research. This is not a game download, a security-device bypass, or proof that four arcade games run.</p>
+<h2 id="tool-selected-and-actual-run">Tool selected and actual run</h2>
+<p>The intended project is <strong>REA: Reverse Engineer Anything</strong>, upstream <code>morluto/rea</code>, MIT license. Its official npm package is <code>rea-agents</code>. A similarly named <code>rea-tools/rea</code> search result returned HTTP 404; it was not used.</p>
+<ul>
+<li>Official project: https://github.com/morluto/rea</li>
+<li>CLI/evidence contracts: https://github.com/morluto/rea/blob/main/docs/cli.md</li>
+<li>Native investigation: https://github.com/morluto/rea/blob/main/docs/native-investigation.md</li>
+<li>Published metadata: https://registry.npmjs.org/rea-agents/6.8.0</li>
+<li>Ghidra: https://github.com/NationalSecurityAgency/ghidra</li>
+<li>MAME debugger: https://docs.mamedev.org/debugger/index.html</li>
+</ul>
+<p><strong>Executed:</strong> pinned REA 6.8.0 <code>inspect-pe-imports</code> against the already-installed, open-source CPython executable. The target was 106,208 bytes, AMD64 PE32+, SHA-256 <code>4942b86a6597e5aee0128daa00050ed79bc21f6e709a78eb19cbfeb0c2f39ac9</code>. REA returned exit 0, eight imported DLLs and 44 imports; no delayed imports. Full machine-readable result is kept in the project owner's private evidence log, not part of this public package.</p>
+<p>This proves one REA static-analysis path executes locally. It did not execute the target, decompile an arcade game, validate USB controls, authenticate a donor system, or exercise Ghidra. Imports do not prove runtime reachability or successful DLL binding; REA records those limitations.</p>
+<p>Two runtime issues remain explicit:</p>
+<ol>
+<li>Initial inspection of the much larger installed Node executable was refused by REA's default 64 MiB input limit. Selecting the small Python executable resolved that input-size issue; no limit was disabled.</li>
+<li>Published REA 6.8.0 requires Node <code>^22.23.4 || ^24.22.1 || &gt;=26.12.1</code>. The host reports Node 26.7.0. An npm invocation requesting an isolated Node 22.23.4 package still resolved the host Node in a subsequent runtime probe. The successful parser smoke therefore <strong>does not certify a supported REA runtime environment</strong>. Pin and verify a supported isolated Node executable before real game analysis; do not silently update the Board's shared runtime. No MCP registration, agent restart, binding or global Node change was performed.</li>
+</ol>
+<p>No lawful game images, donor hardware, or controller devices were supplied for this project. Game-specific REA runs and emulator play tests cannot be performed from documentation alone. Their inputs and pass conditions are specified below rather than represented by fake results.</p>
+<h2 id="smallest-useful-tool-stack">Smallest useful tool stack</h2>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Job</th>
+<th>Boundary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>REA + Ghidra</td>
+<td>Artifact inventory; CPU/format identification; functions, strings, cross-references and call graphs</td>
+<td>MIT REA / Apache-2.0 Ghidra; neither supplies game rights or missing peripherals</td>
+</tr>
+<tr>
+<td>MAME</td>
+<td>Emulate supported legacy machines; input/device diagnostics; debugger and Lua observations</td>
+<td>Game media and BIOS are separate copyrighted works; source inclusion is not measured performance</td>
+</tr>
+<tr>
+<td>Supermodel</td>
+<td>Candidate for Sega Model 3, including listed <code>lostwsga</code></td>
+<td>Verify exact build and two-player mapping on the actual PC; not Raw Thrills Jurassic Park</td>
+</tr>
+<tr>
+<td>USBPcap + Wireshark</td>
+<td>Observe owned USB device descriptors/reports and protocol timing</td>
+<td>Local capture only; do not collect credentials or analyze license-device traffic to defeat access control</td>
+</tr>
+<tr>
+<td>sigrok/PulseView + suitable logic analyzer</td>
+<td>Observe owned low-voltage encoder/button signals</td>
+<td>Check voltage tolerance and common-ground safety first; no mains or unknown powered circuit probing</td>
+</tr>
+<tr>
+<td>OpenFIRE / TinyUSB</td>
+<td>Open-source optical-gun firmware and MCU USB HID building blocks</td>
+<td>Sensor geometry, firmware license notices and electrical design still need validation</td>
+</tr>
+<tr>
+<td>OpenSCAD / FreeCAD / LibreCAD</td>
+<td>Parametric assembly concepts; inspect exported panel DXF; release manufacturing drawings later</td>
+<td>Generated mock-ups are not approved machine-tool paths</td>
+</tr>
+<tr>
+<td>Godot</td>
+<td>Independently written golf, bowling or rail-shooter mechanics if Mike chooses that separate project</td>
+<td>Original code, art, courses, sounds, branding; not a renamed copy of commercial game content</td>
+</tr>
+</tbody>
+</table>
+<p>Additional upstream references:</p>
+<ul>
+<li>https://github.com/usbpcap/usbpcap</li>
+<li>https://www.wireshark.org/</li>
+<li>https://sigrok.org/wiki/PulseView</li>
+<li>https://github.com/hathach/tinyusb</li>
+<li>https://github.com/godotengine/godot</li>
+<li>https://openscad.org/</li>
+<li>https://www.freecad.org/</li>
+</ul>
+<p>These are scoped tools, not an instruction to install every tool. Start with manuals and existing emulator source. Escalate to binary analysis only for a specific unanswered interface question.</p>
+<h2 id="three-software-paths-kept-separate">Three software paths, kept separate</h2>
+<p><strong>A. Existing emulation.</strong> Best cost path when the exact release is supported and lawful media exists. Freeze the emulator build, selected machine shortname, BIOS/ROM/CHD checksums, input map, display settings and NVRAM. Validate media with the installed emulator's own verifier. A filename match alone is insufficient. Never rely on an internet bundle advertised as containing thousands of games.</p>
+<p><strong>B. Original donor electronics.</strong> Preferred planning branch for Silver Strike and for modern releases without a proven open-source runtime. Retain the legitimate software, identity/security device, original I/O and required peripherals as a matched system. Rehouse only after it cold-boots and completes a game offline or with its authorized required service. Preserve existing license restrictions and transfer requirements. A loose PC or disk is not a complete kit.</p>
+<p><strong>C. Independent implementation.</strong> A separate development program, not an emulation shortcut. Observation can inform abstract mechanics and interface specifications, but copied code, models, textures, music, voice lines, proprietary courses, trademarks and bypassed authentication do not become authorized because REA produced them. Where a clean-room process is appropriate, one analyst writes a behavior/interface specification and an independent implementer works only from that specification. Counsel should assess any copying, interoperability exception or circumvention question relevant to the exact jurisdiction and use.</p>
+<p>Do not promise a reverse-engineered modern four-game suite for the price of plywood. Physics tuning, content, animation, input feel, device behavior and long-session bugs dominate the work. For a cost-driven personal arcade, use A where proven and B where necessary. Evaluate C only if building games is itself the hobby.</p>
+<h2 id="graph-directed-rea-runs">Graph-directed REA runs</h2>
+<p>For each selected game, preserve a local evidence manifest: title/year/build, acquisition/permission record, artifact SHA-256, architecture, runtime/tool versions, hardware and I/O identifiers, hypothesis, command, output path, limitation and acceptance result. Keep any licensed binaries outside Git and out of agent prompts; tools inspect local files, while the report carries only necessary facts and hashes.</p>
+<table>
+<thead>
+<tr>
+<th>Run</th>
+<th>Input and hypothesis</th>
+<th>Tool / output</th>
+<th>Exit gate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>REA-00</td>
+<td>Lawfully obtained artifact and identified machine</td>
+<td>Hash + file/partition inventory; record chain of custody</td>
+<td>Rights and exact release documented; no guessing from marquee alone</td>
+</tr>
+<tr>
+<td>REA-01</td>
+<td>Native executable, ROM region or firmware image</td>
+<td>REA inventory; Ghidra provider when appropriate</td>
+<td>Correct architecture, endianness and load address; an x86 parser is not a MIPS emulator</td>
+</tr>
+<tr>
+<td>REA-02</td>
+<td>One question, such as where ordinary control input enters gameplay</td>
+<td>REA strings/function/xref graph; MAME input definitions first if available</td>
+<td>Address/source-backed evidence; distinguish static reachability from execution</td>
+</tr>
+<tr>
+<td>REA-03</td>
+<td>Working owned hardware and control events</td>
+<td>USB or low-voltage trace; timestamps, report fields and state transitions</td>
+<td>Repeatable input contract, including neutral, extremes, button edges and disconnect</td>
+</tr>
+<tr>
+<td>REA-04</td>
+<td>A legitimate runtime with proposed replacement controls</td>
+<td>Normal startup, calibration, full play sequence, reconnect and restart</td>
+<td>Both players independent; no authentication patches; no bypassed safety checks</td>
+</tr>
+<tr>
+<td>REA-05</td>
+<td>Final room and selected display</td>
+<td>Latency, aim grid, trackball speed sweep and long session</td>
+<td>Acceptance measures in PLAN pass; artifacts/configuration frozen</td>
+</tr>
+</tbody>
+</table>
+<p>A native REA session uses the documented operations <code>analyze</code>, <code>search</code>, <code>function</code>, <code>decompile</code>, <code>xrefs</code> with <code>--provider ghidra</code>. Select addresses and symbols from the actual inventory; do not fabricate entry points. Retain evidence bundles and query bounded views rather than repeatedly decompiling the same binary. Ghidra setup and architecture support must be proven separately.</p>
+<p>No game-run script with invented paths or fake assets is included. Once an authorized local input is available, the agent owns the installation checks and exact, pinned command generation. Persistent REA MCP integration would be a separate home-owned capability admission, not an edit to the personal repo's derived <code>.omp</code> files.</p>
+<h2 id="independent-game-development-scope-if-chosen">Independent game development scope, if chosen</h2>
+<p>Golf: relative trackball velocity/direction, swing gesture classification, club selection, ball flight/spin/collision, terrain, camera, scoring, original holes. Bowling: release vector, speed/spin, lane friction/oil model, pin collisions, foul/gutter/reset states and correct ten-frame scoring. Hunting: pump/trigger event ordering, target hit volumes, scoring penalties, spawn paths, timing and original environments. Dinosaur rail shooter: camera rails, two aim streams, enemy behavior, damage, secondary actions, checkpoints and original creatures/assets.</p>
+<p>Start with one original playable scene and measured input-to-response behavior. Compare action traces against a written specification, not extracted game content. Gate each additional mechanic on a vertical-slice play review. Estimate effort only after that prototype; this branch is explicitly excluded from the cabinet build schedule and budget.</p>
+</main>
+</body>
+</html>

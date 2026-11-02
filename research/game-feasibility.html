@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Game Feasibility / After Hours Arcade Studio</title>
+<link rel="stylesheet" href="../studio/studio.css">
+<style>
+.md-doc{max-width:860px;margin:0 auto;padding:48px 24px 96px}
+.md-doc h1,.md-doc h2,.md-doc h3{line-height:1.25}
+.md-doc table{border-collapse:collapse;width:100%;margin:1.25em 0}
+.md-doc th,.md-doc td{border:1px solid currentColor;padding:.5em .6em;text-align:left;vertical-align:top}
+.md-doc pre{overflow-x:auto;padding:1em;border:1px solid currentColor}
+.md-doc code{font-family:ui-monospace,Consolas,monospace}
+.md-back{display:inline-block;margin-bottom:1.5em}
+</style>
+</head>
+<body>
+<header class="masthead"><a class="wordmark" href="../studio/index.html">AFTER<span>HOURS</span><small>ARCADE STUDIO</small></a></header>
+<main class="md-doc">
+<a class="md-back text-link" href="../studio/index.html">&larr; Back to the studio proposal</a>
+<h1 id="game-feasibility-release-specific-not-brand-level">Game feasibility: release-specific, not brand-level</h1>
+<p>Research observed 2026-11-01. No named game was run in this session. Primary-source declarations below are stronger than a compatibility video, but weaker than bench proof on the intended hardware. MAME <code>master</code> is moving source, not a pinned executable release; recheck the installed build before procurement.</p>
+<h2 id="decisions-by-game">Decisions by game</h2>
+<table>
+<thead>
+<tr>
+<th>Requested game</th>
+<th>Concrete branch</th>
+<th>Evidence and proposed path</th>
+<th>What is not proved</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Golden Tee</td>
+<td>Fore! through Fore! 2006 Complete</td>
+<td>MAME <code>iteagle.cpp</code> declares <code>gtfore01</code>, <code>gtfore02</code>, <code>gtfore03</code>, <code>gtfore04</code>, <code>gtfore05</code>, <code>gtfore06</code>; each main entry has <code>MACHINE_SUPPORTS_SAVE</code> without <code>MACHINE_NOT_WORKING</code>. <code>gtfore06</code> is the recommended legacy bench candidate.</td>
+<td>Real-time performance, exact licensed media availability, trackball feel and full-course completion on this PC</td>
+</tr>
+<tr>
+<td>Golden Tee</td>
+<td>Earlier 2D/3D/Classic releases</td>
+<td>Additional older MAME branches exist; select only if Mike wants those games. They are not modern Fore!/LIVE/PGA courses.</td>
+<td>No blanket claim about every clone, oldest driver, or minimum MAME version</td>
+</tr>
+<tr>
+<td>Golden Tee</td>
+<td>Fore! Remastered factory home cabinet; Arcade1Up Golden Tee 3D Deluxe</td>
+<td>Buy alternatives now belong in the comparison. Incredible Technologies advertises the Fore! Complete course catalogue and recreated original physics in a 27-inch cabinet. Arcade1Up offers older golf/bowling titles in a different product.</td>
+<td>Fore! Remastered is a preorder with conflicting October/November shipping text; Arcade1Up's official listing shows sold out. Neither establishes immediate availability, a custom-enclosure integration right, or a selected release preference.</td>
+</tr>
+<tr>
+<td>Golden Tee</td>
+<td>LIVE / PGA TOUR</td>
+<td>Distinct proprietary generations; do not budget them as <code>gtfore06</code>. Investigate a complete legitimate donor or authorized home kit with the exact required features.</td>
+<td>No tested all-open-source runtime established here; online-feature entitlement and local play depend on exact product/version</td>
+</tr>
+<tr>
+<td>Big Buck Hunter</td>
+<td>Original, Shooter's Challenge, II Sportsman's Paradise, Call of the Wild</td>
+<td>MAME Eagle entries <code>bbh</code>, <code>bbhsc</code>, <code>bbh2sp</code>, <code>bbhcotw</code> have <code>MACHINE_SUPPORTS_SAVE</code>, without <code>MACHINE_NOT_WORKING</code>. Trigger and Pump inputs are explicit.</td>
+<td>Aim quality and timing still require tests. Header warns Shooter's Challenge and Sportsman's Paradise require secondary targeting/reduced threshold. These are not automatically two simultaneous gun games.</td>
+</tr>
+<tr>
+<td>Big Buck Hunter</td>
+<td>Pro / World / HD / Reloaded</td>
+<td>Separate generation investigation. Arcade1Up's Pro/World-family home cabinets are a genuine buy alternative if their included titles meet the owner's choice. Otherwise investigate a verified complete donor for the exact game.</td>
+<td>No support evidence for these titles in the inspected Eagle driver. The inspected Mossy Oak product URL redirects to Arcade1Up's homepage; indexed stock claims are not live availability proof. Pro/World does not establish HD/Reloaded support.</td>
+</tr>
+<tr>
+<td>Silver Strike</td>
+<td>Classic Bowling / 2007 Bowlers Club / 2009 / LIVE / X</td>
+<td>No supported open-source emulation path was established here. The official 2007 kit manual specifies Nighthawk, separate I/O, CID, a 3-inch trackball and wiring. Compare a complete legitimate donor with the factory Arcade Collection home offering's included Silver Strike version.</td>
+<td>Do not assume identical components across releases, that a loose disk works, or that Nighthawk is Windows because it is a PC. Verify exact offline/transfer behavior and included game version.</td>
+</tr>
+<tr>
+<td>Silver Strike</td>
+<td>League Night Home Edition</td>
+<td>Factory home alternative: new engine, portrait presentation, commercial trackball, touchscreen/NFC, Wi-Fi and included TV stand. Manufacturer explicitly requires a customer-supplied 4K TV and restricts this edition to home/non-commercial use.</td>
+<td>It is not the classic landscape game in the concept render. Confirm shipping, total delivered cost, TV compatibility and offline functionality. Online subscription is free until Spring 2027, then paid; the inspected primary page does not state the subsequent rate.</td>
+</tr>
+<tr>
+<td>Jurassic Park</td>
+<td>Sega System 32, copyright 1993 / released February 1994</td>
+<td>Current MAME <code>jpark</code> entry has flags <code>0</code>; input definitions use separate P1/P2 <code>IPT_AD_STICK_X/Y</code>. Candidate for emulation with deliberate analog mapping.</td>
+<td>Optical guns are not a proven drop-in replacement. Original mounted-control feel, scaling and any cabinet motion are separate fidelity choices.</td>
+</tr>
+<tr>
+<td>Jurassic Park</td>
+<td>The Lost World (Sega Model 3, 1997)</td>
+<td>Supermodel <code>Games.xml</code> lists <code>lostwsga</code> and two analog-gun inputs. Prefer that as the bench candidate. MAME's <code>lostwsga</code> and <code>lostwsgp</code> macros carry <code>MACHINE_NOT_WORKING | MACHINE_IMPERFECT_GRAPHICS | MACHINE_IMPERFECT_SOUND</code>.</td>
+<td>Listing in Supermodel is not a measured play test. MAME header says “works” but conflicts with declared flags; do not sell that as a reliable MAME build. <code>lostwsgp</code> is a location-test build, not simply the Japanese retail release.</td>
+</tr>
+<tr>
+<td>Jurassic Park Arcade</td>
+<td>Raw Thrills 2015 family</td>
+<td>Official product/service docs and operator manual show mounted positional guns, potentiometers, vibration hardware, a PC, USB dongle and I/O board. Treat complete legitimate electronics as the planning baseline.</td>
+<td>No open-source runtime proven here. A USB optical gun cannot be assumed to talk directly to original RIO I/O. No motion platform or faithful recoil included in baseline CAD.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="primary-source-evidence-that-changes-the-build">Primary-source evidence that changes the build</h2>
+<h3 id="golden-tee-and-early-big-buck">Golden Tee and early Big Buck</h3>
+<p>https://github.com/mamedev/mame/blob/master/src/mame/itech/iteagle.cpp</p>
+<p>Inspected current source declares:</p>
+<ul>
+<li><code>gtfore06</code>: “Golden Tee Fore! 2006 Complete (v6.00.01)”, <code>MACHINE_SUPPORTS_SAVE</code>; macro year 2005. Marketing edition years and source/copyright years differ.</li>
+<li><code>bbh</code>: “Big Buck Hunter (v1.00.14)”, same save flag.</li>
+<li><code>bbhsc</code>: “Big Buck Hunter - Shooter's Challenge (v1.60.01)”, same save flag.</li>
+<li><code>bbh2sp</code>: “Big Buck Hunter II - Sportsman's Paradise (v2.02.11)”, same save flag.</li>
+<li><code>bbhcotw</code>: “Big Buck Hunter Call of the Wild (v3.02.5)”, same save flag.</li>
+<li>The generic Golden Tee controls include Start, Left, Right, Fly By and Backspin. Do not design a two-button-only panel for Fore!.</li>
+<li>Big Buck overrides include <code>Trigger</code> and <code>Pump</code> and one gun X/Y pair. Generic shared trackball ports do <strong>not</strong> prove that a Big Buck cabinet has a trackball or two simultaneous guns.</li>
+<li>The driver specifies 512 × 384 output and 60 Hz in the common machine configuration. Preserve its aspect ratio on a widescreen display.</li>
+<li>Fore! and early Big Buck use the appropriate ROM/BIOS/disk image sets. Validate exact installed-build requirements rather than inventing a CHD filename or downloading a mismatched bundle.</li>
+</ul>
+<p>The Golden Tee PGA TOUR Home product is separately documented here:</p>
+<p>https://amusement.itsgames.com/product/golden-tee-pga-tour-home/</p>
+<p>It advertises a current home product, online features and Casual/Online modes. This does not prove a particular used cabinet's offline entitlement. Claims that every LIVE/PGA machine needs internet merely to reach a menu were rejected as unsupported.</p>
+<h3 id="licensed-home-alternatives-change-the-makebuy-decision">Licensed home alternatives change the make/buy decision</h3>
+<p>https://store.itsgames.com/products/golden-tee-fore-remastered-edition</p>
+<p>https://www.thepinballcompany.com/product/golden-tee-fore-remastered-edition/</p>
+<p>The manufacturer describes 29 Fore! courses, a commercial-grade trackball and a 27-inch monitor. Its page simultaneously says October and November 2026 shipping; treat this as a preorder, not confirmed stock. The inspected dealer lists $2,499 before applicable freight/tax and states home use only. These are product/price observations, not a quote for a four-game setup or permission to rehouse the electronics.</p>
+<p>https://store.itsgames.com/products/silver-strike-bowling-league-night-home-edition</p>
+<p>The home package includes the cabinet and a free TV stand, <strong>not a 55-inch commercial monitor</strong>. A 4K TV must be supplied separately. Published with-stand dimensions are 25 W × 53 D × 85 ± 1 H inches without the topper, or 99 ± 1 H with it. Do not copy a commercial League Night cabinet's size/display specification into this home SKU. The manufacturer itself states home/non-commercial use and the Spring 2027 online-subscription transition.</p>
+<p>https://shopindoorgolf.com/products/golden-tee-arcade-collection</p>
+<p>This retailer's $3,299 default is the <strong>GO</strong> configuration, not every full-size configuration. Arcade Collection includes Silver Strike Bowling, <strong>PowerPutt Golf</strong> and Target Toss Pro. Despite the storefront's “Golden Tee” naming, this is not evidence that Golden Tee golf is included. Verify the selected package's display/stand inclusions and exact Silver Strike release before comparing totals.</p>
+<p>https://store.itsgames.com/products/arcade-collection-conversion-kit</p>
+<p>The manufacturer's storefront also lists a <strong>$1,795 Showpiece conversion kit</strong>, but this is not a generic new PC/USB game kit. An existing eligible Golden Tee, Silver Strike, PowerPutt or Target Toss Showpiece cabinet is required. Conversion replaces its hard drive, CID, security chip, control panel and marquee; RAM may need upgrading. The manufacturer warns that the old CID stops functioning and <strong>Golden Tee golf is not included</strong>. Compare total eligible-cabinet plus conversion cost; do not assume an additive game upgrade or a drop-in solution for the custom pedestal.</p>
+<p>https://arcade1up.com/products/arcade1up-golden-tee-3d-deluxe-arcade-console-video-game-machine-5-foot-cabinet</p>
+<p>https://arcade1up.com/products/big-buck-hunter-mossy-oak-deluxe-arcade-machine-1</p>
+<p>Arcade1Up's homepage directly lists Golden Tee 3D Deluxe at $669.99 sale/$699.99 regular and “Sold Out.” The inspected Big Buck Mossy Oak URL redirects to the homepage; its indexed “Sold Out” text is historical search evidence, not a current stock check. These are different game generations and consumer furniture/control packages, not proof that a custom Fore!/Eagle/2015 system has been reproduced. Evaluate them before committing to custom fabrication, without silently substituting their titles.</p>
+<p>https://www.amazon.com/Arcade1Up-Hunter-Deluxe-Arcade-Machine/dp/B0FM82NZGY</p>
+<p>The direct Amazon Mossy Oak Deluxe description confirms two guns, a 17-inch BOE display and the four Pro/Safari-family games. Its live buy box says <strong>Currently unavailable</strong>. The search-indexed $699.99 other-seller offer is historical/index evidence, not a confirmed live price or stock promise. A separate older Arcade1Up Pro article's riser does not establish the Deluxe variant's inclusions.</p>
+<h3 id="silver-strike-donor-bill-of-completeness">Silver Strike donor bill of completeness</h3>
+<p>https://amusement.itsgames.com/wp-content/uploads/2025/02/silver-strike-bowlers-club-2007-international-installation-manual.pdf</p>
+<p>Version 10/06, printed pages 3, 7–13 (PDF pages 5, 9–15):</p>
+<ul>
+<li>Kit includes Nighthawk system box, I/O board, CID, power/video/audio/USB cables, 3-inch trackball and plate, and button/harness parts.</li>
+<li>System box envelope: 19 W × 7 H × 11 D inches (482.6 × 177.8 × 279.4 mm), excluding required cable and airflow space. This is a <strong>2007-specific</strong> dimension, not a universal enclosure promise.</li>
+<li>CID is a distinct identification component, not synonymous with the I/O board.</li>
+<li>Buttons: Start, Change Ball, Overhead, Rotate Left, Rotate Right.</li>
+<li>Video supports selected SVGA 800 × 600, VGA 640 × 480 and lower-resolution modes. A passive VGA-to-HDMI wire is not a signal converter. Prefer a matching-input display or a proven active scaler and measure its latency.</li>
+<li>Manufacturer explicitly recommends more separation between trackball and monitor to avoid striking the glass. No unsupported numeric “18-inch rule” is asserted.</li>
+<li>Manufacturer recommends a qualified electrician for required grounded AC wiring. Do not reuse unsafe cabinet mains merely because the game boots.</li>
+</ul>
+<p>The correct purchase question is “does this complete, transferable system cold-boot, identify its I/O and CID, pass control tests and finish ten frames?” not “does this disk contain Silver Strike?” Require a live demonstration before accepting a donor. Check its exact version, local-play mode, disk health, cooling and availability of replacement security/identity components. Avoid speculative OS and DRM explanations where no source establishes them.</p>
+<h3 id="jurassic-park-generations">Jurassic Park generations</h3>
+<p>https://github.com/mamedev/mame/blob/master/src/mame/sega/segas32.cpp</p>
+<p><code>jpark</code> is dated 1993 in the GAME macro, with a comment “Released in 02.1994”. Current flags are <code>0</code>, not an asserted imperfect-graphics flag. Source inputs are analog sticks for both players. That is the integration contract to test; it is not permission to claim that an arbitrary optical-gun driver will map correctly.</p>
+<p>https://github.com/mamedev/mame/blob/master/src/mame/sega/model3.cpp</p>
+<p><code>lostwsga</code> and <code>lostwsgp</code> have the NOT_WORKING / imperfect graphics / imperfect sound flags stated above. The header comment and macros disagree; this plan preserves the discrepancy rather than choosing the optimistic line.</p>
+<p>https://github.com/trzy/Supermodel/blob/master/Config/Games.xml</p>
+<p><code>lostwsga</code> is “The Lost World”, Japan Revision A, 1997, with <code>analog_gun1</code> and <code>analog_gun2</code>. Verify the chosen Supermodel revision and raw-input mapping locally. Flycast is not the candidate for either Sega System 32 or Sega Model 3.</p>
+<p>https://rawthrills.com/games/jurassic-park-arcade/</p>
+<p>Official Raw Thrills page includes side-to-side and up/down potentiometer service videos, a 55-inch display, and separate environmental/motion variants. The original 55-inch environmental cabinet is listed at roughly 54 W × 80 D × 118 H inches and 1,217 lb; that physical package is very different from a DIY console and wall TV. The DIY project is not promising its seat, enclosure, effects or motion.</p>
+<p>https://rawthrills.com/wp-content/uploads/2023/08/JP-Manual-r11.pdf</p>
+<p>Manual PN 040-00044-01, dated 07/25/2023:</p>
+<ul>
+<li>Page 5: USB dongle is required for game play.</li>
+<li>Page 12: separate gun-vibration diagnostic tests.</li>
+<li>Page 19: poor registration can be caused by damaged potentiometers or disconnected gun/pot wiring; missing I/O and missing dongle are distinct faults.</li>
+<li>Page 19: vibration fault checks include 24 VDC supply and recoil PCB.</li>
+<li>Page 2: 5 A slow-blow fuses protect each gun solenoid circuit. <strong>A fuse rating is not measured current draw or continuous power.</strong></li>
+</ul>
+<p>No primary evidence inspected here establishes a Jurassic Park pump-reload mechanism. Do not transfer the Big Buck pump action into the Jurassic requirements. Verify actual secondary actions per chosen title.</p>
+<h2 id="software-rights-and-loader-boundary">Software-rights and loader boundary</h2>
+<p>https://docs.mamedev.org/usingmame/commonissues.html#how-do-i-legally-obtain-roms-or-disk-images-to-run-on-mame</p>
+<p>MAME's FAQ distinguishes authorized licensing, explicitly released free media and reading one's actual arcade hardware. It is not a blanket legal opinion for every country, contract or copy-protection scheme. Buying a cabinet does not establish permission to download somebody else's image, redistribute assets or defeat authentication. Do not infer “abandonware” means unprotected.</p>
+<p>TeknoParrot and similar compatibility loaders are separate from an all-open-source MAME/Supermodel stack. This plan makes no current exact-title compatibility or license claim for them: verify individual components, supported build, fees, media rights and behavior before considering that route. A loader listing alone does not satisfy the bench gate. No cracked images, activation patches, shared keys or dongle emulation are included.</p>
+<h2 id="required-per-game-proof-before-spending-on-cabinetry">Required per-game proof before spending on cabinetry</h2>
+<ul>
+<li>Record exact title/build and which original features matter: local versus online play, alternating versus simultaneous players, courses, artwork, sound, mounted-gun feel, recoil and motion.</li>
+<li>Show authorized cold boot, title screen and full gameplay, not an attract-mode video.</li>
+<li>Golden Tee: complete 18 holes; test gentle putts and hard drives for trackball saturation, reverse axes, missed counts and hand clearance.</li>
+<li>Silver Strike: complete ten frames with spares/strikes/foul or gutter cases and all five panel controls. Prove the selected donor's local-play state with network disconnected if offline use is required.</li>
+<li>Big Buck: test trigger/pump event ordering, edge targets, fast sweeps, and the <strong>actual</strong> selected multiplayer mode. A one-gun alternating game is not a two-player shootout.</li>
+<li>Jurassic: independently aim/fire both players, test secondary actions and a complete mission; check calibration after restart. For 2015, confirm original PC/dongle/I/O pairing and define whether recoil is deliberately omitted or safely retained.</li>
+<li>Record emulator/runtime version, PC, controller firmware, display mode, configuration hashes and observations. Repeat after hardware, display size, firmware or software changes.</li>
+</ul>
+</main>
+</body>
+</html>

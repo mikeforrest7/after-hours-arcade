@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Plan / After Hours Arcade Studio</title>
+<link rel="stylesheet" href="studio/studio.css">
+<style>
+.md-doc{max-width:860px;margin:0 auto;padding:48px 24px 96px}
+.md-doc h1,.md-doc h2,.md-doc h3{line-height:1.25}
+.md-doc table{border-collapse:collapse;width:100%;margin:1.25em 0}
+.md-doc th,.md-doc td{border:1px solid currentColor;padding:.5em .6em;text-align:left;vertical-align:top}
+.md-doc pre{overflow-x:auto;padding:1em;border:1px solid currentColor}
+.md-doc code{font-family:ui-monospace,Consolas,monospace}
+.md-back{display:inline-block;margin-bottom:1.5em}
+</style>
+</head>
+<body>
+<header class="masthead"><a class="wordmark" href="studio/index.html">AFTER<span>HOURS</span><small>ARCADE STUDIO</small></a></header>
+<main class="md-doc">
+<a class="md-back text-link" href="studio/index.html">&larr; Back to the studio proposal</a>
+<h1 id="basement-arcade-engineering-and-build-plan">Basement arcade — engineering and build plan</h1>
+<p>2026-11-01 · Personal-use engineering plan and conditional production case · USD unless stated otherwise</p>
+<p><a href="studio/index.html">Executive product and production presentation</a> · <a href="studio/experience-spec.html">Arcade experience specification</a> · <a href="studio/production-plan.html">Production business plan</a></p>
+<p>The executive presentation is the visual front door; this file remains the engineering appendix. Serve the HTML over HTTP rather than opening a <code>file://</code> copy. Engineering verification (automated and device checks) is recorded privately by the project owner and is not part of this public package.</p>
+<h2 id="recommendation">Recommendation</h2>
+<p>Design the custom option around <strong>two modular stations</strong>, not four duplicated commercial enclosures:</p>
+<ol>
+<li>A <strong>trackball pedestal</strong> with a separate 43-inch wall-mounted display, for Golden Tee and Silver Strike when their selected runtimes are proven.</li>
+<li>A <strong>two-player shooter station</strong> with a separate 55-inch display, supporting handheld optical guns for suitable games and reserving floor space for a separately engineered mounted-gun branch.</li>
+</ol>
+<p>Use commodity displays, a reusable PC bench, off-the-shelf trackball/buttons and a plywood shell where a custom build earns its cost and fit. Compare licensed home products before choosing emulation or a complete legitimate donor. Buying complete cabinets may change this two-station layout; no factory system is assumed to fit inside the custom pods. Spend first on version-specific proof, then on cabinetry.</p>
+<p>Commercial cabinets cost more than the bill of electronics: custom controls, software/content, durable fabrication, integration, distribution and support also contribute. We have no evidence establishing what fraction is licensing. The accessible saving is the enclosure, display and integration labor; reverse-engineering four commercial games from scratch is unlikely to be the cheapest path.</p>
+<p><strong>The plan includes all four requested games. None is silently replaced.</strong> Exact releases remain unselected. Classic Silver Strike donor integration and modern Jurassic Park remain difficult branches, but factory Silver Strike home products and licensed Big Buck alternatives must be considered alongside them. A cheap shell does not resolve software, controls or acquisition rights.</p>
+<h2 id="deliverables-and-evidence">Deliverables and evidence</h2>
+<ul>
+<li><a href="studio/index.html">Executive presentation</a>: finished-product and room concepts, authentic game-reference previews, acquisition comparison, interactive production economics and decision gates.</li>
+<li><a href="studio/experience-spec.html">Experience specification</a> and <a href="studio/reviews/arcade-review.html">arcade advisor review</a>: guest journey, game-specific physical interactions, source-scoped timing/control requirements and prototype proofs.</li>
+<li>Dedicated game experiences: <a href="studio/games/golden-tee.html">Golden Tee</a>, <a href="studio/games/big-buck-hunter.html">Big Buck Hunter</a>, <a href="studio/games/silver-strike.html">Silver Strike</a> and <a href="studio/games/jurassic-park.html">Jurassic Park Arcade</a>. Each has six credited reference images, an enlargement viewer, play sequence, screen cues, controls and proposed build proofs. Photos, gameplay captures, trailer frames and promotional renders are labeled separately.</li>
+<li><a href="studio/modernization.html">Graphics and experience modernization</a> and <a href="research/modernization.html">technical feasibility appendix</a>: display/input improvements, conditional renderer investigation, separate new-engine scope, per-game proof gates and an interactive distinction between upscaling and newly authored detail.</li>
+<li>
+<p><a href="studio/reviews/marketing-review.html">Product/marketing review</a>, <a href="studio/production-plan.html">production plan</a> and <a href="studio/economics.json">editable economics</a>: bounded hardware offer, manufacturing, contribution, tooling, liquidity, commercial obligations and demand gates. These are not a launch authorization.</p>
+</li>
+<li>
+<p><a href="research/game-feasibility.html">Game feasibility and primary sources</a>: version branches, exact MAME declarations, donor requirements and rejected unsupported claims.</p>
+</li>
+<li><a href="research/hardware-and-fabrication.html">Hardware, fabrication and detailed BOM</a>: make/buy choices, controls, display and safety requirements, cost allowances.</li>
+<li><a href="cad/README.html">CAD package</a>: editable parameters, generated OpenSCAD, DXF panel blanks and dimensioned visual mock-ups. Concept geometry only; no approved CNC toolpaths or structural certification.</li>
+<li><a href="research/rea-workflow.html">REA workflow</a>: scoped open-source tooling, six investigation runs, actual harmless local smoke evidence and limitations.</li>
+<li><a href="engineering-graph.json">Engineering graph</a> and <a href="run_graph.py">query tool</a>: requirements, interfaces, dependencies, owners, risks and evidence paths. The tool validates the plan and identifies downstream impact; it never launches games, agents or purchases.</li>
+<li>Verification record: engineering commands and visual/device checks were run by the project owner and kept privately; this public package covers the design and business case content above, not that internal record.</li>
+</ul>
+<p>No game binaries, activation keys or donor-drive images are included. The guides use credited reference imagery for a partner-review study; attribution does not establish a commercial image license. The requested no-login website publishes only the reviewed presentation package, not private operational records or playable commercial games. The separate concept-video branch does not block the website release.</p>
+<h2 id="1-define-the-experience-before-selecting-parts">1. Define the experience before selecting parts</h2>
+<h3 id="gameversion-contract">Game/version contract</h3>
+<table>
+<thead>
+<tr>
+<th>Game</th>
+<th>Custom / donor investigation</th>
+<th>Factory alternative to compare</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Golden Tee</td>
+<td>Fore! 2006 Complete (<code>gtfore06</code>) subject to lawful media and bench proof; LIVE/PGA requires its own authorized path</td>
+<td>Fore! Remastered preorder; Arcade1Up's older title collection; modern PGA home products. Compare the exact course catalogue, controls, stock and landed cost.</td>
+</tr>
+<tr>
+<td>Big Buck Hunter</td>
+<td>Eagle-era <code>bbh</code>, <code>bbhsc</code>, <code>bbh2sp</code>, <code>bbhcotw</code>; modern donor paths investigated separately</td>
+<td>Arcade1Up Pro/World-family consumer cabinets are real alternatives for different releases. Two supplied guns or a 1–4-player label does not establish the exact simultaneous mode.</td>
+</tr>
+<tr>
+<td>Silver Strike</td>
+<td>Demonstrated legitimate classic donor, with the 2007 Nighthawk/I/O/CID package as one concrete example</td>
+<td>Arcade Collection's included Silver Strike; League Night Home Edition's portrait reboot with a separately supplied 4K TV. Neither is assumed identical to the chosen classic version.</td>
+</tr>
+<tr>
+<td>Jurassic Park Arcade</td>
+<td>Raw Thrills 2015 original-electronics/mounted-control path; 1994 <code>jpark</code> or 1997 <code>lostwsga</code> only if explicitly selected as different games</td>
+<td>Complete commercial environmental cabinet where budget/access permit. No compact consumer equivalent of the 2015 product was established in the inspected sources.</td>
+</tr>
+</tbody>
+</table>
+<p>The exact four choices must be recorded at gate G0. A cheaper bowling game does not satisfy Silver Strike. A 1990s Jurassic Park game does not satisfy a request for the 2015 game. Online accounts, competitions, current courses, motion, enclosure and commercial recoil are optional fidelity decisions, not included by implication.</p>
+<h3 id="room-survey">Room survey</h3>
+<p>Measure finished floor-to-ceiling height, usable wall lengths, doors and their swings, narrowest stair width, headroom, landing-turn diagonal, outlets/circuit allocation, wall substrate, any moisture history and spectator circulation. Photograph the access route and the intended display wall. Record player heights and seated/accessibility needs. Do not infer these from a generic basement plan.</p>
+<p>The CAD room is an illustrative layout, <strong>not a survey of Mike's basement</strong>. Player/aisle dimensions are design allowances, not statements of building-code compliance. Do not place either station in a required escape route or block service access.</p>
+<h2 id="2-concept-alternatives">2. Concept alternatives</h2>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Advantage</th>
+<th>Main compromise</th>
+<th>Decision</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>One universal display + movable/swappable control pod</td>
+<td>Lowest duplication and initial spend</td>
+<td>One active game/session; trackball pod must clear the shooter stance; repeated calibration/profile changes</td>
+<td>Minimum-cost alternative</td>
+</tr>
+<tr>
+<td>Two modular stations</td>
+<td>Separate ergonomics; simultaneous golf/bowling and shooting; reusable TVs</td>
+<td>Two display/compute lanes unless switching is deliberately accepted; factory purchases may change the layout</td>
+<td><strong>Selected custom concept, conditional on acquisition choices</strong></td>
+</tr>
+<tr>
+<td>Four dedicated cabinets</td>
+<td>Immediate game identity; no changeovers</td>
+<td>Most furniture, floor area, transport weight and duplicate electronics</td>
+<td>Only if authenticity outweighs cost</td>
+</tr>
+<tr>
+<td>Wall-display rail + mobile controls</td>
+<td>Flexible room, easy screen reuse</td>
+<td>Cable routing, anchoring and movement/calibration discipline</td>
+<td>Useful if room also serves another purpose</td>
+</tr>
+<tr>
+<td>Seated deluxe enclosure</td>
+<td>Closer to environmental shooter feel</td>
+<td>More joinery, mass, access constraints and safety work; motion excluded</td>
+<td>Not first build</td>
+</tr>
+</tbody>
+</table>
+<p>The CAD gallery illustrates these five forms. The executive presentation adds finished-product studies, a room concept and original play-experience scenes. Neutral original styling is not copied commercial branding. The custom render is a design hypothesis; dimensioned orthographic CAD remains the source for concept envelopes, and measured hardware controls the later fabrication release.</p>
+<h2 id="3-technical-architecture">3. Technical architecture</h2>
+<h3 id="trackball-station">Trackball station</h3>
+<ul>
+<li>Nominal furniture envelope <strong>760 W × 610 D × 950 H mm</strong> (29.9 × 24.0 × 37.4 in). Validate height with a cardboard/full-size mock-up before cutting.</li>
+<li>Start with a commercial <strong>3-inch / 76.2 mm trackball</strong>. A cheap mouse trackball rarely reproduces the inertia, strike tolerance and speed range desired here.</li>
+<li>PC/emulator branch: relative USB HID X/Y plus a separate button encoder. Disable unintended pointer acceleration; document the actual input provider. Choose sensitivity in-game rather than applying multiple hidden scaling layers.</li>
+<li>Original Silver Strike branch: preserve its trackball encoder interface, I/O board and required buttons. A USB trackball is not automatically compatible with the donor board. Use interchangeable panels or a properly designed switch/interface, never connect one set of powered encoder outputs to two hosts in parallel.</li>
+<li>Allow five game buttons plus separate deliberate service/menu/exit access. Golden Tee Fore and Silver Strike have different labels; use an unobstructed, replaceable label panel and per-game profiles.</li>
+<li>Keep the hand's forward strike path clear. Wall-mounting the TV independently eliminates a cabinet monitor shelf in the immediate hand path, but the actual setback still needs a physical swing trial.</li>
+</ul>
+<h3 id="shooter-station">Shooter station</h3>
+<ul>
+<li>Nominal low console envelope <strong>1,300 W × 400 D × 750 H mm</strong> (51.2 × 15.7 × 29.5 in). It is furniture/holster storage, <strong>not a freestanding TV support</strong>.</li>
+<li>Handheld branch: two independently identified USB optical guns; pick OpenFIRE for an open-firmware DIY route or a supported commercial gun where reduced tuning work is worth the price. Try one unit before buying a matched pair.</li>
+<li>Sinden's visible border, IR-marker systems' line of sight, camera field of view and room lighting are different installation constraints. A gun sold as USB does not prove compatibility with an arbitrary game runtime.</li>
+<li>Mounted branch: retain original Jurassic guns/I/O or engineer two-axis analog assemblies only after proving their complete input contract. A USB HID MCU with ADC inputs can represent analog position for a compatible runtime; it does not automatically emulate RIO or make original game electronics accept the new device.</li>
+<li>Recoil is a separate output/power subsystem. Baseline is <strong>no powered recoil or motion</strong>. If added, use documented parts, rated external supply, protected driver, flyback suppression where required, thermal/duty-cycle limits, guards and an accessible hardware disable. Do not power a solenoid from a USB logic rail or size a supply from fuse ratings alone.</li>
+<li>Legacy Big Buck may use alternating players on a single gun. Two installed guns do not create a multiplayer mode the game lacks.</li>
+</ul>
+<h3 id="compute-and-runtime">Compute and runtime</h3>
+<p>Bench first on an existing reasonably modern x86-64 PC. Procurement target for the emulation lane: a strong recent desktop CPU (e.g. Ryzen 5 5600 / Core i5-12400 class or better), 16 GB RAM and 500 GB–1 TB SSD. This is a <strong>benchmark candidate</strong>, not a guarantee. MAME can be CPU-bound; an expensive GPU does not make its emulated Voodoo hardware free. For Supermodel, verify the actual GPU/API requirements and performance before deciding whether integrated graphics suffice.</p>
+<p>One PC per concurrently active emulation station is the boring reliable arrangement. One shared PC is cheaper only if one game at a time is acceptable. Do not casually run two emulators on one Windows desktop and assume focus, audio and USB routing will remain independent. Original donor computers may add further boxes; preserve ventilation and service space for each, and do not count them as the emulation PC.</p>
+<p>Start games directly while proving inputs. Add a simple frontend only after each exact launch/exit path works. Freeze application versions, stable device identities, display modes and per-game configuration. MAME's <code>mapdevice</code> belongs in its controller configuration, not an arbitrary game/default file; its documentation also warns that not every input provider supplies stable unique IDs.</p>
+<p>https://docs.mamedev.org/advanced/devicemap.html</p>
+<p>Use local-only operation where the selected product legitimately supports it. Keep unsupported legacy donor operating systems off the household network unless a documented authorized service requires connectivity; segment them if needed. Do not patch authentication or redirect a game to a fabricated server to make it appear supported.</p>
+<p>Use a normal OS shutdown button and accessible service keyboard. Do not use a switched power strip as the routine PC shutdown. Back up configuration/NVRAM and authorized system images according to their license; keep game media outside the source repository.</p>
+<h2 id="4-display-strategy-buy-the-panel-manufacture-the-furniture">4. Display strategy: buy the panel, manufacture the furniture</h2>
+<p>Do <strong>not</strong> manufacture LCD/OLED panels. Fabricating the semiconductor backplane, optical stack and driver electronics is industrial production, not a cost-saving basement process. Build the bezel/frame/hood and buy a complete warranted TV or monitor.</p>
+<p>A bare LCD panel plus controller, PSU, frame and protection is an optional salvage experiment. Exact panel/controller compatibility, backlight power, firmware, exposed conductors and mechanical fragility often erase the saving. The default is an intact off-the-shelf display with its original power enclosure retained.</p>
+<table>
+<thead>
+<tr>
+<th>Display</th>
+<th>Nominal 16:9 active width × height</th>
+<th>Proposed role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>43-inch</td>
+<td>About 952 × 535 mm</td>
+<td>Trackball station</td>
+</tr>
+<tr>
+<td>55-inch</td>
+<td>About 1,218 × 685 mm</td>
+<td>Shooter station</td>
+</tr>
+</tbody>
+</table>
+<p>These are active-area calculations, not chassis/cutout dimensions. Measure the chosen unit's housing, VESA, cable bends, ventilation and bracket standoff. A 4:3 game is pillarboxed; never stretch it to fill 16:9. Bezel dimensions must also allow Sinden borders or IR emitters if that gun route is selected.</p>
+<p>Display acceptance: correct refresh and aspect, overscan off, interpolation/noise processing off, game mode on, repeatable power/input restoration, no distracting dimming and tested input latency. Start with 60 Hz output matching the title; 4K resolution or 120 Hz marketing alone does not prove low latency. The whole input-to-photon chain matters.</p>
+<p>For optical guns, viewing distance follows the camera lens and complete target geometry, not a generic TV-distance rule. The illustrative CAD reserves a test zone; acceptance must establish a near/far boundary with full corner coverage for both players. Measure with room lights and any daylight conditions expected in use.</p>
+<h2 id="5-manufacturing-and-installation-sequence">5. Manufacturing and installation sequence</h2>
+<ol>
+<li><strong>Full-size mock-up.</strong> Cardboard or scrap top; real trackball housing; borrowed display; player grip and strike tests. Tape station and stance outlines on the floor. This is cheaper than recutting finished plywood.</li>
+<li><strong>Measure the purchased parts.</strong> Record material thickness with calipers. Supplier mounting drawings control trackball, buttons and holsters. The nominal 76.2 mm ball is not a cutout diameter. Determine service and connector clearances.</li>
+<li><strong>Release fabrication CAD.</strong> Add joints, fasteners, door hinges, cable holes, removable panels, edge radii, material grain, tool diameter, pocket depths, tolerances and assembly labels. Generate exact quantities and optimized nesting only after those decisions. The delivered DXF contains panel blanks, not this release.</li>
+<li><strong>Make the panels.</strong> 18 mm good-quality plywood is a useful starting assumption. Hand route with templates/straightedges or send <strong>released</strong> DXF/STEP drawings to a local CNC shop. CNC can improve repeatability, but setup/cutting/finishing quotes must be compared with buying a flat-pack. MDF is heavy and more vulnerable to a damp basement; protect all edges if chosen.</li>
+<li><strong>Dry-fit and prove access.</strong> Check squareness, screw/insert positions, door swing, service reach and cable strain relief. Split furniture into manageable modules. Check the longest panel and the TV carton through stair turns; cabinet width alone is insufficient.</li>
+<li><strong>Finish.</strong> Sand with extraction and suitable PPE; ease hand-contact edges; prime/seal cut edges; paint, laminate or apply original artwork. Keep solvents/dust away from assembled electronics. Allow the actual finish's cure time.</li>
+<li><strong>Low-voltage assembly.</strong> Label both ends of every harness, use keyed connectors and proper crimp tooling, preserve ground/voltage separation, protect wire exits and leave service loops. Keep power and data routing deliberate. Do not hot-switch raw donor connections unless the interface is designed for it.</li>
+<li><strong>Install the displays independently.</strong> Rated commercial brackets fixed to verified structure by a competent installer. No drywall-only mounting, decorative plywood TV support or unverified DIY tip-over calculation. Anchor furniture where needed for energetic trackball play and children.</li>
+<li><strong>Commission.</strong> Test each subsystem before attaching expensive components; then complete the final acceptance tests. Keep as-built drawings and connector/pinout records with the machine.</li>
+</ol>
+<p>Ventilation design follows measured heat, not a fan decoration: clear intake/exhaust paths, filters that can be cleaned, separated compartments where needed, and service access. Electronics stay above plausible floor-water exposure. Stop use on condensation or water damage. Have an electrician confirm circuit capacity, grounding and applicable basement GFCI requirements. No exposed mains, daisy-chained power strips, CRT repairs or mains rewiring are part of the DIY scope. Maintain smoke detection and unobstructed escape routes.</p>
+<h3 id="budget-and-staged-spending">Budget and staged spending</h3>
+<p>The <a href="research/hardware-and-fabrication.html#reconciled-bom-two-station-infrastructure">itemized BOM</a> is the cost source. It distinguishes ordinary unit allowances from observed supplier prices and counts a five-sheet conservative plywood allowance for the two-station CAD concept.</p>
+<table>
+<thead>
+<tr>
+<th>Infrastructure scenario</th>
+<th style="text-align: right;">Parts allowance</th>
+<th style="text-align: right;">With 20% contingency</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>One shared display/PC and movable control pod</td>
+<td style="text-align: right;">$1,409–2,607</td>
+<td style="text-align: right;">$1,691–3,128</td>
+</tr>
+<tr>
+<td>Recommended two-station furniture/display/control infrastructure</td>
+<td style="text-align: right;">$2,309–4,377</td>
+<td style="text-align: right;">$2,771–5,252</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Neither row buys four proven games.</strong> Lawful media/rights, original Silver Strike or modern game donor systems, Jurassic mounted-gun assemblies, any additional GPU/scaler, freight/tax and labor are separate unknowns. They must be quoted before approving a total project budget. The cheaper scenario is an allowance, not a separately released panel design.</p>
+<p>Stage spending: reuse an existing TV/PC for a <strong>$300–600 pilot envelope</strong>, carrying retained parts into the final BOM rather than charging them twice; prove all four selected game/control paths; price the exact landed bill; then authorize furniture and nonreturnable parts. Returnable displays and modular interfaces reduce sunk cost. A donor whose board, matching storage, security/interface hardware or transfer conditions cannot be demonstrated is not a bargain.</p>
+<p>The <a href="studio/economics.json">production model</a> is a <strong>different scope</strong>: one hardware-only trackball kit, with display/PC/game software excluded. It adds production labor, selling/support costs, tooling and launch-liquidity assumptions. Do not substitute its unit selling price for the personal two-station project budget, or treat the infrastructure allowance above as a complete four-game quote.</p>
+<h2 id="6-graph-engineering-and-parallel-execution">6. Graph engineering and parallel execution</h2>
+<p>The <a href="engineering-graph.json">JSON graph</a> is the dependency source. It retains the four named game requirements and adds traceable requirements for the experience specification, finished-product presentation and production business case. Four interface contracts separate controller signals, video and mechanical fit. Each task has an owner, dependencies, state and estimated effort. Completed planning nodes require evidence files. Explicit external gates cannot become ready work merely because their prerequisites finish.</p>
+<p>The schedule is a DAG; the wider engineering model also includes requirements, risks, interfaces and evidence. Design iterations create revised inputs and invalidate downstream work, rather than hiding feedback loops in a supposedly acyclic schedule. Change the selected Jurassic release and its bench test, architecture, procurement and fabrication must all be revisited.</p>
+<pre><code class="language-mermaid">flowchart TD
+  G0[&quot;G0: four exact releases, fidelity, budget&quot;] --&gt; Rights[&quot;Lawful media / complete donors&quot;]
+  Rights --&gt; Track[&quot;Trackball bench: Golden Tee + Silver Strike&quot;]
+  Rights --&gt; Guns[&quot;Shooter bench: Big Buck + Jurassic&quot;]
+  Track --&gt; Proof[&quot;Four version-specific acceptance results&quot;]
+  Guns --&gt; Proof
+  Site[&quot;Measured room / access / utilities&quot;] --&gt; Freeze[&quot;G1: architecture freeze&quot;]
+  Proof --&gt; Freeze
+  Freeze --&gt; Budget[&quot;Landed BOM and G2 purchase approval&quot;]
+  Budget --&gt; Parts[&quot;Measure approved parts&quot;]
+  Parts --&gt; Cad[&quot;Detailed CAD release&quot;]
+  Cad --&gt; Wood[&quot;Fabricate furniture&quot;]
+  Parts --&gt; Harness[&quot;Build control harnesses&quot;]
+  Parts --&gt; Runtime[&quot;Freeze software / backups&quot;]
+  Wood --&gt; Assembly[&quot;Final assembly&quot;]
+  Harness --&gt; Assembly
+  Runtime --&gt; Assembly
+  Assembly --&gt; Safety[&quot;Safety inspection&quot;]
+  Safety --&gt; Soak[&quot;Four-game room tests / thermal soak&quot;]
+  Soak --&gt; G3[&quot;G3: owner acceptance&quot;]
+</code></pre>
+<p>From the full private source checkout, validate the graph and query the downstream impact of changed Jurassic research:</p>
+<pre><code class="language-powershell">cd &lt;repository root&gt;
+python .\arcade\run_graph.py --changed P-JP
+</code></pre>
+<p>This is a read-only dependency query, not permission to execute its tasks. It requires the complete source checkout and private verification records. The public website's graph is a review copy: it omits those records and is not an independently executable evidence bundle.</p>
+<p>Parallel work is useful only while interfaces are stable:</p>
+<table>
+<thead>
+<tr>
+<th>Wave</th>
+<th>Independent work</th>
+<th>Integration gate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Research, executed for this plan</td>
+<td>Golden Tee/Silver Strike specialist; Big Buck/Jurassic specialist; mechanical/CAD designer; hardware/manufacturing researcher</td>
+<td>Parent reconciles source claims. Exact GAME flags and manufacturer manuals override optimistic worker summaries.</td>
+</tr>
+<tr>
+<td>Site + selection</td>
+<td>Physical survey; choose release/fidelity/budget</td>
+<td>G0 release choices and documented room constraints</td>
+</tr>
+<tr>
+<td>Bench</td>
+<td>Trackball/runtime lane and shooter/runtime lane; narrow REA investigations only where needed</td>
+<td>All four game tests pass. No invisible legacy substitutions.</td>
+</tr>
+<tr>
+<td>Build design</td>
+<td>Detailed mechanical release; control harness design; frozen software profiles</td>
+<td>G1 architecture, landed BOM, G2 exact-list purchase approval</td>
+</tr>
+<tr>
+<td>Fabrication</td>
+<td>Wood finishing; electronics harnesses; runtime configuration/backups</td>
+<td>Interfaces measured; no competing edits to the same drawing/config</td>
+</tr>
+<tr>
+<td>Final integration</td>
+<td>Assembly, electrical/mechanical inspection, whole-room play tests</td>
+<td>G3 owner acceptance on evidence</td>
+</tr>
+<tr>
+<td>Executive rebuild, executed for this revision</td>
+<td>Arcade/game-design advisor; product-marketing advisor; industrial-visual designer; production/economics advisor</td>
+<td>One integration owner reconciles the product, sources and interfaces. Independent arcade and financial integrity passes correct unsupported claims before acceptance.</td>
+</tr>
+<tr>
+<td>Conditional commercial validation</td>
+<td>Approved buyer discovery alongside prototyping; SKU costing and qualified compliance review</td>
+<td>Paid pilot, measured labor/support, committed demand and funded liquidity before an exact batch authorization. No outward activity is authorized by this plan.</td>
+</tr>
+</tbody>
+</table>
+<p>The original research and the executive rebuild were each fanned out through native task workers. The executive rebuild used four independent workstreams, followed by two independent integrity corrections where the integration owner found source and accounting defects. A worker returning “done” is not accepted as compatibility, legal, financial or browser proof; the final integration owner exercises the actual deliverable.</p>
+<p>Concurrency limit for the physical build: two technical lanes plus one mechanical lane. More people writing simultaneous game profiles or cabinet dimensions adds conflict without resolving missing hardware. Do not run repeated agent passes over an already analyzed binary; retain evidence and send bounded questions.</p>
+<p>The graph's <code>C0</code>, <code>C-DISCOVERY</code>, <code>C-COMPLIANCE</code>, <code>C-PILOT</code> and <code>C-RELEASE</code> nodes keep a possible commercial path separate from the personal room. A production batch is not an annual sales forecast. Customer deposits are obligations, and a hardware kit does not become an approved four-game bundle merely because its furniture is finished.</p>
+<p>The included graph query reports a theoretical dependency-path estimate and total person-hours. These exclude parts lead times, human approval waits, shared-builder contention and new game-reimplementation work. A reasonable <strong>planning allowance is 6–10 weekends after game feasibility and parts acquisition</strong>, not a guarantee. Unproven modern runtime development has no credible completion date yet.</p>
+<h2 id="7-acceptance-gates">7. Acceptance gates</h2>
+<p>Targets below are proposed engineering acceptance criteria, not measured results or manufacturer promises. Adjust explicitly at G0, then hold them fixed for comparison.</p>
+<table>
+<thead>
+<tr>
+<th>Area</th>
+<th>Test and pass condition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>All four game identities</td>
+<td>Exact selected build shown; required course/game/mission completed. Substitutions require a recorded change to the requirement.</td>
+</tr>
+<tr>
+<td>Trackball</td>
+<td>Slow rolls, diagonal rolls and 20 hard strokes show correct direction and no wrap/reversal/dropout; gentle putts and hard shots remain distinguishable. No hand contact with display, buttons or sharp edges.</td>
+</tr>
+<tr>
+<td>Buttons</td>
+<td>100 deliberate actuations per critical button without missed or duplicate game actions; combinations needed by the game work. Service/exit cannot be triggered accidentally by ordinary play.</td>
+</tr>
+<tr>
+<td>Optical aim</td>
+<td>Nine-point grid at near/far accepted player positions, ten shots per point/player: at least 95% within 2% of active display width from intended point. This is a design target; verify that the selected game/test tool exposes adequate coordinates. No player cross-control.</td>
+</tr>
+<tr>
+<td>Positional aim</td>
+<td>Smooth monotonic sweep to each limit, repeatable neutral, no jitter or dead region hiding a target; recheck after warm-up and restart. Physical stops protect pots and wiring.</td>
+</tr>
+<tr>
+<td>Reload/secondary</td>
+<td>Big Buck pump/trigger order works at realistic cadence; Jurassic-specific secondary functions verified rather than assuming a pump.</td>
+</tr>
+<tr>
+<td>Speed and latency</td>
+<td>Maintain emulated real-time speed with sound during representative demanding scenes; record dropped frames/stutter. Provisional total input-to-photon target ≤50 ms; measure with high-speed video or an instrumented method, not a TV's advertised pixel response.</td>
+</tr>
+<tr>
+<td>Restart/device identity</td>
+<td>Ten cold boots and planned reconnect scenarios retain P1/P2 identity, calibration, settings and audio. Missing devices fail visibly, not by controlling another player.</td>
+</tr>
+<tr>
+<td>Thermal/endurance</td>
+<td>Four-hour mixed-game session at expected room conditions; no crash, input loss, throttling or temperatures exceeding component specifications. Report hottest readings and ambient temperature.</td>
+</tr>
+<tr>
+<td>Safety/fit</td>
+<td>Competent check of TV mounting, furniture stability, cable pulls, guarded moving parts, rated power hardware, grounding/GFCI where required, ventilation and egress; physical access route proven.</td>
+</tr>
+<tr>
+<td>Recovery</td>
+<td>Restore configuration to a spare/test location from backup, prove a chosen game starts with correct controls, and record the process. No reliance on an irreplaceable undocumented setup.</td>
+</tr>
+</tbody>
+</table>
+<p>Maintain a short failure log: symptom, exact version/hardware, reproduction, evidence, owner, correction and retest. Do not loosen a target just to turn a failed bench into a procurement approval.</p>
+<h2 id="8-decisions-mike-owns-work-the-agent-can-own">8. Decisions Mike owns; work the agent can own</h2>
+<p><strong>Mike decides:</strong> exact release for each game; whether original feel or only gameplay matters; maximum total spend including donor systems; acceptable room footprint; handheld versus mounted controls; whether any later recoil/motion or online feature is worth its cost. Purchases and external communications require their own exact authorization.</p>
+<p><strong>The agent can own:</strong> primary-source compatibility checks, BOM reconciliation, CAD revisions from actual measurements, graph validation/change impact, approved local software setup and repeatable test execution. A builder/installer owns physical measurements and safety work that cannot be observed remotely.</p>
+<p>Nothing needs to be bought to make the next decision. First identify the four exact arcade versions from names/photos and measure the room/access route. Then prove the two control families on a bench. Release furniture for cutting only after the software/control choices survive that test.</p>
+</main>
+</body>
+</html>

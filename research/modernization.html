@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Modernization / After Hours Arcade Studio</title>
+<link rel="stylesheet" href="../studio/studio.css">
+<style>
+.md-doc{max-width:860px;margin:0 auto;padding:48px 24px 96px}
+.md-doc h1,.md-doc h2,.md-doc h3{line-height:1.25}
+.md-doc table{border-collapse:collapse;width:100%;margin:1.25em 0}
+.md-doc th,.md-doc td{border:1px solid currentColor;padding:.5em .6em;text-align:left;vertical-align:top}
+.md-doc pre{overflow-x:auto;padding:1em;border:1px solid currentColor}
+.md-doc code{font-family:ui-monospace,Consolas,monospace}
+.md-back{display:inline-block;margin-bottom:1.5em}
+</style>
+</head>
+<body>
+<header class="masthead"><a class="wordmark" href="../studio/index.html">AFTER<span>HOURS</span><small>ARCADE STUDIO</small></a></header>
+<main class="md-doc">
+<a class="md-back text-link" href="../studio/index.html">&larr; Back to the studio proposal</a>
+<h1 id="modernization-feasibility-hardware-renderer-and-reverse-engineering">Modernization feasibility: hardware, renderer and reverse engineering</h1>
+<p>2026-11-02 -- Arcade hardware/emulation/graphics-architecture advisory -- Companion to <code>studio/experience-spec.md</code>, <code>research/game-feasibility.md</code> and <code>studio/modernization.json</code>. No game was run, bench-tested or reverse-engineered to write this; every technical claim below is traced to a primary source (MAME driver source, manufacturer manual, vendor SDK/tool documentation, or this project's own existing credited research) and marked with its actual epistemic status -- "confirmed by X," "evidence of absence in sources checked," or "not tested" -- rather than stated as a flat fact. Design judgment is marked as judgment, not evidence.</p>
+<h2 id="0-what-this-document-answers">0. What this document answers</h2>
+<p>Mike's basement-arcade build (<code>PLAN.md</code>) already treats hardware/software sourcing for the four exact games as a make/buy/emulate decision. This document answers a narrower, harder question underneath that one: <strong>given better display hardware and lawful reverse engineering, can Golden Tee Fore! 2006 Complete, Big Buck Hunter: Call of the Wild, the 2009 Silver Strike Bowling kit, and the 2015 Raw Thrills Jurassic Park Arcade actually look and feel modern?</strong> The honest answer has three distinct tiers that must never be collapsed into one another in conversation, in a proposal, or in a budget line:</p>
+<ol>
+<li><strong>Faithful presentation</strong> -- correct display chain, correct aspect ratio, CRT-accurate shaders/scalers, a panel's low-latency "game mode," refresh-rate evaluation, and a measured input pipeline, around the <em>real</em> game (emulated or original hardware), unchanged.</li>
+<li><strong>Renderer/texture/asset patches</strong> -- actually changing what the game renders (internal 3D resolution, texture resolution, geometry), which is only possible where the <em>exact selected system</em> is shown to support it -- an open, per-game question this document investigates rather than resolves in advance.</li>
+<li><strong>New-engine rebuild</strong> -- a new game, in a new engine, built either under original IP or (if a license is ever secured) as a rights-cleared remaster. Neither licensing branch is demonstrated or authorized by this document.</li>
+</ol>
+<p>Tier 1 is real, bench-provable, and available for all four games once lawful access is confirmed. Tier 2's outcome is genuinely unresolved for every game in this project -- the evidence below leans toward "no supported hook found" for the two MAME-benchable titles, but explicitly does not close the question for Silver Strike or Jurassic Park Arcade, and does not claim exhaustive search anywhere. Tier 3 is the tier where a from-scratch modern renderer (4K60, 1440p120, DLSS, ray tracing) is a real engineering option, under whichever licensing branch Mike eventually authorizes.</p>
+<h2 id="1-the-three-tiers-precisely">1. The three tiers, precisely</h2>
+<h3 id="11-tier-1-faithful-presentation">1.1 Tier 1 -- Faithful presentation</h3>
+<p>This tier touches <strong>zero bytes</strong> of game code, textures, or geometry. It is entirely the display chain and the input chain wrapped around a legitimately running system.</p>
+<p><strong>Display chain.</strong> For the two MAME-benchable titles (Golden Tee Fore!, Big Buck Hunter), MAME ships two mutually exclusive post-processing stacks that operate on the <em>already-rendered</em> emulated framebuffer:</p>
+<ul>
+<li><strong>HLSL</strong> (Direct3D-only): a per-pixel shader chain simulating shadow mask, scanlines, bloom, phosphor persistence, convergence error, and CRT geometric distortion. MAME's own documentation is explicit that this is a <em>display simulation</em> layered on "an idealized version of the video as it would be on the way to the arcade cabinet's monitor" -- it exists to recreate how a CRT looked, not to change what the emulated hardware computed [M6].</li>
+<li><strong>BGFX</strong>: a newer, backend-agnostic (D3D9/11/12, OpenGL, Vulkan, Metal) effects pipeline offering the same category of CRT simulation (<code>hlsl</code>, <code>crt-geom</code>, <code>crt-geom-deluxe</code>, <code>lcd-grid</code> screen chains) plus a vector-specific persistent-phosphor renderer and a pixel-art "depixelize" upscaler. MAME's own BGFX documentation opens with the identical framing: output is "an idealized version of the video... with minimal modification... primarily to stretch the game image back to the aspect ratio the monitor would traditionally have" [M7].</li>
+</ul>
+<p>Both are display filters operating on whatever resolution the emulated system actually outputs for a given title (see SS2 -- this is not one fixed number across the whole hardware family). Neither is a lever on the emulated system's internal 3D render resolution. Both default to <strong>pillarboxing</strong> a 4:3-native game rather than stretching it to fill a 16:9 panel, and MAME's own guidance is to target the display's native resolution "to avoid additional distortion and lag created by your monitor upscaling the display image" [M6][M7].</p>
+<p><strong>Refresh rate is a Tier 1 display-chain variable.</strong> Compare supported source/display combinations without changing the original game's speed. A renderer-resolution or engine-aware upscaling choice requires demonstrated renderer access in Tier 2 or a deliberately selected Tier 3 engine integration; it is not available merely because the TV accepts 4K.</p>
+<p>For Silver Strike 2009 and Jurassic Park Arcade 2015, no supported open-source runtime has been demonstrated in this study. The current bench proposal therefore starts with a complete, legitimately running original system. Tier 1 changes its display/input presentation, not the internal renderer. Use direct compatible video where possible and active conversion only where the signal actually requires it.</p>
+<p><strong>Input chain.</strong> Unchanged from <code>studio/experience-spec.md</code>: USB polling-rate behavior, raw-input handling so a vigorous trackball swing cannot escape to the OS cursor, and donor-system grounding/interface requirements. This is the same engineering problem regardless of which tier a given game's renderer sits at, because it has nothing to do with the renderer.</p>
+<p><strong>Display latency measurement.</strong> The correct methodology is RTINGS.com's published TV input-lag test approach -- an external, device-level measurement of the delay between a source signal and the resulting on-screen change -- not a panel's advertised pixel-response-time spec, which measures a different thing entirely [M16]. Every latency figure in this document is a target range to be measured across repeated trials and reported as a distribution (mean and spread), not a single exact number asserted in advance.</p>
+<h3 id="12-tier-2-renderertextureasset-patches-conditional-and-unresolved">1.2 Tier 2 -- Renderer/texture/asset patches, conditional and unresolved</h3>
+<p>This is the tier that needs the sharpest technical distinction, because "better hardware can modernize the renderer" is the claim most likely to be oversold -- and, in the other direction, the claim most likely to be prematurely foreclosed on thin evidence. The honest state of each of the four games is below (SS3); the general principle is:</p>
+<blockquote>
+<p>A renderer or asset patch needs an identified, reproducible modification path. That may be a documented interface, an existing open-source extension point or a lawful, version-specific engineering change. No such path has been demonstrated here for the selected releases. Missing documentation is not proof that reverse engineering cannot find one.</p>
+</blockquote>
+<p>The tools that <em>could</em> ever surface such a hook -- Ghidra, radare2, RenderDoc, PresentMon -- are real, well-documented, and legitimately usable within their actual capabilities (SS7), each with real compatibility limits (exact graphics API, OS version, GPU feature level) that must be checked per system before any capture is attempted, not assumed to apply universally. None of them, used within those capabilities, produces a texture-replacement patch or an internal-resolution toggle by itself. They produce <em>evidence</em> about whether such a thing is possible for a given binary or running system.</p>
+<h3 id="13-tier-3-new-engine-rebuild">1.3 Tier 3 -- New-engine rebuild</h3>
+<p>This tier replaces the engine and owns the content pipeline, giving the broadest control over resolution, materials, lighting, animation and interface design. A proven Tier 2 patch could also improve selected rendering features; a new engine is not the only theoretically possible route. Godot is the existing open-source engine candidate in <code>research/rea-workflow.md</code>; specific DLSS, FSR or ray-tracing features require separate engine/backend/hardware verification. A new game must rebuild and tune the physical play rituals under one of two rights branches:</p>
+<ul>
+<li><strong>Original IP:</strong> new code against new, uncopied art, courses, creatures and branding. <code>research/rea-workflow.md</code>'s existing "Path C" scope and warning both apply unchanged: "Observation can inform abstract mechanics and interface specifications, but copied code, models, textures, music, voice lines, proprietary courses, trademarks and bypassed authentication do not become authorized because [an RE tool] produced them," and "Do not promise a reverse-engineered modern four-game suite for the price of plywood."</li>
+<li><strong>Rights-cleared remaster:</strong> the same new-engine build, but against licensed assets/trademarks, contingent on Mike actually obtaining that license from Incredible Technologies, Raw Thrills, or Universal/Amblin. This is a real category this document does not foreclose -- but it is equally not something this document assumes is available, priced, or being pursued.</li>
+</ul>
+<p>A Tier 3 successor is a real, multi-month-to-multi-year software program either way, not a visual refresh. This project's standing integrity policy is explicit that hardware control does not imply lawful game content, modern renderer capability, or permission to distribute; Tier 3's original-IP branch sidesteps that boundary by not touching licensed content, while its rights-cleared branch would only clear that boundary with an actual signed license this project has not sought.</p>
+<h2 id="2-mame-hlslbgfx-vs-3d-internal-resolution-why-these-are-not-the-same-lever-and-what-is-actually-known">2. MAME HLSL/BGFX vs. 3D internal resolution -- why these are not the same lever, and what is actually known</h2>
+<p>This is the single most important technical distinction for Golden Tee and Big Buck Hunter, and it must be stated carefully, because the evidence here is more nuanced than "the hardware has a fixed resolution."</p>
+<p><strong>The Eagle board is a real 3D accelerator, emulated at the register level.</strong> MAME's <code>iteagle.cpp</code> driver documents the actual silicon: a NEC VR4310 MIPS CPU (N64-class, 133 MHz) paired with a <strong>3DFX Voodoo Banshee</strong> GPU (Voodoo 1 on the earlier "Eagle 1" board) [M1]. MAME's Voodoo device emulates this chip as <strong>low-level emulation (LLE)</strong>: it reimplements the actual pixel pipeline, texture combiner, and rasterizer logic of the real part, operating on exactly the commands the real game's driver code issued to the real card. This is architecturally different from a <strong>high-level emulation (HLE)</strong> graphics plugin, where a command stream is reinterpreted against an arbitrary, configurable output resolution because the plugin reimplements the GPU's <em>semantics</em> rather than its <em>silicon</em>. MAME's Eagle driver has no such plugin layer, and there is no current MAME-exposed "render at higher internal resolution" control for it.</p>
+<p><strong>Separate the configured screen, the render target and the reference image.</strong> The inspected <code>iteagle()</code> configuration initializes a 512×384 screen at 60 Hz and delegates screen updates to the emulated 3DFX device [M1]. That code is not a universal specification for the GPU's capabilities, nor proof that changing a screen-size constant produces a correct HD game. The stored reference images are 512×384 for Golden Tee and 640×480 for Big Buck Hunter; those are file dimensions, not measurements of this project's untested runtimes [M22][M23]. Record the live render target, display mode and any capture resampling separately. We found no documented, supported user-facing internal-resolution or texture-replacement control for these exact releases; an engineering change remains a conditional investigation, not an established feature.</p>
+<p><strong>What HLSL/BGFX actually do, concretely:</strong> they take whichever native frame the emulated hardware actually produced for the selected title and run it through a GPU shader chain that simulates shadow masks, scanlines, bloom, phosphor persistence, and CRT geometric distortion, or (BGFX's <code>depixelize</code> chain) apply a pixel-art-aware vectorizing upscaler to the flat 2D image [M6][M7]. Both operate purely on <strong>output pixels</strong>, after the game's own 3D pipeline has already finished. Running BGFX at a 4K target resolution makes the <em>post-filtered, upscaled presentation</em> 4K; it does not make the <em>game's own rasterizer</em> compute one additional triangle, texel, or shadow at higher fidelity. This is a genuinely useful, bench-provable Tier 1 improvement -- it is simply not, and must never be presented as, a 3D render-resolution upgrade.</p>
+<h2 id="3-which-exact-releases-could-actually-be-benchmarked">3. Which exact releases could actually be benchmarked</h2>
+<p>Per-game findings, each grounded in the same driver source or manufacturer document already used in <code>research/game-feasibility.md</code>, and each stated as the status of the evidence this project has gathered, not a universal claim about every possible emulator or community project that might exist:</p>
+<p><strong>Golden Tee Fore! 2006 Complete (<code>gtfore06</code>).</strong> Current mainline MAME's <code>iteagle.cpp</code> declares this machine with <code>MACHINE_SUPPORTS_SAVE</code> and <strong>no</strong> <code>MACHINE_NOT_WORKING</code> flag -- the correct epistemic status is "believed working per current source flags," not "proven working," because no bench test was performed for this project [M1]. This is a real, benchmarkable candidate, subject to lawful media.</p>
+<p><strong>Big Buck Hunter: Call of the Wild (<code>bbhcotw</code>).</strong> Same driver family, same flag status, same epistemic caveat [M1]. Also a real, benchmarkable candidate. This project's own existing research (<code>studio/games/big-buck-hunter.json</code>, sourced to the title's installation manual and Wikipedia) already documents this specific release as single-gun, alternating turns for up to four hunters -- not a simultaneous two-player mode [M22]; any bench plan should test that documented behavior, not a different one.</p>
+<p><strong>Silver Strike Bowling (2009 kit).</strong> No MAME core, and no other supported open-source emulator, was found in the sources inspected across this project. The system is a manufacturer-branded "Nighthawk" box whose installation manual states that opening its chassis voids the warranty [M5] -- a cost/risk disclosure to the equipment's owner, not a technical or legal statement that no internals documentation exists anywhere; this project did not conduct an exhaustive search for one. <strong>The clearest available benchmark target for this game is the owner's own complete donor system -- its real, native video and input chain.</strong> No claim is made anywhere in this document that an emulator for this title is known to exist.</p>
+<p><strong>Jurassic Park Arcade (2015, Raw Thrills).</strong> MAME does include a driver for Raw Thrills PC-based cabinets (<code>rawthrillspc.cpp</code>), and it is instructive precisely because of what it does <em>not</em> cover: its own header comment labels it a <strong>"Skeleton driver,"</strong> its three included titles are <em>The Fast and the Furious</em> (2004), <em>Guitar Hero Arcade</em> (2008), and <em>Doodle Jump Arcade</em> (2013) -- <strong>Jurassic Park Arcade (2015) is not among them</strong> -- and all three included titles carry the <code>MACHINE_NOT_WORKING | MACHINE_NO_SOUND</code> flags, meaning even those do not boot to a playable state in MAME today. The driver's own <code>TODO</code> states it "cannot continue without a proper Athlon 64 X2 core" [M2]. This is the strongest evidence available against an open-source emulation path for this title in the sources checked for this project -- it is not a claim that no such path exists anywhere, only that none was demonstrated here, which corroborates <code>research/game-feasibility.md</code>'s existing "no open-source runtime proven here" finding. <strong>The clearest available benchmark target for this game is the owner's own complete cabinet -- its real, live, running PC.</strong></p>
+<p>This satisfies the acceptance requirement that no unsupported Silver Strike or Jurassic Park Arcade emulator capability be implied anywhere in this project's materials: none was demonstrated in any source inspected, and that finding is stated at the strength the evidence actually supports.</p>
+<h2 id="4-vector-raster-and-cpugpu-bottlenecks">4. Vector, raster, and CPU/GPU bottlenecks</h2>
+<p>Arcade hardware modernization conversations often default to a vector-vs-raster framing (classic vector monitors like Asteroids/Tempest/Star Wars vs. raster-scan systems) because the two display technologies have fundamentally different failure modes and different MAME rendering paths (BGFX's persistent-phosphor vector CRT renderer, <code>bgfx_vectorcrt</code>, exists specifically because vector games "did not use scanlines" and need Gaussian-beam/HDR-phosphor simulation instead of a shadow mask [M7]). <strong>None of the four games in this project are vector systems.</strong> All four are raster, 3D-accelerated (or 2D/3D hybrid, in Silver Strike's undocumented Nighthawk case) PC-class hardware. The relevant bottleneck distinction for this project is therefore not vector-vs-raster, it is <strong>host-CPU-bound vs. host-GPU-bound emulation</strong>, and the honest answer is that this project has not benched either resource yet:</p>
+<p><strong>MAME's Eagle driver can be CPU-bound on the host -- that is a documented risk, not a benched fact about any specific candidate PC.</strong> Accurately emulating a MIPS VR4310 CPU cycle-for-cycle <em>and</em> a Voodoo Banshee's fixed-function pixel pipeline at the register level is work the host CPU does in software. <code>PLAN.md</code>'s existing compute-sizing guidance states "MAME can be CPU-bound; an expensive GPU does not make its emulated Voodoo hardware free" -- a reasonable risk-based sizing principle, not a measurement this project has made on an actual bench PC. At the same time, the BGFX/HLSL CRT-simulation shader chain layered on top (SS1/SS2) is itself real GPU-side work, and MAME's own HLSL documentation notes some effects (bloom in particular) are "extremely graphics card intensive" [M6]. <strong>The correct procurement posture is to provision headroom on both sides and measure, not to assume either resource is irrelevant.</strong></p>
+<p><strong>Original-system bottlenecks also need measurement.</strong> Silver Strike and Jurassic Park may be limited by CPU, GPU, storage, synchronization or display processing. Their closed-source status does not make diagnosis impossible. Start with permitted external measurements and system identification; use API/OS-compatible tracing only where supported. Do not replace a donor GPU or operating system on the assumption that a newer part preserves drivers, game timing and I/O.</p>
+<h2 id="5-dlssframe-generation-why-it-is-not-a-generic-bolt-on-and-why-generated-frames-can-hurt-aim-feel">5. DLSS/frame generation: why it is not a generic bolt-on, and why generated frames can hurt aim feel</h2>
+<p>No engine-aware DLSS/frame-generation integration is established for the four selected releases. Such an integration needs more than the final video image. It could be investigated in a rights-cleared renderer modification, or deliberately designed into a new-engine project where the chosen engine, SDK and hardware support it. It is not a generic MAME output setting.</p>
+<p><strong>Engine integration and image-only processing are different.</strong> NVIDIA's DLSS Frame Generation guide identifies color buffers plus engine information such as depth, motion vectors and camera transforms [M10]. The chosen SDK's API/OS/GPU support must be checked; do not assume every DLSS feature supports every graphics API. Generic image-only upscaling or interpolation can operate without those engine buffers, but cannot reconstruct missing gameplay state or add fresh input samples. Its artifacts and latency must be measured. A modern GPU does not establish a compatible integration.</p>
+<p><strong>Generated frames are not new simulation frames.</strong> NVIDIA documents that inserting an interpolated frame can require holding a real frame back, adding latency mitigated by its low-latency integration [M10]. Measure the complete system with interpolation off as the baseline, especially for trigger and continuous-aim feedback. Golf and bowling still need responsive controls; do not assume their tolerance is unlimited. Report base rendered frames, generated frames and input-to-photon timing separately rather than advertising one inflated fps figure.</p>
+<h2 id="6-4k60-vs-1440p120-the-control-tradeoff-and-what-it-is-and-isnt-specific-to">6. 4K60 vs. 1440p120+: the control tradeoff, and what it is and isn't specific to</h2>
+<p><strong>Display mode is a Tier 1 choice.</strong> Compare the source's supported output modes, clean scaling and the panel's low-latency setting. A panel accepting 120 Hz may still receive only 60 unique game frames each second; it does not double the game's simulation or input sampling. Verify the actual signal rather than the panel's advertised maximum.</p>
+<p><strong>Internal rendering resolution is a Tier 2 or Tier 3 choice only after access is established.</strong> For a verified renderer modification or new-engine slice, compare the same scene and input sequence at 4K60 and 1440p120, where supported. A 60 fps interval is about 16.7 ms; a 120 fps interval is about 8.3 ms. Neither figure is total input-to-photon latency. Higher resolution consumes GPU time; detail settings, synchronization and queueing also matter [M8].</p>
+<ul>
+<li><strong>4K60</strong> is a candidate for fine course/lane detail if the measured response remains acceptable, not a promise of maximum visual quality.</li>
+<li><strong>1440p120</strong> is a candidate for faster continuous feedback if the engine actually sustains 120 real frames and the display accepts the signal. It is not automatically lower-latency on every configuration.</li>
+</ul>
+<p><code>modernization.json</code>'s pipeline stage P9 benches both configurations on an actual vertical slice before either default is locked in -- this section states the reasoning, not a measured result.</p>
+<h2 id="7-the-reverse-engineering-lab-tools-actual-capabilities-compatibility-limits-and-hard-boundaries">7. The reverse-engineering lab: tools, actual capabilities, compatibility limits, and hard boundaries</h2>
+<p>Every tool below is scoped to what it is actually documented to do, including where that documentation limits it. None of them is used, recommended, or described here as a way to circumvent DRM, a security dongle, or any copy protection. All work described is against <strong>lawfully owned or lawfully accessed</strong> media and hardware the project already treats as in scope per <code>research/rea-workflow.md</code>, and any work against a live, owned system is scoped to isolated/expendable test setups before anything touches equipment Mike depends on.</p>
+<p><strong>Ghidra</strong> -- NSA's open-source software reverse-engineering framework: disassembly, assembly, decompilation, graphing, and scripting across a wide range of processor architectures and executable formats, usable interactively or in automated/headless mode [M12]. Within this project's actual capability boundary, Ghidra can inventory an authorized binary's structure (imported functions, string references, call graphs) to answer a single bounded question -- for example, "does this binary's asset-loading code reference a separable texture-file format, or are textures baked into compiled data structures?" It cannot, by itself, produce a working patch, and it is not pointed at any protection/authentication routine in this project's scope.</p>
+<p><strong>radare2</strong> -- an open-source reverse-engineering toolchain (disassembler, debugger, binary analysis, scripting) with a comparable scope to Ghidra for command-line and scriptable workflows [M14]. Used identically: bounded, single-question static inventory of authorized artifacts.</p>
+<p><strong>RenderDoc</strong> -- a frame-capture and graphics-debugging tool for a specific, published set of graphics APIs: its own FAQ states "Currently RenderDoc supports Vulkan 1.4, D3D11 (up to D3D11.4), D3D12, OpenGL 3.2+, and OpenGL ES 2.0 - 3.2," and explicitly lists D3D9/D3D10 as <em>not currently supported</em>, with future support "not clear" [M21]. D3D11/D3D12 capture additionally expects Feature Level 11.0 hardware or newer; lower levels fall back to slow software (WARP) replay [M21]. Its documented workflow is: launch (or attach to) a running graphics application, press the capture key, and inspect that one frame's full pipeline state -- textures, render targets, draw/dispatch events, shader inputs, mesh data [M13]. <strong>Before any use against Jurassic Park Arcade's real cabinet, the exact graphics API, OS build, and GPU feature level that system actually uses must be confirmed against this support list -- it was not confirmed in any source inspected for this document, and a 2015-era arcade PC using D3D9 is plausible and would make RenderDoc's current public release inapplicable.</strong> RenderDoc's own documentation also notes that having it attached changes timing and memory allocation during capture, which can itself perturb a sensitive or timing-dependent program [M21] -- this is a real reason to test on an isolated setup first, not the owner's primary cabinet.</p>
+<p><strong>PresentMon</strong> -- a Windows tool (and underlying library) that traces per-frame CPU/GPU/display timing via ETW (Event Tracing for Windows), reporting frame-pacing and latency metrics across DirectX, OpenGL, and Vulkan applications, for both desktop and UWP apps [M11]. It requires the operating user to belong to the "Performance Log Users" group, has documented reduced-accuracy behavior on OpenGL/Vulkan targets and under Hardware-Accelerated GPU Scheduling, and its own README flags a stability caution around forced shutdown on Windows 7 specifically [M11] -- underscoring that OS version and configuration both matter before assuming it will simply work against an arbitrary 2015-era arcade PC.</p>
+<p><strong>Dongle and anti-tamper interaction is unverified, not assumed safe.</strong> Whether Jurassic Park Arcade's required USB dongle, or any anti-tamper behavior in its software, reacts to an injection-based capture tool attaching to the process is not established by any source inspected for this document. Injection-based tools can, in general, perturb timing or destabilize a sensitive running process even without any anti-tamper logic involved. The correct sequence is: confirm API/OS/hardware compatibility first (above); if compatible, trial the capture on an isolated, expendable setup rather than the primary cabinet; and if either step fails, is unsupported, or is judged unsafe, fall back to a purely external measurement (a high-speed camera recording the real display) rather than forcing an unproven capture on equipment Mike depends on.</p>
+<p><strong>What none of these tools do here:</strong> none of them defeats, bypasses, patches around, or otherwise circumvents the JP Arcade USB security dongle, the Silver Strike CID, or any other protection mechanism referenced in <code>research/game-feasibility.md</code>. No instructions for doing so appear anywhere in this project's materials, and none are implied by "RE lab" language anywhere in <code>modernization.json</code>. Where a tool's real capability (e.g., RenderDoc's frame capture) happens to answer a question that <em>sounds</em> adjacent to "cracking" a game, the actual operation performed -- capturing presentation output of an already-running, already-licensed process the owner launched normally, after confirming compatibility and testing in isolation first -- is the same category of operation any performance-overlay or screen-capture tool performs, and is treated that way throughout this document.</p>
+<h2 id="8-professional-product-development-economics-qualitatively">8. Professional product-development economics, qualitatively</h2>
+<p>No numeric cost estimate for Tier 2 or Tier 3 work is asserted anywhere in this project's materials, because no sourced estimate exists for it -- <code>PLAN.md</code>'s own BOM discipline (distinguish allowances from observed supplier prices) extends to this document by not inventing one. Qualitatively, the ordering that matters for a go/no-go decision is:</p>
+<ul>
+<li>Tier 1 work is the cheapest and the most certain: it is bounded, bench-provable engineering against known tools and known hardware, with clear stop conditions (the measured latency/aspect/refresh targets in <code>modernization.json</code>'s per-game experiments, each reported as a distribution, not a single assumed number).</li>
+<li>Tier 2's RE-lab investigation (SS7) is itself inexpensive relative to what it is gating: a small, time-boxed effort whose job is to produce a written per-game finding -- hook found, hook not found, or inconclusive -- not an open-ended search, and not a search whose outcome is decided in advance either way.</li>
+<li>Tier 3 is the expensive, open-ended tier, under either licensing branch. <code>research/rea-workflow.md</code>'s existing warning -- that physics tuning, content, animation, device-input feel, and long-session stability dominate the real cost of "building a game," not graphics -- applies at full force to any Tier 3 successor, and this document does not shrink that scope to make a smaller number feel achievable. A professional studio quote, not an internal estimate, is the right instrument if Tier 3 is ever seriously pursued, under whichever licensing branch is selected; this document does not substitute one.</li>
+</ul>
+<h2 id="9-rights-boundaries">9. Rights boundaries</h2>
+<p>This document inherits and does not relax any constraint already established for this project:</p>
+<ul>
+<li><strong>Hardware access is not content access.</strong> Owning or operating a cabinet does not create permission to extract, redistribute, or publicly share its copyrighted game assets, binaries, or disk images, regardless of which RE tool is used to inspect them. MAME's own FAQ on ROM/disk-image legality -- "authorized licensing, explicitly released free media, and reading one's actual arcade hardware" as the legitimate paths, with no blanket legal opinion for every jurisdiction -- remains the governing framing [M17].</li>
+<li><strong>No DRM circumvention is described, implied, or instructed anywhere in this document.</strong> Every RE-lab capability described in SS7 is bounded to diagnostic inspection of an already-running, already-authorized process or a lawfully held artifact, with compatibility and safety checks ahead of any attempt.</li>
+<li><strong>Diagnostic access is not redistribution permission.</strong> A negative or inconclusive investigation should state exactly what was tested and what remains unknown. Any additional code/asset modification needs its own technical scope, rights assessment and recovery plan; this presentation does not authorize bypassing an activation mechanism.</li>
+<li><strong>Tier 3's original-IP branch carries no trademark, no licensed asset, and no commercial-release claim.</strong> It is personal, non-distributed, original creative work inspired by a documented mechanic -- the same boundary <code>research/rea-workflow.md</code>'s "Path C" already draws. Its rights-cleared branch is a real but entirely separate, unauthorized, unpursued category that would require an actual license before any art or code against licensed IP is produced.</li>
+<li><strong>Publishing this presentation is not publishing a game service.</strong> The requested no-login review website shares the study, not game binaries, player accounts or multiplayer infrastructure. A future online leaderboard, backend or distributed game is a separate product and authorization decision.</li>
+</ul>
+<h2 id="10-ui-accessibility-audio-couch-competition-local-profiles-and-tournaments-shell-vs-in-engine">10. UI, accessibility, audio, couch competition, local profiles and tournaments -- shell vs. in-engine</h2>
+<p>Tying back to <code>studio/experience-spec.md</code>'s guest-journey and multiplayer-identity sections:</p>
+<ul>
+<li><strong>Existing-runtime branch:</strong> improve the launcher, game-selection guidance, volume controls, physical accessibility, local session organization and clearly separate scorekeeping first. Only promise an in-game change after the exact software modification is demonstrated and authorized. The Call of the Wild baseline uses alternating hunters on one gun; do not advertise a new simultaneous mode as an existing feature.</li>
+<li><strong>New-engine branch:</strong> accessible UI, audio mix, local profiles and local competition can be designed into the game itself. Each is still implementation and validation work, not a free consequence of choosing an engine. Online/cloud features are outside the current scope.</li>
+</ul>
+<h2 id="11-pipeline-and-decision-gates">11. Pipeline and decision gates</h2>
+<p>The structured P0–P10 graph lives in <code>modernization.json</code>. After P0 establishes the exact release and baseline, display (P1), input (P2), shell (P3), diagnostic preflight (P4) and the optional new-engine scope decision (P7) can proceed independently. P4 gates investigation P5 and findings P6; an affirmative P7 gates vertical slice P8 and benchmark P9. <strong>P10 joins only P1, P2 and P3:</strong> the faithful experience can ship without a successful renderer patch or funded new game. P6 and P9 have separate investment decisions. The concept film and presentation-hosting tasks are likewise not prerequisites for an arcade hardware bench.</p>
+<h2 id="12-sources">12. Sources</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Title</th>
+<th>Publisher</th>
+<th>URL</th>
+<th>Accessed</th>
+<th>Claim used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>M1</td>
+<td>iteagle.cpp -- Incredible Technologies "Eagle" hardware driver</td>
+<td>MAME development team</td>
+<td>https://github.com/mamedev/mame/blob/master/src/mame/itech/iteagle.cpp</td>
+<td>2026-11-02</td>
+<td>Eagle hardware (VR4310 CPU, Voodoo Banshee/Voodoo 1 GPU), LLE architecture, gtfore06/bbhcotw flag status, Trigger/Pump inputs, shared default machine config</td>
+</tr>
+<tr>
+<td>M2</td>
+<td>rawthrillspc.cpp -- Skeleton driver for Raw Thrills PC-based games</td>
+<td>MAME development team</td>
+<td>https://github.com/mamedev/mame/blob/master/src/mame/misc/rawthrillspc.cpp</td>
+<td>2026-11-02</td>
+<td>Skeleton-driver status; included titles and MACHINE_NOT_WORKING flags; JP Arcade 2015 absent; Athlon 64 X2 TODO</td>
+</tr>
+<tr>
+<td>M3</td>
+<td>Jurassic Park Arcade Operator's Manual, PN 040-00044-01, r11</td>
+<td>Raw Thrills, Inc. / Betson Enterprises</td>
+<td>https://rawthrills.com/wp-content/uploads/2023/08/JP-Manual-r11.pdf</td>
+<td>2026-11-02</td>
+<td>Positional guns, RIO I/O, USB dongle requirement, gun-vibration/recoil diagnostics, 55" display</td>
+</tr>
+<tr>
+<td>M4</td>
+<td>Jurassic Park Arcade -- official specifications page</td>
+<td>Raw Thrills, Inc.</td>
+<td>https://rawthrills.com/games/jurassic-park-arcade/</td>
+<td>2026-11-02</td>
+<td>55" Environmental cabinet specs, manuals index</td>
+</tr>
+<tr>
+<td>M5</td>
+<td>Silver Strike Bowling 2009 Kit Installation Manual &amp; User Guide v2/11</td>
+<td>Incredible Technologies, Inc.</td>
+<td>https://amusement.itsgames.com/wp-content/uploads/2025/02/silver-strike-bowling-09-installation-manual.pdf</td>
+<td>2026-11-02</td>
+<td>Nighthawk sealed-chassis warranty clause, SVGA/VGA video modes, 16:9 non-design statement, hand-clearance design rationale, button labels</td>
+</tr>
+<tr>
+<td>M6</td>
+<td>HLSL Effects for Windows (MAME documentation)</td>
+<td>MAME development team</td>
+<td>https://docs.mamedev.org/advanced/hlsl.html</td>
+<td>2026-11-02</td>
+<td>HLSL as output-stage CRT simulation; native-resolution/pillarbox guidance; bloom GPU cost note</td>
+</tr>
+<tr>
+<td>M7</td>
+<td>BGFX Effects for (nearly) Everyone (MAME documentation)</td>
+<td>MAME development team</td>
+<td>https://docs.mamedev.org/advanced/bgfx.html</td>
+<td>2026-11-02</td>
+<td>BGFX as output-stage effects pipeline; screen-chain options; vector CRT renderer scope</td>
+</tr>
+<tr>
+<td>M8</td>
+<td>Introducing NVIDIA Reflex: Optimize and Measure Latency in Competitive Games</td>
+<td>NVIDIA Corporation</td>
+<td>https://www.nvidia.com/en-us/geforce/news/reflex-low-latency-platform/</td>
+<td>2026-11-02</td>
+<td>System-latency pipeline definitions; GPU-bound render-queue/resolution-latency tradeoff</td>
+</tr>
+<tr>
+<td>M9</td>
+<td>Introducing NVIDIA DLSS 3</td>
+<td>NVIDIA Corporation</td>
+<td>https://www.nvidia.com/en-us/geforce/news/dlss3-ai-powered-neural-graphics-innovations/</td>
+<td>2026-11-02</td>
+<td>Frame Generation as a developer-integrated feature ("Developers simply integrate DLSS 3")</td>
+</tr>
+<tr>
+<td>M10</td>
+<td>DLSS Frame Generation SDK Programming Guide, v310.7.0</td>
+<td>NVIDIA Corporation</td>
+<td>https://github.com/NVIDIA/DLSS/blob/main/doc/DLSS-FG%20Programming%20Guide.pdf</td>
+<td>2026-11-02</td>
+<td>Required engine inputs (motion vectors, depth, camera matrices); frame-holdback latency mechanism; RTX 40-series requirement</td>
+</tr>
+<tr>
+<td>M11</td>
+<td>PresentMon -- capture and analyze graphics application performance on Windows</td>
+<td>Intel Corporation (GameTechDev)</td>
+<td>https://github.com/GameTechDev/PresentMon</td>
+<td>2026-11-02</td>
+<td>ETW-based frame/CPU/GPU/display timing capture scope; Performance Log Users group requirement; OpenGL/Vulkan and HWS accuracy caveats; Windows 7 shutdown caution</td>
+</tr>
+<tr>
+<td>M12</td>
+<td>Ghidra Software Reverse Engineering Framework</td>
+<td>National Security Agency</td>
+<td>https://github.com/NationalSecurityAgency/ghidra</td>
+<td>2026-11-02</td>
+<td>Disassembly/decompilation/scripting capability scope</td>
+</tr>
+<tr>
+<td>M13</td>
+<td>RenderDoc documentation -- Quick Start</td>
+<td>RenderDoc project</td>
+<td>https://renderdoc.org/docs/getting_started/quick_start.html</td>
+<td>2026-11-02</td>
+<td>Frame-capture/pipeline-state-inspection workflow on a running process</td>
+</tr>
+<tr>
+<td>M14</td>
+<td>The Official Radare2 Book</td>
+<td>radare project</td>
+<td>https://book.rada.re/</td>
+<td>2026-11-02</td>
+<td>Toolchain scope statement</td>
+</tr>
+<tr>
+<td>M15</td>
+<td>RetroArch Run Ahead (libretro documentation)</td>
+<td>Libretro</td>
+<td>https://docs.libretro.com/guides/runahead/</td>
+<td>2026-11-02</td>
+<td>Internal-lag mitigation is a libretro-frontend feature, save-state dependent</td>
+</tr>
+<tr>
+<td>M16</td>
+<td>Our TV Input Tests: Input Lag</td>
+<td>RTINGS.com</td>
+<td>https://www.rtings.com/tv/tests/inputs/input-lag</td>
+<td>2026-11-02</td>
+<td>Device-level input-lag measurement methodology</td>
+</tr>
+<tr>
+<td>M17</td>
+<td>How do I legally obtain ROMs or disk images to run on MAME? (MAME FAQ)</td>
+<td>MAME development team</td>
+<td>https://docs.mamedev.org/usingmame/commonissues.html#how-do-i-legally-obtain-roms-or-disk-images-to-run-on-mame</td>
+<td>2026-11-01</td>
+<td>Lawful-media boundary</td>
+</tr>
+<tr>
+<td>M18</td>
+<td>Device Mapping (MAME documentation)</td>
+<td>MAME development team</td>
+<td>https://docs.mamedev.org/advanced/devicemap.html</td>
+<td>2026-11-01</td>
+<td>Device-identity mapping caveat</td>
+</tr>
+<tr>
+<td>M19</td>
+<td>Golden Tee Fore! Remastered Edition -- product page</td>
+<td>Incredible Technologies, Inc.</td>
+<td>https://store.itsgames.com/products/golden-tee-fore-remastered-edition</td>
+<td>2026-11-01</td>
+<td>Factory-licensed alternative framing</td>
+</tr>
+<tr>
+<td>M20</td>
+<td>On the Latency of USB-Connected Input Devices</td>
+<td>Wimmer, Schmid &amp; Bockes, University of Regensburg (CHI 2019)</td>
+<td>https://epub.uni-regensburg.de/40182/1/On_the_Latency_of_USB-Connected_Input_Devices_author_version.pdf</td>
+<td>2026-11-01</td>
+<td>USB polling/latency stage decomposition</td>
+</tr>
+<tr>
+<td>M21</td>
+<td>FAQ -- What APIs does RenderDoc support? (RenderDoc documentation)</td>
+<td>RenderDoc project</td>
+<td>https://renderdoc.org/docs/getting_started/faq.html</td>
+<td>2026-11-02</td>
+<td>Exact supported-API list (no D3D9/D3D10 currently); Feature Level 11.0 requirement; capture perturbs timing/memory</td>
+</tr>
+<tr>
+<td>M22</td>
+<td>Big Buck Hunter: Call of the Wild release/control guide</td>
+<td>After Hours reference study; original sources linked in the guide</td>
+<td><a href="../studio/games/big-buck-hunter.html#sources">Source register</a></td>
+<td>2026-11-02</td>
+<td>Single-gun, alternating turns for up to four hunters</td>
+</tr>
+<tr>
+<td>M23</td>
+<td>Golden Tee reference-image provenance</td>
+<td>After Hours reference study; original capture credits retained</td>
+<td><a href="../studio/games/golden-tee.html#sources">Source register</a></td>
+<td>2026-11-02</td>
+<td>Stored image dimensions only, not a measurement of an untested runtime</td>
+</tr>
+</tbody>
+</table>
+<p>Sources M1–M21 are tool/vendor/research references. M22–M23 point to this study's credited galleries and source registers. No source citation or stored image substitutes for running the selected game.</p>
+</main>
+</body>
+</html>

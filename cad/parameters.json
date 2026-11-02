@@ -1,0 +1,216 @@
+{
+  "schema_version": 1,
+  "units": "mm",
+  "generated_by_note": "Single source of truth consumed by generate.py. Edit this file, then re-run `python generate.py` to regenerate every CAD output. Do not hand-edit files under generated/ — they are overwritten on every run.",
+  "retrieved_date": "2026-11-01",
+
+  "coordinate_system": {
+    "origin": "Floor level at the illustrative room's left back-wall corner; Station A begins at its configured positive X offset.",
+    "x_axis_mm": "+X runs right along the back wall, in the order Station A then Station B (both stations share one wall in the baseline room-plan layout).",
+    "y_axis_mm": "+Y runs out from the back wall into the room — the player-standing / depth direction for both stations.",
+    "z_axis_mm": "+Z runs up from the finished floor.",
+    "front_view_plane": "Front view looks in -Y direction (viewer stands in the room facing the wall) and shows X/Z.",
+    "side_view_plane": "Side view looks in -X direction — shows Y (depth) and Z (height).",
+    "top_view_plane": "Top view looks in -Z direction (plan view) — shows X (width) and Y (depth).",
+    "note": "An L-shaped two-wall layout is a reasonable real-world alternative (keeps the golf sightline out of the shooter's peripheral vision) but is NOT what this generator draws; the single-shared-wall layout here is simpler to keep parametrically correct. Station X-offsets are editable below."
+  },
+
+  "materials": {
+    "panel_thickness_mm": 18,
+    "panel_material_assumption": "18mm (nominal 3/4in) cabinet-grade plywood — ASSUMPTION, not a sourced spec. Edit if a different sheet stock is chosen.",
+    "sheet_w_mm": 2440,
+    "sheet_h_mm": 1220,
+    "sheet_size_note": "Standard 8x4ft sheet stock size — common-knowledge stock size, not independently sourced.",
+    "sheet_nesting_utilization_factor": 0.55,
+    "sheet_nesting_utilization_note": "Deliberately conservative (no true nesting/kerf optimization has been run). Produces a rough, intentionally pessimistic sheet count so the estimate is not falsely optimistic. Replace with a real nesting-software output before ordering material.",
+    "kerf_joinery_note": "Panel blanks below are nominal outer dimensions only. Saw kerf, rabbet/dado joinery allowances, edge banding, and fastener counterbores are NOT applied — concept stage only, gated to fabrication.",
+    "fastener_system_note": "Concept assumption: demountable flat-pack hardware (e.g. cam-lock fittings or confirmat-style screws) so each station can be broken down to flat panels for stair transport and reassembled in place. Exact fastener spec/BOM is gated to fabrication."
+  },
+
+  "room_assumptions": {
+    "EDIT_ME": true,
+    "assumed_room_w_mm": 4500,
+    "assumed_room_d_mm": 3500,
+    "assumed_ceiling_h_mm": 2300,
+    "stair_clear_width_mm": 900,
+    "stair_clear_height_mm": 2000,
+    "note": "Room, ceiling and stair/door figures are unmeasured design assumptions. Replace all site dimensions before fabrication. Panel-width checks do not prove clearance around stair turns or for a TV carton."
+  },
+
+  "tv": {
+    "wall_43": {
+      "diagonal_in": 43,
+      "aspect_w": 16,
+      "aspect_h": 9,
+      "nominal_depth_mm": 60,
+      "mount_center_height_mm": 1500,
+      "note": "Off-the-shelf consumer TV, purchased separately. Active-area width/height below are computed from the diagonal by generate.py (16:9 trigonometry), not a specific model's datasheet — actual bezel/chassis dimensions are unknown until a model is chosen."
+    },
+    "wall_55": {
+      "diagonal_in": 55,
+      "aspect_w": 16,
+      "aspect_h": 9,
+      "nominal_depth_mm": 60,
+      "mount_center_height_mm": 1600,
+      "note": "Same caveat as wall_43 — computed active area only, actual chassis TBD."
+    }
+  },
+
+  "wall_tv_support": {
+    "type": "Off-the-shelf tilt or full-motion wall-mount arm, purchased separately — explicitly NOT plywood-panel mounting and NOT part of either cabinet.",
+    "vesa_note": "VESA hole pattern is TV-model-specific and unknown until a TV is purchased. No VESA pattern is specified or drilled anywhere in this package.",
+    "anchorage_note": "Stud/structural anchorage into the actual wall is a SCHEMATIC placeholder only (drawn as a generic bracket silhouette). Real fastening must be engineered on site against the actual wall construction (stud layout, masonry, etc.) — GATED, out of scope here.",
+    "schematic_bracket_envelope_mm": { "w": 600, "d": 60, "h": 400 }
+  },
+
+  "stations": {
+    "trackball_pedestal": {
+      "display_name": "Station A — Trackball Pedestal",
+      "x_offset_mm": 300,
+      "width_mm": 760,
+      "depth_mm": 610,
+      "height_mm": 950,
+      "height_note": "950mm is a provisional standing height to validate with users and a full-size control deck, not an ergonomic guarantee or copied factory dimension.",
+      "trackball_diameter_mm": 76.2,
+      "trackball_diameter_source": "3-inch nominal diameter; actual housing and mounting template must come from the selected part. See parent hardware specification.",
+      "control_deck_reserved_zone_mm": { "w": 450, "d": 300, "x_center_offset_mm": 380, "y_center_offset_mm": 300 },
+      "control_deck_reserved_zone_note": "Outline only — marks where the trackball + buttons will live. NOT a cut hole. Final cutout geometry is gated until the actual trackball/button hardware is selected (no unverified mounting holes belong in a cut file).",
+      "trackball_reserved_cutout_diameter_mm": 150,
+      "strike_clearance_radius_mm": 300,
+      "strike_clearance_note": "Hand-sweep clearance in front of the control deck for a vigorous trackball spin plus adjacent button reach — a design assumption, not a measured ergonomic study.",
+      "min_player_zone_mm": { "w": 900, "d": 900 },
+      "tv_ref": "wall_43",
+      "games": ["golden_tee", "silver_strike"]
+    },
+
+    "shooter_console": {
+      "display_name": "Station B — Shooter Console",
+      "x_gap_after_station_a_mm": 600,
+      "width_mm": 1300,
+      "depth_mm": 400,
+      "height_mm": 750,
+      "height_note": "750mm low furniture/holster height is an ergonomic assumption, not a bar-height counter or a commercial gun mounting specification. This console does not support a TV.",
+      "holster_count": 2,
+      "holster_spacing_center_to_center_mm": 700,
+      "holster_spacing_note": "700mm center spacing is a design assumption to validate with actual users and gun/cable envelopes, not a value derived from dividing cabinet width by player count.",
+      "holster_footprint_mm": { "w": 120, "d": 120 },
+      "gun_reach_envelope_mm": { "w": 300, "d": 250, "h": 300 },
+      "gun_reach_envelope_note": "Schematic space reservation for gun swing/aim clearance above each holster — NOT a literal gun model.",
+      "min_standoff_from_screen_mm": 1700,
+      "standing_zone_depth_mm": 600,
+      "min_standoff_note": "1700mm from the screen plane is only a starting bench-test distance. Camera/lens/marker geometry and both players' positions determine the real operating zone. Holster position does not establish aiming line of sight.",
+      "removable_future_positional_gun_deck_mm": { "w": 1300, "d": 600, "h": 100, "y_offset_from_console_mm": 400 },
+      "removable_future_positional_gun_deck_note": "Reserved floor footprint for a possible mounted-gun support. The translucent 100mm volume is not a usable gun deck or structural design. No mounting holes, loads, electrical compatibility or approved attachment implied.",
+      "tv_ref": "wall_55",
+      "games": ["big_buck_hunter", "jurassic_park_arcade"]
+    }
+  },
+
+  "games": [
+    {
+      "id": "golden_tee",
+      "display_name": "Golden Tee (exact generation unselected)",
+      "maker": "Incredible Technologies",
+      "control_type": "trackball",
+      "station": "trackball_pedestal",
+      "evidence": ["S6", "S3"],
+      "confidence": "Trackball furniture reservation only. Runtime, mounting template and original-I/O compatibility are separate bench gates."
+    },
+    {
+      "id": "silver_strike",
+      "display_name": "Silver Strike (exact generation unselected)",
+      "maker": "Incredible Technologies",
+      "control_type": "trackball",
+      "station": "trackball_pedestal",
+      "evidence": ["S3", "S7"],
+      "confidence": "Trackball furniture reservation only; a shared cabinet form does not prove shared runtime or USB I/O compatibility. Preserve the selected donor's complete interfaces."
+    },
+    {
+      "id": "big_buck_hunter",
+      "display_name": "Big Buck Hunter (exact generation unselected)",
+      "maker": "Play Mechanix / Raw Thrills",
+      "control_type": "optical_light_gun",
+      "station": "shooter_console",
+      "evidence": ["S1", "S4"],
+      "confidence": "HD manual documents two guns. Earlier Eagle-era games differ and may use one gun with alternating players; station capability is not game compatibility."
+    },
+    {
+      "id": "jurassic_park_arcade",
+      "display_name": "Jurassic Park Arcade",
+      "maker": "Raw Thrills",
+      "control_type": "mounted_positional_gun_for_raw_thrills_2015",
+      "station": "shooter_console",
+      "evidence": ["S2", "S9"],
+      "confidence": "Raw Thrills product service videos and manual confirm two-axis potentiometers, gun vibration hardware, required dongle and I/O. Optical holsters are NOT a faithful 2015 gun assembly; only a future mounting footprint is reserved."
+    }
+  ],
+
+  "gallery_variants": [
+    {
+      "id": "single_universal",
+      "title": "Single universal cabinet",
+      "footprint_w_mm": 900,
+      "footprint_d_mm": 1600,
+      "station_count": 1,
+      "baseline": false,
+      "summary": "One display and a movable/swappable control pod; runtime and game-specific I/O remain gated.",
+      "tradeoff": "One active game at a time. The trackball pod must clear the gun stance. Geometry is illustrative furniture, not verified play-space."
+    },
+    {
+      "id": "two_station_modular",
+      "title": "Two-station modular (BASELINE)",
+      "footprint_w_mm": 3260,
+      "footprint_d_mm": 2420,
+      "station_count": 2,
+      "baseline": true,
+      "summary": "Trackball furniture plus a shooter console with separate displays; mounted-gun support is an unresolved variant.",
+      "tradeoff": "Separates standing trackball and shooter ergonomics without four shells. No claim of common runtime, optical-gun compatibility or exactly half the cost."
+    },
+    {
+      "id": "four_dedicated",
+      "title": "Four dedicated cabinets",
+      "footprint_w_mm": 5800,
+      "footprint_d_mm": 2100,
+      "station_count": 4,
+      "baseline": false,
+      "summary": "One authentic commercial-style cabinet per named game, mirroring a real location-based arcade floor.",
+      "tradeoff": "Illustrative allowance for four shells, not a surveyed room fit. Commercial enclosures and player/egress areas may require substantially more space."
+    },
+    {
+      "id": "wall_rail_mobile",
+      "title": "Wall rail + mobile controls",
+      "footprint_w_mm": 3000,
+      "footprint_d_mm": 900,
+      "station_count": 1,
+      "baseline": false,
+      "summary": "TVs fixed to a wall rail/track; a rolling trackball cart and a rolling gun-holster cart are wheeled into position per game.",
+      "tradeoff": "900mm depth describes stowed furniture only; actual play space must be added. Mobile controls add cable, anchoring and repeatable-calibration work."
+    },
+    {
+      "id": "seated_deluxe",
+      "title": "Seated deluxe",
+      "footprint_w_mm": 3260,
+      "footprint_d_mm": 3020,
+      "station_count": 2,
+      "baseline": false,
+      "summary": "Two stations with seated control geometry and stool or bench clearance; the 3D baseline remains standing.",
+      "tradeoff": "Reserve more depth for seating. Validate hand height, foot support and mounted-gun reach on a full-size mock-up; do not merely raise the standing deck."
+    }
+  ],
+
+  "validation_targets": {
+    "station_gap_min_mm": 600,
+    "margin_each_side_mm": 300
+  },
+
+  "sources": [
+    { "id": "S1", "title": "Big Buck Hunter Reloaded — Specifications (Mini / Panorama cabinet dimensions)", "publisher": "Raw Thrills, Inc.", "url": "https://rawthrills.com/games/big-buck-hunter-reloaded/", "retrieved": "2026-11-01", "status": "official manufacturer spec page" },
+    { "id": "S2", "title": "Jurassic Park Arcade — Specifications (55in Environmental cabinet dimensions)", "publisher": "Raw Thrills, Inc.", "url": "https://rawthrills.com/games/jurassic-park-arcade/", "retrieved": "2026-11-01", "status": "official manufacturer spec page" },
+    { "id": "S3", "title": "Silver Strike Bowling LIVE / Silver Strike X — Information Page (pedestal dimensions; shares Golden Tee showpiece-cabinet manuals)", "publisher": "BMI Gaming", "url": "https://www.bmigaming.com/silver-strike-bowling-live-x-video-arcade-games.htm", "retrieved": "2026-11-01", "status": "distributor product page, not primary manufacturer, but reproduces Incredible Technologies spec sheets and manual links" },
+    { "id": "S4", "title": "Big Buck HD — Setup and Operation Service Manual (2 guns, bezel holsters, screen-mounted IR sensors)", "publisher": "Play Mechanix, Inc. / Betson Enterprises", "url": "https://www.betson.com/wp-content/uploads/wpallimport/files/service-manuals/big-buck-wild-42-manual.pdf", "retrieved": "2026-11-01", "status": "official manufacturer service manual, read directly, lines ~178-179, ~435-436" },
+    { "id": "S5", "title": "Big Buck Hunter — Installation Manual (original JAMMA conversion kit, single rifle/gun — superseded by S4 for the modern 2-gun HD/Reloaded cabinets)", "publisher": "Incredible Technologies, Inc.", "url": "https://amusement.itsgames.com/wp-content/uploads/2025/02/big-buck-hunter-installation-manual.pdf", "retrieved": "2026-11-01", "status": "official manufacturer manual, read directly; describes the 2001-era single-gun conversion kit, kept here only for the holster-mounting / gun-cable-reach design language, NOT for gun count" },
+    { "id": "S6", "title": "U-Trak 3-inch trackball", "publisher": "Ultimarc", "url": "https://www.ultimarc.com/trackballs-and-spinners/trackballs/u-trak/", "retrieved": "2026-11-01", "status": "Manufacturer product page; use actual mounting template" },
+    { "id": "S7", "title": "Silver Strike Bowler's Club 2007 International installation manual", "publisher": "Incredible Technologies", "url": "https://amusement.itsgames.com/wp-content/uploads/2025/02/silver-strike-bowlers-club-2007-international-installation-manual.pdf", "retrieved": "2026-11-01", "status": "Official kit and I/O documentation" },
+    { "id": "S9", "title": "Jurassic Park Arcade operator manual PN 040-00044-01", "publisher": "Raw Thrills", "url": "https://rawthrills.com/wp-content/uploads/2023/08/JP-Manual-r11.pdf", "retrieved": "2026-11-01", "status": "Official manual; gun potentiometers and recoil troubleshooting on page 19; required dongle on page 5" }
+  ]
+}

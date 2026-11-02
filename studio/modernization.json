@@ -1,0 +1,531 @@
+{
+  "schemaVersion": 1,
+  "title": "Modernization Feasibility: Hardware, Renderer and Reverse Engineering",
+  "headline": "Modern hardware can improve the experience. Genuine new visual detail needs a proven renderer path and new content.",
+  "thesis": "Yes: we can modernize the display, controls and room experience. Higher-detail game graphics are a separate job, requiring a proven renderer or asset-upgrade path, or a new engine. None of the four selected releases has a tested remaster path in this project.",
+  "recommendation": "Prove the original games first, then measure the display and input upgrades. Investigate renderer access on each exact release without assuming success or failure. Treat a modern-engine game, whether original IP or a rights-cleared remaster, as a separate budget and development decision. The concept film illustrates that ambition; it does not demonstrate a working remaster.",
+  "tiers": [
+    {
+      "id": "presentation",
+      "title": "Tier 1 -- Faithful Presentation",
+      "promise": "Make the real, legitimately running game -- emulated or original hardware -- look and respond as well as current display and input technology allows, without altering game logic, textures, or geometry. Display refresh-rate and processing-latency evaluation applies here too, not only to a from-scratch renderer.",
+      "changes": [
+        "MAME's BGFX/HLSL CRT-accurate shader chain (shadow mask, scanlines, bloom, convergence) applied as a GPU post-filter on top of whatever resolution the emulated Eagle hardware actually displays for the selected title -- this changes how the finished frame is presented, never what the game itself renders.",
+        "Correct pillarboxed 4:3 presentation instead of a stretched 16:9 fill, for both MAME titles and for Silver Strike's real Nighthawk video output.",
+        "Evaluate candidate panels across their available refresh rates (e.g. 60 Hz vs. 120 Hz or higher) for processing-latency differences, even when the source content itself is fixed at 60 Hz -- a panel's internal processing latency can vary by refresh/overdrive mode independent of source frame rate, and this does not change the emulated game's own tick rate or physics. This is a Tier 1 display-chain question, not reserved for a from-scratch Tier 3 renderer.",
+        "An active (not passive) HDMI/VGA scaler for Silver Strike's native 800x600/640x480 output where the owned donor system requires one, latency-measured against a direct path before being trusted.",
+        "USB polling-rate and raw-input pipeline tuning for the trackball and guns, carried over from this project's existing experience-spec.md work, because it is squarely a Tier 1 input-chain concern, not a renderer concern."
+      ],
+      "limits": [
+        "Does not create a new widescreen camera or reposition the game's HUD. Silver Strike's manual warns that its software is not designed for true 16:9. Preserve the intended aspect and test each output mode; do not assume a full-width HDMI image is geometrically correct, or that every distortion is unfixable.",
+        "Does not raise, or claim to raise, any emulated system's internal 3D render resolution above whatever the original game software actually programmed into the real hardware -- whether that is changeable at all is an open Tier 2 question, not resolved by a display filter.",
+        "Does not touch gameplay, physics, AI difficulty, or multiplayer mode in any of the four games -- those remain exactly as the original release shipped."
+      ],
+      "proof": [
+        "Geometric-grid photograph comparing stretched-fill vs. pillarboxed BGFX output on the candidate panel, with measured (not assumed-zero) stretch error reported against the method's own resolution limit.",
+        "High-speed-camera input-lag comparison across the candidate panel's available refresh/picture modes, reported as a distribution across repeated trials, not a single number.",
+        "Silver Strike's 16:9 distortion measured and recorded as a disclosed limitation, not scored pass/fail."
+      ],
+      "sourceIds": [
+        "M1",
+        "M5",
+        "M6",
+        "M7",
+        "M16",
+        "M22",
+        "M23"
+      ]
+    },
+    {
+      "id": "renderer-patch",
+      "title": "Tier 2 -- Renderer and Asset Patches",
+      "promise": "Where the exact selected system is shown to expose a real hook, change what the game renders -- resolution, textures, geometry -- not just how its finished output is displayed. Whether such a hook exists is an open, per-game question this tier investigates, not assumes.",
+      "changes": [
+        "A bounded, lawful, owner-controlled reverse-engineering pass: Ghidra/radare2 static inventory of an authorized disk image or executable, plus RenderDoc frame capture and PresentMon tracing against the owner's own running system, to determine whether any such hook exists for each of the four exact releases.",
+        "For any title with a live, owned, running PC (most directly Jurassic Park Arcade): confirm the exact graphics API, OS version, and GPU feature level the real system uses before assuming any capture tool applies, since both RenderDoc and PresentMon support specific API/OS combinations rather than every arcade PC built since 2000.",
+        "Where API-level capture is unsupported, unverified, or judged risky on the owner's primary cabinet, fall back to external, non-invasive measurement (high-speed camera against the real display) rather than attempting an unproven injection-based capture on hardware Mike depends on."
+      ],
+      "limits": [
+        "MAME's Eagle driver models the arcade hardware and its 3DFX graphics device. Its common screen configuration starts at 512x384; this is not proof of an immutable GPU limit. We found no documented, supported internal-resolution or texture-replacement switch for these exact releases. Establish the actual runtime render targets and output mode before considering a renderer modification.",
+        "Asset changes could require a supported loader, data-format analysis or executable changes. The exact path and rights must be established before it is costed. Neither a hypothetical patch nor possession of a cabinet establishes permission to redistribute game content.",
+        "Silver Strike's manual warns that opening the Nighthawk chassis voids its warranty. That is a service and cost consideration, not proof that diagnostics are technically impossible. Begin with permitted external diagnostics and identify the exact build, operating system and interfaces.",
+        "No demonstrated open-source runtime for Jurassic Park Arcade (2015) was established here. Its absence from the inspected MAME Raw Thrills PC driver does not prove that every alternative is impossible."
+      ],
+      "proof": [
+        "A written finding per game: hook found / no hook found / inconclusive, with the exact source (driver code, manual statement, or a live capture) backing the verdict -- no outcome is assumed in advance.",
+        "Where attempted: one capability pre-check record (API/OS/feature-level match) before any capture tool is pointed at a real, owned cabinet, plus either an archived capture or a documented reason capture was not attempted."
+      ],
+      "sourceIds": [
+        "M1",
+        "M2",
+        "M3",
+        "M5",
+        "M11",
+        "M12",
+        "M13",
+        "M14",
+        "M21",
+        "M22",
+        "M23"
+      ]
+    },
+    {
+      "id": "original-engine",
+      "title": "Tier 3 -- New-Engine Rebuild",
+      "promise": "Take control of the rendering and content pipeline in a current game engine. Build original IP, or a remaster under an actual rights agreement. This offers the broadest visual freedom, but physics, animation, content and control feel become a substantial software-development program.",
+      "changes": [
+        "Original mechanics specification drawn from this project's own experience-spec.md rituals: two-phase trackball swing, roll-and-release bowling, trigger/pump shooting gallery, positional-gun rail rescue -- reimplemented as new code.",
+        "Two distinct licensing branches, neither authorized or pursued by this document: (a) new, uncopied art/courses/creatures/branding under original IP, or (b) a rights-cleared remaster built against licensed assets/trademarks, conditional on Mike obtaining that license -- a real category this document does not foreclose, but also does not assume is available.",
+        "Evaluate higher native resolution, modern materials and lighting, or engine-supported upscaling after choosing the engine and hardware. DLSS, FSR and frame-generation support depend on the specific engine integration, SDK and GPU; they are not automatic features of any new game."
+      ],
+      "limits": [
+        "Neither licensing branch is demonstrated or authorized by this document. The original-IP branch carries no trademarked name, course, creature design, or Universal/Incredible Technologies/Raw Thrills IP. The rights-cleared branch would require an actual license this project has not sought.",
+        "A real, multi-month-to-multi-year software development program (physics tuning, content, animation, device drivers, QA) either way, not a cosmetic texture pass -- research/rea-workflow.md's existing cost-floor statement applies unchanged.",
+        "Frame Generation is off by default for the two aim-driven successors (Big Buck Hunter's and Jurassic Park Arcade's rituals), not categorically impossible to use: generated frames add no new input sample, and NVIDIA's own SDK documentation states the real next frame is deliberately held back to keep an interpolated frame in correct temporal order, adding latency Reflex only partially offsets. A generic, non-engine-aware video interpolation filter remains technically possible on any output but is a different, lower-quality technique that still adds no input sample -- it is not what 'DLSS' means anywhere in this document."
+      ],
+      "proof": [
+        "One playable vertical slice of one ritual, benched with PresentMon/Reflex-class metrics across candidate resolution and refresh-rate configurations, before any second ritual or licensing branch is funded."
+      ],
+      "sourceIds": [
+        "M8",
+        "M10"
+      ]
+    }
+  ],
+  "games": [
+    {
+      "slug": "golden-tee",
+      "title": "Golden Tee",
+      "baseline": "Golden Tee Fore! 2006 Complete v6.00.01 (gtfore06) is an Eagle-family MAME candidate. The inspected entry is not marked MACHINE_NOT_WORKING, but this project has not launched it. The gallery's 512x384 reference images are image-file evidence, not measurements of our future runtime.",
+      "nearTerm": "Preserve the intended aspect ratio, fine putting and hard-swing counts. Compare a clean low-latency picture with optional CRT shaders; old graphics do not require artificial scanlines if the owner prefers a clean LCD presentation.",
+      "conditional": "Investigate the exact game's output modes, renderer and asset formats. A higher-resolution target or replacement texture path would need to preserve course geometry, shot physics, HUD alignment and timing. No working patch is claimed.",
+      "modernConcept": "An original trackball-golf game could add detailed terrain, richer vegetation, modern lighting and new courses while tuning the physical swing ritual. A branded Golden Tee remaster requires its own rights agreement; neither branch is included in the furniture budget.",
+      "doNotClaim": "Do not label an upscaled output 'native 4K,' promise a texture pack we have not demonstrated, or describe frame interpolation as faster input response.",
+      "experiments": [
+        {
+          "name": "Pillarbox vs. stretch aspect bench",
+          "method": "Display gtfore06's BGFX/HLSL output at native pillarboxed pixel mapping vs. forced 16:9 stretch on the candidate panel; photograph a geometric grid overlay at both settings across repeated trials.",
+          "passGate": "Target range, not a measured result: stretch error at the pillarboxed mapping within the measurement method's own pixel resolution, reported as a distribution across trials rather than a single assumed-zero figure."
+        },
+        {
+          "name": "Trackball swing-sampling dropout sweep",
+          "method": "20 hard strokes spanning the documented swing-speed range with raw-input logging of USB polling interval and sample counts, at default polling rate and at a forced higher rate if the chosen controller supports it.",
+          "passGate": "Target: zero dropped/wrapped counts across all 20 strokes at the rate actually used, reported per-stroke; reuses PLAN.md's existing trackball acceptance language."
+        },
+        {
+          "name": "End-to-end swing-to-display-response latency bench",
+          "method": "Use an instrumented input cue and high-speed camera to compare the same repeatable gesture and first corresponding on-screen response on the baseline and proposed display paths. Report the event definition, sample count, median, p95 and camera timing uncertainty. Keep the game's own swing-animation delay separate from added display latency.",
+          "passGate": "Proposed gate: added p95 latency no more than one source-frame interval versus the matched baseline, with no count reversal or loss across the stroke sweep. At 60 Hz one interval is about 16.7 ms; this is a target, not a measured result."
+        }
+      ],
+      "sourceIds": [
+        "M1",
+        "M23"
+      ]
+    },
+    {
+      "slug": "big-buck-hunter",
+      "title": "Big Buck Hunter",
+      "baseline": "Big Buck Hunter: Call of the Wild v3.02.5 (bbhcotw) is the Eagle-family MAME candidate, not the later Pro or World experience. Its referenced cabinet uses one gun and alternating turns for up to four hunters. The gallery's 640x480 image files do not establish the native framebuffer or output mode of an untested setup.",
+      "nearTerm": "Prioritize reliable aim, immediate trigger feedback, the pump action and correct turn attribution. Tune the display's processing and the supported gun interface before spending on extra graphical effects.",
+      "conditional": "A renderer or asset upgrade must keep animal silhouettes, hit areas, target visibility and scoring behavior consistent. Characterize the selected runtime first; no supported high-resolution patch was established in this research.",
+      "modernConcept": "An original hunting-gallery game could add convincing foliage, animal animation and lighting, with deliberately readable targets. Simultaneous two-player play would be a new design choice or a different licensed release, not a feature silently added to this baseline.",
+      "doNotClaim": "Do not transfer later two-gun behavior to Call of the Wild, assume a consumer light-gun kit matches its original I/O, or use interpolated frame count as proof of better trigger feel.",
+      "experiments": [
+        {
+          "name": "Trigger-to-report latency bench",
+          "method": "Define the observable event pair -- physical trigger-switch actuation and the corresponding on-screen muzzle-flash/whiteout pixel change -- and measure by external high-speed camera across repeated trials.",
+          "passGate": "Target range, reported as mean and spread across trials, per experience-spec.md's static-aim-and-fire latency discussion -- not a single exact-millisecond pass/fail."
+        },
+        {
+          "name": "Alternating-turn attribution run",
+          "method": "Cold boot the selected exact release; cycle through up to four simulated hunters on the single gun; log whether each turn's hits/score attribute to the correct player slot and hand off cleanly at turn end.",
+          "passGate": "Target: correct per-turn attribution across all simulated players in repeated trials -- a confirmation test of the already-documented alternating mode, not a simultaneous-fire experiment."
+        },
+        {
+          "name": "Edge-target/fast-sweep aim accuracy grid",
+          "method": "Nine-point aim grid at near/far accepted player stances, ten shots per point, repeated across trials.",
+          "passGate": "Target range reported with trial-to-trial spread, reusing PLAN.md's existing optical-aim acceptance language as a starting point, not an assumed exact result."
+        }
+      ],
+      "sourceIds": [
+        "M1",
+        "M22",
+        "M23"
+      ]
+    },
+    {
+      "slug": "silver-strike",
+      "title": "Silver Strike",
+      "baseline": "The classic 2009 Silver Strike Bowling kit uses a Nighthawk system and documented video-mode choices, including VGA/SVGA. Its manual warns that the game is not designed for true 16:9. This project has not established a supported open-source runtime for the exact kit.",
+      "nearTerm": "Keep the original I/O and trackball feel. Test the donor's actual output, correct aspect mapping and a low-latency panel. Add an active converter only if the measured connector/signal path requires it; a direct compatible connection may be better.",
+      "conditional": "Identify the exact hardware, operating system, graphics API and asset format before proposing a patch. The warranty warning is a service consideration, not proof that reverse engineering is impossible. Any invasive work needs lawful access, a recovery image and a non-primary test system.",
+      "modernConcept": "An original trackball-bowling game could add detailed lane materials, reflections, pin animation and local competition. Its ball dynamics need their own tuning. The older community guide's backswing advice is not a manufacturer-confirmed spin algorithm for the 2009 kit.",
+      "doNotClaim": "Do not promise a working emulator, a native widescreen renderer or a manufacturer-confirmed spin model. Correcting display stretch is worth testing; it does not add a wider camera or new assets.",
+      "experiments": [
+        {
+          "name": "Aspect and output-mode comparison",
+          "method": "Compare supported donor output modes and display aspect settings using a known geometric reference and actual gameplay. Check circles, lane proportions, HUD placement and cropping; distinguish source-rendered geometry from display stretch.",
+          "passGate": "Proposed gate: no cropped gameplay/HUD and no more than 1% additional geometric distortion versus a matched reference, with measurement uncertainty reported. If no acceptable mode exists, record that result before selecting a different display path."
+        },
+        {
+          "name": "Active-scaler latency bench",
+          "method": "If conversion is necessary, compare the direction-correct active converter against a direct compatible baseline using external high-speed timing across repeated trials.",
+          "passGate": "Proposed gate: no more than one source-frame interval of added p95 latency and no signal dropouts during a complete game. Record median, p95 and measurement uncertainty; these are not observed results."
+        },
+        {
+          "name": "Native-I/O trackball dynamics bench",
+          "method": "20 hard strokes on the donor's own trackball/encoder interface (not a USB substitute), checking direction, wrap and dropout.",
+          "passGate": "Target: no wrap/reversal/dropout across all 20 strokes, reusing PLAN.md's existing trackball acceptance language."
+        }
+      ],
+      "sourceIds": [
+        "M5"
+      ]
+    },
+    {
+      "slug": "jurassic-park",
+      "title": "Jurassic Park Arcade",
+      "baseline": "Raw Thrills' Jurassic Park Arcade (2015) is the mounted-gun reference, not an older Sega Jurassic Park game. Its manual documents potentiometer aiming, separate I/O and the original security dongle. The exact PC/GPU, operating system and graphics API of a future donor remain unconfirmed.",
+      "nearTerm": "Preserve continuous aiming, independent player identity and the original vibration/feedback path. Measure the actual screen and gun-to-reticle delay on a legitimately running donor before changing the display or compute hardware.",
+      "conditional": "Confirm API/OS/tool compatibility first. RenderDoc currently supports Vulkan, D3D11/12 and modern OpenGL/GLES, not D3D9; PresentMon needs compatible Windows/ETW support. Captures can perturb timing or fail. Use an isolated authorized setup and external camera measurement when injection is unsupported or risky; no dongle bypass is proposed.",
+      "modernConcept": "An original prehistoric rail shooter could use detailed foliage, animated creatures and atmospheric lighting while retaining readable targets and a responsive mounted-gun loop. It also demands substantial content and animation work. A Jurassic Park-branded rebuild needs all applicable game and franchise rights; those agreements have not been pursued.",
+      "doNotClaim": "Do not promise emulator support, tool compatibility or a texture-replacement patch for the untested donor. More cinematic rendering must not obscure targets or worsen the aiming loop.",
+      "experiments": [
+        {
+          "name": "Continuous-tracking aim-loop latency bench (this project's single tightest metric)",
+          "method": "Define the observable event pair -- a physical aim-correction input and the corresponding on-screen target-reticle movement -- and measure the gap by external high-speed camera on the real, owned cabinet across repeated trials.",
+          "passGate": "Target range, reported as mean and spread, per experience-spec.md's continuous-tracking design-priority discussion -- explicitly a design target, not a measured fact about this title yet."
+        },
+        {
+          "name": "Capability pre-check, then conditional RenderDoc/PresentMon capture",
+          "method": "First confirm the real cabinet's graphics API, OS build, and GPU feature level against each tool's current published support list; only if compatible, attempt a single frame capture (RenderDoc) and a short frame-pacing trace (PresentMon) on an isolated test setup before any attempt near the primary cabinet.",
+          "passGate": "Target: either a documented successful capture recording native render-target resolution and present interval, or a documented, specific reason capture is not attempted (incompatible API/OS, or unacceptable risk to the primary cabinet) -- both are valid, reported outcomes, not a predetermined result."
+        },
+        {
+          "name": "External camera-based frame-pacing fallback",
+          "method": "If API-level capture is unsupported or judged unsafe, measure visible frame-pacing and stutter externally via high-speed camera during one full mission on the real cabinet.",
+          "passGate": "Target: a usable frame-timing record exists via at least one method (API capture or camera), informing (not assuming) whether a future external-display or hardware change would help at all."
+        }
+      ],
+      "sourceIds": [
+        "M2",
+        "M3",
+        "M11",
+        "M13",
+        "M21"
+      ]
+    }
+  ],
+  "pipeline": [
+    {
+      "id": "P0",
+      "title": "Confirm exact release, hardware, and lawful-access status per game",
+      "dependsOn": [],
+      "output": "This document's baseline per game, cross-checked against MAME driver source, manufacturer manuals, and this project's own credited screenshot evidence.",
+      "gate": "Mike confirms which of the four exact releases/paths are in scope -- ties to PLAN.md's existing G0 gate; no bench or RE spend precedes it."
+    },
+    {
+      "id": "P1",
+      "title": "Tier 1 display-chain bench",
+      "dependsOn": [
+        "P0"
+      ],
+      "output": "Measured aspect/geometry and refresh-mode display-latency evidence per game, on a borrowed display and existing PC.",
+      "gate": "Selected release and an owned or borrowed display panel available. Runs in parallel with P2, P3 and P4."
+    },
+    {
+      "id": "P2",
+      "title": "Tier 1 input-pipeline bench",
+      "dependsOn": [
+        "P0"
+      ],
+      "output": "Measured trackball/trigger/positional-gun stage-latency table per game.",
+      "gate": "Owned or borrowed control hardware (trackball, guns, or donor I/O) available. Runs in parallel with P1, P3 and P4."
+    },
+    {
+      "id": "P3",
+      "title": "Frontend/shell scaffolding (device identity, session state, attract loop)",
+      "dependsOn": [
+        "P0"
+      ],
+      "output": "A shell layer sitting outside each closed game -- device-ready confirmation, session timer, physical/printed scoreboard -- that does not modify any original game's own code.",
+      "gate": "Baseline confirmed. Does not depend on P1/P2 results; integrates with them later at P10."
+    },
+    {
+      "id": "P4",
+      "title": "Tier 2 lawful-access and tool-capability pre-check per game",
+      "dependsOn": [
+        "P0"
+      ],
+      "output": "Per game: confirmed lawful media or owner-cabinet access, plus (where a live PC exists) a checked graphics-API/OS/feature-level compatibility record against RenderDoc's and PresentMon's current published support.",
+      "gate": "Runs in parallel with P1-P3; gates P5, not gated by it."
+    },
+    {
+      "id": "P5",
+      "title": "Tier 2 diagnostic RE pass per game",
+      "dependsOn": [
+        "P4"
+      ],
+      "output": "Per game: Ghidra/radare2 static inventory and/or RenderDoc/PresentMon capture where the P4 pre-check cleared it, or external camera-based measurement where it did not.",
+      "gate": "Lawful media or owner cabinet confirmed in hand; no DRM circumvention; no redistribution of any captured asset or binary; first attempts on real primary hardware only after an isolated-setup trial where a live PC is involved."
+    },
+    {
+      "id": "P6",
+      "title": "Tier 2 feasibility findings per game",
+      "dependsOn": [
+        "P5"
+      ],
+      "output": "A written found/not-found/inconclusive verdict per game, with its exact supporting source.",
+      "gate": "Independent review of P5's findings against MAME source and manufacturer documentation. No outcome is predetermined by this document."
+    },
+    {
+      "id": "P7",
+      "title": "Tier 3 scope decision",
+      "dependsOn": [
+        "P0"
+      ],
+      "output": "Mike's explicit choice among: decline Tier 3, pursue an original-IP successor, or pursue a rights-cleared remaster (contingent on securing an actual license).",
+      "gate": "Independent of P1-P6; can be decided at any time once a baseline exists. No art or code is produced before this gate."
+    },
+    {
+      "id": "P8",
+      "title": "Tier 3 vertical slice",
+      "dependsOn": [
+        "P7"
+      ],
+      "output": "One playable, single-ritual prototype under whichever licensing branch P7 selected.",
+      "gate": "P7 scope decision made and (for the rights-cleared branch only) the license actually secured."
+    },
+    {
+      "id": "P9",
+      "title": "Tier 3 resolution/refresh/latency tradeoff bench",
+      "dependsOn": [
+        "P8"
+      ],
+      "output": "PresentMon/Reflex-class latency table across candidate resolution and refresh-rate configurations, with and without frame generation, on the actual vertical slice.",
+      "gate": "A vertical slice exists to bench -- this cannot be estimated without one."
+    },
+    {
+      "id": "P10",
+      "title": "Release the faithful experience independently",
+      "dependsOn": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "output": "An accepted display/input/shell configuration with repeatable play, recovery and latency evidence.",
+      "gate": "Tier 1 can finish without a successful patch investigation or a new game. P6 separately informs renderer investment; P9 separately evaluates an authorized new-engine slice. Neither branch blocks the faithful upgrade or this presentation."
+    }
+  ],
+  "decisions": [
+    {
+      "title": "Treat output filters as presentation tools",
+      "recommendation": "Compare clean scaling with optional CRT effects. Keep the setting that best preserves readability and response; a shader is not inherently an improvement just because it is available.",
+      "why": "MAME's HLSL/BGFX documentation describes output-stage effects. A screenshot's stored dimensions do not establish the underlying game's render target, and enlarging that image does not create new geometry or texture detail.",
+      "sourceIds": [
+        "M1",
+        "M6",
+        "M7",
+        "M22",
+        "M23"
+      ]
+    },
+    {
+      "title": "Whether a Tier 2 renderer-patch hook exists for Silver Strike or Jurassic Park Arcade is unresolved, not closed",
+      "recommendation": "Treat Tier 2 for these two games as an open, bounded diagnostic question, not a foreclosed one. Plan primary spending around Tier 1 and a possible Tier 3, while keeping a small, time-boxed Tier 2 investigation available rather than promising its outcome either way.",
+      "why": "Silver Strike's manufacturer-stated warranty-void-on-opening clause is a cost/risk disclosure to the owner, not a legal or technical bar, and no source inspected here searched exhaustively for public Nighthawk internals documentation. Jurassic Park Arcade's absence from MAME's Raw Thrills PC driver is strong evidence against a public open-source emulator, not proof no renderer-level hook could ever be found on the real hardware.",
+      "sourceIds": [
+        "M2",
+        "M5"
+      ]
+    },
+    {
+      "title": "Frame Generation is off by default, not categorically excluded, for the two aim-driven successors",
+      "recommendation": "If Tier 3 is ever funded, default DLSS/FSR Frame Generation to off for the Big Buck Hunter and Jurassic Park Arcade successor prototypes, and re-evaluate only after a Reflex-class render-latency bench on the actual vertical slice shows it does not harm the measured aim-correction loop.",
+      "why": "NVIDIA's own Frame Generation SDK documentation states the real next frame is deliberately held back so an interpolated frame can be inserted in correct temporal order, which 'inherently introduces a degree of latency' that Reflex only partially offsets; this is a baseline risk judgment against this project's own trigger-report and continuous-tracking latency priorities, not a claim that frame generation cannot technically run.",
+      "sourceIds": [
+        "M10"
+      ]
+    },
+    {
+      "title": "Bench PC sizing for the two MAME-benchable titles should provision for both CPU and GPU headroom until measured",
+      "recommendation": "Do not assume either resource is the bottleneck for the Eagle driver without benching the actual candidate PC. Provision a strong single-thread CPU (for the LLE emulation itself) and a capable GPU (for the BGFX/HLSL shader chain layered on top), and measure before committing to a cheaper config on either side.",
+      "why": "PLAN.md's existing guidance that MAME can be CPU-bound for LLE-heavy drivers is a documented risk, not a proven fact about this specific bench PC; the BGFX/HLSL CRT-simulation chain is itself real GPU-side shader work that can become the bottleneck on a weak GPU. Neither claim is resolved without an actual bench.",
+      "sourceIds": [
+        "M1"
+      ]
+    },
+    {
+      "title": "Choose resolution and refresh by the measured workload",
+      "recommendation": "For legacy games, compare supported display modes without changing game speed. For a verified renderer patch or new-engine slice, benchmark 4K60 against 1440p120 where supported, with interpolation off as the baseline.",
+      "why": "60 and 120 fps provide approximately 16.7 and 8.3 ms per frame. Those are timing intervals, not total input latency. Higher resolution can consume GPU headroom; a 120 Hz display cannot make a 60-tick game sample input twice as often.",
+      "sourceIds": [
+        "M8"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "M1",
+      "title": "iteagle.cpp -- Incredible Technologies 'Eagle' hardware driver (MAME source)",
+      "url": "https://github.com/mamedev/mame/blob/master/src/mame/itech/iteagle.cpp",
+      "publisher": "MAME development team",
+      "accessed": "2026-11-02"
+    },
+    {
+      "id": "M2",
+      "title": "rawthrillspc.cpp -- Skeleton driver for Raw Thrills PC-based games (MAME source)",
+      "url": "https://github.com/mamedev/mame/blob/master/src/mame/misc/rawthrillspc.cpp",
+      "publisher": "MAME development team",
+      "accessed": "2026-11-02"
+    },
+    {
+      "id": "M3",
+      "title": "Jurassic Park Arcade Operator's Manual, PN 040-00044-01, r11",
+      "url": "https://rawthrills.com/wp-content/uploads/2023/08/JP-Manual-r11.pdf",
+      "publisher": "Raw Thrills, Inc. / Betson Enterprises",
+      "accessed": "2026-11-02"
+    },
+    {
+      "id": "M4",
+      "title": "Jurassic Park Arcade -- official game/specifications page",
+      "url": "https://rawthrills.com/games/jurassic-park-arcade/",
+      "publisher": "Raw Thrills, Inc.",
+      "accessed": "2026-11-02"
+    },
+    {
+      "id": "M5",
+      "title": "Silver Strike Bowling 2009 Kit Installation Manual & User Guide v2/11",
+      "url": "https://amusement.itsgames.com/wp-content/uploads/2025/02/silver-strike-bowling-09-installation-manual.pdf",
+      "publisher": "Incredible Technologies, Inc.",
+      "accessed": "2026-11-02"
+    },
+    {
+      "id": "M6",
+      "title": "HLSL Effects for Windows (MAME documentation)",
+      "url": "https://docs.mamedev.org/advanced/hlsl.html",
+      "publisher": "MAME development team",
+      "accessed": "2026-11-02"
+    },
+    {
+      "id": "M7",
+      "title": "BGFX Effects for (nearly) Everyone (MAME documentation)",
+      "url": "https://docs.mamedev.org/advanced/bgfx.html",
+      "publisher": "MAME development team",
+      "accessed": "2026-11-02"
+    },
+    {
+      "id": "M8",
+      "title": "Introducing NVIDIA Reflex: Optimize and Measure Latency in Competitive Games",
+      "url": "https://www.nvidia.com/en-us/geforce/news/reflex-low-latency-platform/",
+      "publisher": "NVIDIA Corporation",
+      "accessed": "2026-11-02"
+    },
+    {
+      "id": "M9",
+      "title": "Introducing NVIDIA DLSS 3",
+      "url": "https://www.nvidia.com/en-us/geforce/news/dlss3-ai-powered-neural-graphics-innovations/",
+      "publisher": "NVIDIA Corporation",
+      "accessed": "2026-11-02"
+    },
+    {
+      "id": "M10",
+      "title": "DLSS Frame Generation SDK Programming Guide, v310.7.0",
+      "url": "https://github.com/NVIDIA/DLSS/blob/main/doc/DLSS-FG%20Programming%20Guide.pdf",
+      "publisher": "NVIDIA Corporation",
+      "accessed": "2026-11-02"
+    },
+    {
+      "id": "M11",
+      "title": "PresentMon -- capture and analyze graphics application performance on Windows",
+      "url": "https://github.com/GameTechDev/PresentMon",
+      "publisher": "Intel Corporation (GameTechDev)",
+      "accessed": "2026-11-02"
+    },
+    {
+      "id": "M12",
+      "title": "Ghidra Software Reverse Engineering Framework",
+      "url": "https://github.com/NationalSecurityAgency/ghidra",
+      "publisher": "National Security Agency",
+      "accessed": "2026-11-02"
+    },
+    {
+      "id": "M13",
+      "title": "RenderDoc documentation -- Quick Start",
+      "url": "https://renderdoc.org/docs/getting_started/quick_start.html",
+      "publisher": "Baldur Karlsson / RenderDoc project",
+      "accessed": "2026-11-02"
+    },
+    {
+      "id": "M14",
+      "title": "The Official Radare2 Book",
+      "url": "https://book.rada.re/",
+      "publisher": "radare project",
+      "accessed": "2026-11-02"
+    },
+    {
+      "id": "M15",
+      "title": "RetroArch Run Ahead (libretro documentation)",
+      "url": "https://docs.libretro.com/guides/runahead/",
+      "publisher": "Libretro",
+      "accessed": "2026-11-02"
+    },
+    {
+      "id": "M16",
+      "title": "Our TV Input Tests: Input Lag",
+      "url": "https://www.rtings.com/tv/tests/inputs/input-lag",
+      "publisher": "RTINGS.com",
+      "accessed": "2026-11-02"
+    },
+    {
+      "id": "M17",
+      "title": "How do I legally obtain ROMs or disk images to run on MAME? (MAME FAQ)",
+      "url": "https://docs.mamedev.org/usingmame/commonissues.html#how-do-i-legally-obtain-roms-or-disk-images-to-run-on-mame",
+      "publisher": "MAME development team",
+      "accessed": "2026-11-01"
+    },
+    {
+      "id": "M18",
+      "title": "Device Mapping (MAME documentation)",
+      "url": "https://docs.mamedev.org/advanced/devicemap.html",
+      "publisher": "MAME development team",
+      "accessed": "2026-11-01"
+    },
+    {
+      "id": "M19",
+      "title": "Golden Tee Fore! Remastered Edition -- product page",
+      "url": "https://store.itsgames.com/products/golden-tee-fore-remastered-edition",
+      "publisher": "Incredible Technologies, Inc.",
+      "accessed": "2026-11-01"
+    },
+    {
+      "id": "M20",
+      "title": "On the Latency of USB-Connected Input Devices",
+      "url": "https://epub.uni-regensburg.de/40182/1/On_the_Latency_of_USB-Connected_Input_Devices_author_version.pdf",
+      "publisher": "Wimmer, Schmid & Bockes, University of Regensburg (CHI 2019)",
+      "accessed": "2026-11-01"
+    },
+    {
+      "id": "M21",
+      "title": "FAQ -- What APIs does RenderDoc support? (RenderDoc documentation)",
+      "url": "https://renderdoc.org/docs/getting_started/faq.html",
+      "publisher": "Baldur Karlsson / RenderDoc project",
+      "accessed": "2026-11-02"
+    },
+    {
+      "id": "M22",
+      "title": "Big Buck Hunter: Call of the Wild — sourced release and control guide",
+      "url": "games/big-buck-hunter.html#sources",
+      "publisher": "After Hours reference guide; original sources are linked in the gallery",
+      "accessed": "2026-11-02"
+    },
+    {
+      "id": "M23",
+      "title": "Golden Tee reference-image provenance and stored dimensions",
+      "url": "games/golden-tee.html#sources",
+      "publisher": "After Hours reference guide; image-file dimensions are not runtime measurements",
+      "accessed": "2026-11-02"
+    }
+  ]
+}

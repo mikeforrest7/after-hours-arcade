@@ -1,0 +1,367 @@
+{
+  "schemaVersion": 1,
+  "slug": "golden-tee",
+  "overviewId": "golden_tee",
+  "number": "01",
+  "title": "Golden Tee",
+  "kicker": "TRACKBALL / GOLF",
+  "headline": "Read the hole. Shape the swing.",
+  "intro": "Golden Tee Fore! turns a bar-top trackball into a golf swing: roll back to set up, roll forward to strike, and shape the gesture to send the ball straight or bend it around a hazard. The pleasure is tactile judgment rather than a timed button press: the room watches the flight and reacts before the ball lands. Backspin, Fly-By and the setup buttons make a short pause between shots part of the game, not dead time.",
+  "referenceScope": {
+    "primary": "Golden Tee Fore! (Incredible Technologies coin-op, Fore! family)",
+    "reason": "Fore! is the generation this build's own research already treats as the legacy MAME bench candidate (romset gtfore06); its own manual, flyer and a native gtfore06 screenshot give primary-source control and on-screen detail instead of a different generation.",
+    "caveat": "No release is selected and no game was run here. Sources span two Fore! sub-builds — a circa-2001 cabinet/flyer and 2006 Complete gameplay screenshots — not confirmed as one identical build; the 1995-documented swing mechanic is carried forward, not re-confirmed per sub-build. Full detail in Release Notes."
+  },
+  "heroMediaId": "gt-gameplay-ingame",
+  "media": [
+    {
+      "id": "gt-cabinet",
+      "src": "media/golden-tee/gt-01-cabinet.jpg",
+      "kind": "Cabinet photograph",
+      "release": "Golden Tee Fore! (ITNet-compatible coin-op cabinet, as pictured in the manufacturer's 2001 sales flyer)",
+      "alt": "A black Golden Tee Fore! upright cabinet with an illuminated red scrolling marquee reading GOLDEN TEE GOLF TOURNAMENTS, a Golden Tee logo panel below it, and a blue trackball control panel visible at the base.",
+      "caption": "The real coin-op silhouette: tall marquee, angled monitor bonnet, and a control panel set low enough for real arm travel in the swing.",
+      "credit": "Incredible Technologies, Inc. (official 2001 Golden Tee Fore! sales flyer)",
+      "sourceId": "GT1",
+      "assetUrl": "https://flyers.arcade-museum.com/videogame-flyers/4/golden-tee-fore-04743-04.jpg",
+      "processing": "Cropped to the cabinet photograph on the flyer's inside-back page (dimensions/operator-services text removed); local resize only, no retouching.",
+      "width": 262,
+      "height": 650,
+      "sha256": "b0739e7c02fd8adbe6a9f1d276d1338b20adec81e7f9d02a5a5a1569515baa8d",
+      "retrievedAt": "2026-11-02"
+    },
+    {
+      "id": "gt-control",
+      "src": "media/golden-tee/gt-02-control.jpg",
+      "kind": "Control photograph",
+      "release": "Golden Tee Fore! (archived coin-op unit, Museum of the Game entry dated circa 2002)",
+      "alt": "Close-up photograph of a real Golden Tee Fore! control panel: a white trackball set into a blue overlay with five surrounding pushbuttons and printed control labels.",
+      "caption": "The actual five-button layout — Start, Backspin, Fly-By, Left, Right — around the trackball, not a generic arcade panel.",
+      "credit": "Museum of the Game / KLOV (International Arcade Museum), contributed by community member ‘PAUL’",
+      "sourceId": "GT2",
+      "assetUrl": "https://www.arcade-museum.com/images-game/21/golden-tee-fore-21932.jpg",
+      "processing": "Local resize only; no crop, no retouching, watermark-free source.",
+      "width": 1280,
+      "height": 960,
+      "sha256": "902af7a443e907332799d55896d098392caffb0c81cd06ad41ef2be53bb0add5",
+      "retrievedAt": "2026-11-02"
+    },
+    {
+      "id": "gt-gameplay-ingame",
+      "src": "media/golden-tee/gt-07-gameplay-ingame.png",
+      "kind": "Gameplay screenshot",
+      "release": "Golden Tee Fore! 2006 Complete (v6.00.01) — MAME romset gtfore06",
+      "alt": "In-game screenshot of a golfer completing a swing follow-through in a desert course; HUD shows a Slope of the Green overhead map, a wind arrow reading 5 MPH, a club/distance capsule reading 3 IRON and 183 YDS TO PIN, and a status bar reading GOLFER 1, PAR 4, STROKE 2.",
+      "caption": "A native-resolution capture of the actual gtfore06 romset — the full HUD (slope map, wind, club/yardage, stroke/par) legible at once.",
+      "credit": "Arcade Database (progettoemma.net / EMMA Italian Dumping Team) — in-game screenshot archived from the gtfore06 MAME romset; not captured by this build.",
+      "sourceId": "GT6",
+      "assetUrl": "https://adb.arcadeitalia.net/media/mame.current/ingames/gtfore06.png",
+      "processing": "Native-resolution archive screenshot (512×384, matching the driver's documented output resolution per research/game-feasibility.md); local PNG resave only — no crop, no upscaling, no retouching.",
+      "width": 512,
+      "height": 384,
+      "sha256": "bba14c429f110b75c615efb9831f7221ecc52af0850da4f6671f7e336835074b",
+      "retrievedAt": "2026-11-02"
+    },
+    {
+      "id": "gt-gameplay-select",
+      "src": "media/golden-tee/gt-08-gameplay-select.png",
+      "kind": "Gameplay screenshot",
+      "release": "Golden Tee Fore! 2006 Complete (v6.00.01) — MAME romset gtfore06",
+      "alt": "In-game course-select screenshot reading SELECT A COURSE with five course flags, a highlighted CRIMSON ROCK course card showing a desert preview thumbnail, and on-screen instructions reading MOVE TRACKBALL TO CHANGE.",
+      "caption": "The same trackball that swings the club also drives the menus — MOVE TRACKBALL TO CHANGE is printed right on screen.",
+      "credit": "Arcade Database (progettoemma.net / EMMA Italian Dumping Team) — in-game screenshot archived from the gtfore06 MAME romset; not captured by this build.",
+      "sourceId": "GT6",
+      "assetUrl": "https://adb.arcadeitalia.net/media/mame.current/selects/gtfore06.png",
+      "processing": "Native-resolution archive screenshot (512×384); local PNG resave only — no crop, no upscaling, no retouching.",
+      "width": 512,
+      "height": 384,
+      "sha256": "95f10a575a52ae644c08e4941e88e5cb1e866432ecab0372bd3be846d3619c77",
+      "retrievedAt": "2026-11-02"
+    },
+    {
+      "id": "gt-brochure-cover",
+      "src": "media/golden-tee/gt-05-brochure-cover.jpg",
+      "kind": "Brochure image",
+      "release": "Golden Tee Fore! (2001 manufacturer sales flyer, front cover)",
+      "alt": "Flyer cover art: gold 3D Golden Tee fore! logo with a golf ball on a tee, over a blue background, with the text AN ALL NEW GENERATION OF GOLF HAS BEGUN.",
+      "caption": "The original 2001 trade flyer Incredible Technologies used to sell operators on the Fore! generation.",
+      "credit": "Incredible Technologies, Inc. (official 2001 Golden Tee Fore! sales flyer)",
+      "sourceId": "GT1",
+      "assetUrl": "https://flyers.arcade-museum.com/videogame-flyers/4/golden-tee-fore-04743-01.jpg",
+      "processing": "Full flyer front page, local resize only, no crop.",
+      "width": 850,
+      "height": 1104,
+      "sha256": "1ee16269a160fd65caf2365865866b75729bd16c2df1ae4bee2b624d006ea33e",
+      "retrievedAt": "2026-11-02"
+    },
+    {
+      "id": "gt-marquee",
+      "src": "media/golden-tee/gt-06-marquee.jpg",
+      "kind": "Cabinet photograph",
+      "release": "Golden Tee Fore! with Peter Jacobsen (archived coin-op marquee, Museum of the Game entry)",
+      "alt": "Photograph of an illuminated arcade marquee reading GOLDEN TEE fore! with Peter Jacobsen, a golf ball graphic, an Incredible Technologies logo, and a SUITABLE FOR ALL AGES rating panel.",
+      "caption": "The lit marquee detail — a small, low-resolution archival photo, but a genuine physical marquee, not a rendered mockup.",
+      "credit": "Museum of the Game / KLOV (International Arcade Museum)",
+      "sourceId": "GT2",
+      "assetUrl": "https://www.arcade-museum.com/images-game/22/golden-tee-fore-22806.jpg",
+      "processing": "No crop; source photo is archived at this native low resolution by the museum, not upscaled.",
+      "width": 400,
+      "height": 105,
+      "sha256": "52415220e174855de0702b27a46bc4a6267e0723c8ae24575e782bfa3187ae94",
+      "retrievedAt": "2026-11-02"
+    }
+  ],
+  "session": {
+    "format": "Stroke or Skins play across 9 or 18 holes, one to four golfers alternating turns at one trackball panel; Start plus a roll-to-highlight doubles as the in-round menu for Instant Replay, Mulligan purchase, and Skip Turn.",
+    "social": "Players wait their turn at the shared panel and call the shot — hook, slice, over-hit — as the swing starts, the way a gallery reads a real golfer's takeaway; Skip Turn lets a player who isn't ready get passed over instead of holding up the hole.",
+    "failureToAvoid": "A trackball that drops counts on a fast swing, or a Start+roll menu that misreads a mistimed stroke as a shot, breaks this shared, call-it rhythm.",
+    "sourceIds": [
+      "GT3"
+    ]
+  },
+  "playLoop": [
+    {
+      "title": "Scout the hole and set a line",
+      "action": "Use Fly-By to preview the hole from tee to green, choose a target line and orient your hand before starting the swing.",
+      "feedback": "The preview reveals the route; the course view and overhead map show the lie, hazards and direction toward the pin.",
+      "skill": "Course management before committing power.",
+      "sourceIds": [
+        "GT3",
+        "GT5"
+      ]
+    },
+    {
+      "title": "Arm Backspin before you need it",
+      "action": "Press Backspin before the swing; press again before swinging to cancel.",
+      "feedback": "A backspin indicator arms, and a well-struck iron checks up or rolls back on the green.",
+      "skill": "Planning spin ahead of a shot, not reacting after it lands.",
+      "sourceIds": [
+        "GT3"
+      ]
+    },
+    {
+      "title": "Back swing sets power and shape",
+      "action": "Roll backward along your aim line for straight, or off-angle from the landing direction for a hook or slice.",
+      "feedback": "The golfer coils into a backswing matching the distance — not speed — of the roll.",
+      "skill": "Back-swing distance is one of two independent inputs; its speed is explicitly irrelevant.",
+      "sourceIds": [
+        "GT4"
+      ]
+    },
+    {
+      "title": "Forward swing strikes the ball",
+      "action": "Roll forward with real velocity, pushing toward the direction you want the ball to start heading.",
+      "feedback": "The golfer swings through; too much velocity triggers over-hitting, a loss of control rather than extra distance.",
+      "skill": "Controlling velocity instead of maximizing it.",
+      "sourceIds": [
+        "GT4"
+      ]
+    }
+  ],
+  "screenRead": [
+    {
+      "label": "Wind arrow + MPH readout",
+      "meaning": "Current wind direction/strength, one of the three checks before every swing.",
+      "sourceIds": [
+        "GT1",
+        "GT6"
+      ]
+    },
+    {
+      "label": "Club + distance capsule",
+      "meaning": "Selected club and flagged yardage together, read to pick a club before rolling back.",
+      "sourceIds": [
+        "GT1",
+        "GT6"
+      ]
+    },
+    {
+      "label": "Stroke counter",
+      "meaning": "Running stroke count for the hole — the simplest ‘how am I doing’ readout.",
+      "sourceIds": [
+        "GT1",
+        "GT6"
+      ]
+    },
+    {
+      "label": "Slope-of-the-green overhead map",
+      "meaning": "A cutaway map of the green's break, read before an approach or putt to anticipate the roll.",
+      "sourceIds": [
+        "GT1",
+        "GT6"
+      ]
+    }
+  ],
+  "signatureMoments": [
+    {
+      "title": "The hook around the dogleg",
+      "description": "Pull back off-axis from where you want the ball to land, push forward toward where you want it to start — the exact technique in the manufacturer's own tips guide, bending a drive around an obstacle a straight shot can't clear.",
+      "sourceIds": [
+        "GT4"
+      ]
+    },
+    {
+      "title": "The backswing-skipped recovery",
+      "description": "A player can skip the back swing entirely and still strike the ball, at a real power penalty — a built-in recovery for a fumbled roll that keeps a first-timer in the game.",
+      "sourceIds": [
+        "GT4"
+      ]
+    },
+    {
+      "title": "Calling the shot from the rail",
+      "description": "Design interpretation: because the swing gesture is the one unmistakable motion at the panel, onlookers can read its angle and depth and call hook, slice, or over-hit before the ball lands.",
+      "sourceIds": [
+        "GT4"
+      ]
+    }
+  ],
+  "controls": [
+    {
+      "input": "Trackball back-swing (direction + distance)",
+      "action": "Sets shot shape and supplies the first of two power inputs; back-swing speed is explicitly irrelevant.",
+      "feel": "A loose, free-spinning roll with real travel, not a flick — must track an off-axis roll as faithfully as a straight one.",
+      "sourceIds": [
+        "GT4"
+      ]
+    },
+    {
+      "input": "Trackball forward-swing (direction + velocity)",
+      "action": "Strikes the ball; velocity sets power, with over-hitting a named failure mode for excess force.",
+      "feel": "Needs a fast, uninterrupted roll with no dropped counts, or a good swing reads back as weak.",
+      "sourceIds": [
+        "GT4"
+      ]
+    },
+    {
+      "input": "Backspin button",
+      "action": "Pre-arms backspin before the swing; press again to cancel.",
+      "feel": "A single confident press during setup, not a hold or a post-shot reaction.",
+      "sourceIds": [
+        "GT3"
+      ]
+    },
+    {
+      "input": "Fly-By button",
+      "action": "Previews the hole's layout from tee to green before the swing.",
+      "feel": "A quick look-before-you-leap beat between aiming and swinging.",
+      "sourceIds": [
+        "GT3"
+      ]
+    },
+    {
+      "input": "Left / Right buttons",
+      "action": "The current manufacturer's guide documents golfer rotation. Fore!'s manual also documents a leaderboard-scrolling use; exact in-play behavior and degrees per press must be checked on the selected Fore! build.",
+      "feel": "Keep both setup buttons available; do not import a later release's rotation increments or held-button mode without verification.",
+      "sourceIds": [
+        "GT5",
+        "GT3"
+      ]
+    }
+  ],
+  "buildPriorities": [
+    {
+      "title": "Sample the swing, not just the click",
+      "why": "Two numbers — peak back-swing distance, peak forward-swing velocity — come from one roll; dropped counts invent phantom weak or over-hit shots unrelated to skill.",
+      "proof": "A full sweep of the documented swing-speed range gives correct, undropped readings at the fastest rolls a guest actually throws.",
+      "sourceIds": [
+        "GT4"
+      ]
+    },
+    {
+      "title": "Keep the five-button panel intact",
+      "why": "Fore!'s panel is Start, Backspin, Fly-By, Left, Right; a trimmed panel cannot pre-arm backspin or preview a hole as the reference manual describes.",
+      "proof": "A first-time guest can arm Backspin and preview with Fly-By without hunting for a hidden control.",
+      "sourceIds": [
+        "GT3"
+      ]
+    },
+    {
+      "title": "Don't let the menu steal the swing",
+      "why": "Start+roll drives both the shot and the in-round menu; a mistimed roll during a menu can look identical to a swing input.",
+      "proof": "A guest can use Mulligan or Skip Turn and then take a real shot back-to-back without an accidental double input.",
+      "sourceIds": [
+        "GT3"
+      ]
+    },
+    {
+      "title": "Give the off-axis roll real room",
+      "why": "The hook/slice technique needs an angled roll read as faithfully as a straight one; a cramped panel or stiff bearing flattens the curve.",
+      "proof": "A player can reliably bend a shot around a visible obstacle using the documented pull-back/push-forward-off-axis technique.",
+      "sourceIds": [
+        "GT4"
+      ]
+    }
+  ],
+  "releaseNotes": [
+    {
+      "title": "Fore! is not 3D Golf, LIVE/PGA TOUR, or the Remastered Edition",
+      "body": "This page documents the Fore! family: five buttons (Start, Backspin, Fly-By, Left, Right) with a dedicated pre-arm Backspin button. 3D Golf gets backspin from swing technique alone, no button. Current LIVE/PGA TOUR cabinets and the factory Fore! Remastered Edition home cabinet are later, separate generations with their own courses and UI — neither is pictured or described here.",
+      "sourceIds": [
+        "GT3",
+        "GT4"
+      ]
+    },
+    {
+      "title": "Left/Right's exact behavior is generation-specific",
+      "body": "The manufacturer's current guide documents Left/Right as rotating the golfer in fixed degrees on the modern LIVE-era UI. The Fore!-era manual used here instead documents Left/Right (with Fly-By) as controlling scroll speed/direction while browsing leaderboard info after a card swipe. Both are real, documented uses on different generations — don't assume one carries to the other.",
+      "sourceIds": [
+        "GT3",
+        "GT5"
+      ]
+    },
+    {
+      "title": "This gallery spans two Fore! sub-builds",
+      "body": "The cabinet, control-panel and brochure photographs document an early Fore! unit (2001 flyer; archived cabinet circa 2002). The two gameplay screenshots are a native capture of the MAME gtfore06 romset, ‘Golden Tee Fore! 2006 Complete (v6.00.01)’ — a later Fore! sub-build. The five-button layout is confirmed consistent across both; course art and HUD styling differ between the two eras pictured. The back-swing/forward-swing power rule itself is documented for the earlier 1995 3D Golf generation and treated as carried into Fore! because Fore!'s own manual assumes it as already known — it is not independently re-confirmed in print for every individual Fore! sub-build shown here.",
+      "sourceIds": [
+        "GT1",
+        "GT2",
+        "GT4",
+        "GT6"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "GT1",
+      "title": "Golden Tee Fore! sales flyer (4 pages)",
+      "url": "https://flyers.arcade-museum.com/videogames/show/4750",
+      "publisher": "Incredible Technologies, Inc. (via The Arcade Flyer Archive, Museum of the Game)",
+      "accessed": "2026-11-02"
+    },
+    {
+      "id": "GT2",
+      "title": "Golden Tee Fore! — Videogame by Incredible Technologies",
+      "url": "https://www.arcade-museum.com/Videogame/golden-tee-fore",
+      "publisher": "Museum of the Game / KLOV (International Arcade Museum)",
+      "accessed": "2026-11-02"
+    },
+    {
+      "id": "GT3",
+      "title": "Golden Tee Fore! Installation and Operation Manual, Version 10/04",
+      "url": "http://63.116.120.18/downloads/manuals/Golden_Tee_Fore_1004.pdf",
+      "publisher": "Incredible Technologies, Inc.",
+      "accessed": "2026-11-02"
+    },
+    {
+      "id": "GT4",
+      "title": "Golden Tee 3D Golf — Tips and Techniques",
+      "url": "https://archive.org/stream/arcademanual_Golden_Tee_3D_Golf/Golden%20Tee%203D%20Golf_djvu.txt",
+      "publisher": "Incredible Technologies, Inc. (via Internet Archive)",
+      "accessed": "2026-11-02"
+    },
+    {
+      "id": "GT5",
+      "title": "How To Play — Golden Tee (official gameplay guide)",
+      "url": "https://livewire.itsgames.com/gt/how-to-play",
+      "publisher": "Incredible Technologies, Inc. (LIVEWIRE)",
+      "accessed": "2026-11-02"
+    },
+    {
+      "id": "GT6",
+      "title": "Golden Tee Fore! 2006 Complete (v6.00.01) — MAME machine detail (romset gtfore06)",
+      "url": "https://adb.arcadeitalia.net/?mame=gtfore06",
+      "publisher": "Arcade Database (ADB) / Progetto EMMA — EMMA Italian Dumping Team",
+      "accessed": "2026-11-02"
+    }
+  ]
+}

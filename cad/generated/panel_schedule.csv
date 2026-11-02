@@ -1,0 +1,13 @@
+station,panel_name,qty,width_mm,height_mm,thickness_mm,optional,note
+Station A — Trackball Pedestal,Pedestal top deck,1,760,610,18,no,"control-cutout zone outlined, not cut"
+Station A — Trackball Pedestal,Pedestal base,1,760,610,18,no,
+Station A — Trackball Pedestal,Pedestal side (left),1,610,950,18,no,
+Station A — Trackball Pedestal,Pedestal side (right),1,610,950,18,no,
+Station A — Trackball Pedestal,Pedestal front,1,760,950,18,no,
+Station A — Trackball Pedestal,Pedestal back (removable access panel),1,760,950,18,no,removable for stair transport / future disassembly
+Station B — Shooter Console,Console top deck,1,1300,400,18,no,"2x holster-cup reserved zones outlined, not cut"
+Station B — Shooter Console,Console base,1,1300,400,18,no,
+Station B — Shooter Console,Console end (left),1,400,750,18,no,
+Station B — Shooter Console,Console end (right),1,400,750,18,no,
+Station B — Shooter Console,Console front face,1,1300,750,18,no,
+Station B — Shooter Console,Console back,1,1300,750,18,yes,OPTIONAL — recommend leaving open for cable routing / weight; include only if a closed back is wanted

@@ -1,0 +1,276 @@
+{
+  "schemaVersion": 1,
+  "slug": "jurassic-park",
+  "overviewId": "jurassic_park_arcade",
+  "number": "04",
+  "title": "Jurassic Park Arcade",
+  "kicker": "SHOOTER / JUNGLE RESCUE",
+  "headline": "A gun that pushes back while you tranquilize an island.",
+  "intro": "Jurassic Park Arcade (Raw Thrills, 2015) swaps a handheld rifle for a mounted gun the player physically pushes against mechanical resistance to aim, tracking real dinosaurs across nine short missions. There is no reload and no running out of primary ammo — Raw Thrills' own operator manual and two independent player accounts agree the trigger fires an unlimited tranquilizer stream, while a separate thumb button throws a strictly limited supply of grenades. Three boss dinosaurs — Triceratops, Tyrannosaurus, and Spinosaurus — anchor the story, and shooting a stranded human colleague by mistake costs health, not points.",
+  "referenceScope": {
+    "primary": "Jurassic Park Arcade (2015)",
+    "reason": "Raw Thrills' own 2023 operator's manual, two independent player reviews, and the manufacturer's gun-assembly parts drawings together document this release's control hardware, gameplay loop, and penalties more completely than any other Jurassic Park arcade title.",
+    "caveat": "Sega's 1994 System 32 and 1997 Model 3 titles use different control hardware and are referenced only to distinguish them, never as substitutes; cabinet-variant differences are in Release Notes. No cabinet has been selected for the build, and no game has been run, emulated, or measured here."
+  },
+  "heroMediaId": "jp-cabinet-photo",
+  "media": [
+    {
+      "id": "jp-cabinet-photo",
+      "src": "media/jurassic-park/cabinet-photo-2015.jpg",
+      "kind": "Cabinet photograph",
+      "release": "Jurassic Park Arcade, 55\" Environmental SD (2015)",
+      "alt": "Photo of a standing Jurassic Park Arcade Environmental SD cabinet in a dim arcade, lit by pink LED trim, with its dinosaur-head topper, Raw Thrills side panel, and a glowing attract-mode screen",
+      "caption": "A real Environmental SD unit in an arcade, not a render.",
+      "credit": "Photo by the 'Many Strange Things' blog author, taken during an arcade visit, 2015-05-28 (photographer not otherwise credited)",
+      "sourceId": "JP5",
+      "assetUrl": "https://manystrangethings.wordpress.com/wp-content/uploads/2015/05/wp_20150528_13_21_32_pro.jpg",
+      "processing": "Used as downloaded, no crop or resize. A phone photo (916x1632); embedded EXIF data confirms a Nokia Lumia 530 / Windows Phone capture.",
+      "width": 916,
+      "height": 1632,
+      "sha256": "fefd40090d06f0f4e83def64352bc5e8d95dcc9e5e70f32d21dbf1dae52ce4de",
+      "retrievedAt": "2026-11-02"
+    },
+    {
+      "id": "jp-gameplay-hud-frame",
+      "src": "media/jurassic-park/gameplay-trailer-hud-frame.jpg",
+      "kind": "Official trailer frame",
+      "release": "Jurassic Park Arcade (2015), official trailer",
+      "alt": "Low-resolution first-person frame from the official trailer: a glowing blue circular targeting reticle and a red tracer shot aimed through a wrecked windmill structure, with the player's red gun housing visible in the foreground",
+      "caption": "An HUD-bearing preview frame from Raw Thrills' official trailer. This is a small public video thumbnail, not a screenshot captured by playing the game on our proposed system.",
+      "credit": "Raw Thrills, Inc., official YouTube trailer",
+      "sourceId": "JP9",
+      "assetUrl": "https://www.youtube.com/watch?v=pKkTBVQBzvo",
+      "processing": "Downloaded from YouTube's public static-thumbnail endpoint. No video was downloaded or re-hosted; the precise frame timestamp was not verified.",
+      "width": 480,
+      "height": 360,
+      "sha256": "af37220b3c8cce4c915c3199db362f31c06b1cfe6d45157477d26f8faa081fa0",
+      "retrievedAt": "2026-11-02"
+    },
+    {
+      "id": "jp-gameplay-triceratops",
+      "src": "media/jurassic-park/gameplay-triceratops.jpg",
+      "kind": "Publisher promotional render",
+      "release": "Jurassic Park Arcade (2015), pre-release promotional image",
+      "alt": "In-engine scene of a dune-buggy-mounted player character firing a muzzle-flashing gun at a charging Triceratops in a jungle clearing",
+      "caption": "The Triceratops encounter — an official pre-release promotional render built from game assets, not a captured in-game HUD screenshot.",
+      "credit": "Raw Thrills, Inc. / Betson Enterprises, distributed via Arcade Heroes",
+      "sourceId": "JP6",
+      "assetUrl": "https://arcadeheroes.com/wp-content/uploads/2015/02/JP_hi_res_1.jpg",
+      "processing": "Used as downloaded (1972x1165), Arcade Heroes watermark intact. Arcade Heroes' own article describes this and related images as pre-release 'bullshots' — polished promotional renders built from the game's real assets, not a raw captured in-game HUD screenshot.",
+      "width": 1972,
+      "height": 1165,
+      "sha256": "4c2d7a5977649572172a8e628b6d53283bec774cdbba84cbfef339a9e5a31598",
+      "retrievedAt": "2026-11-02"
+    },
+    {
+      "id": "jp-gameplay-trex-duo",
+      "src": "media/jurassic-park/gameplay-trex-duo.jpg",
+      "kind": "Publisher promotional render",
+      "release": "Jurassic Park Arcade (2015), pre-release promotional image",
+      "alt": "In-engine scene of two roaring tyrannosaur-type dinosaurs looming over two player characters inside a rain-soaked warehouse",
+      "caption": "A Tyrannosaurus encounter — an official pre-release promotional render, not a captured in-game HUD screenshot.",
+      "credit": "Raw Thrills, Inc. / Betson Enterprises, distributed via Arcade Heroes",
+      "sourceId": "JP6",
+      "assetUrl": "https://arcadeheroes.com/wp-content/uploads/2015/02/JP_hi_res_3.jpg",
+      "processing": "Used as downloaded (1982x1171), Arcade Heroes watermark intact. Same 'bullshot' / promotional-render caveat as the Triceratops image above, per Arcade Heroes' own description.",
+      "width": 1982,
+      "height": 1171,
+      "sha256": "bb0c623b33a33f33b62efc13beac458993070d451ac5e8b194f7798592bba9f3",
+      "retrievedAt": "2026-11-02"
+    },
+    {
+      "id": "jp-gameplay-brachiosaurus",
+      "src": "media/jurassic-park/gameplay-brachiosaurus.jpg",
+      "kind": "Publisher promotional render",
+      "release": "Jurassic Park Arcade (2015), pre-release promotional image",
+      "alt": "In-engine jungle river scene with a herd of blue and red long-necked Brachiosaurus-type dinosaurs crossing a shallow stream, with small colorful dinosaurs and flying reptiles in the background",
+      "caption": "A calmer scripted moment between boss encounters — an official promotional render built from real game assets, not a captured in-game HUD screenshot.",
+      "credit": "Raw Thrills, Inc., distributed via a Jurassic Park Arcade dealer gallery",
+      "sourceId": "JP8",
+      "assetUrl": "https://static.wixstatic.com/media/596e44_81914387fbc74cd2916dad37b81329be~mv2.jpg",
+      "processing": "Resized via the hosting CDN's own image service from an original 3830x2263 down to 1800x1063 long-edge; no local recompression beyond that CDN resize. Same promotional-render caveat as the other gameplay images in this set.",
+      "width": 1800,
+      "height": 1063,
+      "sha256": "4dc193019dec76bf3a23b19790d85aa76c204c554a1c74a808c342a07b61669c",
+      "retrievedAt": "2026-11-02"
+    },
+    {
+      "id": "jp-cabinet-render",
+      "src": "media/jurassic-park/cabinet-render-brochure.jpg",
+      "kind": "Brochure image",
+      "release": "Jurassic Park Arcade, 55\" Environmental SD — pre-production CG rendering (February 2015)",
+      "alt": "Computer-rendered image of the Environmental SD cabinet's interior showing the mounted red gun grip beneath the screen, the Raw Thrills side panel, and the dinosaur-head topper",
+      "caption": "A pre-release CG rendering — not a photograph — showing where the mounted gun grip sits beneath the screen, ahead of the cabinet's actual release.",
+      "credit": "Raw Thrills, Inc. / Betson Enterprises, via Arcade Heroes",
+      "sourceId": "JP6",
+      "assetUrl": "https://arcadeheroes.com/wp-content/uploads/2015/02/JP-Enviromental.jpg",
+      "processing": "Used as downloaded (1275x1650). Arcade Heroes' own article explicitly calls this a 'CG shot' of the final cabinet design, not a photograph.",
+      "width": 1275,
+      "height": 1650,
+      "sha256": "2c74119b2bdc95867930e0b1441cfd6568f18796dc3f078cb9ee6fcfee0ed40e",
+      "retrievedAt": "2026-11-02"
+    }
+  ],
+  "session": {
+    "format": "Nine short missions — three story arcs of three levels each — playable solo or two-player, each with an independently aimed and fired gun.",
+    "social": "Two players share one screen but aim independently. A 2015 review describes choosing levels without first completing earlier ones, making shorter shared sessions possible.",
+    "failureToAvoid": "An uncalibrated gun or confusing continue boundary breaks the shared run. One reviewer's complete playthrough took about 36 minutes and 10 continues; that is an example, not a minimum cost or promised session length.",
+    "sourceIds": ["JP3", "JP4", "JP5"]
+  },
+  "playLoop": [
+    {
+      "title": "Choose a mission and join",
+      "action": "Choose a level and join solo or with a second player. Operator calibration belongs before guest play, not in the player's round.",
+      "feedback": "Nine levels are grouped into three story arcs; the 2015 review describes level selection without a prior full clear.",
+      "skill": "Choose a short episode or a longer run to suit the group.",
+      "sourceIds": ["JP1", "JP3", "JP5"]
+    },
+    {
+      "title": "Push to aim",
+      "action": "Grip the mounted gun and pivot it within its travel range to track targets through an automatically advancing scene.",
+      "feedback": "The reticle follows two-axis position; the manual documents one potentiometer per axis. Motion resistance and response still require real-hardware validation.",
+      "skill": "Track a moving threat with a mounted mechanism rather than a handheld pointing device.",
+      "sourceIds": ["JP1"]
+    },
+    {
+      "title": "Fire",
+      "action": "Pull the trigger to fire the primary tranquilizer weapon.",
+      "feedback": "Unlimited ammo — a Wilcox Arcade review and a Many Strange Things review each independently confirm no reload action exists in this game.",
+      "skill": "Track and prioritize threats without a primary-ammunition reload cycle; collected special weapons and grenades add separate resource decisions.",
+      "sourceIds": ["JP4", "JP5"]
+    },
+    {
+      "title": "Throw a grenade",
+      "action": "Press the grip's large thumb button, separate from the trigger, to throw one collected grenade.",
+      "feedback": "A limited-supply action, confirmed by two player reviews and Raw Thrills' own grip-assembly parts drawing: a Trigger and a Large Thumb Button, not a pump.",
+      "skill": "Saving grenades for a swarm moment or a boss opening, since supply is finite.",
+      "sourceIds": ["JP1", "JP4", "JP5"]
+    },
+    {
+      "title": "Clear or continue",
+      "action": "Progress through the three-level story arcs toward Triceratops, Tyrannosaurus and Spinosaurus encounters, or continue after losing health.",
+      "feedback": "The reviews describe hidden ambrosia collectibles and special weapons as reasons to replay, alongside the large scripted encounters.",
+      "skill": "Replay for better execution and missed discoveries, not just to reach the ending.",
+      "sourceIds": ["JP3", "JP4", "JP5"]
+    }
+  ],
+  "screenRead": [
+    {
+      "label": "On-screen mission prompts",
+      "meaning": "Short text/icon cues tell the player when and where to shoot an incoming threat; a Wilcox Arcade review calls the difficulty 'incredibly fair' because of this prompting.",
+      "sourceIds": ["JP4"]
+    },
+    {
+      "label": "Colleague / NPC hit feedback",
+      "meaning": "Shooting a stranded colleague by mistake costs the player health rather than scoring a hit — the opposite of shooting a dinosaur.",
+      "sourceIds": ["JP3"]
+    },
+    {
+      "label": "Grenade / special-weapon count",
+      "meaning": "Tracks the limited supply of thrown grenades and any temporary hidden weapon pickup (e.g. the X-22 Renegade or Frostbite Cannon), both finite resources.",
+      "sourceIds": ["JP4"]
+    },
+    {
+      "label": "Ambrosia collectible pickup",
+      "meaning": "A hidden per-level bonus item that adds score without affecting the mission outcome — a reason to look around, not just at threats.",
+      "sourceIds": ["JP4"]
+    }
+  ],
+  "signatureMoments": [
+    {
+      "title": "The Triceratops charge",
+      "description": "A Triceratops confronts the player's vehicle — a central encounter featured in Raw Thrills' pre-release promotional imagery. The gallery labels that image as a render, not live HUD capture.",
+      "sourceIds": ["JP6"]
+    },
+    {
+      "title": "The Tyrannosaurus encounter",
+      "description": "The promotional gallery shows two large predators closing in. The 2015 review describes the second story arc's antagonist as the T-Rex, making scale and threat tracking part of the spectacle.",
+      "sourceIds": ["JP4", "JP5"]
+    },
+    {
+      "title": "The seat that stomps (Motion DLX only)",
+      "description": "On the Motion DLX cabinet, a reviewer describes the seat slamming hard enough to feel 'like a gigantic dinosaur stomping' beside the player — a motion-cabinet-specific effect, absent on the Environmental SD cabinet this page otherwise references.",
+      "sourceIds": ["JP4"]
+    }
+  ],
+  "controls": [
+    {
+      "input": "Mounted two-handled grip, pushed/pulled on a gimbal",
+      "action": "True two-axis position aim — not a relative-motion, mouse-style gun — read from a potentiometer on each axis per the manufacturer's own drawings.",
+      "feel": "Rubber/nylon 'stop bumpers' limit travel on both axes, but no dedicated return spring is documented at the pivot; whether the gun recentres on its own or must be pushed back is not established here and needs checking against real hardware.",
+      "sourceIds": ["JP1"]
+    },
+    {
+      "input": "Trigger (red, on the grip)",
+      "action": "Fires the primary tranquilizer weapon with unlimited ammo and no reload action.",
+      "feel": "A single, always-available input — no pump, no magazine — confirmed by the parts list (Trigger plus Large Thumb Button only) and by two independent player accounts.",
+      "sourceIds": ["JP1", "JP4", "JP5"]
+    },
+    {
+      "input": "Large thumb button (on the grip, away from the trigger)",
+      "action": "Throws a grenade from the player's limited supply.",
+      "feel": "A second, distinct input — do not copy the Big Buck Hunter station's pump-action design onto this one; this is a button, not a sliding mechanism.",
+      "sourceIds": ["JP1", "JP4"]
+    },
+    {
+      "input": "Per-gun recoil solenoid and 'shaker' vibration",
+      "action": "Provides physical gun feedback; the manual documents a shaker assembly and separately fused player solenoid power.",
+      "feel": "The feedback timing and force must be checked on real hardware. A parts list alone does not establish that every hit, shot or impact produces a particular effect.",
+      "sourceIds": ["JP1"]
+    }
+  ],
+  "buildPriorities": [
+    {
+      "title": "True positional aim, not a relative-motion gun",
+      "why": "The manual documents two potentiometers measuring the mounted gun's position. A handheld optical gun may also report absolute aim, but changes the support, travel and physical experience; it is not a mechanically equivalent swap.",
+      "proof": "A calibration check confirms the reticle matches the gun's true physical angle at both mechanical end-stops, not only at screen center.",
+      "sourceIds": ["JP1"]
+    },
+    {
+      "title": "Don't invent a return spring or a pump",
+      "why": "No return spring is documented at the gimbal pivot, and the only secondary input is a thumb button, not a pump; a Big Buck Hunter-style reload motion here would misrepresent the real game.",
+      "proof": "The finished mount's at-rest behavior and its one secondary button are checked against this exact confirmed hardware before any panel is fabricated.",
+      "sourceIds": ["JP1", "JP4", "JP5"]
+    },
+    {
+      "title": "Match the mechanical travel stops, not an arbitrary range",
+      "why": "The gimbal's 'stop bumper' parts hard-limit swing on each axis; an under- or over-built range changes the reticle-to-edge mapping and the mechanism's safety.",
+      "proof": "Measure travel and end-stop behavior on the selected reference hardware, then confirm safe travel and edge-to-edge reticle mapping on the bench. Do not treat parts drawings as a verified angle specification.",
+      "sourceIds": ["JP1"]
+    },
+    {
+      "title": "Keep each player's vibration and solenoid circuit separate",
+      "why": "The manual documents independently fused player gun-solenoid power. Preserve the selected hardware's protection and control boundaries rather than inferring a wiring design from the cabinet's appearance.",
+      "proof": "A qualified electrical review checks protection and wiring; a controlled two-player test checks that a feedback command intended for one player does not unintentionally actuate the other gun.",
+      "sourceIds": ["JP1"]
+    }
+  ],
+  "releaseNotes": [
+    {
+      "title": "This is the 2015 Raw Thrills game, not the 1994 or 1997 Sega games",
+      "body": "This guide describes Raw Thrills' 2015 game. Earlier Sega Jurassic Park and The Lost World titles are different games; demonstrating one of them does not demonstrate this release.",
+      "sourceIds": ["JP1", "JP3"]
+    },
+    {
+      "title": "Environmental SD and Motion DLX are different cabinets, same game",
+      "body": "Raw Thrills sells this software in two cabinets: the 55\" Environmental SD sit-down referenced for control detail here, and the 55\" Motion DLX, which adds a force-feedback seat — same missions and gun, different furniture.",
+      "sourceIds": ["JP1", "JP2", "JP7"]
+    },
+    {
+      "title": "Primary fire does not use a reload ritual",
+      "body": "Two player accounts describe unlimited standard ammunition and no reload. Limited grenades and temporary weapon pickups remain separate resources; a Big Buck Hunter pump gesture does not belong in this control map.",
+      "sourceIds": ["JP4", "JP5"]
+    }
+  ],
+  "sources": [
+    { "id": "JP1", "title": "Jurassic Park Arcade — Operator's Manual, PN 040-00044-01 (rev 07/25/2023)", "url": "https://rawthrills.com/wp-content/uploads/2023/08/JP-Manual-r11.pdf", "publisher": "Raw Thrills, Inc.", "accessed": "2026-11-02" },
+    { "id": "JP2", "title": "Jurassic Park Arcade", "url": "https://rawthrills.com/games/jurassic-park-arcade/", "publisher": "Raw Thrills, Inc.", "accessed": "2026-11-02" },
+    { "id": "JP3", "title": "Jurassic Park Arcade", "url": "https://en.wikipedia.org/wiki/Jurassic_Park_Arcade", "publisher": "Wikipedia", "accessed": "2026-11-02" },
+    { "id": "JP4", "title": "Jurassic Park Arcade (Arcade) Review", "url": "https://www.wilcoxarcade.com/single-post/2017/12/04/jurassic-park-arcade-review", "publisher": "Wilcox Arcade (player review)", "accessed": "2026-11-02" },
+    { "id": "JP5", "title": "Review: Jurassic Park Arcade from Raw Thrills", "url": "https://manystrangethings.wordpress.com/2015/05/28/review-jurassic-park-arcade-from-raw-thrills/", "publisher": "Many Strange Things (player review blog)", "accessed": "2026-11-02" },
+    { "id": "JP6", "title": "New Jurassic Park Arcade Media & Final Cabinets", "url": "https://arcadeheroes.com/2015/02/19/jurassic-park-arcade-media-and-final-cabinets/", "publisher": "Arcade Heroes (media credited to Raw Thrills, Inc. / Betson Enterprises)", "accessed": "2026-11-02" },
+    { "id": "JP7", "title": "Jurassic Park Arcade — 55\" Environmental SD product listing", "url": "https://primetimeamusements.com/product/jurassic-park-arcade-55-environmental-sd/", "publisher": "PrimeTime Amusements", "accessed": "2026-11-02" },
+    { "id": "JP8", "title": "Jurassic Park Arcade — dealer listing and gallery", "url": "https://www.kingpingames.net/raw-thrills/jurassic-park-arcade", "publisher": "KingPin Games (gallery imagery credited to Raw Thrills, Inc.)", "accessed": "2026-11-02" },
+    { "id": "JP9", "title": "The Jurassic Park Arcade™ Game (official trailer)", "url": "https://www.youtube.com/watch?v=pKkTBVQBzvo", "publisher": "Raw Thrills, Inc. (YouTube)", "accessed": "2026-11-02" }
+  ]
+}

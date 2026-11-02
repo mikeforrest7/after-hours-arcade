@@ -1,0 +1,712 @@
+{
+  "schema": 1,
+  "project": "Personal basement arcade",
+  "date": "2026-11-02",
+  "purpose": "A design and procurement dependency graph, not a game launcher or autonomous purchasing system.",
+  "estimate_units": "person-hours; planning assumptions, not elapsed-time promises",
+  "requirements": [
+    {
+      "id": "R-GT",
+      "text": "Golden Tee, exact release to be selected; preserve trackball feel",
+      "verified_by": "V-GT"
+    },
+    {
+      "id": "R-BBH",
+      "text": "Big Buck Hunter, exact release and alternating/simultaneous player mode to be selected",
+      "verified_by": "V-BBH"
+    },
+    {
+      "id": "R-SS",
+      "text": "Silver Strike, exact release to be selected; another bowling game does not satisfy this requirement",
+      "verified_by": "V-SS"
+    },
+    {
+      "id": "R-JP",
+      "text": "Jurassic Park Arcade, exact release to be selected; 1994, 1997 and 2015 are distinct branches",
+      "verified_by": "V-JP"
+    },
+    {
+      "id": "R-COST",
+      "text": "Do not commit irreversible fabrication or game-hardware spending before version-specific bench proof",
+      "verified_by": "V-BUDGET"
+    },
+    {
+      "id": "R-SAFE",
+      "text": "Basement installation fits access route and preserves egress, electrical and mechanical safety",
+      "verified_by": "V-SAFETY"
+    },
+    {
+      "id": "R-EXPERIENCE",
+      "text": "Planning deliverable specifies and illustrates all four game experiences with source-scoped controls and prototype acceptance",
+      "verified_by": "V-STUDIO-UI"
+    },
+    {
+      "id": "R-VISUALS",
+      "text": "Planning deliverable shows finished-product and room concepts and works interactively in the owner's X1 browser",
+      "verified_by": "V-STUDIO-UI"
+    },
+    {
+      "id": "R-BUSINESS",
+      "text": "Planning deliverable includes a bounded production offer, reproducible economics, liquidity obligations and explicit commercial release gates",
+      "verified_by": "V-STUDIO-UI"
+    },
+    {
+      "id": "R-MODERNIZE",
+      "text": "Distinguish display/input upgrades, conditional renderer modifications and separately funded new-engine development for all four games",
+      "verified_by": "V-MODERN-UI"
+    },
+    {
+      "id": "R-HOST",
+      "text": "Share the reviewed presentation over anonymous HTTPS without publishing private operational records",
+      "verified_by": "V-PUBLIC"
+    },
+    {
+      "id": "R-FILM",
+      "text": "Create an honestly labeled immersive concept film independently of the presentation release",
+      "verified_by": "V-FILM"
+    }
+  ],
+  "interfaces": [
+    {
+      "id": "I-TRACK",
+      "from": "3-inch trackball and buttons",
+      "to": "selected emulator or original game I/O",
+      "contract": "Relative X/Y plus separate buttons; USB HID only for PC path, original encoder pinout for donor path; no assumed interchangeability"
+    },
+    {
+      "id": "I-GUN",
+      "from": "two optical USB guns or two positional analog assemblies",
+      "to": "selected game runtime",
+      "contract": "Independent player identity, calibrated X/Y, trigger and title-specific secondary input; outputs such as recoil are a separate safe interface"
+    },
+    {
+      "id": "I-VIDEO",
+      "from": "game runtime",
+      "to": "off-the-shelf display",
+      "contract": "Documented signal format/refresh, correct aspect, game mode, no overscan; original CRT video may require a proven scaler"
+    },
+    {
+      "id": "I-MECH",
+      "from": "actual purchased parts",
+      "to": "cabinet CAD",
+      "contract": "Measured housing, VESA, connector and service envelopes; supplier templates precede holes"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "P-GT",
+      "title": "Research Golden Tee generation branches",
+      "owner": "trackball researcher",
+      "depends": [],
+      "state": "done",
+      "hours": 0,
+      "evidence": [
+        "research/game-feasibility.md"
+      ]
+    },
+    {
+      "id": "P-BBH",
+      "title": "Research Big Buck Hunter generation branches",
+      "owner": "shooter researcher",
+      "depends": [],
+      "state": "done",
+      "hours": 0,
+      "evidence": [
+        "research/game-feasibility.md"
+      ]
+    },
+    {
+      "id": "P-SS",
+      "title": "Research Silver Strike donor branch",
+      "owner": "trackball researcher",
+      "depends": [],
+      "state": "done",
+      "hours": 0,
+      "evidence": [
+        "research/game-feasibility.md"
+      ]
+    },
+    {
+      "id": "P-JP",
+      "title": "Research Jurassic Park generation branches",
+      "owner": "shooter researcher",
+      "depends": [],
+      "state": "done",
+      "hours": 0,
+      "evidence": [
+        "research/game-feasibility.md"
+      ]
+    },
+    {
+      "id": "P-CAD",
+      "title": "Deliver parametric concept CAD",
+      "owner": "mechanical designer",
+      "depends": [],
+      "state": "done",
+      "hours": 0,
+      "evidence": [
+        "cad/README.md",
+        "cad/parameters.json",
+        "cad/generate.py",
+        "cad/generated/manifest.json",
+        "cad/generated/preview.html"
+      ]
+    },
+    {
+      "id": "P-HW",
+      "title": "Specify hardware and manufacturing options",
+      "owner": "hardware researcher",
+      "depends": [],
+      "state": "done",
+      "hours": 0,
+      "evidence": [
+        "research/hardware-and-fabrication.md"
+      ]
+    },
+    {
+      "id": "P-REA",
+      "title": "Scope REA and prove a harmless local analysis",
+      "owner": "integration engineer",
+      "depends": [],
+      "state": "done",
+      "hours": 0,
+      "evidence": [
+        "research/rea-workflow.md"
+      ]
+    },
+    {
+      "id": "P-ARCADE-REVIEW",
+      "title": "Integrate arcade-design advisory and independent source-integrity correction",
+      "owner": "arcade advisors plus integration owner",
+      "depends": [
+        "P-GT",
+        "P-BBH",
+        "P-SS",
+        "P-JP"
+      ],
+      "state": "done",
+      "hours": 0,
+      "evidence": [
+        "studio/experience.json",
+        "studio/experience-spec.md",
+        "studio/reviews/arcade-review.md"
+      ]
+    },
+    {
+      "id": "P-MARKET-REVIEW",
+      "title": "Rebuild executive narrative and configuration-aware make/buy comparison",
+      "owner": "product-marketing advisor plus integration owner",
+      "depends": [
+        "P-HW"
+      ],
+      "state": "done",
+      "hours": 0,
+      "evidence": [
+        "studio/narrative.json",
+        "studio/reviews/marketing-review.md"
+      ]
+    },
+    {
+      "id": "P-VISUALS",
+      "title": "Render finished-product concepts and original four-game experience scenes",
+      "owner": "industrial-visual designer plus integration owner",
+      "depends": [
+        "P-CAD",
+        "P-JP"
+      ],
+      "state": "done",
+      "hours": 0,
+      "evidence": [
+        "studio/visuals/MANIFEST.md",
+        "studio/visuals/hero.png",
+        "studio/visuals/exploded.png"
+      ]
+    },
+    {
+      "id": "P-ECONOMICS",
+      "title": "Reconcile manufacturing, contribution, tooling, launch liquidity and demand gates",
+      "owner": "production advisor plus independent financial-integrity reviewer",
+      "depends": [
+        "P-HW",
+        "P-MARKET-REVIEW"
+      ],
+      "state": "done",
+      "hours": 0,
+      "evidence": [
+        "studio/economics.json",
+        "studio/economics.py",
+        "studio/economics.csv",
+        "studio/production-plan.md"
+      ]
+    },
+    {
+      "id": "P-STUDIO",
+      "title": "Integrate executive presentation, expert specifications and engineering appendices",
+      "owner": "integration owner",
+      "depends": [
+        "P-ARCADE-REVIEW",
+        "P-MARKET-REVIEW",
+        "P-VISUALS",
+        "P-ECONOMICS"
+      ],
+      "state": "done",
+      "hours": 0,
+      "evidence": [
+        "studio/index.html",
+        "studio/studio.js",
+        "studio/studio.css",
+        "studio/games/games.js",
+        "studio/games/games.css",
+        "studio/games/golden-tee.html",
+        "studio/games/golden-tee.json",
+        "studio/games/big-buck-hunter.html",
+        "studio/games/big-buck-hunter.json",
+        "studio/games/silver-strike.html",
+        "studio/games/silver-strike.json",
+        "studio/games/jurassic-park.html",
+        "studio/games/jurassic-park.json"
+      ]
+    },
+    {
+      "id": "V-STUDIO-UI",
+      "title": "Exercise calculator parity, imagery, navigation and presentation on X1",
+      "owner": "integration owner",
+      "depends": [
+        "P-STUDIO"
+      ],
+      "state": "done",
+      "hours": 0,
+      "evidence": []
+    },
+    {
+      "id": "P-MODERN",
+      "title": "Scope per-game graphics and experience modernization with primary-source limits",
+      "owner": "graphics architect plus integration owner",
+      "depends": [
+        "P-STUDIO"
+      ],
+      "state": "done",
+      "hours": 0,
+      "evidence": [
+        "studio/modernization.json",
+        "research/modernization.md"
+      ]
+    },
+    {
+      "id": "V-MODERN-UI",
+      "title": "Exercise modernization tabs, deep links, visual comparison and all game galleries",
+      "owner": "integration owner",
+      "depends": [
+        "P-MODERN"
+      ],
+      "state": "done",
+      "hours": 0,
+      "evidence": []
+    },
+    {
+      "id": "P-PUBLIC",
+      "title": "Build and inspect the sanitized static presentation package",
+      "owner": "publication engineer plus integration owner",
+      "depends": [
+        "V-MODERN-UI"
+      ],
+      "state": "planned",
+      "hours": 0
+    },
+    {
+      "id": "V-PUBLIC",
+      "title": "Publish through a personal identity and verify anonymous HTTPS pages and interactions",
+      "owner": "integration owner",
+      "depends": [
+        "P-PUBLIC"
+      ],
+      "state": "planned",
+      "hours": 0
+    },
+    {
+      "id": "V-FILM",
+      "title": "Render and inspect the separate animated concept film; verify full playback and provenance",
+      "owner": "cinematic visualization specialist plus integration owner",
+      "depends": [
+        "P-VISUALS",
+        "P-MODERN"
+      ],
+      "state": "planned",
+      "hours": 0
+    },
+    {
+      "id": "G0",
+      "title": "Select exact four releases, make/buy paths, acceptable fidelity and budget ceiling",
+      "owner": "Mike",
+      "depends": [
+        "P-GT",
+        "P-BBH",
+        "P-SS",
+        "P-JP",
+        "P-HW",
+        "P-ARCADE-REVIEW",
+        "P-MARKET-REVIEW"
+      ],
+      "state": "blocked",
+      "blocker": "User preferences not specified; no default substitution is approved",
+      "hours": 1
+    },
+    {
+      "id": "SITE",
+      "title": "Measure basement, stairs, turns, wall substrate, power and light conditions",
+      "owner": "owner plus installer",
+      "depends": [],
+      "state": "blocked",
+      "blocker": "Physical measurements and room photos unavailable",
+      "hours": 3
+    },
+    {
+      "id": "RIGHTS",
+      "title": "Record lawful media or complete legitimate donor packages for selected versions",
+      "owner": "owner plus technical lead",
+      "depends": [
+        "G0"
+      ],
+      "state": "planned",
+      "hours": 4
+    },
+    {
+      "id": "BENCH-T",
+      "title": "Bench trackball, display and proposed runtime without finished cabinetry",
+      "owner": "trackball engineer",
+      "depends": [
+        "G0",
+        "RIGHTS",
+        "P-HW",
+        "P-REA"
+      ],
+      "state": "planned",
+      "hours": 8
+    },
+    {
+      "id": "BENCH-G",
+      "title": "Bench two gun interfaces and proposed runtime without finished cabinetry",
+      "owner": "shooter engineer",
+      "depends": [
+        "G0",
+        "RIGHTS",
+        "P-HW",
+        "P-REA"
+      ],
+      "state": "planned",
+      "hours": 12
+    },
+    {
+      "id": "V-GT",
+      "title": "Prove selected Golden Tee version, course completion and input response",
+      "owner": "independent tester",
+      "depends": [
+        "BENCH-T"
+      ],
+      "state": "planned",
+      "hours": 2
+    },
+    {
+      "id": "V-SS",
+      "title": "Prove selected Silver Strike version, full game and native I/O",
+      "owner": "independent tester",
+      "depends": [
+        "BENCH-T"
+      ],
+      "state": "planned",
+      "hours": 2
+    },
+    {
+      "id": "V-BBH",
+      "title": "Prove selected Big Buck version, reload and chosen multiplayer mode",
+      "owner": "independent tester",
+      "depends": [
+        "BENCH-G"
+      ],
+      "state": "planned",
+      "hours": 2
+    },
+    {
+      "id": "V-JP",
+      "title": "Prove selected Jurassic Park version, independent two-player aim and secondary actions",
+      "owner": "independent tester",
+      "depends": [
+        "BENCH-G"
+      ],
+      "state": "planned",
+      "hours": 2
+    },
+    {
+      "id": "G1",
+      "title": "Freeze runtime/control architecture only after all four games pass",
+      "owner": "technical lead",
+      "depends": [
+        "V-GT",
+        "V-SS",
+        "V-BBH",
+        "V-JP",
+        "SITE"
+      ],
+      "state": "planned",
+      "hours": 2
+    },
+    {
+      "id": "V-BUDGET",
+      "title": "Reconcile landed BOM, donor costs, labor and contingency with owner ceiling",
+      "owner": "technical lead plus Mike",
+      "depends": [
+        "G1"
+      ],
+      "state": "planned",
+      "hours": 2
+    },
+    {
+      "id": "G2",
+      "title": "Approve exact procurement list and fabrication concept",
+      "owner": "Mike",
+      "depends": [
+        "V-BUDGET",
+        "P-CAD"
+      ],
+      "state": "blocked",
+      "blocker": "No purchase authorization; future exact-list approval required",
+      "hours": 1
+    },
+    {
+      "id": "PARTS",
+      "title": "Acquire approved parts and measure actual interfaces",
+      "owner": "builder",
+      "depends": [
+        "G2"
+      ],
+      "state": "planned",
+      "hours": 3
+    },
+    {
+      "id": "CAD-RELEASE",
+      "title": "Release measured joinery, holes, nesting, brackets and load checks",
+      "owner": "fabricator plus qualified installer",
+      "depends": [
+        "PARTS",
+        "SITE",
+        "P-CAD"
+      ],
+      "state": "planned",
+      "hours": 8
+    },
+    {
+      "id": "WOOD",
+      "title": "Cut, dry-fit and finish flat-pack furniture",
+      "owner": "fabricator",
+      "depends": [
+        "CAD-RELEASE"
+      ],
+      "state": "planned",
+      "hours": 20
+    },
+    {
+      "id": "CONTROLS",
+      "title": "Build labeled low-voltage control harnesses",
+      "owner": "electronics builder",
+      "depends": [
+        "PARTS",
+        "G1"
+      ],
+      "state": "planned",
+      "hours": 8
+    },
+    {
+      "id": "RUNTIME",
+      "title": "Freeze runtime versions, profiles, backups and appliance start/exit behavior",
+      "owner": "software engineer",
+      "depends": [
+        "PARTS",
+        "G1"
+      ],
+      "state": "planned",
+      "hours": 6
+    },
+    {
+      "id": "ASSEMBLE",
+      "title": "Install separate TV brackets, furniture and tested electronics",
+      "owner": "builder plus installer",
+      "depends": [
+        "WOOD",
+        "CONTROLS",
+        "RUNTIME"
+      ],
+      "state": "planned",
+      "hours": 8
+    },
+    {
+      "id": "V-SAFETY",
+      "title": "Inspect stability, electrical installation, cables, temperatures and egress",
+      "owner": "qualified installer plus owner",
+      "depends": [
+        "ASSEMBLE"
+      ],
+      "state": "planned",
+      "hours": 3
+    },
+    {
+      "id": "SOAK",
+      "title": "Repeat four game acceptance runs in final room and complete thermal/restart soak",
+      "owner": "independent tester",
+      "depends": [
+        "V-SAFETY"
+      ],
+      "state": "planned",
+      "hours": 6
+    },
+    {
+      "id": "G3",
+      "title": "Accept arcade only with all four named requirements demonstrated",
+      "owner": "Mike",
+      "depends": [
+        "SOAK",
+        "V-GT",
+        "V-SS",
+        "V-BBH",
+        "V-JP",
+        "V-BUDGET"
+      ],
+      "state": "planned",
+      "hours": 1
+    },
+    {
+      "id": "C0",
+      "title": "Choose whether to pursue a commercial SKU and set a separate validation budget",
+      "owner": "Mike",
+      "depends": [
+        "P-ECONOMICS",
+        "P-MARKET-REVIEW",
+        "V-STUDIO-UI"
+      ],
+      "state": "blocked",
+      "blocker": "Production is a scenario study, not an authorized venture or launch",
+      "hours": 1
+    },
+    {
+      "id": "C-DISCOVERY",
+      "title": "Run approved buyer interviews and costed-offer validation",
+      "owner": "product lead",
+      "depends": [
+        "C0"
+      ],
+      "state": "blocked",
+      "blocker": "Fresh approval required for each outward artifact and target; no outreach or orders authorized",
+      "hours": 25
+    },
+    {
+      "id": "C-COMPLIANCE",
+      "title": "Determine applicable product requirements, insurance, warranty and refund obligations",
+      "owner": "qualified counsel, safety lab and manufacturing lead",
+      "depends": [
+        "C0",
+        "CAD-RELEASE"
+      ],
+      "state": "planned",
+      "hours": 16
+    },
+    {
+      "id": "C-PILOT",
+      "title": "Complete paid pilot with measured build hours, support cost and customer acceptance",
+      "owner": "manufacturing and product leads",
+      "depends": [
+        "C-DISCOVERY",
+        "C-COMPLIANCE",
+        "SOAK"
+      ],
+      "state": "planned",
+      "hours": 40
+    },
+    {
+      "id": "C-RELEASE",
+      "title": "Approve an exact funded batch only against demand, stressed contribution and liquidity gates",
+      "owner": "Mike plus financial and manufacturing leads",
+      "depends": [
+        "C-PILOT",
+        "P-ECONOMICS"
+      ],
+      "state": "blocked",
+      "blocker": "No tooling, inventory, customer deposits or production purchases authorized",
+      "hours": 2
+    }
+  ],
+  "risks": [
+    {
+      "id": "K-VERSION",
+      "affects": [
+        "G0",
+        "BENCH-T",
+        "BENCH-G"
+      ],
+      "mitigation": "Record exact title/year/build and a cabinet photo before compatibility decisions"
+    },
+    {
+      "id": "K-SS",
+      "affects": [
+        "V-SS",
+        "G1"
+      ],
+      "mitigation": "Do not budget Silver Strike as a free MAME game; prove complete original donor system or a genuinely supported authorized alternative"
+    },
+    {
+      "id": "K-JP",
+      "affects": [
+        "V-JP",
+        "CAD-RELEASE"
+      ],
+      "mitigation": "For Raw Thrills 2015 retain authentic PC/dongle/I/O unless another lawful runtime passes; mounted-gun geometry is a separate branch"
+    },
+    {
+      "id": "K-LIGHT",
+      "affects": [
+        "BENCH-G",
+        "SOAK"
+      ],
+      "mitigation": "Test actual display, room lighting, lens field of view and near/far player positions"
+    },
+    {
+      "id": "K-FIT",
+      "affects": [
+        "CAD-RELEASE",
+        "ASSEMBLE"
+      ],
+      "mitigation": "Measure narrowest stair/door and landings; modular furniture and actual TV carton must fit"
+    },
+    {
+      "id": "K-REA",
+      "affects": [
+        "BENCH-T",
+        "BENCH-G"
+      ],
+      "mitigation": "Static analysis is evidence of code structure, not proof of runtime support or permission to copy protected content"
+    },
+    {
+      "id": "K-MARKET",
+      "affects": [
+        "C0",
+        "C-DISCOVERY",
+        "C-RELEASE"
+      ],
+      "mitigation": "Listed alternatives differ in scope and stock; batch size is not demand. Require a defined offer, qualified interviews and paid pilot evidence."
+    },
+    {
+      "id": "K-CASH",
+      "affects": [
+        "C0",
+        "C-PILOT",
+        "C-RELEASE"
+      ],
+      "mitigation": "Recover initial tooling once; distinguish contribution from business profit, fund startup/support costs and retain explicit customer-refund liquidity."
+    },
+    {
+      "id": "K-HANDOFF",
+      "affects": [
+        "V-STUDIO-UI"
+      ],
+      "mitigation": "Verify the public build end-to-end on the device(s) actually used for review before delivering."
+    }
+  ]
+}

@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Readme / After Hours Arcade Studio</title>
+<link rel="stylesheet" href="../studio/studio.css">
+<style>
+.md-doc{max-width:860px;margin:0 auto;padding:48px 24px 96px}
+.md-doc h1,.md-doc h2,.md-doc h3{line-height:1.25}
+.md-doc table{border-collapse:collapse;width:100%;margin:1.25em 0}
+.md-doc th,.md-doc td{border:1px solid currentColor;padding:.5em .6em;text-align:left;vertical-align:top}
+.md-doc pre{overflow-x:auto;padding:1em;border:1px solid currentColor}
+.md-doc code{font-family:ui-monospace,Consolas,monospace}
+.md-back{display:inline-block;margin-bottom:1.5em}
+</style>
+</head>
+<body>
+<header class="masthead"><a class="wordmark" href="../studio/index.html">AFTER<span>HOURS</span><small>ARCADE STUDIO</small></a></header>
+<main class="md-doc">
+<a class="md-back text-link" href="../studio/index.html">&larr; Back to the studio proposal</a>
+<h1 id="basement-arcade-editable-concept-cad">Basement arcade — editable concept CAD</h1>
+<p>Start with <a href="../studio/index.html">the executive product and production case</a>, then <a href="generated/preview.html">the dimensional gallery</a> and <a href="../PLAN.html">engineering plan</a>. The product renders and CAD are <strong>concepts, not built equipment or fabrication-ready drawings</strong>. Room measurements, mounting hardware and exact game releases remain open.</p>
+<h2 id="open-in-a-browser">Open in a browser</h2>
+<p>This page is part of the published static site; open it the same way you reached this document. The original development preview ran on the project owner's private local network and is not part of this public package.</p>
+<h2 id="regenerate">Regenerate</h2>
+<pre><code class="language-powershell">cd &lt;repository root&gt;
+python .\arcade\cad\generate.py
+</code></pre>
+<p>Python standard library only. Outputs always default to <code>arcade/cad/generated/</code>, independent of the current directory. <code>--check-only</code> validates without writing; <code>--params</code> selects a parameter file; <code>--out</code> selects an alternate output directory. Nonzero exit means a validation failed.</p>
+<p>Edit <a href="parameters.json">parameters.json</a>, not generated files. Keep changes in source control and regenerate. An independently edited OpenSCAD file should be saved outside <code>generated/</code> to avoid overwriting it.</p>
+<h2 id="package">Package</h2>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Purpose and limitation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>generated/preview.html</code></td>
+<td>Standalone browser gallery: orthographic views, room plan and five concept alternatives. No server or external assets.</td>
+</tr>
+<tr>
+<td><code>generated/assembly.scad</code></td>
+<td>Parametric OpenSCAD source: two closed panel-shell envelopes, schematic TV/mounts, future gun-support reservation, room envelope. No machining details.</td>
+</tr>
+<tr>
+<td><code>generated/concept.obj</code></td>
+<td>Seven simple closed massing volumes, millimetre convention; OBJ itself carries no unit metadata. Not a mechanical assembly/B-rep.</td>
+</tr>
+<tr>
+<td><code>generated/panels_pedestal.dxf</code></td>
+<td>R12-format 2D nominal panel rectangles plus text and reserved-zone markers. Import as millimetres; confirm a known dimension.</td>
+</tr>
+<tr>
+<td><code>generated/panels_console.dxf</code></td>
+<td>Equivalent console panel blanks, including an optional back. Layout is for review, not sheet nesting.</td>
+</tr>
+<tr>
+<td><code>generated/panel_schedule.csv</code></td>
+<td>Six nominal blanks per station, including optional console back. Outer dimensions deliberately omit butt-joint deductions.</td>
+</tr>
+<tr>
+<td><code>generated/*_views.svg</code></td>
+<td>Front, side and plan views; active display area rather than product chassis.</td>
+</tr>
+<tr>
+<td><code>generated/room_plan.svg</code></td>
+<td>Illustrative shared-wall layout and activity reservations. Not an egress survey.</td>
+</tr>
+<tr>
+<td><code>generated/variant_gallery.svg</code></td>
+<td>Universal, two-station, four-dedicated, mobile and seated footprint concepts. Only the two-station baseline has full 3D envelopes.</td>
+</tr>
+<tr>
+<td><code>generated/manifest.json</code></td>
+<td>Dimensions, panel area, rough material allowance and check result counts.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="baseline-geometry">Baseline geometry</h2>
+<ul>
+<li>Trackball pedestal: <strong>760 W × 610 D × 950 H mm</strong>; nominal 76.2 mm trackball; 450 × 300 mm reserved control area. The 150 mm reserved marker is <strong>not</strong> a manufacturer hole or housing specification. Use the actual purchased template.</li>
+<li>Shooter console: <strong>1300 W × 400 D × 750 H mm</strong>; two optional handheld-gun holster reservations 700 mm apart. Height and spacing are assumptions to prove physically.</li>
+<li>Off-the-shelf <strong>43-inch and 55-inch</strong> 16:9 televisions; active-area dimensions derived mathematically. Schematic 60 mm TV depth and 60 mm bracket standoff. Model-specific chassis, VESA, weight and anchor design remain open.</li>
+<li>Room example: <strong>4500 × 3500 × 2300 mm</strong>. Station A starts 300 mm along the wall; Station B follows a 600 mm furniture gap. That gap is <strong>not a code-compliant egress claim</strong>.</li>
+<li>Trackball activity reservation includes 900 mm player width, not merely the 760 mm cabinet width. Shooter aiming line starts 1700 mm in front of the schematic screen face, with another 600 mm reserved behind it. The resulting 2420 mm depth is a planning envelope, not a gun manufacturer's minimum distance.</li>
+<li>Future mounted-gun support: <strong>1300 × 600 mm reserved floor area</strong> in front of the console. Its 100 mm translucent volume is only a marker; it is not a usable gun deck, load-bearing structure or proof of compatibility.</li>
+</ul>
+<p>Coordinates: origin at the illustrative room's left back-wall floor corner; +X along the wall, +Y into the room, +Z up. Front view looks toward −Y. TVs and brackets project into the room, not through the wall.</p>
+<h3 id="game-controls-are-not-interchangeable-by-genre">Game controls are not interchangeable by genre</h3>
+<p>Furniture does not prove universal software/control stacks. Compare Golden Tee Fore! emulation with factory home products; compare a demonstrated classic Silver Strike donor with Arcade Collection, an eligible Showpiece conversion or the distinct League Night portrait reboot. Early Big Buck differs from Pro/World/HD generations. <strong>Raw Thrills Jurassic Park 2015 uses mounted two-axis potentiometer guns</strong>, not the optical handheld holsters. Original I/O, rights and real-game behavior require independent proof. Factory cabinets may change the room layout. See <a href="../research/game-feasibility.html">game feasibility</a> for sources and exact branches.</p>
+<h2 id="manufacturing-release-checklist">Manufacturing release checklist</h2>
+<ol>
+<li>Measure basement, wall construction, door openings, stair width/headroom and turns; include cartons and lifting/assembly access. The validator checks only a flat panel's narrow dimension against assumed width, not the complete transport path.</li>
+<li>Select exact displays, controls and runtimes. Bench each of the four games. Measure housing, wiring bend radii and service access.</li>
+<li>Test a full-size cardboard/scrap deck with the actual users. Confirm hand follow-through, button reach, aiming field of view, two-player separation, seated accessibility if needed and real circulation.</li>
+<li>Measure plywood thickness. Convert nominal outer blanks into an actual joint design; deduct mating panels, add kerf/tool clearances, fasteners, access doors, ventilation and cable entries. The panel CSV cannot be cut verbatim into a correctly joined finished cabinet.</li>
+<li>Design anti-tip anchoring and any mounted-gun support for actual loads. TV loads go through a rated independent mount into verified structure, never assumed plywood/drywall anchors.</li>
+<li>Nest released panels on actual stock and obtain a fabrication quote. The generator's five-sheet allowance uses <strong>55% area utilization</strong>, includes the optional back and does not prove the rectangles pack into five sheets. The hardware BOM conservatively carries that allowance.</li>
+<li>Review material, units, dimensions, layers and quantities with the fabricator. Only released drawings may go to a machine.</li>
+</ol>
+<p>Recoil, motion, CRT servicing, exposed mains wiring and structural certification are not part of these concept files. See <a href="../research/hardware-and-fabrication.html">hardware and safety</a>.</p>
+<h2 id="verification">Verification</h2>
+<p>Executed checks and their limits are recorded in the project owner's private verification log, kept outside this public package. Generator checks are geometry safeguards, not structural engineering, game compatibility or real-room measurements. OpenSCAD source generation is distinct from opening/rendering it in an installed CAD kernel.</p>
+</main>
+</body>
+</html>

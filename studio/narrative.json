@@ -1,0 +1,372 @@
+{
+  "positioning": "A furniture-quality arcade for a real home: full-size controls, a coherent room and a guest experience that does not need a technician. The two-station custom concept is one acquisition option, not a promise that every factory game fits inside it.",
+  "audience": "Primary: Mike, deciding per game whether to buy a factory cabinet, build it, or pursue a lawful donor system, and whether the two-station furniture concept is worth prototyping. Secondary, evaluated below rather than deferred: whether a furniture-and-integration offer to other hobbyists is a real business once a prototype exists.",
+  "thesis": "Build for the physical experience, not the assumption that DIY is always cheaper. Compare each exact game with licensed home alternatives, prove the difficult control paths, and release a commercial batch only after demand and contribution survive a paid pilot.",
+  "thirtySecondPitch": "A tiny putt, a clean strike, a fast hunting round and a shared jungle adventure: four reasons to gather around two well-designed stations. Buy proven parts and screens; make the furniture and integration distinctive. Compare complete licensed products before committing to custom hardware. Prototype the personal room first; make the production business earn its launch.",
+  "selectedDirection": {
+    "id": "B",
+    "name": "Add the Missing Product Layer, Decide Make/Buy Per Game",
+    "rationale": "Lead with the finished room and the game's physical ritual, then expose make/buy, cash and technical release gates. Preserve the original plan's sound distinctions while correcting its missing market comparison and weak experiential presentation."
+  },
+  "directions": [
+    {
+      "id": "A",
+      "name": "PLAN.md's Existing Direction, Presented as Engineering",
+      "summary": "Keep PLAN.md's technical plan exactly as written -- two modular stations, per-game risk differentiation, rights excluded, no silent substitutions -- and present it the same way it already exists: numbered sections, dimensioned CAD drawings, a cost table with no competitive comparison.",
+      "strength": "Useful technical foundation: two control families, release-specific risk, rights boundaries and measurable acceptance.",
+      "weakness": "As a presentation it has no finished-product imagery, no stated buyer or promise, and never checked whether a licensed alternative already exists for any of the four games -- which is what actually reads as 'shallow and visually poor,' not the engineering itself.",
+      "verdict": "Rejected as the presentation direction. Carry forward the sound requirements, update the acquisition branches and strengthen the experience specification."
+    },
+    {
+      "id": "B",
+      "name": "Add the Missing Product Layer, Decide Make/Buy Per Game",
+      "summary": "Show the finished room and gameplay rituals first. Support them with per-game acquisition options, a bounded product offer and a reproducible production model.",
+      "strength": "Makes the product desirable without confusing design intent, listed products and measured compatibility.",
+      "weakness": "More moving parts than a single clean recommendation; still requires Mike to make per-game calls rather than receiving one finished answer.",
+      "verdict": "Selected. See rationale above."
+    },
+    {
+      "id": "C",
+      "name": "Documentary / Maker-Content Build",
+      "summary": "Frame the project as a personal hobby build, optionally documented for a blog or YouTube audience; not a product or business pitch.",
+      "strength": "Simple and honest; substantially lower commercial risk and liability exposure than running a product business; the content has independent value on its own.",
+      "weakness": "Discards the production/business evaluation Mike's mandate explicitly asked for; using this as the only direction would silently narrow scope he didn't approve.",
+      "verdict": "Rejected as the sole direction; its honesty about not assuming an audience carries into Direction B."
+    },
+    {
+      "id": "D",
+      "name": "Boutique Furniture / Integration Shop",
+      "summary": "Sell a defined furniture/control kit or separately quoted integration service. The initial offer excludes game software; customer-owned donor equipment requires an exact compatibility and rights review.",
+      "strength": "Separates the repeatable hardware offer from unpriced software-distribution rights and variable donor sourcing.",
+      "weakness": "Custom arcade suppliers already compete for this buyer. Price, room fit, serviceability and finish must justify a premium; no customer demand or differentiated performance is proven.",
+      "verdict": "Evaluated, not launched. See the business-case section for the actual reasoning and recommendation."
+    },
+    {
+      "id": "E",
+      "name": "Licensed Reseller / Installer",
+      "summary": "Become an authorized Incredible Technologies or Raw Thrills dealer, selling factory units plus custom furniture surrounds and installation.",
+      "strength": "An authorized relationship could supply a supported complete product rather than require self-sourced game media.",
+      "weakness": "Dealer eligibility, margin, minimum orders, warranty responsibility and permitted modifications are unknown. Licensing does not eliminate installation or product-liability obligations.",
+      "verdict": "Evaluate only after fresh authorization for specific vendor outreach. No relationship or terms are assumed."
+    }
+  ],
+  "chapters": [
+    {
+      "id": "hero",
+      "headline": "AFTER HOURS: two stations, four games",
+      "point": "Open on a finished-product concept and room context, not an engineering drawing. Label the proposed two-station arrangement as a custom option whose final layout depends on exact game acquisition choices.",
+      "evidenceNeeded": "ProductVisuals hero.png and room.png finished-product renders, labelled as concept renders.",
+      "visual": "hero.png + room.png"
+    },
+    {
+      "id": "buy-vs-build",
+      "headline": "Buy or build? Check before you commit",
+      "point": "Golden Tee Fore! Remastered ($2,499 pre-order) and Silver Strike Bowling: League Night ($4,699+) are real, factory-sold cabinets as of 2026-11-01, confirmed directly on Incredible Technologies' own store. Big Buck Hunter has a licensed cabinet too (Arcade1Up's Big Buck World), but it's a different game generation than the legacy Eagle-era titles PLAN.md's own research bench-recommended, and the exact generation Mike wants is still an open G0 choice. None of the three integrates into the brief's custom 760x610x950mm trackball furniture -- each is its own branded cabinet. This is a per-game decision, not a resolved recommendation.",
+      "evidenceNeeded": "Competitor price table below, sourced to store.itsgames.com and arcade1up.com, observed 2026-11-01; ArcadeAdvisor's experience.json documenting both paths.",
+      "visual": "Configuration-aware comparison table; no duplicate price chart."
+    },
+    {
+      "id": "the-real-build",
+      "headline": "Mounted guns set the engineering bar",
+      "point": "The inspected Raw Thrills 2015 documentation establishes mounted positional guns, original I/O and a security dongle. No open-source runtime or consumer-sized authorized substitute was established in this research. That is a bounded finding, not proof that no alternative exists for any Jurassic title. Preserve a complete legitimate donor path and a separate control prototype.",
+      "evidenceNeeded": "ArcadeAdvisor's experience.json fidelityRisks and prototypeTest fields for Jurassic Park; research/game-feasibility.md and research/hardware-and-fabrication.md Jurassic branch sections.",
+      "visual": "shooter.png + mounted.png + experience-hunt.svg + experience-jungle.svg"
+    },
+    {
+      "id": "product-promise",
+      "headline": "What you get. What you don't.",
+      "point": "Four named targets remain in scope, but none is represented as running. No unauthorized game media, copied branding, authentication bypass or unproven compatibility is included. A factory cabinet is a room-layout alternative, not automatically a module inside the custom furniture.",
+      "evidenceNeeded": "Product promise and exclusions text below; cross-reference BRIEF.md evidence boundary.",
+      "visual": "trackball.png + experience-golf.svg + experience-bowling.svg"
+    },
+    {
+      "id": "real-cost",
+      "headline": "What these prices actually prove",
+      "point": "Listed Fore! Remastered plus League Night base prices sum to $7,198 before the required League Night TV, freight and tax. The custom two-station infrastructure allowance is $2,309-$4,377 before legitimate media/donors, mounted guns, labor, freight and tax. These are unlike scopes, so neither establishes a cheaper four-game delivered result. The production model separately prices one hardware kit, not the entire personal room.",
+      "evidenceNeeded": "Observed configuration-aware listings; research/hardware-and-fabrication.md personal BOM; economics.json hardware-kit production assumptions.",
+      "visual": "exploded.png plus scope-aware cost table"
+    },
+    {
+      "id": "is-there-a-business",
+      "headline": "Is there a business here?",
+      "point": "Evaluated, not deferred: the game-agnostic furniture/integration niche already has commercial players (VPCabs and comparable reproduction-cabinet builders). A new entrant needs a specific differentiator -- design process, materials, Mike's aesthetic -- not category novelty, and has zero demand evidence yet. The justified call right now is to prototype personally and run the validation plan below before committing to a launch, not to assume either a business exists or that it doesn't.",
+      "evidenceNeeded": "Direction D definition above; ProductionAdvisor's economics.json SKU/scope section.",
+      "visual": "none (text + simple offer diagram)"
+    },
+    {
+      "id": "decision-gate",
+      "headline": "What to decide before spending real money",
+      "point": "Select exact games and a budget; prove the chosen control/runtime paths before fabrication. Commercial release additionally requires a defined SKU, paid pilot evidence, acceptable stressed contribution, funded cash needs and an independent safety/compliance review.",
+      "evidenceNeeded": "Objections and validationPlan sections below; PLAN.md section 7 acceptance gates and section 8 decision ownership.",
+      "visual": "none (checklist)"
+    }
+  ],
+  "competitors": [
+    {
+      "name": "Golden Tee Fore! Remastered Edition (Incredible Technologies, factory direct)",
+      "configuration": "72 in tall assembled cabinet; 27-inch HD monitor; commercial-grade trackball; all Fore! Complete 18/9-hole courses -- the same legacy branch (Fore! 2006) PLAN.md's game-feasibility.md already identifies as the recommended bench candidate",
+      "priceUsd": 2499,
+      "availabilityLabel": "Preorder · ship date unresolved",
+      "executiveComparison": "Complete Fore! home cabinet, 27-inch display. A real price benchmark, not confirmed stock.",
+      "priceBasis": "Dealer-listed $2,499 preorder; official product page confirms the cabinet and contains conflicting October/November 2026 shipping text. Freight/tax and actual ship date require confirmation.",
+      "url": "https://www.thepinballcompany.com/product/golden-tee-fore-remastered-edition/",
+      "observedOn": "2026-11-01",
+      "comparisonLimit": "27-inch display versus the proposed 43-inch custom display. A complete branded cabinet, not a proven rehousing kit. Dealer states home use only; verify the transaction's actual terms."
+    },
+    {
+      "name": "Silver Strike Bowling: League Night Home Edition (Incredible Technologies, factory direct)",
+      "configuration": "Cabinet with free TV stand, commercial-grade trackball, 5-inch touchscreen, NFC reader, Wi-Fi. NO monitor included -- official page states 'You will need to use a 4K TV for SSB League Night.' With-stand dimensions (official): 25 in W x 53 in D x 85 in H without topper / 99 in H with topper.",
+      "priceUsd": 4699,
+      "availabilityLabel": "Listed base price · TV extra",
+      "executiveComparison": "Portrait-format reboot with cabinet and stand. Bring a 4K TV; online features become subscription-based.",
+      "priceBasis": "Listed base cabinet/stand price; required 4K TV, freight and tax are additional. Manufacturer estimates November 2026 shipping, not confirmed delivery.",
+      "url": "https://store.itsgames.com/products/silver-strike-bowling-league-night-home-edition",
+      "observedOn": "2026-11-01",
+      "comparisonLimit": "Portrait-format reboot, not the classic landscape game. Manufacturer confirms home/non-commercial use and no Prize Play. Online access is free until Spring 2027, then paid; reconfirm applicable subscription price and offline behavior before buying."
+    },
+    {
+      "name": "Arcade1Up Big Buck Hunter (Big Buck World) Mossy Oak Deluxe",
+      "configuration": "Mossy Oak Deluxe: dual light guns, 17-inch BOE LCD, Pro/Safari/Pro Open Season/Safari Outback titles, up to four players. The older Pro cabinet's separate riser is not assumed for this Deluxe variant.",
+      "priceUsd": 699.99,
+      "availabilityLabel": "Indexed price · live Amazon unavailable",
+      "executiveComparison": "Licensed Pro/Safari-era games with two guns. Different releases from the Eagle-era emulation candidates.",
+      "priceBasis": "Search index showed an other-seller offer at $699.99 plus $85.25 shipping. The directly inspected Amazon product page instead says Currently unavailable; its live price was not established. Treat this as an indexed benchmark, not a purchasable current quote.",
+      "url": "https://www.amazon.com/Arcade1Up-Hunter-Deluxe-Arcade-Machine/dp/B0FM82NZGY",
+      "observedOn": "2026-11-01",
+      "comparisonLimit": "This is a real, licensed home alternative for Big Buck Hunter -- but for the modern World/Pro game generation, not the legacy Eagle-era titles (bbh, bbhsc, bbh2sp, bbhcotw) PLAN.md's research bench-recommended. Which generation Mike actually wants is still an open G0 choice, not yet decided."
+    },
+    {
+      "name": "Jurassic Park Arcade, 55-inch Environmental (Raw Thrills, commercial coin-op)",
+      "configuration": "86-118 in H depending on topper, 54 in W x 80 in D, 1,217 lb; mounted two-axis potentiometer guns; required USB dongle and separate I/O board",
+      "priceUsd": 17495,
+      "availabilityLabel": "Commercial dealer listing",
+      "executiveComparison": "Full environmental attraction, approximately 1,217 lb. Not comparable to a compact two-pod furniture build.",
+      "priceBasis": "Third-party dealer price (Raw Thrills publishes no consumer price directly)",
+      "url": "https://www.gameroomshop.com/products/raw-thrills-jurassic-park-arcade-game",
+      "observedOn": "2026-11-01",
+      "comparisonLimit": "Commercial environmental cabinet: substantial access, weight, delivery and installation requirements. No consumer-sized equivalent of this 2015 product was established in the inspected sources; this is not an exhaustive market-absence claim."
+    },
+    {
+      "name": "Golden Tee Arcade Collection -- GO / Home Edition (Incredible Technologies)",
+      "configuration": "One trackball cabinet bundling Silver Strike Bowling, PowerPutt Golf, and Target Toss Pro. Despite the 'Golden Tee' name, this does NOT include Golden Tee Fore! -- PowerPutt is a separate, different mini-golf game.",
+      "priceUsd": 3299,
+      "availabilityLabel": "GO configuration · check inclusions",
+      "executiveComparison": "Factory Silver Strike plus PowerPutt and Target Toss. PowerPutt is not Golden Tee golf.",
+      "priceBasis": "GO Home Edition confirmed at $3,299 on the manufacturer's own store (store.itsgames.com); full-size Home Edition confirmed at $4,299",
+      "url": "https://shopindoorgolf.com/products/golden-tee-arcade-collection",
+      "observedOn": "2026-11-01",
+      "comparisonLimit": "GO and full-size configurations have different inclusions. Verify display/stand and exact Silver Strike version. PowerPutt is not Golden Tee golf."
+    },
+    {
+      "name": "Arcade Collection Showpiece Conversion Kit",
+      "configuration": "Manufacturer-authorized conversion for an existing eligible Golden Tee, Silver Strike, PowerPutt or Target Toss Showpiece cabinet. Replaces HDD, CID, security chip, control panel and marquee; RAM upgrade may be required.",
+      "priceUsd": 1795,
+      "availabilityLabel": "Kit only · eligible cabinet required",
+      "executiveComparison": "A factory Silver Strike acquisition branch—not a generic PC bundle. Existing cabinet cost and conversion labor are additional.",
+      "priceBasis": "Official store homepage lists $1,795. Exact eligibility, shipping, tax and total conversion cost require confirmation.",
+      "url": "https://store.itsgames.com/products/arcade-collection-conversion-kit",
+      "observedOn": "2026-11-01",
+      "comparisonLimit": "Manufacturer says the existing CID becomes nonfunctional after conversion. Golden Tee golf is not included. Do not assume this preserves the previous game or fits a generic custom USB pedestal."
+    },
+    {
+      "name": "Arcade1Up Golden Tee 3D Deluxe",
+      "configuration": "Over-five-foot consumer cabinet with eight older golf/bowling titles and an included display/trackball.",
+      "priceUsd": 669.99,
+      "availabilityLabel": "Sale listing · manufacturer sold out",
+      "executiveComparison": "Lower-price consumer alternative for older golf/bowling titles—not Fore! Complete or PGA TOUR.",
+      "priceBasis": "Official homepage listed $669.99 sale / $699.99 regular and Sold Out at observation. A listed price is not available stock.",
+      "url": "https://arcade1up.com/products/arcade1up-golden-tee-3d-deluxe-arcade-console-video-game-machine-5-foot-cabinet",
+      "observedOn": "2026-11-01",
+      "comparisonLimit": "Not Fore! Complete or modern PGA TOUR. Compare the actual title list, consumer controls, screen and availability with the owner's chosen experience."
+    },
+    {
+      "name": "Golden Tee PGA TOUR Clubhouse Deluxe Edition (Incredible Technologies, factory direct)",
+      "configuration": "Modern LIVE/PGA TOUR generation, online-capable",
+      "priceUsd": 6899,
+      "availabilityLabel": "Modern home product · listed configuration",
+      "executiveComparison": "Modern PGA TOUR branch with its own online/features model, not a Fore! substitute.",
+      "priceBasis": "Confirmed directly on the manufacturer's own store (store.itsgames.com)",
+      "url": "https://store.itsgames.com/products/golden-tee-pga-tour-clubhouse-deluxe-edition",
+      "observedOn": "2026-11-01",
+      "comparisonLimit": "Modern LIVE/PGA branch, separate from the recommended Fore! 2006 legacy branch -- shown only to bound the top of the price ladder."
+    }
+  ],
+  "objections": [
+    {
+      "id": "why-build-anything",
+      "objection": "Why build when licensed factory products are listed?",
+      "response": "Buying may be the better answer for a selected game. Compare its exact release, stock, landed cost, controls and room footprint; do not preserve the custom concept merely because it has already been drawn."
+    },
+    {
+      "id": "bbh-generation",
+      "objection": "Doesn't Arcade1Up's Big Buck World cabinet just solve Big Buck Hunter the same way Golden Tee Fore! solves golf?",
+      "response": "It may satisfy the request if its included Pro/World-era games are the desired ones. It does not reproduce the separate Eagle-era builds. Select the title rather than privileging the branch researched first."
+    },
+    {
+      "id": "is-it-legal",
+      "objection": "Does buying a factory cabinet eliminate all legal or commercial risk?",
+      "response": "It removes the self-sourced ROM/media question for that game. It does not remove every risk: Silver Strike's Home Edition is confirmed, directly on the manufacturer's own page, as 'designed exclusively for home and non-commercial use' with Prize Play excluded, and it requires an ongoing paid subscription after Spring 2027 to keep online features. Read the actual terms of sale for Golden Tee Fore!, where the equivalent claim came from a reseller, not a confirmed manufacturer statement."
+    },
+    {
+      "id": "can-you-actually-buy-it",
+      "objection": "Are these factory alternatives actually purchasable right now?",
+      "response": "Not guaranteed, and evidence quality differs by product. Arcade1Up's own homepage directly confirms its Golden Tee 3D Deluxe cabinet is sold out. The Big Buck World cabinet's 'sold out' status comes only from a cached search-index snippet; a direct current read of that product URL redirects to Arcade1Up's homepage, so live stock is unresolved. Golden Tee Fore! Remastered's own page shows two different ship-date estimates. Reconfirm immediately before any purchase decision."
+    },
+    {
+      "id": "four-games-free",
+      "objection": "Does the cost case assume all four games come free once the furniture is built?",
+      "response": "No -- PLAN.md's own 'Separate unknowns and optional costs' section already says the infrastructure subtotal isn't the delivered price for all four games. This review repeats that and does not claim buying is cheaper than building either; no budget ceiling has been supplied."
+    },
+    {
+      "id": "who-buys-this",
+      "objection": "Who would actually pay for a commercial version of this?",
+      "response": "Nobody validated yet, and the niche already has commercial players (VPCabs and comparable builders). The validationPlan below defines real tests -- including structured outreach, not just waiting for organic interest -- before treating this as more than a hypothesis."
+    },
+    {
+      "id": "jurassic-scale-mismatch",
+      "objection": "The real Jurassic Park Arcade cabinet is $17,495+ and 1,217 lb -- is a basement build comparable?",
+      "response": "Not as a like-for-like attraction. The basement concept omits the environmental enclosure and motion and must separately prove its selected control/runtime path. The commercial cabinet remains a legitimate buy option where budget and access permit; a compact home counterpart was not established here."
+    }
+  ],
+  "validationPlan": [
+    {
+      "id": "H1-personal-sufficiency",
+      "hypothesis": "The personal prototype can make the selected games enjoyable without recurring technical assistance.",
+      "test": "Pass all four version-specific engineering acceptance gates, then observe five first-time guests using the documented controls and recovery flow. Proposed usability hurdle, not a measured result.",
+      "passSignal": "All four game paths pass; at least four of five guests start and complete a chosen round without technical intervention after the brief onboarding.",
+      "failSignal": "Any required game remains unproven, controls repeatedly miss inputs, or fewer than four guests complete the flow independently. Revise before finishing furniture.",
+      "costOfTest": "Within the separately approved prototype budget; participant time and hardware are not assumed free."
+    },
+    {
+      "id": "H2-collector-demand",
+      "hypothesis": "Home-arcade buyers value coherent room design and serviceable full-size controls enough to consider a premium hardware kit.",
+      "test": "After fresh approval, interview 20 qualified home-arcade buyers using a neutral concept and an explicit software-excluded offer. Run alongside the technical prototype, not after funding a factory. Record current alternatives, budget and specific unmet needs.",
+      "passSignal": "Proposed discovery hurdle: at least eight independently describe a relevant unmet need and at least five request an itemized quote. This is directional evidence, not market-size validation.",
+      "failSignal": "Fewer than five quote requests, or interest depends on included commercial games at the hardware-only price. Reposition or stop the product case.",
+      "costOfTest": "Planning allowance: 20-30 hours; incentives and outreach spend require a separately approved cap. No outreach has occurred."
+    },
+    {
+      "id": "H3-willingness-to-pay",
+      "hypothesis": "A defined kit can convert interest into paid orders at a price that covers fulfillment, support and acquisition costs.",
+      "test": "After a real demo and costed SKU, quote ten qualified prospects the same scope and price. Observe conversion for 30 days. Accept orders only after approved terms, refund obligations and delivery capacity are in place.",
+      "passSignal": "Proposed pilot hurdle: at least three unrelated buyers place paid pilot orders at a price with positive stressed contribution. Pilot satisfaction and repeatable build hours must pass before a larger batch; three orders do not justify 50 units.",
+      "failSignal": "Fewer than three orders, demand only below the cost floor, unresolved refunds, or pilot support erases margin. Do not release speculative inventory.",
+      "costOfTest": "Use the production model for pilot cash, paid labor and reserves. Customer deposits remain liabilities until performance, not free funding."
+    },
+    {
+      "id": "H4-dealer-relationship",
+      "hypothesis": "Authorized resale or integration could be more attractive than manufacturing a kit.",
+      "test": "With fresh approval for each vendor contact, request written dealer eligibility, wholesale margin, minimum orders, territory, modification limits and warranty responsibilities.",
+      "passSignal": "Written terms plus a scope-matched landed-cost and support model meet the same cash and contribution gates as the custom offer.",
+      "failSignal": "Unavailable authorization, insufficient margin, unacceptable minimum order or unsupported modifications. Keep the personal acquisition and commercial product decisions separate.",
+      "costOfTest": "Research and negotiation time; no assumed agreement, application payment or vendor commitment."
+    }
+  ],
+  "sources": [
+    {
+      "id": "gt-fore-remastered-official",
+      "title": "Golden Tee Fore! Remastered Edition Pre-Order (Incredible Technologies official store)",
+      "url": "https://store.itsgames.com/products/golden-tee-fore-remastered-edition",
+      "observedOn": "2026-11-01",
+      "claim": "Factory-licensed home cabinet, $2,499 pre-order, 27-inch HD monitor, commercial-grade trackball, 72-inch cabinet. Own page shows conflicting October/November 2026 ship dates."
+    },
+    {
+      "id": "gt-fore-remastered-reseller",
+      "title": "Golden Tee Fore! Remastered Edition product page (reseller)",
+      "url": "https://www.thepinballcompany.com/product/golden-tee-fore-remastered-edition/",
+      "observedOn": "2026-11-01",
+      "claim": "Same $2,499 price confirmed; source of the 'HOME USE ONLY -- COMMERCIAL USE PROHIBITED' claim, not independently confirmed on the manufacturer's own order page."
+    },
+    {
+      "id": "ssb-league-night-he-official",
+      "title": "Silver Strike Bowling League Night Home Edition w/ FREE Stand (Incredible Technologies official store, full product page)",
+      "url": "https://store.itsgames.com/products/silver-strike-bowling-league-night-home-edition",
+      "observedOn": "2026-11-01",
+      "claim": "Factory cabinet $4,699 including a free TV stand; page states plainly 'You will need to use a 4K TV for SSB League Night' (no monitor included) and 'designed exclusively for home and non-commercial use,' 'Prize Play is not available on Home Edition games.' With-stand dimensions: 25in W x 53in D x 85in H (99in with topper). Free online subscription expires Spring 2027."
+    },
+    {
+      "id": "ssb-league-night-commercial-page",
+      "title": "Silver Strike: League Night product page (Incredible Technologies official, commercial/bar-facing version)",
+      "url": "https://amusement.itsgames.com/product/silver-strike-league-night/",
+      "observedOn": "2026-11-01",
+      "claim": "Describes a 55-inch vertically mounted monitor as part of the commercial/bar cabinet -- a different configuration than the Home Edition sold at store.itsgames.com, which does not include a monitor. Do not merge these two configurations' specs."
+    },
+    {
+      "id": "gt-arcade-collection-official",
+      "title": "Arcade Collection / Arcade Collection Go Home Edition (Incredible Technologies official store)",
+      "url": "https://store.itsgames.com/",
+      "observedOn": "2026-11-01",
+      "claim": "Official store lists Fore Remastered preorder $2,499, League Night home $4,699, Arcade Collection GO $3,299/full-size $4,299, Showpiece conversion kit $1,795 and PGA Clubhouse Deluxe $6,899. Generic home subscriptions list $125/year or $12.99/month; applicability and future pricing must be confirmed for the purchased game."
+    },
+    {
+      "id": "arcade-collection-conversion",
+      "title": "Arcade Collection Showpiece Conversion Kit — manufacturer requirements",
+      "url": "https://store.itsgames.com/products/arcade-collection-conversion-kit",
+      "observedOn": "2026-11-01",
+      "claim": "Existing eligible Showpiece cabinet required; replace HDD, CID, security chip, panel and marquee; RAM may need upgrade. Existing CID stops functioning after conversion. Golden Tee golf is not included."
+    },
+    {
+      "id": "a1up-bbh-original-product",
+      "title": "Big Buck Hunter Pro home arcade — manufacturer product article",
+      "url": "https://arcade1up.com/blogs/product-info/big-buck-hunter%C2%AE-pro-arcade-machine",
+      "observedOn": "2026-11-01",
+      "claim": "Manufacturer confirms the older Pro home product's four Pro/Safari-family games and two light-gun rifles. Its riser/tin-sign inclusions do not establish the newer Mossy Oak Deluxe package or current stock."
+    },
+    {
+      "id": "jp-arcade-rawthrills",
+      "title": "Jurassic Park Arcade specifications (Raw Thrills official)",
+      "url": "https://rawthrills.com/games/jurassic-park-arcade/",
+      "observedOn": "2026-11-01",
+      "claim": "Commercial cabinet up to 118 in H, 54x80 in, 1,217 lb, mounted potentiometer guns, required USB dongle. No consumer pricing or home edition published."
+    },
+    {
+      "id": "jp-arcade-price-dealer",
+      "title": "Raw Thrills Jurassic Park Arcade Game listing (third-party dealer)",
+      "url": "https://www.gameroomshop.com/products/raw-thrills-jurassic-park-arcade-game",
+      "observedOn": "2026-11-01",
+      "claim": "Dealer directly lists $17,495 for the environmental cabinet. Delivery/installation and dimensional descriptions require exact-variant confirmation; the listing is not proof of a consumer-sized equivalent."
+    },
+    {
+      "id": "a1up-big-buck",
+      "title": "Big Buck Hunter Mossy Oak Deluxe Arcade Machine (Arcade1Up official site, via search index)",
+      "url": "https://arcade1up.com/products/big-buck-hunter-mossy-oak-deluxe-arcade-machine-1",
+      "observedOn": "2026-11-01",
+      "claim": "Shown 'Sold Out' per indexed search snippet of the manufacturer's own page; modern Big Buck World/Pro-generation titles, distinct from the legacy Eagle-era builds PLAN.md's research bench-recommended."
+    },
+    {
+      "id": "a1up-big-buck-amazon",
+      "title": "Arcade1Up Big Buck Hunter Mossy Oak Deluxe Arcade Machine (Amazon third-party listing)",
+      "url": "https://www.amazon.com/Arcade1Up-Hunter-Deluxe-Arcade-Machine/dp/B0FM82NZGY",
+      "observedOn": "2026-11-01",
+      "claim": "Direct product description confirms Mossy Oak Deluxe, dual guns, 17-inch BOE LCD and four Pro/Safari titles. Direct buy box says Currently unavailable. Search-indexed other-seller $699.99 plus $85.25 shipping is not a verified current offer."
+    },
+    {
+      "id": "gt-pga-home-deluxe-official",
+      "title": "Golden Tee PGA TOUR Clubhouse Deluxe Edition (Incredible Technologies official store)",
+      "url": "https://store.itsgames.com/products/golden-tee-pga-tour-clubhouse-deluxe-edition",
+      "observedOn": "2026-11-01",
+      "claim": "Modern LIVE/PGA TOUR generation factory cabinet, $6,899."
+    },
+    {
+      "id": "internal-plan",
+      "title": "Basement arcade: build the furniture, prove the games first (PLAN.md)",
+      "url": "../PLAN.md",
+      "observedOn": "2026-11-01",
+      "claim": "Already recommends two stations (not four cabinets), differentiates risk per game, excludes game media/rights from scope, and states DIY replication is 'unlikely to be the cheapest path' -- but never checks the market or states a buyer/promise/finished-product narrative."
+    },
+    {
+      "id": "internal-hardware",
+      "title": "Hardware, fabrication and reconciled BOM",
+      "url": "../research/hardware-and-fabrication.md",
+      "observedOn": "2026-11-01",
+      "claim": "Reconciled two-station DIY infrastructure allowance is $2,309-$4,377 for both stations; explicitly excludes legitimate media/rights, donor costs, and adaptation costs from that figure."
+    },
+    {
+      "id": "internal-feasibility",
+      "title": "Game feasibility: release-specific, not brand-level",
+      "url": "../research/game-feasibility.md",
+      "observedOn": "2026-11-01",
+      "claim": "Identifies the legacy Eagle-era Big Buck titles and Fore! 2006 as bench candidates with differentiated risk per game; no supported open-source path for Silver Strike; Jurassic 2015 uses mounted potentiometer guns with no open-source runtime proven."
+    }
+  ]
+}

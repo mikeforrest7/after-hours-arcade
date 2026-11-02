@@ -12,8 +12,11 @@
     "reason": "The 2009 kit manual is the most detailed primary source for this family's exact button labels and scoring rules; this build's own research already treats the classic offline game as a sourcing path distinct from the League Night reboot.",
     "caveat": "No release is selected or running here. The gallery's 2004 flyer predates the 2009 kit manual. Practical swing/setup tips come from an older community guide, not a verified 2009 playthrough; they are identified below and require a selected-release check."
   },
-  "heroMediaId": "ss-gameplay-select-bowler",
+  "heroMediaId": "bowling-modern-environment",
   "media": [
+    {"id":"bowling-modern-environment","role":"concept","view":"environment","src":"../visuals/modern/bowling-environment-v2.webp","kind":"Original concept","release":"The late lane — proposed bowling art direction","alt":"Original bowling-lane view with reflective wood, architectural strip lighting and a patterned ball traveling toward the pins.","caption":"The proposed bowling world uses wood surface detail, lane reflections and architectural lighting. It is original visual development, not Silver Strike footage.","credit":"After Hours original 3D study; CC0 surface assets credited in the visual manifest.","sourceId":"after-hours-modern","assetUrl":"../visuals/modern/bowling-environment-v2.webp","processing":"Clean 1920 × 1080 WebGL scene capture exported as WebP; no commercial screenshot was filtered.","width":1920,"height":1080,"retrievedAt":"2026-11-02"},
+    {"id":"bowling-modern-detail","role":"concept","view":"detail","src":"../visuals/modern/bowling-detail-v2.webp","kind":"Original concept","release":"The late lane — pin-impact moment","alt":"Closer view down the reflective lane as the ball reaches the pins and the pin arrangement breaks apart.","caption":"The pin-impact composition gives the proposed payoff its own view. Pin motion is authored for the concept film, not a demonstrated bowling-physics simulation.","credit":"After Hours original 3D study; CC0 surface assets credited in the visual manifest.","sourceId":"after-hours-modern","assetUrl":"../visuals/modern/bowling-detail-v2.webp","processing":"Separate clean WebGL timeline capture of the impact moment; not a crop of the lane image.","width":1920,"height":1080,"retrievedAt":"2026-11-02"},
+    {"id":"bowling-modern-station","role":"concept","view":"station","src":"../visuals/modern/bowling-station-v2.webp","kind":"Original concept","release":"Bowling in the room — trackball display concept","alt":"Original room concept with the new reflective bowling lane composited onto the trackball station display.","caption":"The proposed landscape bowling scene paired with a full-size trackball station. This is not the portrait-format League Night product or evidence of original-game compatibility.","credit":"After Hours original room and screen composite.","sourceId":"after-hours-modern","assetUrl":"../visuals/modern/bowling-station-v2.webp","processing":"Perspective-composited original scene on a concept display; not a photographed or running product.","width":1920,"height":1080,"retrievedAt":"2026-11-02"},
     {
       "id": "ss-cabinet",
       "src": "media/silver-strike/ss-01-cabinet.jpg",
@@ -317,6 +320,7 @@
     }
   ],
   "sources": [
+    {"id":"after-hours-modern","title":"After Hours — modern image release, processing and asset credits","url":"https://mikeforrest7.github.io/after-hours-arcade/studio/visuals/MANIFEST.html#modern-image-release","publisher":"After Hours original concept study","accessed":"2026-11-02"},
     {
       "id": "SS1",
       "title": "Silver Strike Bowling sales flyer (2 pages)",

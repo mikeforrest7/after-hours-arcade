@@ -9,6 +9,8 @@ const gamePages = [
 const html = (value) => String(value).replace(/[&<>"']/g, (character) => ({'&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'}[character]));
 const external = (url, label) => `<a href="${html(url)}" target="_blank" rel="noopener noreferrer">${html(label)}</a>`;
 const node = (selector) => document.querySelector(selector);
+const viewLabels = {environment:'Environment view', station:'Station view', detail:'Detail view'};
+const viewLabel = (view) => viewLabels[view] || html(view);
 
 async function loadGameGuide() {
   const slug = document.body.dataset.game;
@@ -27,21 +29,41 @@ async function loadGameGuide() {
     if (!source) throw new Error(`Missing source: ${id}`);
     return `<a href="#source-${html(id)}" aria-label="Source ${source.number}: ${html(source.title)}">[${source.number}]</a>`;
   }).join(' ')}</span>`;
-  let selected = guide.media.findIndex((image) => image.id === guide.heroMediaId);
-  if (selected < 0) throw new Error('The reference gallery has no lead image.');
+
+  const concepts = guide.media.filter((image) => image.role === 'concept');
+  if (concepts.length !== 3) throw new Error('Expected exactly three proposed-look concept images.');
+  const references = guide.media.filter((image) => image.role !== 'concept');
+  if (!references.length) throw new Error('The reference gallery has no images.');
+  const galleries = {concept:concepts, reference:references};
+  const selected = {concept:concepts.findIndex((image) => image.id === guide.heroMediaId), reference:0};
+  if (selected.concept < 0) throw new Error('The concept gallery has no lead image.');
+  let activeGallery = 'concept';
+
   const currentPage = gamePages.findIndex(([id]) => id === slug);
   const nextPage = gamePages[(currentPage + 1) % gamePages.length];
+
+  const thumbnail = (gallery, image, index) => gallery === 'concept'
+    ? `<button class="gd-thumbnail gd-thumbnail-concept" type="button" data-concept-image="${index}" aria-pressed="false" aria-label="View proposed look ${index + 1} (${viewLabel(image.view)}): ${html(image.alt)}"><img src="${html(image.src)}" alt="" width="${image.width}" height="${image.height}" loading="lazy"><span><b class="gd-thumbnail-flag">Proposed look</b>${viewLabel(image.view)}</span></button>`
+    : `<button class="gd-thumbnail" type="button" data-reference-image="${index}" aria-pressed="false" aria-label="View image ${index + 1}: ${html(image.alt)}"><img src="${html(image.src)}" alt="" width="${image.width}" height="${image.height}" loading="lazy"><span>${String(index + 1).padStart(2, '0')} / ${html(image.kind)}</span></button>`;
 
   node('#guide-content').innerHTML = `
     <header class="gd-title" aria-labelledby="guide-title">
       <div><p class="chapter-number">${html(guide.number)} / ${html(guide.kicker)}</p><h1 id="guide-title">${html(guide.title)}</h1></div><p class="gd-headline">${html(guide.headline)}</p>
     </header>
 
-    <section class="gd-gallery" id="gallery" aria-labelledby="gallery-title">
-      <div class="gd-gallery-intro"><h2 id="gallery-title">Reference gallery</h2><p>Select a photo or screen below. Enlarge it to inspect the details.</p></div>
-      <div class="gd-viewer"><button class="gd-stage" id="open-image" type="button" aria-label="Enlarge selected reference image"><img id="selected-image" alt=""><span class="gd-enlarge">Enlarge image</span></button><div class="gd-image-notes" id="selected-notes" aria-live="polite"></div></div>
-      <div class="gd-gallery-bar"><p id="gallery-position" aria-live="polite"></p><div><button class="quiet-button" id="gallery-previous" type="button" aria-label="Previous reference image">Previous</button><button class="quiet-button" id="gallery-next" type="button" aria-label="Next reference image">Next</button></div></div>
-      <div class="gd-thumbnails" role="group" aria-label="Reference image choices">${guide.media.map((image, index) => `<button class="gd-thumbnail" type="button" data-image="${index}" aria-pressed="false" aria-label="View image ${index + 1}: ${html(image.alt)}"><img src="${html(image.src)}" alt="" width="${image.width}" height="${image.height}" loading="lazy"><span>${String(index + 1).padStart(2, '0')} / ${html(image.kind)}</span></button>`).join('')}</div>
+    <section class="gd-gallery gd-concept-gallery" id="gallery" aria-labelledby="gallery-title">
+      <div class="gd-gallery-intro"><div><p class="eyebrow">Proposed look</p><h2 id="gallery-title">See the new look.</h2></div><p>Three views: environment, detail and station. Compare the proposed direction with the original commercial references below. <a class="text-link" href="#reference-gallery">Jump to the commercial reference gallery <span aria-hidden="true">↓</span></a></p></div>
+      <div class="gd-viewer"><button class="gd-stage" id="concept-open-image" type="button" aria-label="Enlarge selected proposed-look image"><img id="concept-stage-image" alt=""><span class="gd-enlarge">Enlarge image</span></button><div class="gd-image-notes" id="concept-notes" aria-live="polite"></div></div>
+      <div class="gd-gallery-bar"><p id="concept-position" aria-live="polite"></p><div><button class="quiet-button" id="concept-gallery-previous" type="button" aria-label="Previous proposed-look image">Previous</button><button class="quiet-button" id="concept-gallery-next" type="button" aria-label="Next proposed-look image">Next</button></div></div>
+      <div class="gd-thumbnails" role="group" aria-label="Proposed-look image choices">${concepts.map((image, index) => thumbnail('concept', image, index)).join('')}</div>
+      <p class="gd-gallery-boundary">Original 3D concept studies—not commercial game footage, validated remasters or evidence of a fabricated product.</p>
+    </section>
+
+    <section class="gd-gallery gd-reference-gallery" id="reference-gallery" aria-labelledby="reference-gallery-title">
+      <div class="gd-gallery-intro"><div><p class="eyebrow">Commercial reference</p><h2 id="reference-gallery-title">Reference gallery</h2></div><p>Select a photo or screen below. Enlarge it to inspect the details. <a class="text-link" href="#gallery">Back to the proposed look <span aria-hidden="true">↑</span></a></p></div>
+      <div class="gd-viewer"><button class="gd-stage" id="reference-open-image" type="button" aria-label="Enlarge selected reference image"><img id="reference-stage-image" alt=""><span class="gd-enlarge">Enlarge image</span></button><div class="gd-image-notes" id="reference-notes" aria-live="polite"></div></div>
+      <div class="gd-gallery-bar"><p id="reference-position" aria-live="polite"></p><div><button class="quiet-button" id="reference-gallery-previous" type="button" aria-label="Previous reference image">Previous</button><button class="quiet-button" id="reference-gallery-next" type="button" aria-label="Next reference image">Next</button></div></div>
+      <div class="gd-thumbnails" role="group" aria-label="Reference image choices">${references.map((image, index) => thumbnail('reference', image, index)).join('')}</div>
       <p class="gd-gallery-boundary">Photos and screenshots document the credited commercial games and cabinets. They are not captures from our proposed system. Source attribution is not a commercial image license.</p>
     </section>
 
@@ -82,50 +104,84 @@ async function loadGameGuide() {
     <nav class="gd-next-game" aria-label="Continue exploring"><a class="text-link" href="../index.html#experience">Back to the studio proposal</a><a class="button primary" href="${nextPage[0]}.html">Next experience: ${html(nextPage[1])}<span aria-hidden="true">→</span></a></nav>`;
 
   const dialog = node('#image-dialog');
-  const thumbnails = Array.from(document.querySelectorAll('[data-image]'));
-  function showImage(index) {
-    selected = (index + guide.media.length) % guide.media.length;
-    const image = guide.media[selected];
+  const thumbnails = {
+    concept: Array.from(document.querySelectorAll('[data-concept-image]')),
+    reference: Array.from(document.querySelectorAll('[data-reference-image]'))
+  };
+
+  function renderStage(gallery) {
+    const items = galleries[gallery];
+    const index = selected[gallery];
+    const image = items[index];
     const source = sources.get(image.sourceId);
     if (!source) throw new Error(`Missing image source: ${image.sourceId}`);
-    for (const selector of ['#selected-image', '#dialog-image']) {
-      const element = node(selector);
-      element.src = image.src;
-      element.alt = image.alt;
-      element.width = image.width;
-      element.height = image.height;
-    }
-    node('#selected-notes').innerHTML = `<p class="eyebrow">${html(image.kind)}</p><h3>${html(image.release)}</h3><p class="gd-image-caption">${html(image.caption)}</p><p class="gd-credit">${html(image.credit)}</p><p>${external(source.url, 'View source')} <span aria-hidden="true">↗</span></p><details class="gd-image-provenance"><summary>Image provenance</summary><p>${html(image.processing)}</p><p>${image.width} × ${image.height} px · Retrieved ${html(image.retrievedAt)}</p>${external(image.assetUrl, 'Original image / document')}</details>`;
-    const position = `${selected + 1} / ${guide.media.length}`;
-    node('#gallery-position').textContent = `${position} reference images`;
-    node('#dialog-position').textContent = position;
-    node('#dialog-title').textContent = `${guide.title} — ${image.kind}`;
-    node('#dialog-caption').textContent = `${image.release}. ${image.caption} Credit: ${image.credit}`;
+    const stageImage = node(`#${gallery}-stage-image`);
+    stageImage.src = image.src;
+    stageImage.alt = image.alt;
+    stageImage.width = image.width;
+    stageImage.height = image.height;
+    const eyebrow = gallery === 'concept' ? `Proposed look · ${viewLabel(image.view)}` : html(image.kind);
+    node(`#${gallery}-notes`).innerHTML = `<p class="eyebrow">${eyebrow}</p><h3>${html(image.release)}</h3><p class="gd-image-caption">${html(image.caption)}</p><p class="gd-credit">${html(image.credit)}</p><p>${external(source.url, 'View source')} <span aria-hidden="true">↗</span></p><details class="gd-image-provenance"><summary>Image provenance</summary><p>${html(image.processing)}</p><p>${image.width} × ${image.height} px · Retrieved ${html(image.retrievedAt)}</p>${external(image.assetUrl, 'Original image / document')}</details>`;
+    const position = `${index + 1} / ${items.length}`;
+    node(`#${gallery}-position`).textContent = gallery === 'concept' ? `${position} proposed looks` : `${position} reference images`;
+    thumbnails[gallery].forEach((button, i) => button.setAttribute('aria-pressed', String(i === index)));
+    return {image, source, position};
+  }
+
+  function renderDialog(gallery, image, source, position) {
+    const roleLabel = gallery === 'concept' ? 'Proposed look' : 'Commercial reference';
+    node('#dialog-title').textContent = `${guide.title} — ${roleLabel} — ${image.kind}`;
+    node('#dialog-position').textContent = `${position} ${gallery === 'concept' ? 'proposed looks' : 'reference images'}`;
+    const dialogImage = node('#dialog-image');
+    dialogImage.src = image.src;
+    dialogImage.alt = image.alt;
+    dialogImage.width = image.width;
+    dialogImage.height = image.height;
+    node('#dialog-caption').textContent = `${gallery === 'concept' ? `Proposed look (${viewLabel(image.view)}). ` : ''}${image.release}. ${image.caption} Credit: ${image.credit}`;
     node('#dialog-original').href = image.src;
     node('#dialog-source').href = source.url;
-    thumbnails.forEach((button, index) => button.setAttribute('aria-pressed', String(index === selected)));
   }
-  thumbnails.forEach((button, index) => button.addEventListener('click', () => showImage(index)));
-  node('#gallery-previous').addEventListener('click', () => showImage(selected - 1));
-  node('#gallery-next').addEventListener('click', () => showImage(selected + 1));
-  node('#dialog-previous').addEventListener('click', () => showImage(selected - 1));
-  node('#dialog-next').addEventListener('click', () => showImage(selected + 1));
-  let previousOverflow = '';
-  node('#open-image').addEventListener('click', () => {
+
+  function showImage(gallery, index) {
+    const items = galleries[gallery];
+    selected[gallery] = (index + items.length) % items.length;
+    const {image, source, position} = renderStage(gallery);
+    if (gallery === activeGallery) renderDialog(gallery, image, source, position);
+  }
+
+  function openGallery(gallery) {
+    activeGallery = gallery;
+    const items = galleries[gallery];
+    const image = items[selected[gallery]];
+    const source = sources.get(image.sourceId);
+    renderDialog(gallery, image, source, `${selected[gallery] + 1} / ${items.length}`);
     previousOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
     dialog.showModal();
-  });
+  }
+
+  thumbnails.concept.forEach((button, index) => button.addEventListener('click', () => showImage('concept', index)));
+  thumbnails.reference.forEach((button, index) => button.addEventListener('click', () => showImage('reference', index)));
+  node('#concept-gallery-previous').addEventListener('click', () => showImage('concept', selected.concept - 1));
+  node('#concept-gallery-next').addEventListener('click', () => showImage('concept', selected.concept + 1));
+  node('#reference-gallery-previous').addEventListener('click', () => showImage('reference', selected.reference - 1));
+  node('#reference-gallery-next').addEventListener('click', () => showImage('reference', selected.reference + 1));
+  node('#dialog-previous').addEventListener('click', () => showImage(activeGallery, selected[activeGallery] - 1));
+  node('#dialog-next').addEventListener('click', () => showImage(activeGallery, selected[activeGallery] + 1));
+  let previousOverflow = '';
+  node('#concept-open-image').addEventListener('click', () => openGallery('concept'));
+  node('#reference-open-image').addEventListener('click', () => openGallery('reference'));
   node('#dialog-close').addEventListener('click', () => dialog.close());
   dialog.addEventListener('click', (event) => { if (event.target === dialog) dialog.close(); });
   dialog.addEventListener('close', () => { document.body.style.overflow = previousOverflow; });
   dialog.addEventListener('keydown', (event) => {
     if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
       event.preventDefault();
-      showImage(selected + (event.key === 'ArrowRight' ? 1 : -1));
+      showImage(activeGallery, selected[activeGallery] + (event.key === 'ArrowRight' ? 1 : -1));
     }
   });
-  showImage(selected);
+  showImage('concept', selected.concept);
+  showImage('reference', selected.reference);
   node('#guide-loading').hidden = true;
   node('#guide-content').hidden = false;
   document.title = `${guide.title} — In the Game / After Hours`;

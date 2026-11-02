@@ -12,8 +12,11 @@
     "reason": "Fore! is the generation this build's own research already treats as the legacy MAME bench candidate (romset gtfore06); its own manual, flyer and a native gtfore06 screenshot give primary-source control and on-screen detail instead of a different generation.",
     "caveat": "No release is selected and no game was run here. Sources span two Fore! sub-builds — a circa-2001 cabinet/flyer and 2006 Complete gameplay screenshots — not confirmed as one identical build; the 1995-documented swing mechanic is carried forward, not re-confirmed per sub-build. Full detail in Release Notes."
   },
-  "heroMediaId": "gt-gameplay-ingame",
+  "heroMediaId": "golf-modern-environment",
   "media": [
+    {"id":"golf-modern-environment","role":"concept","view":"environment","src":"../visuals/modern/golf-environment-v2.webp","kind":"Original concept","release":"Coastal links — proposed golf art direction","alt":"Original coastal golf scene with textured rough, a sand bunker, layered trees and reflective water beside the green.","caption":"The proposed environment: modeled foliage, textured ground and reflective coastal water. Original authored scene, not Golden Tee footage or a working remaster.","credit":"After Hours original 3D study; CC0 environmental assets credited in the visual manifest.","sourceId":"after-hours-modern","assetUrl":"../visuals/modern/golf-environment-v2.webp","processing":"Clean 1920 × 1080 WebGL scene capture, exported as WebP; no game screenshot was filtered or upscaled.","width":1920,"height":1080,"retrievedAt":"2026-11-02"},
+    {"id":"golf-modern-detail","role":"concept","view":"detail","src":"../visuals/modern/golf-detail-v2.webp","kind":"Original concept","release":"Coastal links — approach to the green","alt":"Low approach view of the coastal green, flag, rough, trees and cloud-lit water.","caption":"A second camera position near the green makes the flag, putting surface and environmental depth easier to inspect. This is proposed visual direction, not validated golf physics.","credit":"After Hours original 3D study; CC0 environmental assets credited in the visual manifest.","sourceId":"after-hours-modern","assetUrl":"../visuals/modern/golf-detail-v2.webp","processing":"Separate clean WebGL timeline capture, not a crop or sharpening filter applied to the environment image.","width":1920,"height":1080,"retrievedAt":"2026-11-02"},
+    {"id":"golf-modern-station","role":"concept","view":"station","src":"../visuals/modern/golf-station-v2.webp","kind":"Original concept","release":"Golf in the room — display and trackball concept","alt":"Two-station wood-and-charcoal room concept with the new coastal golf scene composited onto the trackball station display.","caption":"The new golf world in its proposed room context. The screen image is composited into an original cabinet render; it is not a photographed installation or a running game.","credit":"After Hours original room and screen composite.","sourceId":"after-hours-modern","assetUrl":"../visuals/modern/golf-station-v2.webp","processing":"Perspective-composited original scene on the proposed display; furniture geometry unchanged and not fabrication-ready.","width":1920,"height":1080,"retrievedAt":"2026-11-02"},
     {
       "id": "gt-cabinet",
       "src": "media/golden-tee/gt-01-cabinet.jpg",
@@ -321,6 +324,7 @@
     }
   ],
   "sources": [
+    {"id":"after-hours-modern","title":"After Hours — modern image release, processing and asset credits","url":"https://mikeforrest7.github.io/after-hours-arcade/studio/visuals/MANIFEST.html#modern-image-release","publisher":"After Hours original concept study","accessed":"2026-11-02"},
     {
       "id": "GT1",
       "title": "Golden Tee Fore! sales flyer (4 pages)",

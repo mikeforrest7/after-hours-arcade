@@ -12,11 +12,14 @@
     "reason": "Fore! is the generation this build's own research already treats as the legacy MAME bench candidate (romset gtfore06); its own manual, flyer and a native gtfore06 screenshot give primary-source control and on-screen detail instead of a different generation.",
     "caveat": "No release is selected and no game was run here. Sources span two Fore! sub-builds — a circa-2001 cabinet/flyer and 2006 Complete gameplay screenshots — not confirmed as one identical build; the 1995-documented swing mechanic is carried forward, not re-confirmed per sub-build. Full detail in Release Notes."
   },
-  "heroMediaId": "golf-modern-environment",
+  "heroMediaId": "golf-tee-setup",
   "media": [
-    {"id":"golf-modern-environment","role":"concept","view":"environment","src":"../visuals/modern/golf-environment-v2.webp","kind":"Original concept","release":"Coastal links — proposed golf art direction","alt":"Original coastal golf scene with textured rough, a sand bunker, layered trees and reflective water beside the green.","caption":"The proposed environment: modeled foliage, textured ground and reflective coastal water. Original authored scene, not Golden Tee footage or a working remaster.","credit":"After Hours original 3D study; CC0 environmental assets credited in the visual manifest.","sourceId":"after-hours-modern","assetUrl":"../visuals/modern/golf-environment-v2.webp","processing":"Clean 1920 × 1080 WebGL scene capture, exported as WebP; no game screenshot was filtered or upscaled.","width":1920,"height":1080,"retrievedAt":"2026-11-02"},
-    {"id":"golf-modern-detail","role":"concept","view":"detail","src":"../visuals/modern/golf-detail-v2.webp","kind":"Original concept","release":"Coastal links — approach to the green","alt":"Low approach view of the coastal green, flag, rough, trees and cloud-lit water.","caption":"A second camera position near the green makes the flag, putting surface and environmental depth easier to inspect. This is proposed visual direction, not validated golf physics.","credit":"After Hours original 3D study; CC0 environmental assets credited in the visual manifest.","sourceId":"after-hours-modern","assetUrl":"../visuals/modern/golf-detail-v2.webp","processing":"Separate clean WebGL timeline capture, not a crop or sharpening filter applied to the environment image.","width":1920,"height":1080,"retrievedAt":"2026-11-02"},
-    {"id":"golf-modern-station","role":"concept","view":"station","src":"../visuals/modern/golf-station-v2.webp","kind":"Original concept","release":"Golf in the room — display and trackball concept","alt":"Two-station wood-and-charcoal room concept with the new coastal golf scene composited onto the trackball station display.","caption":"The new golf world in its proposed room context. The screen image is composited into an original cabinet render; it is not a photographed installation or a running game.","credit":"After Hours original room and screen composite.","sourceId":"after-hours-modern","assetUrl":"../visuals/modern/golf-station-v2.webp","processing":"Perspective-composited original scene on the proposed display; furniture geometry unchanged and not fabrication-ready.","width":1920,"height":1080,"retrievedAt":"2026-11-02"},
+    {"id":"golf-tee-setup","src":"media/modern/golf-01-tee-setup.webp","kind":"Gameplay screenshot","release":"PGA TOUR 2K25 (2K, PC/console, released Feb 27 2025)","alt":"A golfer in a light shirt addresses a drive on the 18th tee of a PGA of America hole; a shot-shaping HUD reads Tee Box 279 YDS, DRIVER, TEE SHOT, Fade, over a trajectory preview arcing toward a 494-yard, Par 4 fairway lined with gallery ropes.","caption":"Golfer at address, driver and shot-shape selection, aim line and distance HUD. A concrete tee-setup benchmark; its controller inputs are not Golden Tee trackball controls.","credit":"2K (official PGA TOUR 2K25 Steam store screenshot gallery)","sourceId":"pga-tour-2k25-steam","assetUrl":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2385530/ss_d6eed024c39bba21c83f7b78404381c741f0a4f9.1920x1080.jpg","processing":"Downloaded at the native 1920×1080 Steam store-gallery resolution; resaved as WebP (quality 92) with no crop, retouching, HDR fakery, or upscaling.","width":1920,"height":1080,"sha256":"1d566feb5cb4d6cfd033643303474dc74d14bd5d2e771cb3fc007424e8580ac6","retrievedAt":"2026-11-02","view":"address / tee-shot HUD","stageIds":["tee-setup"],"role":"benchmark"},
+    {"id":"golf-backswing","src":"media/modern/golf-02-backswing.webp","kind":"Official promotional screenshot; capture mode unconfirmed","release":"EA SPORTS PGA TOUR (EA, PC/console, released Apr 6 2023 — Masters/Augusta National content)","alt":"A retro-styled golfer in a yellow shirt and checked trousers is frozen at the top of his backswing on a tee box, club raised vertically overhead, ball waiting at his feet, gallery blurred in the background.","caption":"A clearly visible golfer at the top of the backswing. Official promotional screenshot with no HUD; capture mode is unconfirmed. Use it for pose, clothing, lighting and camera framing—not swing-system evidence.","credit":"Electronic Arts / EA Sports (official EA SPORTS PGA TOUR Steam store screenshot gallery)","sourceId":"ea-pga-tour-steam","assetUrl":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1677350/ss_51dd75a2ffa202cddf33c8c22ebc227a5eecef37.1920x1080.jpg","processing":"Downloaded at the native 1920×1080 Steam store-gallery resolution; resaved as WebP (quality 92) with no crop, retouching, HDR fakery, or upscaling.","width":1920,"height":1080,"sha256":"b81cb84360d49d99ce645ffc2152c33ae47b05eac7c467d869e4f51556756dae","retrievedAt":"2026-11-02","view":"top-of-backswing","stageIds":["backspin-and-backswing"],"role":"benchmark"},
+    {"id":"golf-forward-strike","src":"media/modern/golf-03-forward-strike.webp","kind":"Gameplay screenshot","release":"PGA TOUR 2K25 (2K, PC/console, released Feb 27 2025)","alt":"A golfer in a red shirt (Tiger Woods likeness) completes his follow-through on a tree-lined tee; the HUD reads CONTACT PERFECT, RHYTHM PERFECT, TRANSITION 100% PERFECT, SWING PATH PERFECT and Distance 138 YDS, with the PGA TOUR 2K25 logo in the corner.","caption":"Follow-through with contact, rhythm, transition and swing-path feedback beside a 138-yard distance readout. These are PGA TOUR 2K25 systems, not existing Golden Tee features.","credit":"2K (official PGA TOUR 2K25 Steam store screenshot gallery)","sourceId":"pga-tour-2k25-steam","assetUrl":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2385530/ss_6546c8ce6ea6d0b743ca47f07fd67406eb1c71b3.1920x1080.jpg","processing":"Downloaded at the native 1920×1080 Steam store-gallery resolution; resaved as WebP (quality 92) with no crop, retouching, HDR fakery, or upscaling.","width":1920,"height":1080,"sha256":"ffa8602dd184dada039059edbc3a562d5b628c0fb83bf9adc8a453d027d3506b","retrievedAt":"2026-11-02","view":"follow-through / contact-grade HUD","stageIds":["forward-strike"],"role":"benchmark"},
+    {"id":"golf-ball-flight","src":"media/modern/golf-04-ball-flight.webp","kind":"Gameplay screenshot","release":"PGA TOUR 2K25 (2K, PC/console, released Feb 27 2025)","alt":"A golfer swings from a fairway bunker as a blue trajectory line arcs the ball high over a cluster of bunkers toward a flagged green lined with grandstands and gallery.","caption":"A visible trajectory arc connects the golfer in a bunker with the green and surrounding hazards. This is a different shot/session from the other images, not a continuous captured round.","credit":"2K (official PGA TOUR 2K25 Steam store screenshot gallery)","sourceId":"pga-tour-2k25-steam","assetUrl":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2385530/ss_6b1f0ee75a80f4cfa3b51f08aa12af0b22ca3cbb.1920x1080.jpg","processing":"Downloaded at the native 1920×1080 Steam store-gallery resolution; resaved as WebP (quality 92) with no crop, retouching, HDR fakery, or upscaling.","width":1920,"height":1080,"sha256":"da8aefbf59c5f65ac4badba413d6a157bb4e7efbc04f88480c46af5392f92695","retrievedAt":"2026-11-02","view":"ball-flight trajectory trace","stageIds":["ball-flight"],"role":"benchmark"},
+    {"id":"golf-lie-approach","src":"media/modern/golf-05-lie-approach.webp","kind":"Gameplay screenshot","release":"PGA TOUR 2K25 (2K, PC/console, released Feb 27 2025) — 2K Newsroom press asset","alt":"Golfer in pink at follow-through, with contact and swing feedback, a 76-yard distance readout, gallery and distant desert mountains.","caption":"Follow-through with a 76-yard distance readout and detailed swing feedback. The still does not establish the selected club, original target distance or lie; it illustrates readable short-shot feedback.","credit":"2K (PGA TOUR 2K25 'First Look 5', official 2K Newsroom press asset)","sourceId":"pga-tour-2k25-newsroom","assetUrl":"https://cdn.prgloo.com/media/download/8bdf77793aaa440583e3d646b93b05e0","processing":"Downloaded at the native 3840×2160 press-kit resolution and downscaled with Lanczos resampling to 1920×1080 to respect the modern-reference width cap, then resaved as WebP (quality 92); no crop, retouching, or upscaling.","width":1920,"height":1080,"sha256":"2d0976fe45dcdc71f1e279aa29a623a14052790c63f6945a8f3f78e8c1cdcc7d","retrievedAt":"2026-11-02","view":"short-shot feedback","stageIds":["lie-and-approach"],"role":"benchmark"},
+    {"id":"golf-putt-result","src":"media/modern/golf-06-putt-result.webp","kind":"Gameplay screenshot","release":"PGA TOUR 2K25 (2K, PC/console, released Feb 27 2025)","alt":"A golfer putts on the 18th green in front of a clubhouse and packed gallery; the HUD reads CONTACT -9.02° CLOSED, TRANSITION 57% PERFECT, SWING PATH PERFECT and Distance 10 FT.","caption":"A golfer putting, with a 10-foot distance readout and stroke feedback. This shows the putting action—not proof the ball was holed or a final score.","credit":"2K (official PGA TOUR 2K25 Steam store screenshot gallery)","sourceId":"pga-tour-2k25-steam","assetUrl":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2385530/ss_11876ad0be2727c43213c7601ed0027300622adf.1920x1080.jpg","processing":"Downloaded at the native 1920×1080 Steam store-gallery resolution; resaved as WebP (quality 92) with no crop, retouching, HDR fakery, or upscaling.","width":1920,"height":1080,"sha256":"6cb8c02d17a53caf97eff347716e340ee4707d5d07932043b78377b4d417f325","retrievedAt":"2026-11-02","view":"putting stroke HUD","stageIds":["putt-and-result"],"role":"benchmark"},
     {
       "id": "gt-cabinet",
       "src": "media/golden-tee/gt-01-cabinet.jpg",
@@ -136,7 +139,7 @@
     {
       "title": "Arm Backspin before you need it",
       "action": "Press Backspin before the swing; press again before swinging to cancel.",
-      "feedback": "A backspin indicator arms, and a well-struck iron checks up or rolls back on the green.",
+      "feedback": "Backspin is armed before the shot; a suitable struck shot can check up or roll back. A prominent armed-state badge is proposed feedback, not a HUD element verified here.",
       "skill": "Planning spin ahead of a shot, not reacting after it lands.",
       "sourceIds": [
         "GT3"
@@ -158,6 +161,26 @@
       "skill": "Controlling velocity instead of maximizing it.",
       "sourceIds": [
         "GT4"
+      ]
+    },
+    {
+      "title": "Read the next lie before swinging again",
+      "action": "After the ball settles, check the updated club-and-yardage capsule and, on an approach, the slope-of-the-green overhead map before repeating the back-swing/forward-swing shot.",
+      "feedback": "The capsule and map update to the new lie, giving a fresh target before the next roll.",
+      "skill": "Treat every shot as its own read, not a repeat of the tee shot.",
+      "sourceIds": [
+        "GT1",
+        "GT6"
+      ]
+    },
+    {
+      "title": "Putt out",
+      "action": "On the green, read the slope map and use the same back-swing/forward-swing trackball gesture at putting scale to finish the hole.",
+      "feedback": "A holed putt ends the hole; a miss leaves a shorter putt and one more stroke.",
+      "skill": "Reading green break from the overhead map instead of guessing the line.",
+      "sourceIds": [
+        "GT1",
+        "GT6"
       ]
     }
   ],
@@ -193,8 +216,127 @@
         "GT1",
         "GT6"
       ]
+    },
+    {
+      "label": "Proposed Backspin status",
+      "meaning": "A clear armed/cancelled status would confirm the documented pre-shot Backspin control. This badge is a presentation proposal, not an original HUD element established by the manual.",
+      "sourceIds": [
+        "GT3"
+      ]
     }
   ],
+  "gameplayStoryboard": {
+    "summary": "Follow a hole from tee setup to putt and result. Fore!'s five-button panel is the control reference; the older Golden Tee 3D manual explains backswing amount plus forward-roll speed as the power inputs. Confirm that inherited behavior on the exact Fore! build before implementation. Camera direction, continuous shot tracking and new status feedback below are proposed presentation, not features proved in our own working game.",
+    "stages": [
+      {
+        "id": "tee-setup",
+        "title": "Tee box: read the hole, preview the line",
+        "playerAction": "Golfer addresses the ball at the tee. Player reads the wind arrow/MPH, club-and-yardage capsule and stroke counter, then presses Fly-By to preview the route from tee to green before committing to an aim line.",
+        "camera": "Proposed presentation: over-the-shoulder tee camera centered on the golfer's stance with the hole corridor receding toward the green; cuts to a following shot during the Fly-By preview.",
+        "onScreen": [
+          "Wind arrow + MPH readout (documented HUD, GT1/GT6)",
+          "Club + yardage capsule (documented HUD, GT1/GT6)",
+          "Stroke counter (documented HUD, GT1/GT6)",
+          "Fly-By route preview triggered by the Fly-By button (documented control, GT3)"
+        ],
+        "feedback": "Fly-By traces the hole so the player commits to a target line with the hazards already seen, not guessed at.",
+        "decision": "Player picks an aim line and decides whether to pre-arm Backspin for the shot about to be struck.",
+        "sourceIds": [
+          "GT1",
+          "GT3",
+          "GT6"
+        ]
+      },
+      {
+        "id": "backspin-and-backswing",
+        "title": "Arm Backspin, then shape the backswing",
+        "playerAction": "Optionally press Backspin before the swing; press again to cancel. Roll the trackball backward to set the backswing. In the older Golden Tee 3D manual, backswing amount contributes to shot power, while backswing speed does not; the forward roll supplies the other power input. Backward and forward directions shape the shot. Verify the exact Fore! behavior at the bench.",
+        "camera": "Proposed presentation: low tee-side angle holding on the golfer's takeaway, matching the real-time arc of the trackball roll so the shape being set is readable.",
+        "onScreen": [
+          "Proposed Backspin armed/cancelled badge for the documented pre-shot control",
+          "Proposed clear backswing-depth animation; the amount-versus-speed distinction comes from the older Golden Tee 3D manual",
+          "Keep the tactile trackball gesture rather than substitute an unproven timing-bar mini-game"
+        ],
+        "feedback": "The golfer's backswing depth visibly matches the roll distance; an off-axis roll visibly cants the swing plane toward hook or slice.",
+        "decision": "Player commits to a shot shape — straight, hook or slice — and a planned swing depth before the forward roll begins.",
+        "sourceIds": [
+          "GT3",
+          "GT4"
+        ]
+      },
+      {
+        "id": "forward-strike",
+        "title": "Forward swing strikes the ball",
+        "playerAction": "Player rolls the trackball forward with real velocity, pushing toward the direction the ball should start heading. Velocity sets power; excess velocity triggers over-hitting, a loss of control rather than extra distance.",
+        "camera": "Proposed presentation: impact-moment camera crossing from the downswing to a close framing on clubface-to-ball contact, then releasing to follow the launch.",
+        "onScreen": [
+          "Golfer's swing-through animation keyed to the forward roll's measured velocity (documented mechanic, GT4)",
+          "An over-hit result shown distinctly from a clean strike when forward velocity is excessive (documented failure mode, GT4)",
+          "Wind, club/yardage and stroke-counter HUD remain visible through the swing (documented HUD, GT1/GT6)"
+        ],
+        "feedback": "A clean strike launches the ball on the shape set in the previous stage; an over-hit visibly loses accuracy regardless of that shape.",
+        "decision": "The committed swing shape and velocity are locked in — there is no redo once the forward roll registers.",
+        "sourceIds": [
+          "GT1",
+          "GT4",
+          "GT6"
+        ]
+      },
+      {
+        "id": "ball-flight",
+        "title": "Ball flight: shape, spin and wind play out",
+        "playerAction": "No input during flight. The player watches the shaped shot, any armed backspin, and the wind read at address pull the ball toward or away from the target line chosen at the tee.",
+        "camera": "Proposed presentation: continuous chase camera following the ball from strike through apex to descent, holding the hole's hazards in frame so the shaped flight reads against the dogleg, bunker or water the player aimed around.",
+        "onScreen": [
+          "Ball trajectory continuing unbroken from the forward-strike launch point (presentation continuity, not a cataloged original HUD element)",
+          "Wind arrow/MPH readout remaining visible, unchanged from the tee-setup read (documented HUD, GT1/GT6)",
+          "A hook or slice bending the flight around an obstacle a straight shot could not clear, per the manufacturer's own technique guide (GT4)"
+        ],
+        "feedback": "The flight path confirms or punishes the shape call made before swinging — a bent shot that clears a hazard, or a straight shot that was supposed to bend and didn't.",
+        "decision": "None for the player; this stage pays off the shape and power decisions already made and sets up the next lie.",
+        "sourceIds": [
+          "GT4"
+        ]
+      },
+      {
+        "id": "lie-and-approach",
+        "title": "Landing: read the next lie",
+        "playerAction": "Ball settles. Player reads the updated club-and-yardage capsule and, on an approach, the slope-of-the-green overhead map to judge the next shot's break before rolling back again.",
+        "camera": "Proposed presentation: cut to the ball's resting position with the green or next landing zone in the background, matching the overhead-map framing to the live camera angle.",
+        "onScreen": [
+          "Updated club + yardage capsule reflecting the new lie (documented HUD, GT1/GT6)",
+          "Slope-of-the-green overhead map, shown when the approach is within range of the green (documented HUD, GT1/GT6)",
+          "Stroke counter incremented by one (documented HUD, GT1/GT6)"
+        ],
+        "feedback": "The new yardage and visible lie tell the player whether the prior shot's shape call paid off.",
+        "decision": "Player selects a new target line and shot shape, repeating the backswing/strike stages, or proceeds to putting if already on the green.",
+        "sourceIds": [
+          "GT1",
+          "GT6"
+        ]
+      },
+      {
+        "id": "putt-and-result",
+        "title": "Putting: read the break, roll out, see the result",
+        "playerAction": "On the green, the player reads the slope-of-the-green overhead map, then uses the same back-swing/forward-swing trackball gesture at putting scale to roll the ball at the hole.",
+        "camera": "Proposed presentation: low green-level camera tracking the ball's roll toward the cup, with the overhead slope map available as a cutaway inset.",
+        "onScreen": [
+          "Slope-of-the-green overhead map (documented HUD, GT1/GT6)",
+          "Stroke counter finalizing the hole's score (documented HUD, GT1/GT6)",
+          "Hole result — holed or missed, with the ball's resting distance if missed"
+        ],
+        "feedback": "A holed putt ends the hole and banks the stroke count; a missed putt leaves a shorter next putt and one more stroke on the counter.",
+        "decision": "Player reads the green's break and commits to a line and a backswing-to-forward-roll ratio informed by the slope map rather than guesswork. Putt-specific input calibration is not independently confirmed in the sourced Fore! manual and needs verification against the selected build.",
+        "sourceIds": [
+          "GT1",
+          "GT3",
+          "GT4",
+          "GT6"
+        ]
+      }
+    ]
+  },
+
   "signatureMoments": [
     {
       "title": "The hook around the dogleg",
@@ -324,7 +466,9 @@
     }
   ],
   "sources": [
-    {"id":"after-hours-modern","title":"After Hours — modern image release, processing and asset credits","url":"https://mikeforrest7.github.io/after-hours-arcade/studio/visuals/MANIFEST.html#modern-image-release","publisher":"After Hours original concept study","accessed":"2026-11-02"},
+    {"id":"pga-tour-2k25-steam","title":"PGA TOUR 2K25 — Steam store page","url":"https://store.steampowered.com/app/2385530/PGA_TOUR_2K25","publisher":"2K","accessed":"2026-11-02"},
+    {"id":"ea-pga-tour-steam","title":"EA SPORTS™ PGA TOUR™ — Steam store page","url":"https://store.steampowered.com/app/1677350/EA_SPORTS_PGA_TOUR","publisher":"Electronic Arts / EA Sports (EA Tiburon)","accessed":"2026-11-02"},
+    {"id":"pga-tour-2k25-newsroom","title":"PGA TOUR 2K25 First Look 5 — 2K Newsroom press asset","url":"https://newsroom.2k.com/resources/pga-tour-2k25-first-look-5","publisher":"2K","accessed":"2026-11-02"},
     {
       "id": "GT1",
       "title": "Golden Tee Fore! sales flyer (4 pages)",

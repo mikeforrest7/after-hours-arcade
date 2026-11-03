@@ -23,11 +23,11 @@
 <h1 id="visuals-manifest-source-capture-interface-limitations">Visuals manifest — source, capture interface, limitations</h1>
 <p>Owner: Industrial / game-experience visual designer-worker. Scope: <code>arcade/studio/visuals/</code> only.</p>
 <h2 id="what-this-is">What this is</h2>
-<p>This directory holds the original cabinet-rendering source and the newer public
-concept images. The original renderer is documented below; the
-<a href="#modern-image-release">modern image release</a> documents the newer scene captures
-and display composites. Neither set is a photograph, a built product, or a
-screenshot of a licensed game. No game software or extracted game asset is included.</p>
+<p>This directory holds the original cabinet-rendering source and illustrative
+display composites. The <a href="#gameplay-benchmark-release">gameplay benchmark release</a>
+documents the current credited commercial-game screenshots, source boundaries
+and processing. Furniture studies are not photographs or built products.
+No game software or extracted game asset is included.</p>
 <h2 id="dependencies-for-the-original-cabinet-renderer">Dependencies for the original cabinet renderer</h2>
 <ul>
 <li><code>vendor/three.module.js</code> + <code>vendor/three.core.js</code> — Three.js <strong>r0.187.0</strong>, MIT license
@@ -249,46 +249,102 @@ only, no player).</p>
 <p>All four experience SVGs were rendered. Their 26 text labels had no pairwise text-bound overlap or out-of-viewBox text bounds in the browser audit. Unsupported backswing-meter, offscreen-reload and simultaneous-hunting claims were removed. The mounted-gun view remains a single-mechanism study, not a complete two-player assembly.</p>
 <p>The original cabinet-image release used static PNG/SVG images and did not require WebGL to view. Browser and device verification records are retained privately. The newer WebP scene-image release is documented below.</p>
 <p>These are original concept illustrations, not photographs, game screenshots, a measured basement survey, or evidence that any requested game runs.</p>
-<h2 id="modern-image-release">Modern image release</h2>
-<p>The public presentation now uses <code>modern/*-v2.webp</code> images on its homepage,
-four game guides and modernization page. These are actual new scene captures
-and composites, not a filter applied to the original commercial screenshots.</p>
+<h2 id="gameplay-benchmark-release">Gameplay benchmark release</h2>
+<p>The homepage, modernization page and four game guides now lead with <strong>19
+credited modern-game reference images</strong>, not the rejected environment-only
+<code>*-v2.webp</code> studies. Six golf frames show address, backswing, follow-through,
+flight, short-shot feedback and putting. Five bowling, four hunting and four
+dinosaur frames add actual actors, targeting/score information and encounters.</p>
+<p>These are other commercial games, not remastered versions of the requested
+arcade software. Their controls, rules, HUDs and performance are not inherited
+by this project. Different screenshots can show different sessions, characters
+and releases; they do not form an uninterrupted captured round.</p>
+<h3 id="source-titles-and-credits">Source titles and credits</h3>
+<table>
+<thead>
+<tr>
+<th>Board</th>
+<th>Credited source games</th>
+<th>Primary pages</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Golf</td>
+<td><strong>PGA TOUR 2K25</strong>, 2K; <strong>EA SPORTS PGA TOUR</strong>, Electronic Arts</td>
+<td><a href="https://store.steampowered.com/app/2385530/PGA_TOUR_2K25" target="_blank" rel="noopener noreferrer">2K25 official Steam listing</a>, <a href="https://newsroom.2k.com/resources/pga-tour-2k25-first-look-5" target="_blank" rel="noopener noreferrer">2K press asset</a>, <a href="https://store.steampowered.com/app/1677350/EA_SPORTS_PGA_TOUR" target="_blank" rel="noopener noreferrer">EA official Steam listing</a></td>
+</tr>
+<tr>
+<td>Bowling</td>
+<td><strong>PBA Pro Bowling 2026</strong> and <strong>PBA Pro Bowling 2023</strong>, FarSight Studios</td>
+<td><a href="https://store.steampowered.com/app/3127230/PBA_Pro_Bowling_2026" target="_blank" rel="noopener noreferrer">2026 official Steam listing</a>, <a href="https://store.steampowered.com/app/1595050/PBA_Pro_Bowling_2023" target="_blank" rel="noopener noreferrer">2023 official Steam listing</a></td>
+</tr>
+<tr>
+<td>Hunting</td>
+<td><strong>Way of the Hunter</strong>, Nine Rocks Games / THQ Nordic</td>
+<td><a href="https://store.steampowered.com/app/1288320/Way_of_the_Hunter/" target="_blank" rel="noopener noreferrer">Official Steam listing</a></td>
+</tr>
+<tr>
+<td>Dinosaur encounters</td>
+<td><strong>ARK: Survival Ascended</strong>, Studio Wildcard</td>
+<td><a href="https://store.steampowered.com/app/2399830/ARK_Survival_Ascended/" target="_blank" rel="noopener noreferrer">Official Steam listing</a></td>
+</tr>
+</tbody>
+</table>
+<p>Exact asset URLs, dates, dimensions, SHA-256 hashes, processing, alt text and
+stage associations live with the corresponding image in the canonical guide
+data: <a href="../games/golden-tee.json">golf</a>, <a href="../games/silver-strike.json">bowling</a>,
+<a href="../games/big-buck-hunter.json">hunting</a>, <a href="../games/jurassic-park.json">dinosaurs</a>.
+Attribution identifies the copyright holders; it does not grant a commercial
+asset license or permission to ship these images inside a product.</p>
+<h3 id="processing-and-interpretive-limits">Processing and interpretive limits</h3>
 <ul>
-<li><strong>Coastal links:</strong> textured rough and sand, modeled tree canopies and reflective
-  coastal water; a wide environment view and a separate approach-to-green view.</li>
-<li><strong>Quiet country:</strong> textured woodland floor and layered vegetation; two different
-  camera/timeline positions. The deer remains a simplified authored model.</li>
-<li><strong>The late lane:</strong> wood surface detail, lane reflections and architectural light;
-  a rolling-ball view and a separate authored pin-impact moment.</li>
-<li><strong>Deep time:</strong> ferns, vines, ground detail and atmospheric depth; two encounter
-  views. The dinosaur remains a simplified authored model.</li>
-<li><strong>Station views:</strong> proposed screen images perspective-composited onto original
-  room/control renders. They are not photographed installations or live games.
-  The prehistoric station retains the single mounted-mechanism study, not a
-  handheld-gun substitution or finished two-player assembly.</li>
+<li>Source screenshots are 1920 × 1080 WebP, quality 92. The 2K press image was
+  downsampled from 3840 × 2160; the other frames retain their source dimensions.
+  No upscaling, invented HUD, logo removal or generative alteration.</li>
+<li>HUD-free promotional screenshots are identified as such; their exact capture
+  mode is unconfirmed. A still does not prove animation quality, responsiveness,
+  frame rate, ray-tracing settings or a working arcade-control mapping.</li>
+<li>The golf putting image does not establish a holed putt. The bowling lane image
+  is before impact. The four-player bowling screen explicitly says FIRST SHOT;
+  it is not presented as a verified spare attempt. The other score/planning frame
+  carries SECOND SHOT. Captions describe those visible states rather than invent
+  a complete filmed sequence.</li>
+<li>Arcade walkthroughs distinguish documented controls from proposed cameras and
+  presentation feedback. Modern-game mechanics are not attributed to the arcade
+  originals. Original-release galleries remain available separately.</li>
 </ul>
-<p>Environment/detail captures are 1920 × 1080 pixels. Station/room composites are
-1920 × 1080, except the mounted-control image at 1920 × 1200. The control close-up
-is a 1400 × 870 crop; the shooter close-up is a 550 × 730 crop. WebP compression
-keeps the published images smaller without claiming new detail from upscaling.
-Image filenames are versioned so the new files cannot be confused with cached
-first-pass artwork. Existing commercial references remain separately labeled.</p>
-<h3 id="asset-credits">Asset credits</h3>
-<p>Original scene composition, furniture and animal geometry: After Hours concept
-study. Environmental models, HDR lighting and surface textures: Poly Haven,
-<a href="https://polyhaven.com/license" target="_blank" rel="noopener noreferrer">CC0</a>, with sources recorded during production:
+<h3 id="furnituredisplay-composites">Furniture/display composites</h3>
+<p>The furniture geometry is unchanged. The following are illustrative screen
+composites, not photographs, running games or evidence that these titles support
+the proposed controls:</p>
+<ul>
+<li><code>modern/room-benchmark.webp</code>: 1920 × 1080 room study; Way of the Hunter
+  <code>hunt-scope-track-deer</code> on the large screen, PGA TOUR 2K25 <code>golf-tee-setup</code> on
+  the trackball station.</li>
+<li><code>modern/room-play-benchmark.webp</code>: 1920 × 1080 alternate room study; the same
+  hunting reference plus PBA Pro Bowling 2026 <code>bowling-approach</code>.</li>
+<li><code>modern/shooter-benchmark.webp</code>: 550 × 730 crop of the first room composite.</li>
+<li><code>modern/jungle-station-benchmark.webp</code>: 1920 × 1200 mounted-control study;
+  ARK <code>jungle-carno-charge-ruins</code> on the partially visible display. The source
+  screenshot is perspective-composited; the furniture camera crops the screen.
+  Only one schematic mechanism is shown, not a finished two-player assembly.</li>
+<li><code>modern/controls-v2.webp</code>: retained 1400 × 870 physical control-deck study;
+  it makes no game-graphics claim.</li>
+</ul>
+<p>Room composition and furniture are the original After Hours design study.
+Earlier environmental studies used Poly Haven
+<a href="https://polyhaven.com/license" target="_blank" rel="noopener noreferrer">CC0 assets</a>:
 <a href="https://polyhaven.com/a/fern_02" target="_blank" rel="noopener noreferrer">fern</a>,
 <a href="https://polyhaven.com/a/rock_face_01" target="_blank" rel="noopener noreferrer">rock</a>,
 <a href="https://polyhaven.com/a/jacaranda_tree" target="_blank" rel="noopener noreferrer">tree</a>,
 <a href="https://polyhaven.com/a/forest_ground_04" target="_blank" rel="noopener noreferrer">forest ground</a>,
 <a href="https://polyhaven.com/a/grass_ground" target="_blank" rel="noopener noreferrer">grass</a>,
 <a href="https://polyhaven.com/a/sand_01" target="_blank" rel="noopener noreferrer">sand</a>,
-<a href="https://polyhaven.com/a/wood_floor" target="_blank" rel="noopener noreferrer">wood flooring</a>,
-and <a href="https://polyhaven.com/a/kloofendal_48d_partly_cloudy_puresky" target="_blank" rel="noopener noreferrer">HDR sky</a>.
-Rendering uses Three.js under its <a href="vendor/LICENSE">MIT license</a>.</p>
-<p>These images are original visual-development studies, not photorealistic AAA
-assets, measured performance targets, supported modifications to the named games,
-or evidence that any game has been reverse-engineered or run.</p>
+<a href="https://polyhaven.com/a/wood_floor" target="_blank" rel="noopener noreferrer">wood flooring</a>, and
+<a href="https://polyhaven.com/a/kloofendal_48d_partly_cloudy_puresky" target="_blank" rel="noopener noreferrer">HDR sky</a>.
+Rendering uses Three.js under its <a href="vendor/LICENSE">MIT license</a>.
+Those prior environment-only screens are not the current gameplay quality bar.</p>
 </main>
 </body>
 </html>

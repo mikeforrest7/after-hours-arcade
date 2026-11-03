@@ -12,11 +12,13 @@
     "reason": "The 2009 kit manual is the most detailed primary source for this family's exact button labels and scoring rules; this build's own research already treats the classic offline game as a sourcing path distinct from the League Night reboot.",
     "caveat": "No release is selected or running here. The gallery's 2004 flyer predates the 2009 kit manual. Practical swing/setup tips come from an older community guide, not a verified 2009 playthrough; they are identified below and require a selected-release check."
   },
-  "heroMediaId": "bowling-modern-environment",
+  "heroMediaId": "bowling-approach",
   "media": [
-    {"id":"bowling-modern-environment","role":"concept","view":"environment","src":"../visuals/modern/bowling-environment-v2.webp","kind":"Original concept","release":"The late lane — proposed bowling art direction","alt":"Original bowling-lane view with reflective wood, architectural strip lighting and a patterned ball traveling toward the pins.","caption":"The proposed bowling world uses wood surface detail, lane reflections and architectural lighting. It is original visual development, not Silver Strike footage.","credit":"After Hours original 3D study; CC0 surface assets credited in the visual manifest.","sourceId":"after-hours-modern","assetUrl":"../visuals/modern/bowling-environment-v2.webp","processing":"Clean 1920 × 1080 WebGL scene capture exported as WebP; no commercial screenshot was filtered.","width":1920,"height":1080,"retrievedAt":"2026-11-02"},
-    {"id":"bowling-modern-detail","role":"concept","view":"detail","src":"../visuals/modern/bowling-detail-v2.webp","kind":"Original concept","release":"The late lane — pin-impact moment","alt":"Closer view down the reflective lane as the ball reaches the pins and the pin arrangement breaks apart.","caption":"The pin-impact composition gives the proposed payoff its own view. Pin motion is authored for the concept film, not a demonstrated bowling-physics simulation.","credit":"After Hours original 3D study; CC0 surface assets credited in the visual manifest.","sourceId":"after-hours-modern","assetUrl":"../visuals/modern/bowling-detail-v2.webp","processing":"Separate clean WebGL timeline capture of the impact moment; not a crop of the lane image.","width":1920,"height":1080,"retrievedAt":"2026-11-02"},
-    {"id":"bowling-modern-station","role":"concept","view":"station","src":"../visuals/modern/bowling-station-v2.webp","kind":"Original concept","release":"Bowling in the room — trackball display concept","alt":"Original room concept with the new reflective bowling lane composited onto the trackball station display.","caption":"The proposed landscape bowling scene paired with a full-size trackball station. This is not the portrait-format League Night product or evidence of original-game compatibility.","credit":"After Hours original room and screen composite.","sourceId":"after-hours-modern","assetUrl":"../visuals/modern/bowling-station-v2.webp","processing":"Perspective-composited original scene on a concept display; not a photographed or running product.","width":1920,"height":1080,"retrievedAt":"2026-11-02"},
+    {"id":"bowling-approach","src":"media/modern/bowling-01-approach.webp","kind":"Official promotional screenshot; capture mode unconfirmed","release":"PBA Pro Bowling 2026 (FarSight Studios, PC/console, released Dec 2025)","alt":"Seen from behind, a bowler holds the ball at his chest on the approach of a custom underwater-themed lane, pins standing at the far end, numbered lane markers and a seated gallery to the right.","caption":"A visible bowler setting up on an underwater-themed lane. Player posture, lane reflections and pins provide a clear approach-view benchmark.","credit":"FarSight Studios (official PBA Pro Bowling 2026 Steam store screenshot gallery)","sourceId":"pba-pro-bowling-2026-steam","assetUrl":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3127230/3dd6e52c7fd2d2f2278978ec425ed761dd68082c/ss_3dd6e52c7fd2d2f2278978ec425ed761dd68082c.1920x1080.jpg","processing":"Downloaded at the native 1920×1080 Steam store-gallery resolution; resaved as WebP (quality 92) with no crop, retouching, HDR fakery, or upscaling.","width":1920,"height":1080,"sha256":"d6f142592adcf5632432ec3d61d0ef4bf0379abc416ad55328125c138bcc0103","retrievedAt":"2026-11-02","view":"pre-approach stance","stageIds":["bowler-and-approach"],"role":"benchmark"},
+    {"id":"bowling-backswing-roll","src":"media/modern/bowling-02-backswing-roll.webp","kind":"Official promotional screenshot; capture mode unconfirmed","release":"PBA Pro Bowling 2026 (FarSight Studios, PC/console, released Dec 2025)","alt":"A named pro bowler in a purple jersey is captured mid-delivery with his bowling arm fully extended behind him and the ball still in hand, a seated opponent watching from a courtside sofa behind him.","caption":"Close view of the bowler during delivery, ball still in hand. Useful for readable body motion and character detail; this is not the moment the ball leaves the hand.","credit":"FarSight Studios (official PBA Pro Bowling 2026 Steam store screenshot gallery)","sourceId":"pba-pro-bowling-2026-steam","assetUrl":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3127230/a3c85ecbb3be45f11e2eba3f2d6603c153992a85/ss_a3c85ecbb3be45f11e2eba3f2d6603c153992a85.1920x1080.jpg","processing":"Downloaded at the native 1920×1080 Steam store-gallery resolution; resaved as WebP (quality 92) with no crop, retouching, HDR fakery, or upscaling.","width":1920,"height":1080,"sha256":"5b1e6c4eba130367fc2f7dc75d7c2028b8cc238d8c9812b2e1b36b2c07a39fab","retrievedAt":"2026-11-02","view":"release / follow-through close-up","stageIds":["backswing-and-roll"],"role":"benchmark"},
+    {"id":"bowling-lane-impact","src":"media/modern/bowling-03-lane-impact.webp","kind":"Gameplay screenshot","release":"PBA Pro Bowling 2023 (FarSight Studios, PC/console, released Sep 7 2022)","alt":"Down-the-lane camera view of a red ball already rolling roughly a third of the way toward a full standing rack of ten pins; a speed readout at the bottom of the screen shows 14.5 MPH with directional nudge arrows.","caption":"Ball rolling toward standing pins with a 14.5 MPH speed readout. This is the lane-travel phase, before impact—not a captured strike.","credit":"FarSight Studios (official PBA Pro Bowling 2023 Steam store screenshot gallery)","sourceId":"pba-pro-bowling-2023-steam","assetUrl":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1595050/ss_1352fa70452cf079e2839610bda562019a4202ef.1920x1080.jpg","processing":"Downloaded at the native 1920×1080 Steam store-gallery resolution; resaved as WebP (quality 92) with no crop, retouching, HDR fakery, or upscaling.","width":1920,"height":1080,"sha256":"3a8e9964f43816e5ee841dba3af8584cc677106c4c563b47627eb250d6fe976c","retrievedAt":"2026-11-02","view":"ball-in-lane speed HUD","stageIds":["lane-and-impact"],"role":"benchmark"},
+    {"id":"bowling-leave-spare","src":"media/modern/bowling-04-leave-spare.webp","kind":"Gameplay screenshot","release":"PBA Pro Bowling 2026 (FarSight Studios, PC/console, released Dec 2025)","alt":"Behind-the-bowler view with standing pins, a four-player score list, and an oil-pattern aiming panel explicitly labeled FIRST SHOT.","caption":"Four-player scores beside an aiming view and pin/oil-pattern panel. The source explicitly says FIRST SHOT; it is not evidence of a second-ball spare attempt.","credit":"FarSight Studios (official PBA Pro Bowling 2026 Steam store screenshot gallery)","sourceId":"pba-pro-bowling-2026-steam","assetUrl":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3127230/6a3d113b138e1009f0677d17b836f01f4b322e3d/ss_6a3d113b138e1009f0677d17b836f01f4b322e3d.1920x1080.jpg","processing":"Downloaded at the native 1920×1080 Steam store-gallery resolution; resaved as WebP (quality 92) with no crop, retouching, HDR fakery, or upscaling.","width":1920,"height":1080,"sha256":"2858cc48048fc5ddd66bc81cfda11a1ad221ed105da8e6e2db05cb0832dc80e8","retrievedAt":"2026-11-02","view":"party-score-and-aim","stageIds":["marks-and-session"],"role":"benchmark"},
+    {"id":"bowling-marks-session","src":"media/modern/bowling-05-marks-session.webp","kind":"Gameplay screenshot","release":"PBA Pro Bowling 2026 (FarSight Studios, PC/console, released Dec 2025)","alt":"A head-to-head match scoreboard over a Frame-5 game view: Kyle Troup leads 279 with four strikes in a row (X X X X) followed by a 9/ spare, against EJ Tackett's 248 with a 7/ spare, a strike, and open frames; a breakpoint-board/oil-pattern panel on the right reads Oil Pattern: Tackett, Pattern Length: 44ft.","caption":"Head-to-head scorecards, strike/spare marks and a SECOND SHOT planning panel. An example of presenting scoring and the next decision together—not Silver Strike software.","credit":"FarSight Studios (official PBA Pro Bowling 2026 Steam store screenshot gallery)","sourceId":"pba-pro-bowling-2026-steam","assetUrl":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3127230/9e38040b59b4448cccdc20626f193868d3fd556e/ss_9e38040b59b4448cccdc20626f193868d3fd556e.1920x1080.jpg","processing":"Downloaded at the native 1920×1080 Steam store-gallery resolution; resaved as WebP (quality 92) with no crop, retouching, HDR fakery, or upscaling.","width":1920,"height":1080,"sha256":"a3b7ba7255a9bb6a7e0d94e5dca01674c74541b4414f6eac86a1fb1c91603d50","retrievedAt":"2026-11-02","view":"match scoreboard + oil-pattern panel","stageIds":["leave-and-spare","marks-and-session"],"role":"benchmark"},
     {
       "id": "ss-cabinet",
       "src": "media/silver-strike/ss-01-cabinet.jpg",
@@ -192,6 +194,78 @@
       ]
     }
   ],
+  "gameplayStoryboard": {
+    "summary": "Five-stage walkthrough of one frame, approach through mark, built from the 2009 kit's documented panel (SS3) with practical swing detail drawn from an older, uncertified community guide (SS7) — the same source and the same caveat this file's own Release Notes already carry. Camera direction is proposed presentation for a current-tech rebuild; the backswing-then-forward-roll gesture and Overhead's reset behavior are described with the same selected-release-pending caveat used elsewhere in this file.",
+    "stages": [
+      {
+        "id": "bowler-and-approach",
+        "title": "Pick a bowler, ball weight, and set the approach",
+        "playerAction": "Player selects a bowler and one of five documented ball weights, then — per an older community guide, not yet confirmed against the certified 2009 release — holds Overhead while repositioning the approach.",
+        "camera": "Proposed presentation: behind-the-bowler approach camera with the lane and pin deck receding ahead, matching the flyer's bowler-selection framing.",
+        "onScreen": [
+          "Ball-weight (lbs) indicator (documented HUD, SS1)",
+          "Spare Difficulty readout set at bowler-select (documented HUD, SS1)",
+          "Bowler-selection screen (documented, SS1 flyer)"
+        ],
+        "feedback": "The selected bowler, ball weight and Spare Difficulty are locked in before the first roll.",
+        "decision": "Player picks a bowler/weight pairing and an approach position; Overhead is available to reset a mistaken backswing before it counts as a real roll.",
+        "sourceIds": ["SS1", "SS3", "SS7"]
+      },
+      {
+        "id": "backswing-and-roll",
+        "title": "Draw back, then roll forward",
+        "playerAction": "Player performs a trackball backswing followed by a forward roll. An older community guide warns that skipping the backswing produces a slow, weak ball; this exact input sequence is not independently certified for the 2009 release and needs verification.",
+        "camera": "Proposed presentation: low lane-level camera tracking the bowler's arm swing and release, framed to leave the player's own follow-through clear of the monitor, per the manufacturer's install warning.",
+        "onScreen": [
+          "No separate power meter — the documented gesture itself (backswing distance plus forward roll) is the only input (community-guide description, SS7)",
+          "Rotate Left/Right buttons remain available; their exact in-play effect is unconfirmed on the selected build (SS3)"
+        ],
+        "feedback": "A full backswing into a forward roll produces a stronger ball than a skipped backswing, per the community guide's warning.",
+        "decision": "Player commits to a line, weight and swing strength before release; Overhead's reset only works before the forward roll, not after.",
+        "sourceIds": ["SS3", "SS7"]
+      },
+      {
+        "id": "lane-and-impact",
+        "title": "Ball path down the lane and pin impact",
+        "playerAction": "No further input. The player and the group watch the ball travel down the lane toward the pins.",
+        "camera": "Proposed presentation: continuous chase camera following the ball from release to the pin deck, holding the full pin rack in frame through impact.",
+        "onScreen": [
+          "Lane and scoreboard remaining visible to the whole group between rolls (documented shared-screen format, SS1)",
+          "A SPARE, STRIKE or X-X Double full-screen callout interrupting the lane view on a mark (documented HUD event, SS1)"
+        ],
+        "feedback": "The pin result is shown immediately on the one screen the whole table is watching, not hidden behind a private readout.",
+        "decision": "None for the active player; the rest of the table reads the result to judge the next bowler's shot.",
+        "sourceIds": ["SS1"]
+      },
+      {
+        "id": "leave-and-spare",
+        "title": "Read the leave, plan the spare",
+        "playerAction": "If pins remain, the player reads which pins are left and repositions for a spare attempt rather than repeating the first roll's line.",
+        "camera": "Proposed presentation: cut to a close pin-deck framing showing exactly which pins survived, then back to the bowler for the second approach.",
+        "onScreen": [
+          "PLR1/PLR2 scoreboard strip updating frame-by-frame (documented HUD, SS1)",
+          "Remaining pin arrangement shown on a dedicated spare screen (documented, SS1)"
+        ],
+        "feedback": "The spare screen and scoreboard together tell the player exactly what the second roll needs to clear.",
+        "decision": "Player chooses a new line and ball weight for the spare attempt based on the pins left standing.",
+        "sourceIds": ["SS1"]
+      },
+      {
+        "id": "marks-and-session",
+        "title": "Chase marks; draw cards if Vegas Bowling is on",
+        "playerAction": "Player continues through the game or configured contest. If Vegas Bowling is enabled, every mark — spare or strike — also draws a playing card toward the best poker hand of the session.",
+        "camera": "Proposed presentation: insert shot on the drawn card layered over the lane view when Vegas Bowling triggers; otherwise continue on the standard scoreboard framing.",
+        "onScreen": [
+          "Mark card draw overlay, shown only when Vegas Bowling is enabled (documented mode, SS1/SS3/SS5)",
+          "Running frame-by-frame scoreboard for every player at the table (documented HUD, SS1)"
+        ],
+        "feedback": "A mark either simply banks score, or — with Vegas Bowling on — also improves the table's shared poker-hand side game.",
+        "decision": "The operator's configuration already decided whether marks only score or also feed Vegas Bowling; the player's job is to keep striking and sparing.",
+        "sourceIds": ["SS1", "SS3", "SS5"]
+      }
+    ]
+  },
+
   "signatureMoments": [
     {
       "title": "The mark earns a card",
@@ -320,7 +394,8 @@
     }
   ],
   "sources": [
-    {"id":"after-hours-modern","title":"After Hours — modern image release, processing and asset credits","url":"https://mikeforrest7.github.io/after-hours-arcade/studio/visuals/MANIFEST.html#modern-image-release","publisher":"After Hours original concept study","accessed":"2026-11-02"},
+    {"id":"pba-pro-bowling-2026-steam","title":"PBA Pro Bowling 2026 — Steam store page","url":"https://store.steampowered.com/app/3127230/PBA_Pro_Bowling_2026","publisher":"FarSight Studios","accessed":"2026-11-02"},
+    {"id":"pba-pro-bowling-2023-steam","title":"PBA Pro Bowling 2023 — Steam store page","url":"https://store.steampowered.com/app/1595050/PBA_Pro_Bowling_2023","publisher":"FarSight Studios","accessed":"2026-11-02"},
     {
       "id": "SS1",
       "title": "Silver Strike Bowling sales flyer (2 pages)",

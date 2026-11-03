@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "title": "Modernization Feasibility: Hardware, Renderer and Reverse Engineering",
   "headline": "Modern hardware can improve the experience. Genuine new visual detail needs a proven renderer path and new content.",
-  "thesis": "Yes: we can modernize the display, controls and room experience. Higher-detail game graphics are a separate job, requiring a proven renderer or asset-upgrade path, or a new engine. None of the four selected releases has a tested remaster path in this project.",
-  "recommendation": "Prove the original games first, then measure the display and input upgrades. Investigate renderer access on each exact release without assuming success or failure. Treat a modern-engine game, whether original IP or a rights-cleared remaster, as a separate budget and development decision. The concept film illustrates that ambition; it does not demonstrate a working remaster.",
+  "thesis": "Detailed characters and animals. Convincing materials and light. A camera that shows the action, with readable shot, target and result information. The modern-game reference boards establish that visual standard—not a promise that emulating the original games produces it.",
+  "recommendation": "Preserve the arcade interaction first. Use the credited modern screenshots as an art and camera benchmark, not as interchangeable software. A matching modern-engine game or rights-cleared remaster requires its own assets, animation, physics, gameplay UI and performance proof; no such working build has been demonstrated here.",
   "tiers": [
     {
       "id": "presentation",

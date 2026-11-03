@@ -12,11 +12,12 @@
     "reason": "Raw Thrills' own 2023 operator's manual, two independent player reviews, and the manufacturer's gun-assembly parts drawings together document this release's control hardware, gameplay loop, and penalties more completely than any other Jurassic Park arcade title.",
     "caveat": "Sega's 1994 System 32 and 1997 Model 3 titles use different control hardware and are referenced only to distinguish them, never as substitutes; cabinet-variant differences are in Release Notes. No cabinet has been selected for the build, and no game has been run, emulated, or measured here."
   },
-  "heroMediaId": "jungle-modern-environment",
+  "heroMediaId": "jungle-rex-breaches-wall",
   "media": [
-    {"id":"jungle-modern-environment","role":"concept","view":"environment","src":"../visuals/modern/jungle-environment-v2.webp","kind":"Original concept","release":"Deep time — proposed prehistoric art direction","alt":"Original misty prehistoric woodland with textured ground, ferns, hanging vines and an authored dinosaur model.","caption":"The proposed environment adds layered vegetation, textured ground, vines and atmospheric depth. The dinosaur remains a simplified original model; this is not Jurassic Park footage or a photoreal remaster.","credit":"After Hours original 3D study; CC0 environmental assets credited in the visual manifest.","sourceId":"after-hours-modern","assetUrl":"../visuals/modern/jungle-environment-v2.webp","processing":"Clean 1920 × 1080 WebGL scene capture exported as WebP; no commercial screenshot was filtered.","width":1920,"height":1080,"retrievedAt":"2026-11-02"},
-    {"id":"jungle-modern-detail","role":"concept","view":"detail","src":"../visuals/modern/jungle-detail-v2.webp","kind":"Original concept","release":"Deep time — creature encounter","alt":"Later camera position in the fern-covered woodland, with the dinosaur crossing the route and foreground plants framing the view.","caption":"A separate encounter moment shows movement through the environment. Creature realism, hit response and cooperative gameplay still require a real game-development and playtest pass.","credit":"After Hours original 3D study; CC0 environmental assets credited in the visual manifest.","sourceId":"after-hours-modern","assetUrl":"../visuals/modern/jungle-detail-v2.webp","processing":"Separate clean WebGL timeline capture; not an enlarged copy of the environment view.","width":1920,"height":1080,"retrievedAt":"2026-11-02"},
-    {"id":"jungle-modern-station","role":"concept","view":"station","src":"../visuals/modern/jungle-station-v2.webp","kind":"Original concept","release":"Prehistoric world — mounted-control study","alt":"Single mounted two-axis control mechanism in front of a display composited with the new prehistoric woodland scene.","caption":"The new scene paired with the existing mounted-control study, not handheld guns. Only one schematic mechanism is shown; this is not the final two-player assembly or verified original I/O.","credit":"After Hours original mounted-control render and screen composite.","sourceId":"after-hours-modern","assetUrl":"../visuals/modern/jungle-station-v2.webp","processing":"Perspective-composited screen within the existing mechanism study; geometry unchanged, image resized to 1920 × 1200.","width":1920,"height":1200,"retrievedAt":"2026-11-02"},
+    {"id":"jungle-rex-breaches-wall","src":"media/modern/jungle-rex-breaches-wall.webp","kind":"Official promotional screenshot; capture mode unconfirmed","release":"ARK: Survival Ascended (Studio Wildcard; PC, Early Access; released Oct 25, 2023)","alt":"A Tyrannosaurus rex smashes its open jaws through a player-built wooden palisade wall, sending splintered logs flying, while a line of survivors — one with a bow drawn — react from the foreground.","caption":"A large T. rex breaks through a defensive wall while survivors react. A boss-scale encounter benchmark—not Jurassic Park footage or a captured fight from this project.","credit":"Studio Wildcard — official Steam store screenshot","sourceId":"asa-steam","assetUrl":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2399830/ss_35186898f5260a406f934132a211df6e53f39843.1920x1080.jpg?t=1793226168","processing":"Downloaded at native 1920×1080 from Steam's official store CDN; re-encoded to WebP (quality 92) with no crop, resize, upscale or HDR processing.","width":1920,"height":1080,"sha256":"9fee34dffe923bd6ad3f62ec568ca47ad30f10b9da4e5bd56d9d958809fb4507","retrievedAt":"2026-11-02","view":"boss-threat","stageIds":["boss-encounter"],"role":"benchmark"},
+    {"id":"jungle-carno-charge-ruins","src":"media/modern/jungle-carno-charge-ruins.webp","kind":"Official promotional screenshot; capture mode unconfirmed","release":"ARK: Survival Ascended (Studio Wildcard; PC, Early Access; released Oct 25, 2023)","alt":"Red theropod running with jaws open through misty, overgrown ruins; no player weapon or HUD is shown.","caption":"A red theropod running through overgrown ruins, jaws open. Official promotional screenshot without a visible weapon or HUD; useful for creature detail and threat framing, not proof of an arcade shooting mechanic.","credit":"Studio Wildcard — official Steam store screenshot","sourceId":"asa-steam","assetUrl":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2399830/ss_599b2c610d32e54c193eef045d3e89efbcb187cd.1920x1080.jpg?t=1793226168","processing":"Downloaded at native 1920×1080 from Steam's official store CDN; re-encoded to WebP (quality 92) with no crop, resize, upscale or HDR processing.","width":1920,"height":1080,"sha256":"6dff47c043d32197ee79b8fc571225e12793fa2d48fa2157cb31bafc2c6bdd2b","retrievedAt":"2026-11-02","view":"solo-threat","stageIds":["fire-and-identify"],"role":"benchmark"},
+    {"id":"jungle-group-confronts-threat","src":"media/modern/jungle-group-confronts-threat.webp","kind":"Official promotional screenshot; capture mode unconfirmed","release":"ARK: Survival Ascended (Studio Wildcard; PC, Early Access; released Oct 25, 2023)","alt":"Three survivors stand in a shallow jungle river, one with a bow drawn, facing a spined, carnivorous dinosaur that has reared up out of the water roaring with its mouth open.","caption":"Survivors with bows face a dinosaur emerging from the water. Actor, weapon and threat share the frame; ARK co-op movement and weapons are separate from Jurassic Park Arcade controls.","credit":"Studio Wildcard — official Steam store screenshot","sourceId":"asa-steam","assetUrl":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2399830/ss_605387fbf8257c111978ed900f3346ef350fc236.1920x1080.jpg?t=1793226168","processing":"Downloaded at native 1920×1080 from Steam's official store CDN; re-encoded to WebP (quality 92) with no crop, resize, upscale or HDR processing.","width":1920,"height":1080,"sha256":"4c7149a6af348c96444171aa7b35211c5bb4131731bd8bb4c851409777fc61a5","retrievedAt":"2026-11-02","view":"encounter","stageIds":["fire-and-identify"],"role":"benchmark"},
+    {"id":"jungle-raptor-pack-charge","src":"media/modern/jungle-raptor-pack-charge.webp","kind":"Official promotional screenshot; capture mode unconfirmed","release":"ARK: Survival Ascended (Studio Wildcard; PC, Early Access; released Oct 25, 2023)","alt":"Two detailed, armored and spined theropod creatures advancing through sunlit rubble; no weapon or HUD is shown.","caption":"Two detailed, spined theropod creatures advance through rubble. A multiple-threat composition; no grenade use, arcade hit response or original Jurassic Park species is established by this still.","credit":"Studio Wildcard — official Steam store screenshot","sourceId":"asa-steam","assetUrl":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2399830/ss_95f986746c29408263f0fd8f7e572b0413b1417a.1920x1080.jpg?t=1793226168","processing":"Downloaded at native 1920×1080 from Steam's official store CDN; re-encoded to WebP (quality 92) with no crop, resize, upscale or HDR processing.","width":1920,"height":1080,"sha256":"a4031decd3965f709104a2c2f6833eb3c369589e45050ce5b2e6ab0259a3af59","retrievedAt":"2026-11-02","view":"swarm-threat","stageIds":["grenade-swarm"],"role":"benchmark"},
     {
       "id": "jp-cabinet-photo",
       "src": "media/jurassic-park/cabinet-photo-2015.jpg",
@@ -179,6 +180,77 @@
       "sourceIds": ["JP4"]
     }
   ],
+  "gameplayStoryboard": {
+    "summary": "Five-stage walkthrough of one mission encounter, from mission select through a boss spectacle, built from Raw Thrills' own 2023 operator's manual (JP1) and two independent player reviews (JP4, JP5). Camera direction keeps the on-screen reticle locked to the gun's true physical position, consistent with the documented two-potentiometer, no-confirmed-return-spring mechanism; it does not add handheld relative-aim behavior this hardware does not have.",
+    "stages": [
+      {
+        "id": "mission-select",
+        "title": "Choose a mission, join solo or two-player",
+        "playerAction": "Player, or two players each with an independently aimed gun, selects one of nine levels across three story arcs; a 2015 review describes choosing a level without first completing earlier ones.",
+        "camera": "Proposed presentation: mission-select screen framing both gun positions when two-player, with the chosen arc/level highlighted.",
+        "onScreen": [
+          "Mission/level select grouped into three three-level story arcs (documented structure, JP1/JP3)",
+          "Two-player indicator when a second gun is active (documented, JP3/JP5)"
+        ],
+        "feedback": "The chosen level loads its own short, automatically advancing scene rather than an open level.",
+        "decision": "Player(s) choose a short episode or a longer run through the arc to match the time the group has.",
+        "sourceIds": ["JP1", "JP3", "JP5"]
+      },
+      {
+        "id": "push-to-aim",
+        "title": "Grip and push the mounted gun to track a target",
+        "playerAction": "Player grips the mounted two-handled gun and pivots it within its mechanical travel range — a true two-axis positional read from a potentiometer on each axis, not a relative-motion pointing gun — to track a moving dinosaur or threat through the automatically advancing scene.",
+        "camera": "Proposed presentation: first-person vehicle/jungle-path camera matching the gun's physical aim, so the on-screen reticle always corresponds to the gun's real angle, including at both mechanical end-stops.",
+        "onScreen": [
+          "Reticle following the gun's true physical position (documented two-potentiometer mechanism, JP1)",
+          "On-screen mission prompts telling the player when and where to shoot an incoming threat (documented, JP4)"
+        ],
+        "feedback": "The reticle's position always matches the gun's physical angle, including at the mechanical stop bumpers, so aim never drifts from the hardware.",
+        "decision": "Player prioritizes which of several on-screen threats to track first, guided by the mission prompts.",
+        "sourceIds": ["JP1", "JP4"]
+      },
+      {
+        "id": "fire-and-identify",
+        "title": "Fire the tranquilizer; avoid the colleague",
+        "playerAction": "Player pulls the trigger to fire the unlimited-ammo primary tranquilizer at a dinosaur target. Shooting a stranded human colleague by mistake costs health instead of landing a hit.",
+        "camera": "Proposed presentation: hold on the target through the shot, keeping any stranded colleague visible in frame so the misfire risk is readable before the player commits.",
+        "onScreen": [
+          "No ammo/reload counter — primary fire is unlimited and reload-free (documented, JP4/JP5)",
+          "Colleague/NPC hit feedback shown distinctly from a dinosaur hit (documented, JP3)"
+        ],
+        "feedback": "A dinosaur hit registers as a tranquilizer strike; a colleague hit visibly costs the player health instead.",
+        "decision": "Player must identify dinosaur versus colleague before firing, since there is no reload cycle to create a pause for a second look.",
+        "sourceIds": ["JP3", "JP4", "JP5"]
+      },
+      {
+        "id": "grenade-swarm",
+        "title": "Throw a grenade into a swarm or opening",
+        "playerAction": "Player presses the grip's large thumb button — separate from the trigger — to throw one grenade from a strictly limited supply, typically saved for a swarm moment or a boss opening.",
+        "camera": "Proposed presentation: pull back slightly to show the wider threat — a swarm or a boss's vulnerable moment — that justifies spending a limited grenade.",
+        "onScreen": [
+          "Grenade/special-weapon count ticking down with each throw (documented HUD, JP4)",
+          "Ambrosia collectible pickup visible in the environment, separate from the threat (documented HUD, JP4)"
+        ],
+        "feedback": "The grenade count drops by one and the thrown grenade visibly clears or damages the swarm/boss target it was aimed at.",
+        "decision": "Player decides whether this moment is worth spending a finite grenade or worth saving for the arc's boss.",
+        "sourceIds": ["JP4"]
+      },
+      {
+        "id": "boss-encounter",
+        "title": "Boss spectacle: Triceratops, Tyrannosaurus, Spinosaurus",
+        "playerAction": "Player applies the same push-to-aim, fire and grenade actions against one of the three story-arc boss dinosaurs, confirmed by Raw Thrills' own promotional imagery and the 2015 review's description of the second arc's T-Rex antagonist.",
+        "camera": "Proposed presentation: pull-back framing holding the full-scale boss dinosaur in view against the player's vehicle, matching the scale shown in Raw Thrills' own pre-release promotional imagery (labeled there as a render, not a live HUD capture).",
+        "onScreen": [
+          "Boss dinosaur filling a large portion of frame, confirming scale (documented via promotional imagery, JP6, and review description, JP4/JP5)",
+          "On the Motion DLX cabinet only, a seat-stomp effect timed to the boss's movement (documented motion-cabinet-specific feature, JP4) — absent on the Environmental SD cabinet referenced elsewhere in this file"
+        ],
+        "feedback": "Successive hits on the boss visibly change its behavior and proximity, building toward the arc's resolution.",
+        "decision": "Player balances unlimited tranquilizer fire against spending a grenade at the boss's most open moment.",
+        "sourceIds": ["JP4", "JP5", "JP6"]
+      }
+    ]
+  },
+
   "signatureMoments": [
     {
       "title": "The Triceratops charge",
@@ -266,7 +338,7 @@
     }
   ],
   "sources": [
-    {"id":"after-hours-modern","title":"After Hours — modern image release, processing and asset credits","url":"https://mikeforrest7.github.io/after-hours-arcade/studio/visuals/MANIFEST.html#modern-image-release","publisher":"After Hours original concept study","accessed":"2026-11-02"},
+    {"id":"asa-steam","title":"ARK: Survival Ascended on Steam","url":"https://store.steampowered.com/app/2399830/ARK_Survival_Ascended/","publisher":"Studio Wildcard (developer/publisher), via Steam","accessed":"2026-11-02"},
     { "id": "JP1", "title": "Jurassic Park Arcade — Operator's Manual, PN 040-00044-01 (rev 07/25/2023)", "url": "https://rawthrills.com/wp-content/uploads/2023/08/JP-Manual-r11.pdf", "publisher": "Raw Thrills, Inc.", "accessed": "2026-11-02" },
     { "id": "JP2", "title": "Jurassic Park Arcade", "url": "https://rawthrills.com/games/jurassic-park-arcade/", "publisher": "Raw Thrills, Inc.", "accessed": "2026-11-02" },
     { "id": "JP3", "title": "Jurassic Park Arcade", "url": "https://en.wikipedia.org/wiki/Jurassic_Park_Arcade", "publisher": "Wikipedia", "accessed": "2026-11-02" },

@@ -12,11 +12,12 @@
     "reason": "Chosen within the Big Buck Hunter family for the richest verifiable source set found — a full operator manual, a real cabinet photo, and version-matched screenshots, not because a build was pre-selected.",
     "caveat": "Earlier single-gun titles in this family differ in content, and Big Buck Hunter Pro onward (2006, Raw Thrills) is a two-gun generation (see Release Notes). No cabinet or software version has been chosen, and no game has been run, emulated, or measured here."
   },
-  "heroMediaId": "hunt-modern-environment",
+  "heroMediaId": "hunt-scope-track-deer",
   "media": [
-    {"id":"hunt-modern-environment","role":"concept","view":"environment","src":"../visuals/modern/hunt-environment-v2.webp","kind":"Original concept","release":"Quiet country — proposed hunting art direction","alt":"Original woodland scene with a deer, detailed tree canopies, textured forest floor and low vegetation.","caption":"The proposed woodland environment uses textured ground, layered foliage and atmospheric depth. The animal remains a simplified authored model, not a photorealistic asset or Big Buck Hunter capture.","credit":"After Hours original 3D study; CC0 environmental assets credited in the visual manifest.","sourceId":"after-hours-modern","assetUrl":"../visuals/modern/hunt-environment-v2.webp","processing":"Clean 1920 × 1080 WebGL scene capture exported as WebP; no commercial screenshot was filtered.","width":1920,"height":1080,"retrievedAt":"2026-11-02"},
-    {"id":"hunt-modern-detail","role":"concept","view":"detail","src":"../visuals/modern/hunt-detail-v2.webp","kind":"Original concept","release":"Quiet country — target movement and sightline","alt":"Closer woodland camera position with the deer moving across the clearing and detailed vegetation behind it.","caption":"A later timeline position shows the moving target against the foliage. Target readability, animation fidelity and aiming latency still need an actual gameplay prototype.","credit":"After Hours original 3D study; CC0 environmental assets credited in the visual manifest.","sourceId":"after-hours-modern","assetUrl":"../visuals/modern/hunt-detail-v2.webp","processing":"Separate clean WebGL timeline capture; not a magnified copy of the wide view.","width":1920,"height":1080,"retrievedAt":"2026-11-02"},
-    {"id":"hunt-modern-station","role":"concept","view":"station","src":"../visuals/modern/hunt-station-v2.webp","kind":"Original concept","release":"Hunting in the room — shooter display concept","alt":"Wood-and-charcoal shooter station with the new woodland scene composited onto its large wall display.","caption":"Proposed display-and-control setting. The two storage positions do not establish two-player compatibility; the selected game determines whether players alternate or play simultaneously.","credit":"After Hours original room and screen composite.","sourceId":"after-hours-modern","assetUrl":"../visuals/modern/hunt-station-v2.webp","processing":"Perspective-composited original scene on a concept display; not a photograph or a working game installation.","width":1920,"height":1080,"retrievedAt":"2026-11-02"},
+    {"id":"hunt-scope-track-deer","src":"media/modern/hunt-scope-track-deer.webp","kind":"Official Steam store screenshot","release":"Way of the Hunter (Nine Rocks Games / THQ Nordic; PC; released Aug 16, 2022)","alt":"First-person view through a 7x hunting riflescope reticle, with a deer standing partly obscured among distant forest trees; a zeroing-distance and zoom-level readout sits above the scope.","caption":"Deer in the riflescope, with aiming, range/zoom and ammunition information. Preserve the readable target; the scope and ballistic controls belong to Way of the Hunter, not Big Buck Hunter.","credit":"Nine Rocks Games / THQ Nordic — official Steam store screenshot","sourceId":"woh-steam","assetUrl":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1288320/ss_37fb149a366a8250d60542f0fb56068ad79f520b.1920x1080.jpg?t=1774533447","processing":"Downloaded at native 1920×1080 from Steam's official store CDN; re-encoded to WebP (quality 92) with no crop, resize, upscale or HDR processing.","width":1920,"height":1080,"sha256":"7e169cd35ba9b0b792beec9daeca79f8e1a874f8f51c2c36d5ff6bc85939e031","retrievedAt":"2026-11-02","view":"scope-aim","stageIds":["raise-and-track"],"role":"benchmark"},
+    {"id":"hunt-species-id-hud","src":"media/modern/hunt-species-id-hud.webp","kind":"Official Steam store screenshot","release":"Way of the Hunter (Nine Rocks Games / THQ Nordic; PC; released Aug 16, 2022)","alt":"First-person view down a rifle barrel and gloved hands aiming into a forest, with a 'Sound Analysis' panel reading Animal species: Red deer, Sex: Female, Behaviour: Calm, Distance: 100 m, and a blurred deer partly visible through the trees.","caption":"First-person rifle view with species, sex, behaviour and distance information. This illustrates target-identification feedback; the sound-analysis system is not an arcade feature claim.","credit":"Nine Rocks Games / THQ Nordic — official Steam store screenshot","sourceId":"woh-steam","assetUrl":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1288320/ss_ded2068748afd6bfd0acc9ad228fd96617534461.1920x1080.jpg?t=1774533447","processing":"Downloaded at native 1920×1080 from Steam's official store CDN; re-encoded to WebP (quality 92) with no crop, resize, upscale or HDR processing.","width":1920,"height":1080,"sha256":"76741f9f3bdab3d2da732c85d83dd344a7013cee39d932c0ffd46dbd2eacdf60","retrievedAt":"2026-11-02","view":"track-hud","stageIds":["raise-and-track"],"role":"benchmark"},
+    {"id":"hunt-bullet-camera-result","src":"media/modern/hunt-bullet-camera-result.webp","kind":"Official Steam store screenshot","release":"Way of the Hunter (Nine Rocks Games / THQ Nordic; PC; released Aug 16, 2022)","alt":"Post-shot 'Bullet Camera' results screen showing a red deer's skeleton, lungs and vitals with a traced bullet path through the chest, alongside firearm, caliber, wind and shot-distance stats and a hit-energy-loss graph broken out by flesh, bone and organ penetration.","caption":"Post-shot review visualizes the animal, bullet path and hit-energy information. A detailed feedback benchmark—not a proposed replacement of Big Buck Hunter rules or scoring.","credit":"Nine Rocks Games / THQ Nordic — official Steam store screenshot","sourceId":"woh-steam","assetUrl":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1288320/ss_28dfb54ba5db59b56e7321442fff64364ea40a5f.1920x1080.jpg?t=1774533447","processing":"Downloaded at native 1920×1080 from Steam's official store CDN; re-encoded to WebP (quality 92) with no crop, resize, upscale or HDR processing.","width":1920,"height":1080,"sha256":"ad7c2cbf3aec12d3dcfc1c5cc2c56b5d0c0b5b4d5d97ae340992abd2b42fc224","retrievedAt":"2026-11-02","view":"shot-result","stageIds":["trigger-pull-and-flash"],"role":"benchmark"},
+    {"id":"hunt-open-world-map","src":"media/modern/hunt-open-world-map.webp","kind":"Official Steam store screenshot","release":"Way of the Hunter (Nine Rocks Games / THQ Nordic; PC; released Aug 16, 2022)","alt":"Open-world map screen with a live multi-hour wind/weather forecast panel, a tracked 'White-tailed deer: eating' label, and scattered wildlife, water and shelter icons spread across roadless wilderness terrain.","caption":"Wildlife markers, terrain and a weather panel make the selection screen readable. Way of the Hunter is open-world; this board does not turn Big Buck Hunter into a free-roam game.","credit":"Nine Rocks Games / THQ Nordic — official Steam store screenshot","sourceId":"woh-steam","assetUrl":"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1288320/ss_094aee25a86015f5ca662bd17899679b3299b570.1920x1080.jpg?t=1774533447","processing":"Downloaded at native 1920×1080 from Steam's official store CDN; re-encoded to WebP (quality 92) with no crop, resize, upscale or HDR processing.","width":1920,"height":1080,"sha256":"fcdcb3d07e8a0c0ac6bb04e8156f8f20e80b87ef0709bd0fb0d6700ba1feca38","retrievedAt":"2026-11-02","view":"world-map","stageIds":["map-and-stand-select"],"role":"benchmark"},
     {
       "id": "bbh-cabinet-control",
       "src": "media/big-buck-hunter/cabinet-control-bbh2006.png",
@@ -179,6 +180,79 @@
       "sourceIds": ["BBH7"]
     }
   ],
+  "gameplayStoryboard": {
+    "summary": "Five-stage walkthrough of one hunting trek, from region/stand select through a bonus-stage detour, built from Call of the Wild's documented optical-shotgun controls (BBH1) and its one confirmed on-screen identification rule — antlers or not (BBH3). Camera direction is proposed presentation for a current-tech rebuild; the single-gun, round-robin turn structure and the doe penalty are carried over exactly as sourced, not reinterpreted.",
+    "stages": [
+      {
+        "id": "map-and-stand-select",
+        "title": "Region and stand select: aim, pull, commit",
+        "playerAction": "After inserting credit and choosing a cost tier, the player aims the shotgun's reticle at a wedge of the US/Canada relief map and pulls the trigger to pick a region, then selects a buck-photo stand on the state map the same way, under a visible countdown.",
+        "camera": "Proposed presentation: wide lodge-map camera centered on the relief map, with the reticle as the only visible cursor and the countdown timer framed in a corner.",
+        "onScreen": [
+          "MONEY IN counter (documented HUD, BBH7)",
+          "Reticle cursor reused for menu selection (documented control re-use, BBH1)",
+          "Region/day countdown timer (documented HUD, BBH7)"
+        ],
+        "feedback": "Selecting a region or stand loads its day count, e.g. 'DAY 1 of 5', resets score to zero, and loads the hunting scene.",
+        "decision": "Player picks which region and stand biases the terrain and animals that appear in the hunt to come.",
+        "sourceIds": ["BBH1", "BBH7"]
+      },
+      {
+        "id": "raise-and-track",
+        "title": "Raise the shotgun, track the herd",
+        "playerAction": "Player raises the mounted shotgun and tracks moving deer or elk crossing the scene, watching for antlers before committing a shot.",
+        "camera": "Proposed presentation: hunting-blind POV at shoulder height, wide enough to hold the running herd in frame as it crosses.",
+        "onScreen": [
+          "Antlers vs. no antlers — the only visual cue separating a legal buck from a doe (documented HUD, BBH3)",
+          "Reticle tracking the shotgun's current aim point (documented control, BBH1)",
+          "Countdown timer ticking down the window to tag the target (documented HUD, BBH7)"
+        ],
+        "feedback": "Each animal's antler state is the only information offered before the shot — there is no other on-screen marker.",
+        "decision": "Player decides which animal in the running herd, if any, is a legal buck worth the single shot.",
+        "sourceIds": ["BBH1", "BBH3", "BBH7"]
+      },
+      {
+        "id": "trigger-pull-and-flash",
+        "title": "Fire: the screen-flash shot resolves the hit",
+        "playerAction": "Player pulls the trigger on a legal-looking buck. The gun's optics read the exact aim point at the instant of the flash.",
+        "camera": "Proposed presentation: hold on the aim point through the flash, then cut to the result — buck drop or doe penalty — without breaking continuity from the tracking frame.",
+        "onScreen": [
+          "Full-screen white flash timed to the trigger pull (documented mechanic, BBH1)",
+          "Hit resolution: a tagged buck drops; a hit doe ends the hunt immediately (documented rule, BBH3)"
+        ],
+        "feedback": "A correct buck shot banks the tag toward the day count; a doe hit ends the hunt on the spot — the single rule the whole hunt hinges on.",
+        "decision": "The identification made while tracking is now graded instantly by the flash-timed hit read, with no appeal.",
+        "sourceIds": ["BBH1", "BBH3"]
+      },
+      {
+        "id": "pump-and-continue",
+        "title": "Pump, re-acquire, keep hunting",
+        "playerAction": "Player racks the pump slide to chamber the next shot, then re-raises and re-tracks the herd for the next legal buck before the day's countdown expires.",
+        "camera": "Proposed presentation: quick insert on the pump's sliding throw, then back to the wide tracking frame.",
+        "onScreen": [
+          "Day counter and countdown timer continuing from region/stand select (documented HUD, BBH7)",
+          "Herd continuing to move across the scene, consistent with the documented running-herd hunt format (BBH1)"
+        ],
+        "feedback": "A successful pump readies the next shot without losing the aim point; a fumbled pump costs time against the countdown.",
+        "decision": "Player decides whether to keep hunting the current stand or let the day's countdown lapse and move on.",
+        "sourceIds": ["BBH1", "BBH7"]
+      },
+      {
+        "id": "bonus-round",
+        "title": "Bonus stage: same gun, faster gallery",
+        "playerAction": "Between treks, the game swaps into a bonus stage — Skeet, Duck, Raccoon Rampage, Wild Boar, or others — using the same shotgun, with different scoring, faster pace, and no doe penalty.",
+        "camera": "Proposed presentation: tighter gallery framing suited to fast-moving bonus targets rather than the wide hunting-scene frame.",
+        "onScreen": [
+          "Bonus-stage scoring distinct from the hunting score (documented mode difference, BBH2/BBH6)",
+          "No antler-identification cue — the doe penalty does not apply here (documented, BBH2/BBH6)"
+        ],
+        "feedback": "Fast, accurate shooting is rewarded on its own terms, without the hunt's identification tension.",
+        "decision": "Player adapts aim/trigger timing to a faster, differently scored gallery instead of the hunt's identify-then-shoot rhythm.",
+        "sourceIds": ["BBH2", "BBH6"]
+      }
+    ]
+  },
+
   "signatureMoments": [
     {
       "title": "The screen-flash shot",
@@ -266,7 +340,7 @@
     }
   ],
   "sources": [
-    {"id":"after-hours-modern","title":"After Hours — modern image release, processing and asset credits","url":"https://mikeforrest7.github.io/after-hours-arcade/studio/visuals/MANIFEST.html#modern-image-release","publisher":"After Hours original concept study","accessed":"2026-11-02"},
+    {"id":"woh-steam","title":"Way of the Hunter on Steam","url":"https://store.steampowered.com/app/1288320/Way_of_the_Hunter/","publisher":"Nine Rocks Games (developer) / THQ Nordic (publisher), via Steam","accessed":"2026-11-02"},
     { "id": "BBH1", "title": "Big Buck Hunter Call of the Wild — Installation and Operation Manual, Version 01/05", "url": "https://www.arcade-museum.com/manuals-videogames/B/Big_Buck_Hunter_COTW_0105.pdf", "publisher": "Incredible Technologies, Inc. (hosted by Museum of the Game / International Arcade Museum)", "accessed": "2026-11-02" },
     { "id": "BBH2", "title": "Big Buck Hunter — Installation Manual, Version 05/01", "url": "https://amusement.itsgames.com/wp-content/uploads/2025/02/big-buck-hunter-installation-manual.pdf", "publisher": "Incredible Technologies, Inc.", "accessed": "2026-11-02" },
     { "id": "BBH3", "title": "Big Buck Hunter", "url": "https://en.wikipedia.org/wiki/Big_Buck_Hunter", "publisher": "Wikipedia", "accessed": "2026-11-02" },
